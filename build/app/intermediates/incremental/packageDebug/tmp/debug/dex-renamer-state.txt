@@ -1,0 +1,4 @@
+#Fri Feb 11 11:03:41 BRT 2022
+base.0=/home/caio/Área de Trabalho/apps/projeto_treinamento/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

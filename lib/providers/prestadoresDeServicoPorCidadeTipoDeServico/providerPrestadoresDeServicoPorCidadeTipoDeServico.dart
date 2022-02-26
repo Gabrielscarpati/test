@@ -1,0 +1,10 @@
+import 'package:projeto_treinamento/businessModels/businessModelPrestadoresDeServicoPorCidadeTipoDeServico.dart';
+import 'package:projeto_treinamento/daos/prestadoresDeServicoPorCidadeTipoDeServico/daoPrestadoresDeServicoPorCidadeTipoDeServico.dart';
+import 'package:projeto_treinamento/daos/prestadoresDeServicoPorCidadeTipoDeServico/dataModelPrestadoresDeServicoPorCidadeTipoDeServico.dart';
+import 'package:projeto_treinamento/framework/providerDireto.dart';
+
+import 'adapterPrestadoresDeServicoPorCidadeTipoDeServico.dart';
+
+class ProviderPrestadoresDeServicoPorCidadeTipoDeServico extends ProviderDireto<DataModelPrestadoresDeServicoPorCidadeTipoDeServico, BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico, DaoPrestadoresDeServicoPorCidadeTipoDeServico, AdapterPrestadoresDeServicoPorCidadeTipoDeServico> {
+  ProviderPrestadoresDeServicoPorCidadeTipoDeServico() : super(dao: DaoPrestadoresDeServicoPorCidadeTipoDeServico(), adapter: AdapterPrestadoresDeServicoPorCidadeTipoDeServico());
+}
