@@ -28,7 +28,10 @@ class ViewHubServicos extends StatelessWidget {
         children: [
           Text(
             "Selecione o tipo de serviço desejado:",
-            style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: Theme.of(context).textTheme.bodyText1!.fontSize),
+            style: TextStyle(
+                color: Colors.grey[600],
+                fontWeight: FontWeight.bold,
+                fontSize: 16)
           ),
           GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -52,7 +55,13 @@ class ViewHubServicos extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Procurar"),
+                        Text("Procurar",
+                             style: TextStyle(
+                                  color: Colors.grey[600],
+                                  //fontWeight: FontWeight.bold,
+                                  fontSize: 15)
+                                ),
+
                         Icon(Icons.search),
                       ],
                     ),

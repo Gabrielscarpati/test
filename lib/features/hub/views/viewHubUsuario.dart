@@ -29,11 +29,17 @@ class ViewHubUsuario extends StatelessWidget {
             children: [
               Text(
                 "Olá,",
-                style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: Theme.of(context).textTheme.headline5!.fontSize),
+                style: TextStyle(
+                    color: Colors.grey[600],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24)
               ),
               Text(
                 usuario.primeiroNome(),
-                style: Theme.of(context).textTheme.headline4!.copyWith(fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 36)
               ),
             ],
           ),
@@ -47,7 +53,7 @@ class ViewHubUsuario extends StatelessWidget {
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.black,
                 backgroundImage: NetworkImage(usuario.urlFoto!),
-                radius: 30.0,
+                radius: 36.0, // Mudei de 30 para 36
                 child: Text("", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
               ),
             ),
