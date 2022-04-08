@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
 
 import '../viewActionsHub.dart';
@@ -24,12 +26,13 @@ class ViewHubCidade extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(top: 32, left: 32, right: 32),
+      padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "Selecione a sua cidade:",
+
             style: TextStyle(
                 color: Colors.grey[600],
                 fontWeight: FontWeight.bold,
@@ -37,31 +40,38 @@ class ViewHubCidade extends StatelessWidget {
           ),
           //Theme.of(context).textTheme.TextStyle.hubText,
 
-          Row(
-            children: [
-              Expanded(
-                child: ElevatedButton(
+           ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      shadowColor: Colors.black,
+                    primary: Colors.white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0),
+                      )
+                  ),
+
                   onPressed: () {
                     this.viewActions.abreTelaDePesquisaDeCidade(context, viewModel);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(viewModel.cidade.nome,
-                      style: TextStyle(
-                      color: Colors.grey[600],
-                      //fontWeight: FontWeight.bold,
-                      fontSize: 15)
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(viewModel.cidade.nome,
+                        style: TextStyle(
+                        color: Colors.grey[600],
+                        fontSize: 16)
+                        ),
                       ),
-                      Icon(Icons.search),
+                      Icon(Icons.search,
+                        size: 32,),
                     ],
                   ),
                 ),
-              ),
-            ],
-          ),
         ],
       ),
     );
   }
 }
+
+

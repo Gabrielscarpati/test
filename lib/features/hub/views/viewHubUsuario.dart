@@ -20,7 +20,7 @@ class ViewHubUsuario extends StatelessWidget {
   Widget build(BuildContext context) {
     BusinessModelUsuario usuario = viewModel.usuario;
     return Padding(
-      padding: const EdgeInsets.only(top: 32, left: 32, right: 32),
+      padding: const EdgeInsets.only(top: 60, left: 32, right: 32, bottom: 40),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
