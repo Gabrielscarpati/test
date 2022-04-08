@@ -16,6 +16,9 @@ class listItemPesquisaTipoServico extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
       child: InkWell(
         onTap: () {
           Navigator.of(context).pop(this.tipoServico.codTipoServico);

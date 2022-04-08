@@ -27,13 +27,17 @@ class ViewHubServicos extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
+
           Text(
-              "Selecione o tipo de serviço desejado:",
+              "Selecione o serviço desejado:",
+
               style: TextStyle(
-                  color: Colors.grey[600],
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 16)
+                  fontSize: 20)
           ),
+
           GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
@@ -46,40 +50,54 @@ class ViewHubServicos extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        shadowColor: Colors.black,
-                        primary: Colors.white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
-                        shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(20.0),
-                        )
-                    ),
+            child: Column(
 
-                    onPressed: () {
-                      viewActions.abreTelaDePesquisaDeTipoDeServico(
-                          context, viewModel);
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Text('Procurar',
-                              style: TextStyle(
-                                  color: Colors.blue[800],
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16)
-                          ),
+              children: [
+                Text(
+                    "Nao encontrou?",
+
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20)
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+
+                        style: ElevatedButton.styleFrom(
+                            shadowColor: Colors.black,
+                            primary: Colors.white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
+                            shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(20.0),
+                            )
                         ),
-                        Icon(Icons.search,
-                          size: 32,
-                        color: Colors.blue.shade800,),
-                      ],
+
+                        onPressed: () {
+                          viewActions.abreTelaDePesquisaDeTipoDeServico(
+                              context, viewModel);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Text('Procure aqui',
+                                  style: TextStyle(
+                                      color: Colors.blue[800],
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16)
+                              ),
+                            ),
+                            Icon(Icons.search,
+                              size: 32,
+                            color: Colors.blue.shade800,),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),

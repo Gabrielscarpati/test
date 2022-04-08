@@ -16,7 +16,7 @@ class ViewPesquisaCidade extends View<ViewModelPesquisaCidade, ViewActionsPesqui
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Selecione uma cidade"), backgroundColor: Theme.of(context).appBarTheme.backgroundColor),
+     // appBar: AppBar(title: Text("Selecione uma cidade"), backgroundColor: Theme.of(context).appBarTheme.backgroundColor),
       body: _buildBody(context),
     );
   }

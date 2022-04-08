@@ -19,13 +19,18 @@ class ViewListaCidades extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.only(top: 32, left: 32, right: 32),
+        padding: const EdgeInsets.only(top: 4, left: 4, right: 4),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Selecione a sua cidade:",
-              style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: Theme.of(context).textTheme.bodyText2!.fontSize),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(
+                  "Selecione a sua cidade:",
+                  style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: Theme.of(context).textTheme.bodyText2!.fontSize),
+                ),
+              ),
             ),
             ListView.builder(
                 shrinkWrap: true,
