@@ -30,7 +30,8 @@ class ViewHubBody extends StatelessWidget {
 
           Expanded(child:Container(
             decoration:  BoxDecoration(
-              color: Colors.white,
+              boxShadow: [BoxShadow(blurRadius: 15, color: Colors.blue.shade900, spreadRadius: 1)],
+              color: Colors.blue.shade50,
               borderRadius: BorderRadius.only(topLeft: Radius.circular(40),topRight: Radius.circular(40)),
 
             ),

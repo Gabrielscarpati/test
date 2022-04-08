@@ -49,12 +49,19 @@ class ViewHubUsuario extends StatelessWidget {
             },
             child: Hero(
               tag: viewModel.usuario.id,
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black,
-                backgroundImage: NetworkImage(usuario.urlFoto!),
-                radius: 36.0, // Mudei de 30 para 36
-                child: Text("", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                  boxShadow: [BoxShadow(blurRadius: 10, color: Colors.black, spreadRadius: 1)],
+                ),
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                  backgroundImage: NetworkImage(usuario.urlFoto!),
+                  radius: 36.0, // Mudei de 30 para 36
+                  child: Text("", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
+                ),
               ),
             ),
           ),

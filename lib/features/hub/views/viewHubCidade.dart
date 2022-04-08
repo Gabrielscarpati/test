@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -30,13 +32,16 @@ class ViewHubCidade extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 1,),
+
+
           Text(
             "Selecione a sua cidade:",
 
             style: TextStyle(
-                color: Colors.grey[600],
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
-                fontSize: 16)
+                fontSize: 20)
           ),
           //Theme.of(context).textTheme.TextStyle.hubText,
 
@@ -59,12 +64,16 @@ class ViewHubCidade extends StatelessWidget {
                         padding: const EdgeInsets.all(12.0),
                         child: Text(viewModel.cidade.nome,
                         style: TextStyle(
-                        color: Colors.grey[600],
+                        color: Colors.blue.shade800,
+                        fontWeight: FontWeight.bold,
                         fontSize: 16)
                         ),
                       ),
                       Icon(Icons.search,
-                        size: 32,),
+                        size: 32,
+                        color: Colors.blue.shade800,
+
+                      ),
                     ],
                   ),
                 ),
