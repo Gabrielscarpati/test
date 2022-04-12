@@ -4,6 +4,7 @@ import 'package:projeto_treinamento/features/infoPrestadorDeServico/views/viewIn
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/views/viewInfoPrestadorDeServicoHeader.dart';
 import 'package:projeto_treinamento/framework/view.dart';
 
+import '../../util/libraryComponents/colors/colors.dart';
 import 'viewActionsInfoPrestadorDeServico.dart';
 import 'viewModelInfoPrestadorDeServico.dart';
 
@@ -27,11 +28,24 @@ class ViewInfoPrestadorDeServico extends View<ViewModelInfoPrestadorDeServico, V
                 viewActions: this.viewActions,
                 viewModel: this.viewModel!,
               ),
-        backgroundColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+        backgroundColor: ColorAppBar,
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
       ),
       body: _buildBody(context),
     );
   }
+  /*
+  AppBar(title: Text("Selecione uma cidade",
+        style: TextStyle(color: Colors.white),),
+          backgroundColor: ColorAppBar,
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ), */
+
+
 
   _buildBody(BuildContext context) {
     if (viewModel == null) {

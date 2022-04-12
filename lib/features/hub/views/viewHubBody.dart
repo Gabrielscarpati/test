@@ -5,6 +5,7 @@ import 'package:projeto_treinamento/features/hub/views/viewHubServicos.dart';
 import 'package:projeto_treinamento/features/hub/views/viewHubUsuario.dart';
 import 'package:projeto_treinamento/util/libraryComponents/colors/colorGradient.dart';
 
+import '../../../util/libraryComponents/colors/colors.dart';
 import '../viewActionsHub.dart';
 import '../viewModelHub.dart';
 
@@ -31,7 +32,7 @@ class ViewHubBody extends StatelessWidget {
           Expanded(child:Container(
             decoration:  BoxDecoration(
               boxShadow: [BoxShadow(blurRadius: 15, color: Colors.blue.shade900, spreadRadius: 1)],
-              color: Colors.blue.shade50,
+              color: BackgroundColorGrey,
               borderRadius: BorderRadius.only(topLeft: Radius.circular(40),topRight: Radius.circular(40)),
 
             ),

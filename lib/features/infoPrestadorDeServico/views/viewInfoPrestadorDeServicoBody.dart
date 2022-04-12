@@ -4,6 +4,7 @@ import 'package:projeto_treinamento/features/infoPrestadorDeServico/views/viewIn
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/views/viewInfoPrestadorDeServicoHeader.dart';
 import 'package:projeto_treinamento/providers/icone/providerIcone.dart';
 
+import '../../../util/libraryComponents/colors/colors.dart';
 import '../viewActionsInfoPrestadorDeServico.dart';
 import 'listViewListaAvaliacoesPrestadorDeServico.dart';
 
@@ -19,22 +20,25 @@ class ViewInfoPrestadorDeServicoBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ViewInfoPrestadorDeServicoDados(
-          viewModel: viewModel,
-          viewActions: viewActions,
-          iconeCelular: viewModel.iconeCelular,
-        ),
-        Expanded(
-          child: ListViewListaAvaliacaoPrestadorDeServico(
-            viewActions: viewActions,
+    return Container(
+      color: BackgroundColorGrey,
+      child: Column(
+        children: [
+          ViewInfoPrestadorDeServicoDados(
             viewModel: viewModel,
+            viewActions: viewActions,
+            iconeCelular: viewModel.iconeCelular,
           ),
-        ), //    ViewHubUsuario(viewModel: viewModel, viewActions: viewActions),
-        //    ViewHubCidade(viewModel: viewModel, viewActions: viewActions),
-        //    ViewHubServicos(viewModel: viewModel, viewActions: viewActions),
-      ],
+          Expanded(
+            child: ListViewListaAvaliacaoPrestadorDeServico(
+              viewActions: viewActions,
+              viewModel: viewModel,
+            ),
+          ), //    ViewHubUsuario(viewModel: viewModel, viewActions: viewActions),
+          //    ViewHubCidade(viewModel: viewModel, viewActions: viewActions),
+          //    ViewHubServicos(viewModel: viewModel, viewActions: viewActions),
+        ],
+      ),
     );
   }
 }

@@ -5,6 +5,8 @@ import 'package:projeto_treinamento/features/pesquisaTipoServico/viewModelPesqui
 import 'package:projeto_treinamento/features/pesquisaTipoServico/views/viewPesquisaTipoServicoBody.dart';
 import 'package:projeto_treinamento/framework/view.dart';
 
+import '../../util/libraryComponents/colors/colors.dart';
+
 class ViewPesquisaTipoServico extends View<ViewModelPesquisaTipoServico, ViewActionsPesquisaTipoServico> {
   ViewPesquisaTipoServico({
     Key? key,
@@ -15,6 +17,13 @@ class ViewPesquisaTipoServico extends View<ViewModelPesquisaTipoServico, ViewAct
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:   AppBar(title: Text("Selecione o tipo de serviço",
+        style: TextStyle(color: Colors.white),),
+        backgroundColor: ColorAppBar,
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ),
       body: _buildBody(context),
     );
   }
@@ -27,10 +36,10 @@ class ViewPesquisaTipoServico extends View<ViewModelPesquisaTipoServico, ViewAct
     } else {
       return Center(
           child: ViewPesquisaTipoServicoBody(
-        context,
-        viewActions: viewActions,
-        viewModel: viewModel!,
-      ));
+            context,
+            viewActions: viewActions,
+            viewModel: viewModel!,
+          ));
     }
   }
 }

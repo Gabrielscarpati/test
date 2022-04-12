@@ -19,7 +19,9 @@ class ViewInfoPrestadorDeServicoHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text(viewModel.prestadorDeServicos.nome),
+        Text(viewModel.prestadorDeServicos.nome,
+          style: TextStyle(color: Colors.white),
+        ),
       ],
     );
   }

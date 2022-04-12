@@ -37,13 +37,13 @@ class ViewHeaderPesquisaCidade extends StatelessWidget {
                 color: Colors.blue.shade800,
               ),
             enabledBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(24.0)),
+              borderRadius: BorderRadius.all(Radius.circular(8.0)),
               borderSide: const BorderSide(
                 color: Colors.blueAccent,
               ),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(24.0)),
+              borderRadius: BorderRadius.all(Radius.circular(8.0)),
               borderSide: BorderSide(color: Colors.blue),
             ),
           ),
