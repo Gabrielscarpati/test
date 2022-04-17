@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:projeto_treinamento/features/hub/presenterHub.dart';
+import 'package:projeto_treinamento/veryFirstScreenUserType2/veryFirstScreenUserType.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,15 +39,9 @@ class MyApp extends StatelessWidget {
             ),
           )),
         ),
-        home: PresenterHub.presenter()
+        home: ViewVeryFirstScreen()
+      // PresenterHub.presenter()
 
-        // PresenterListaTiposDeServico.presenter(),
-        /*
-      initialRoute: '/paginaListaDeTiposDeServico',
-      routes: {
-        '/paginaListaDeTiposDeServico': (context) => PresenterListaTiposDeServico.presenter(),
-      },
-       */
         );
   }
 }
