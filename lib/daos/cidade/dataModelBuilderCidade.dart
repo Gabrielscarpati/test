@@ -18,3 +18,7 @@ class DataModelBuilderCidade extends DataModelBuilder<DataModelCidade> {
     return {"codCidade": dataModel.codCidade, "nome": dataModel.nome, "totalPrestadoresServico": dataModel.totalPrestadoresServico};
   }
 }
+
+/*
+converter, json => objeto vice versa.
+ */

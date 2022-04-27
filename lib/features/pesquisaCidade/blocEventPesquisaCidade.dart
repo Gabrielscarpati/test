@@ -10,3 +10,7 @@ class BlocEventPesquisaCidadeAplicaFiltroDePesquisa extends BlocEventPesquisaCid
 
   BlocEventPesquisaCidadeAplicaFiltroDePesquisa(this.viewModel);
 }
+
+
+
+// quais sao os eventos, o que da para fazer com essa tela

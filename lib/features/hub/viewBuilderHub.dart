@@ -13,3 +13,5 @@ class ViewBuilderHub extends ViewBuilder<ViewHub, ViewModelHub, ViewActionsHub> 
     );
   }
 }
+
+// toda view precisa de model e actions

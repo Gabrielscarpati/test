@@ -9,7 +9,7 @@ class DaoCidade extends DaoWebApi<DataModelCidade, DataModelBuilderCidade> {
           dataModelBuilder: DataModelBuilderCidade(),
           server: "https://voadragons.com",
           model: "cidade",
-        );
+        );        // acessando o banco diretamente
 
 /*
   static List<DataModelCidade> _dados = List.empty(growable: true)

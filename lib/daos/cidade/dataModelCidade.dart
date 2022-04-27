@@ -11,3 +11,7 @@ class DataModelCidade extends DataModel {
     required this.totalPrestadoresServico,
   }) : super(id: codCidade.toString());
 }
+
+/*
+cara que os dados vem do banco de dados
+ */

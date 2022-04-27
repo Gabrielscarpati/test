@@ -12,3 +12,5 @@ class ProviderCidade extends ProviderDireto<DataModelCidade, BusinessModelCidade
           adapter: AdapterCidade(),
         );
 }
+
+// pegar um ou mais datamoveis(dao) e devolver business models

@@ -4,15 +4,85 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ed77b64-fc0e-4c87-856c-9440b5c22f50" name="Default Changelist" comment="All of the headings have the same pattern, and background color is grey">
+    <list default="true" id="7ed77b64-fc0e-4c87-856c-9440b5c22f50" name="Default Changelist" comment="Sing up Screens">
+      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/logInScreen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/viewModelLogIn.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/fazerAsFuncoesLOGINESALVAr.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/logInBody.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/veryFirstScreen/views/DonorButton.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/util/libraryComponents/buttons/genericLogSingUpButton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/debug_ios_bundle_flutter_assets.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/debug_ios_bundle_flutter_assets.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/flutter_assets.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/kernel_snapshot.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/outputs.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/outputs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/image_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/image_3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/App" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/App" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/_CodeSignature/CodeResources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/flutter_assets/AssetManifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/flutter_assets/AssetManifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/flutter_assets/NOTICES.Z" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/flutter_assets/NOTICES.Z" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/Pods_Runner" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/Pods_Runner" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/_CodeSignature/CodeDirectory" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/_CodeSignature/CodeDirectory" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/_CodeSignature/CodeRequirements-1" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/_CodeSignature/CodeRequirements-1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/App" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/App" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/AssetManifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/AssetManifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/NOTICES.Z" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/NOTICES.Z" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/image_picker.framework/image_picker" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/image_picker.framework/image_picker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Runner" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Runner" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/_CodeSignature/CodeResources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/image_picker/image_picker.framework/image_picker" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/image_picker/image_picker.framework/image_picker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/App" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/App" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/AssetManifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/AssetManifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/NOTICES.Z" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/NOTICES.Z" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/image_picker.framework/image_picker" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/image_picker.framework/image_picker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Runner" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Runner" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/_CodeSignature/CodeResources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/businessModels/businessModelCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/businessModels/businessModelCidade.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/daos/cidade/daoCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/cidade/daoCidade.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/daos/cidade/dataModelBuilderCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/cidade/dataModelBuilderCidade.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/daos/cidade/dataModelCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/cidade/dataModelCidade.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hub/viewBuilderHub.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/viewBuilderHub.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hub/views/buildBotaoService.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hub/views/viewHubServicos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/views/viewHubServicos.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/pesquisaCidade/blocEventPesquisaCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/pesquisaCidade/blocEventPesquisaCidade.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/pesquisaCidade/blocPesquisaCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/pesquisaCidade/blocPesquisaCidade.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/pesquisaCidade/viewActionsPesquisaCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/pesquisaCidade/viewActionsPesquisaCidade.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/logIn1/logInScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/logIn/logInScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/logIn1/viewModelLogIn.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/logIn/viewModelLogIn.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/logIn1/views/fazerAsFuncoesLOGINESALVAr.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/logIn/views/fazerAsFuncoesLOGINESALVAr.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/logIn1/views/logInBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/logIn/views/logInBody.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/logIn1/views/logInButtonLogInScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/logIn/views/logInButtonLogInScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/loginSingup2/logInSingUpScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/loginOrSignUp/logInSingUpScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/loginSingup2/views/BackArrow.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/loginOrSignUp/views/BackArrow.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/loginSingup2/views/LogInButton1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/loginOrSignUp/views/LogInButton1.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/loginSingup2/views/SingUpCharityInstitutionButton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/loginOrSignUp/views/SingUpCharityInstitutionButton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/loginSingup2/views/logInSingUpBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/loginOrSignUp/views/logInSingUpBody.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/providers/cidade/adapterCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/cidade/adapterCidade.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/providers/cidade/providerCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/cidade/providerCidade.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/singUpScreenInstitution2/ViewSingUpScreenInstitution.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/singUpScreenInstitution2/views/backArrowSingUpScreenInstitutions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/views/backArrowSingUpScreenInstitutions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/singUpScreenInstitution2/views/bodySingUpScreenInstitution.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/views/bodySingUpScreenInstitution.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/singUpScreenInstitution2/widgets_for_signup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/widgets_for_signup.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/util/libraryComponents/buttons/logInSignUpButton.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/veryFirstScreenUserType2/veryFirstScreenUserType.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/veryFirstScreen/veryFirstScreenUserType.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/veryFirstScreenUserType2/views/CharityInstitutionsButton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/veryFirstScreen/views/CharityInstitutionsButton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/veryFirstScreenUserType2/views/DonorButton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/logInButtonLogInScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/veryFirstScreenUserType2/views/LogInButton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/veryFirstScreen/views/LogInButton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/veryFirstScreenUserType2/views/bodyVeryFirstSceen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/veryFirstScreen/views/bodyVeryFirstSceen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +129,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -68,14 +138,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/assets/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/features/logIn_SingUp" />
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/lib/features/hub/views" />
-      <recent name="$PROJECT_DIR$/lib/util/libraryComponents/colors" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -122,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650153333296</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Sing up Screens">
+      <created>1650155290238</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1650155290238</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,6 +221,7 @@
     <MESSAGE value="Modifying hub screen" />
     <MESSAGE value="hub almost done" />
     <MESSAGE value="All of the headings have the same pattern, and background color is grey" />
-    <option name="LAST_COMMIT_MESSAGE" value="All of the headings have the same pattern, and background color is grey" />
+    <MESSAGE value="Sing up Screens" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sing up Screens" />
   </component>
 </project>

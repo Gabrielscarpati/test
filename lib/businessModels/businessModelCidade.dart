@@ -20,3 +20,5 @@ class BusinessModelCidade extends BusinessModel with MixInDescricao {
     return nome;
   }
 }
+
+// model(organizacao de dados), como que a gente quer trabalhar com os dados dentro do codigo. (cara/caracteristicas cidade)

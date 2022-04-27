@@ -24,3 +24,5 @@ class AdapterCidade extends Adapter<BusinessModelCidade, DataModelCidade> {
     );
   }
 }
+
+// coverte datamodel para business model (

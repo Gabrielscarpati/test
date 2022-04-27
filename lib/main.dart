@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:projeto_treinamento/veryFirstScreenUserType2/veryFirstScreenUserType.dart';
+import 'features/hub/presenterHub.dart';
+import 'features/logIn_SingUp/veryFirstScreen/veryFirstScreenUserType.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,9 +40,9 @@ class MyApp extends StatelessWidget {
             ),
           )),
         ),
-        home: ViewVeryFirstScreen()
-      // PresenterHub.presenter()
+        home: PresenterHub.presenter()
+      //ViewVeryFirstScreen()
 
-        );
+    );
   }
 }

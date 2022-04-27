@@ -12,7 +12,7 @@ class BlocPesquisaCidade extends Bloc<ViewModelPesquisaCidade, BlocEventPesquisa
   void onReceiveBlocEvent(BlocEventPesquisaCidade blocEvent) {
     if (blocEvent is BlocEventPesquisaCidadeInicializaViewModel) _inicializaViewModel(blocEvent);
     if (blocEvent is BlocEventPesquisaCidadeAplicaFiltroDePesquisa) _aplicaFiltroDePesquisa(blocEvent);
-  }
+  }                                                                // abrir whataspp
 
   void _inicializaViewModel(BlocEventPesquisaCidadeInicializaViewModel blocEvent) async {
     List<FeatureModelPesquisaCidade> listaCompletaFeatureModels = await _buscaListaFeatureModelCidade();
@@ -22,6 +22,8 @@ class BlocPesquisaCidade extends Bloc<ViewModelPesquisaCidade, BlocEventPesquisa
     );
     this.sendViewModelOut(viewModel);
   }
+
+// colocar os dado iniciais em uma tela
 
   void _aplicaFiltroDePesquisa(BlocEventPesquisaCidadeAplicaFiltroDePesquisa blocEvent) {
     ViewModelPesquisaCidade viewModel = blocEvent.viewModel;
@@ -49,3 +51,6 @@ class BlocPesquisaCidade extends Bloc<ViewModelPesquisaCidade, BlocEventPesquisa
     return listaCompletaFeatureModels;
   }
 }
+
+//  pode acinar providers para receber busineess model,,,,retorna um view model,
+

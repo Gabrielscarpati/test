@@ -12,3 +12,6 @@ class ViewActionsPesquisaCidade extends ViewActions<BlocEventPesquisaCidade> {
     blocPipeIn.send(blocEvent);
   }
 }
+
+
+// aciona eventos do bloc,
