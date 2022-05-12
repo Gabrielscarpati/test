@@ -1,6 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'features/hub/presenterHub.dart';
+import 'features/logIn_SingUp/singUpPart1/views/logInBody.dart';
 import 'features/logIn_SingUp/veryFirstScreen/veryFirstScreenUserType.dart';
 
 void main() {
@@ -40,7 +41,10 @@ class MyApp extends StatelessWidget {
             ),
           )),
         ),
-        home: PresenterHub.presenter()
+        home: SignUpPart1Body()
+        //ViewVeryFirstScreen()
+        //PresenterHub.presenter()
+        //PresenterHub.presenter()
       //ViewVeryFirstScreen()
 
     );

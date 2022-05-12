@@ -71,7 +71,8 @@ class _Sample1State extends State<BodyVeryFirstScreen> {
                               color: Colors.black,
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold
-                          ),),
+                          ),
+                        ),
                         const SizedBox(height: 80,),
                         // #email, #password
                         Container(

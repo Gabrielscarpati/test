@@ -4,14 +4,13 @@ import '../../../hub/presenterHub.dart';
 import 'fazerAsFuncoesLOGINESALVAr.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:projeto_treinamento/main.dart';
 
 
 class LogInBody extends StatefulWidget {
   final Client client;
-//  final ViewModelLogIn viewMoldel;
   const LogInBody({Key? key,
     required this.client
-  //required this.viewMoldel,
   }) : super(key: key);
   @override
   _LogInBody createState() => _LogInBody();

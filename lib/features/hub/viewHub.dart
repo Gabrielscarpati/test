@@ -17,9 +17,6 @@ class ViewHub extends View<ViewModelHub, ViewActionsHub> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-        //appBar: AppBar(
-        //  title: Text("HUB"),
-        //),
         body: _buildBody(context),
       );
 

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 
 class NameWidget extends StatelessWidget {
+
   final TextEditingController nameController;
   const NameWidget({Key? key, required this.nameController}) : super(key: key);
 

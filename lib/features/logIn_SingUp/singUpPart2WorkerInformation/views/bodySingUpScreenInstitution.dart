@@ -8,12 +8,9 @@ import 'backArrowSingUpScreenInstitutions.dart';
 
 
 class BodySingUpScreenInstitution extends StatefulWidget {
-//  final Client client;
 
-//  final ViewModelLogIn viewMoldel;
    const BodySingUpScreenInstitution({Key? key,
-//    required this.client
-    //required this.viewMoldel,
+
   }) : super(key: key);
   @override
   _BodySingUpScreenInstitution createState() => _BodySingUpScreenInstitution();
@@ -169,6 +166,5 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
       ),
     );
   }
-
 }
 
