@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LogInButtonLogInScreen extends StatefulWidget {
-  const LogInButtonLogInScreen({Key? key}) : super(key: key);
+class SignUpButtonLogInScreen extends StatefulWidget {
+  const SignUpButtonLogInScreen({Key? key}) : super(key: key);
 
   @override
-  _LogInButtonState createState() => _LogInButtonState();
+  _SignUpButtonState createState() => _SignUpButtonState();
 }
 
-class _LogInButtonState extends State<LogInButtonLogInScreen> {
+class _SignUpButtonState extends State<SignUpButtonLogInScreen> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

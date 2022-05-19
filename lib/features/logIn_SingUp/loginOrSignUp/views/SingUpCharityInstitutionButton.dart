@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../singUpPart1/views/logInBody.dart';
+import '../../singUpPart1/views/signUpBody.dart';
 
 
 class SingUpCharityInstitutionButton extends StatefulWidget {

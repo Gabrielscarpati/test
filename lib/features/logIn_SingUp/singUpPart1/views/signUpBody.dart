@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/features/logIn_SingUp/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
+import '../../../../util/libraryComponents/colors/colorGradient.dart';
+import '../../../../daos/firebase/authService.dart';
 import 'backArrowSignUp.dart';
 import 'package:email_validator/email_validator.dart';
 
@@ -17,6 +19,7 @@ class SignUpPart1Body extends StatefulWidget {
 class _LogInBody extends State<SignUpPart1Body> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final cofirmPasswordController = TextEditingController();
   final formKeyAuthentication = GlobalKey<FormState>();
 
   @override
@@ -26,18 +29,8 @@ class _LogInBody extends State<SignUpPart1Body> {
 
     return Scaffold(
       body: Container(
-
         width: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [
-                  Colors.blue.shade900,
-                  Colors.blue.shade500,
-                  Colors.blue.shade400,
-                ]
-            )
-        ),
+        decoration: BoxDecorationColorGradient(context),
 
         child: Column(
 
@@ -60,7 +53,7 @@ class _LogInBody extends State<SignUpPart1Body> {
                 ],
               ),
             ),
-             SizedBox(height: screenHeight*0.011848*2),
+             SizedBox(height: screenHeight*0.011848),
 
             Expanded(
               child: Container(
@@ -73,7 +66,7 @@ class _LogInBody extends State<SignUpPart1Body> {
                     padding: const EdgeInsets.all(30),
                     child: Column(
                       children: [
-                        SizedBox(height: screenHeight*0.011848*6),
+                        SizedBox(height: screenHeight*0.011848*2),
                         // #email, #password
                         Container(
                           decoration: BoxDecoration(
@@ -138,6 +131,27 @@ class _LogInBody extends State<SignUpPart1Body> {
                                    ),
                                  ),
                                ),
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
+                                ),
+                                child: TextFormField(
+                                  validator: (cofirmPasswordController) => passwordController.text != cofirmPasswordController.toString()
+                                      ? 'The password must be the same'
+                                      : null,
+                                  controller: cofirmPasswordController,
+                                  decoration: InputDecoration(
+                                      suffixIcon: IconButton(
+                                        icon: Icon(Icons.close),
+                                        onPressed: () => cofirmPasswordController.clear(),
+                                      ),
+                                      hintText: "Confirm Password",
+                                      hintStyle: TextStyle(color: Colors.grey),
+                                      border: InputBorder.none
+                                  ),
+                                ),
+                              ),
                              ],
                             ),
                           ),
@@ -176,12 +190,16 @@ class _LogInBody extends State<SignUpPart1Body> {
                                   ),
                                 ),
                               ),
-                              onPressed: () {
-                                  final form = formKeyAuthentication.currentState!;
+                              onPressed: () async {
+                                final form = formKeyAuthentication.currentState!;
                                   if (form.validate()) {
-                                    Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => SingUpPart2WorkerInformation()
-                                    ));
+                                    await AuthService().registerUser(emailController.text, passwordController.text);
+
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SingUpPart2WorkerInformation()
+                                          ));
                                   }
                               },
                               style: ElevatedButton.styleFrom(
@@ -230,7 +248,7 @@ class _LogInBody extends State<SignUpPart1Body> {
                                   ),
                                 )
                             ),
-                             SizedBox(width: screenWidth*0.02564*2),
+                             SizedBox(width: screenWidth*0.02564*.7),
                             Expanded(
                               child: SizedBox(
                                 height: 50,

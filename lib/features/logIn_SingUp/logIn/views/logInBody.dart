@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../hub/presenterHub.dart';
+import '../../../../daos/firebase/authService.dart';
 import 'fazerAsFuncoesLOGINESALVAr.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -19,6 +21,7 @@ class _LogInBody extends State<LogInBody> {
   Client client = http.Client();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final formKeyAuthenticationLogIn = GlobalKey<FormState>();
 
 
   @override
@@ -27,18 +30,10 @@ class _LogInBody extends State<LogInBody> {
       body: Container(
 
         width: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [
-                  Colors.blue.shade900,
-                  Colors.blue.shade500,
-                  Colors.blue.shade400,
-                ]
-            )
-        ),
+        decoration: BoxDecorationColorGradient(context),
 
-        child: Column(
+
+      child: Column(
 
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -84,47 +79,49 @@ class _LogInBody extends State<LogInBody> {
                             ],
                           ),
 
-
-                          child: Column(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
-                                ),
-                                child: TextField(
-                                  controller: emailController,
-                                  decoration: InputDecoration(
-                                    suffixIcon: IconButton(
-                                      icon: Icon(Icons.close),
-                                      onPressed: () => emailController.clear(),
-                                    ),
-                                      hintText: "Email",
-                                      hintStyle: TextStyle(color: Colors.grey),
-                                      border: InputBorder.none
+                          child: Form(
+                            key: formKeyAuthenticationLogIn,
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
                                   ),
-                                  keyboardType: TextInputType.emailAddress,
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
-                                ),
-                                child:  TextField(
-                                  controller: passwordController,
-                                  decoration: InputDecoration(
+                                  child: TextField(
+                                    controller: emailController,
+                                    decoration: InputDecoration(
                                       suffixIcon: IconButton(
                                         icon: Icon(Icons.close),
-                                        onPressed: () => passwordController.clear(),
+                                        onPressed: () => emailController.clear(),
                                       ),
-                                      hintText: "Password",
-                                      hintStyle: TextStyle(color: Colors.grey),
-                                      border: InputBorder.none
+                                        hintText: "Email",
+                                        hintStyle: TextStyle(color: Colors.grey),
+                                        border: InputBorder.none
+                                    ),
+                                    keyboardType: TextInputType.emailAddress,
                                   ),
                                 ),
-                              ),
-                            ],
+                                Container(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
+                                  ),
+                                  child:  TextField(
+                                    controller: passwordController,
+                                    decoration: InputDecoration(
+                                        suffixIcon: IconButton(
+                                          icon: Icon(Icons.close),
+                                          onPressed: () => passwordController.clear(),
+                                        ),
+                                        hintText: "Password",
+                                        hintStyle: TextStyle(color: Colors.grey),
+                                        border: InputBorder.none
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                          SizedBox(height: 40),
@@ -161,10 +158,17 @@ class _LogInBody extends State<LogInBody> {
                                   ),
                                 ),
                               ),
-                              onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => PresenterHub.presenter()
-                                ));
+
+                              onPressed: ()async {
+
+                                  final formLogIn = formKeyAuthenticationLogIn.currentState!;
+                                  if (formLogIn.validate()) {
+                                    await AuthService().loginUser(emailController.text, passwordController.text);
+
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context) => PresenterHub.presenter())
+                                    );
+                                  }
                               },
                               style: ElevatedButton.styleFrom(
                                 padding: EdgeInsets.all(0),

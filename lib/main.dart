@@ -1,10 +1,21 @@
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'features/logIn_SingUp/singUpPart1/views/logInBody.dart';
+import 'package:projeto_treinamento/features/logIn_SingUp/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
+import 'daos/firebase/authService.dart';
+import 'daotest.dart';
+import 'features/hub/presenterHub.dart';
+import 'features/logIn_SingUp/pesquisaCidade/viewPesquisaCidade.dart';
+import 'features/logIn_SingUp/pesquisaCidade/views/viewPesquisaCidadeBody.dart';
+import 'features/logIn_SingUp/signUpPart3ChooseCity/viewPesquisaCidade.dart';
+import 'features/logIn_SingUp/singUpPart1/signUpScreen.dart';
+import 'features/logIn_SingUp/singUpPart1/views/signUpBody.dart';
 import 'features/logIn_SingUp/veryFirstScreen/veryFirstScreenUserType.dart';
 
-void main() {
+void main() async{
+ WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -41,12 +52,23 @@ class MyApp extends StatelessWidget {
             ),
           )),
         ),
-        home: SignUpPart1Body()
+        home: StreamBuilder(
+            stream: AuthService().firebaseAuth.authStateChanges(),
+            builder: (context, AsyncSnapshot snapshot){
+              if (snapshot.hasData){
+                return SelectImageFromGallery();//(user: snapshot.data,);
+              }
+              return SelectImageFromGallery();
+            }
+        ),
+        //SingUpPart2WorkerInformation(),
+        //SignUpPart1(),
+        //ViewPesquisaCidadeBodya(),
+        //ViewSignUpPart3ChooseCity()
         //ViewVeryFirstScreen()
         //PresenterHub.presenter()
         //PresenterHub.presenter()
-      //ViewVeryFirstScreen()
-
+        //ViewVeryFirstScreen()
     );
   }
 }

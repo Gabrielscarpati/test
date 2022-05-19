@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "594297972577",
+    "project_id": "quickfix-589ac",
+    "storage_bucket": "quickfix-589ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594297972577:android:3363c53500030c51438720",
+        "android_client_info": {
+          "package_name": "com.example.projeto_treinamento"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594297972577-3lklc5clsmn5b8seq6p8k4hcekm1t12m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDA87l9GWaEYVDlWEFQXWn_nt3XpWZKLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594297972577-3lklc5clsmn5b8seq6p8k4hcekm1t12m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
+

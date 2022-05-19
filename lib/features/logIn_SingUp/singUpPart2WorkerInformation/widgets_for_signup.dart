@@ -1,4 +1,3 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -89,115 +88,6 @@ class PhoneWidget extends StatelessWidget {
   }
 }
 
-
-
-class EmailWidget extends StatelessWidget {
-  final TextEditingController emailController;
-  const EmailWidget({Key? key, required this.emailController}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return  Stack(
-      children: [
-        TextFormField(
-          controller: emailController,
-          keyboardType: TextInputType.name,
-          textInputAction: TextInputAction.next,
-          validator: (emailController) => !EmailValidator.validate(emailController!)
-              ? 'Enter a valid email'
-              : null,
-          decoration: InputDecoration(
-            suffixIcon: IconButton(
-              icon: Icon(Icons.close),
-              onPressed: () => emailController.clear(),
-            ),
-            hintText: 'Enter your email address',
-            labelText: 'Email',
-            labelStyle: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 13),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-
-class PasswordWidget extends StatelessWidget {
-  final TextEditingController passwordController;
-  const PasswordWidget({Key? key, required this.passwordController}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return  Stack(
-      children: [
-        TextFormField(
-          controller: passwordController,
-          keyboardType: TextInputType.name,
-          textInputAction: TextInputAction.next,
-          validator: (passwordController) {
-            if (passwordController!.isEmpty || !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(passwordController)){
-              return "Your password should contain Lower and upper\n case letters and a special symbol";
-            }else{
-              return null;
-            }
-          },
-          decoration: InputDecoration(
-            suffixIcon: IconButton(
-              icon: Icon(Icons.close),
-              onPressed: () => passwordController.clear(),
-            ),
-            hintText: 'Enter your password',
-            labelText: 'Password',
-            labelStyle: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 13),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-
-class AddressWidget extends StatelessWidget {
-  final TextEditingController addressController;
-  const AddressWidget({Key? key, required this.addressController}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-
-
-class ItemsAcceptedWidget extends StatelessWidget {
-  final TextEditingController itemsAcceptedController;
-  const ItemsAcceptedWidget({Key? key, required this.itemsAcceptedController}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-
-
 class WorkingHoursWidget extends StatelessWidget {
   final TextEditingController workingHoursController;
   const WorkingHoursWidget({Key? key, required this.workingHoursController}) : super(key: key);
@@ -234,26 +124,42 @@ class WorkingHoursWidget extends StatelessWidget {
 }
 
 
+class DescriptionWidget extends StatelessWidget {
 
-class CityWidget extends StatelessWidget {
-  final TextEditingController cityController;
-  const CityWidget({Key? key, required this.cityController}) : super(key: key);
+  final TextEditingController descriptionController;
+  const DescriptionWidget({Key? key, required this.descriptionController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return  Stack(
       children: [
+
+        /*TextFormField(
+              minLines: 1,
+              maxLines: 5,  // allow user to enter 5 line in textfield
+              keyboardType: TextInputType.multiline,  // user keyboard will have a button to move cursor to next line
+              controller: _Textcontroller,
+            ),*/
         TextFormField(
-          controller: cityController,
-          keyboardType: TextInputType.name,
+          minLines: 1,
+          maxLines: 9,
+          controller: descriptionController,
+          keyboardType: TextInputType.multiline,
           textInputAction: TextInputAction.next,
+          validator: (nameController) {
+            if (nameController!.isEmpty || nameController.length < 50) {
+              return "Enter a description of at lest 50 characters. ${50 - nameController.length} left";
+            }else{
+              return null;
+            }
+          },
           decoration: InputDecoration(
             suffixIcon: IconButton(
               icon: Icon(Icons.close),
-              onPressed: () => cityController.clear(),
+              onPressed: () => descriptionController.clear(),
             ),
-            hintText: 'Enter the city where you are located',
-            labelText: 'City',
+            hintText: 'Make a description about your job',
+            labelText: 'Description about your job',
             labelStyle: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
@@ -269,5 +175,3 @@ class CityWidget extends StatelessWidget {
     );
   }
 }
-
-

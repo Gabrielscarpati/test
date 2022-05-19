@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import '../../../hub/presenterHub.dart';
+import '../../pesquisaCidade/views/viewPesquisaCidadeBody.dart';
+import '../../signUpPart3ChooseCity/viewPesquisaCidade.dart';
 import '../widgets_for_signup.dart';
 import 'backArrowSingUpScreenInstitutions.dart';
 
@@ -25,6 +26,7 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
   final workingHoursController = TextEditingController();
   final cityController = TextEditingController();
   final phoneController = TextEditingController();
+  final  descriptionController = TextEditingController();
 
 
   final formKeyAuthentication = GlobalKey<FormState>();
@@ -32,6 +34,7 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
 
@@ -76,6 +79,20 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                     padding: const EdgeInsets.fromLTRB(30, 5, 30, 0),
                     child: Column(
                       children: [
+                        const Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Center(
+                            child:SizedBox(
+                              height: 160,
+                              width: 160,
+                                child: CircleAvatar(
+                                  backgroundImage: AssetImage('assets/imageLogo.jpeg'),
+                                  radius: 70,
+                                ),
+
+                            ),
+                          ),
+                        ),
                         Form(
                           key: formKeyAuthentication,
                           child: Container(
@@ -86,74 +103,63 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                             child: Column(
                               children: [
                                 NameWidget(nameController: nameController),
-                                 SizedBox(height: 3,),
-                                EmailWidget(emailController: emailController,),
-                                SizedBox(height: 3,),
-                                PasswordWidget(passwordController: passwordController,),
-                                SizedBox(height: 3,),
                                 PhoneWidget(phoneController: phoneController),
-                                SizedBox(height: 3,),
-                                AddressWidget(addressController: addressController,),
-                                SizedBox(height: 3,),
-                                ItemsAcceptedWidget(itemsAcceptedController: itemsAcceptedController,),
-                                SizedBox(height: 3,),
                                 WorkingHoursWidget(workingHoursController: workingHoursController,),
-                                SizedBox(height: 3,),
-                                CityWidget(cityController: cityController,),
+                                DescriptionWidget(descriptionController: descriptionController,),
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(height: 40),
+                        SizedBox(height: screenHeight*.02),
                         // #login
                         Container(
                           height: 50,
                           margin: EdgeInsets.symmetric(horizontal: 50),
 
-                          child: Center(
-                            child: RaisedButton(
-                              onPressed: () {
-                                final form = formKeyAuthentication
-                                    .currentState!;
-
-                                if (form.validate()) {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          PresenterHub.presenter()                                  ));
-                                }
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(80.0)),
-                              padding: EdgeInsets.all(0.0),
-                              child: Ink(
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(colors: [
-                                      Colors.blue.shade900,
-                                      Colors.blue.shade500,
-                                      Colors.blue.shade400
-                                    ],
-                                      begin: Alignment.centerLeft,
-                                      end: Alignment.centerRight,
+                          child: Column(
+                              children: [
+                                ElevatedButton(
+                                  child: Ink(
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
+                                          begin: Alignment.centerLeft,
+                                          end: Alignment.centerRight,
+                                        ),
+                                        borderRadius: BorderRadius.circular(30.0)
                                     ),
-                                    borderRadius: BorderRadius.circular(30.0)
-                                ),
-                                child: Container(
-                                  constraints: BoxConstraints(
-                                      maxWidth: 300.0, minHeight: 50.0),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'Sing Up',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold
+
+                                    child: Container(
+                                      constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'Sign Up',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.bold
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    final form = formKeyAuthentication
+                                        .currentState!;
+
+                                    if (form.validate()) {
+                                      Navigator.of(context).push(MaterialPageRoute(
+                                          builder: (context) => ViewPesquisaCidadeBodya()                                 ));
+                                    }
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.all(0),
+                                    shape: new RoundedRectangleBorder(
+                                      borderRadius: new BorderRadius.circular(30.0),
                                     ),
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                          ),
                         ),
                       ],
                     ),
@@ -167,4 +173,3 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
     );
   }
 }
-
