@@ -3,12 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto_treinamento/features/logIn_SingUp/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
+import 'package:projeto_treinamento/ztest/imageController.dart';
 import 'daos/firebase/authService.dart';
-import 'daotest.dart';
+import 'ztest/daotest.dart';
 import 'features/hub/presenterHub.dart';
-import 'features/logIn_SingUp/pesquisaCidade/viewPesquisaCidade.dart';
-import 'features/logIn_SingUp/pesquisaCidade/views/viewPesquisaCidadeBody.dart';
-import 'features/logIn_SingUp/signUpPart3ChooseCity/viewPesquisaCidade.dart';
 import 'features/logIn_SingUp/singUpPart1/signUpScreen.dart';
 import 'features/logIn_SingUp/singUpPart1/views/signUpBody.dart';
 import 'features/logIn_SingUp/veryFirstScreen/veryFirstScreenUserType.dart';
@@ -56,9 +54,10 @@ class MyApp extends StatelessWidget {
             stream: AuthService().firebaseAuth.authStateChanges(),
             builder: (context, AsyncSnapshot snapshot){
               if (snapshot.hasData){
-                return SelectImageFromGallery();//(user: snapshot.data,);
+                print(snapshot.hasData);
+                return SignUpPart1Body();//(user: snapshot.data,);
               }
-              return SelectImageFromGallery();
+              return SignUpPart1Body();
             }
         ),
         //SingUpPart2WorkerInformation(),

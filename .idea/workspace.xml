@@ -5,31 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ed77b64-fc0e-4c87-856c-9440b5c22f50" name="Default Changelist" comment="changes caio compatibility">
-      <change afterPath="$PROJECT_DIR$/android/app/google-services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/.symlinks/plugins/cloud_firestore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/.symlinks/plugins/firebase_auth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/.symlinks/plugins/firebase_core" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Local Podspecs/cloud_firestore.podspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Local Podspecs/firebase_auth.podspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Local Podspecs/firebase_core.podspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner.xcworkspace/xcuserdata/gbscarpati.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/GoogleService-Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/daos/firebase/addingUser.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/daos/firebase/authService.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/daotest.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/viewPesquisaCidade.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/views/buttonGoSignUpScreenPart4.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/views/listItemPesquisaCidades.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/views/viewHeaderPesquisaCidade.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/views/viewListaCidades.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/views/viewPesquisaCidadeBody.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/signUpPart3ChooseCity/viewPesquisaCidade.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/signUpPart3ChooseCity/views/listChangeCity1.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/signUpPart3ChooseCity/views/viewSearchCitySignUpBody.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/kernel_snapshot.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8be3ab24a582297a06829047650f98ee/kernel_snapshot.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ztest/flutter.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ztest/imageController.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
@@ -39,56 +16,36 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/4c3d752e0f1027449df58fb405ecf89c/gen_dart_plugin_registrant.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/build/4c3d752e0f1027449df58fb405ecf89c/gen_dart_plugin_registrant.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/App" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/App" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/_CodeSignature/CodeResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/Pods_Runner" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/Pods_Runner" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/_CodeSignature/CodeDirectory" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/_CodeSignature/CodeDirectory" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/_CodeSignature/CodeRequirements-1" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Pods_Runner.framework/_CodeSignature/CodeRequirements-1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/App" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/App" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/image_picker.framework/image_picker" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/image_picker.framework/image_picker" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Runner" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Runner" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/_CodeSignature/CodeResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/image_picker/image_picker.framework/image_picker" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/image_picker/image_picker.framework/image_picker" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/App" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/App" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/image_picker.framework/image_picker" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/image_picker.framework/image_picker" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Runner" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Runner" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/_CodeSignature/CodeResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Manifest.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Base.lproj/Main.storyboard" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/logIn/views/logInBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/logIn/views/logInBody.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/loginOrSignUp/views/SingUpCharityInstitutionButton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/loginOrSignUp/views/SingUpCharityInstitutionButton.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/logInScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/signUpScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/logInBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/signUpBody.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/logInButtonLogInScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/signUPButtonLogInScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/daotest.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ztest/daotest.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hub/views/viewHubBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/views/viewHubBody.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hub/views/viewHubCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/views/viewHubCidade.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hub/views/viewHubGridView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/views/viewHubGridView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hub/views/viewHubServicos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/views/viewHubServicos.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hub/views/viewHubUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/views/viewHubUsuario.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/viewPesquisaCidade.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/views/buttonGoSignUpScreenPart4.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/views/listItemPesquisaCidades.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/views/viewHeaderPesquisaCidade.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/views/viewListaCidades.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/views/viewPesquisaCidadeBody.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/signUpPart3ChooseCity/viewPesquisaCidade.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/signUpPart3ChooseCity/views/listChangeCity1.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/signUpPart3ChooseCity/views/viewSearchCitySignUpBody.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/signUpBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/signUpBody.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/views/bodySingUpScreenInstitution.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/views/bodySingUpScreenInstitution.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/widgets_for_signup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/widgets_for_signup.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/pesquisaCidade/views/listItemPesquisaCidades.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/pesquisaCidade/views/listItemPesquisaCidades.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/generated_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated_plugin_registrant.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickfix.iml" beforeDir="false" afterPath="$PROJECT_DIR$/quickfix.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/gbscarpati/.android/avd/Pixel_4a_Edited_API_31.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/gbscarpati/.android/avd/Pixel_3a_API_31_arm64-v8a.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -99,7 +56,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="pt_10Gabriel" />
+        <entry key="$PROJECT_DIR$" value="pt_11Gabriel" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -122,12 +79,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DEBUGGABLE_DEVICE" value="Pixel_3a_API_31_arm64-v8a [emulator-5554]" />
+    <property name="DEBUGGABLE_PROCESS" value="com.android.camera2" />
+    <property name="DEBUGGER_ID" value="Java" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHOW_ALL_PROCESSES" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/features/logIn_SingUp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -136,18 +97,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/lib/features/logIn_SingUp" />
       <recent name="$PROJECT_DIR$/lib/daos" />
       <recent name="$PROJECT_DIR$/lib/features/pesquisaCidade" />
-      <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/assets/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/ztest" />
       <recent name="$PROJECT_DIR$/lib/features/logIn_SingUp/pesquisaCidade/views" />
       <recent name="$PROJECT_DIR$/lib/daos/authentication" />
       <recent name="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1" />
       <recent name="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views" />
-      <recent name="$PROJECT_DIR$/lib/features/logIn_SingUp/logIn" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -215,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652321470143</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="LogIn SignUp">
+      <created>1653003410120</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1653003410120</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -239,6 +207,7 @@
     <MESSAGE value="Sing up Screens" />
     <MESSAGE value="changes caio compatibility" />
     <MESSAGE value="change hub and sign up part 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="change hub and sign up part 1" />
+    <MESSAGE value="LogIn SignUp" />
+    <option name="LAST_COMMIT_MESSAGE" value="LogIn SignUp" />
   </component>
 </project>

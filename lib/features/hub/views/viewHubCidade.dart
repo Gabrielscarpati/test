@@ -28,7 +28,7 @@ class ViewHubCidade extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
+      padding: const EdgeInsets.only(top: 12, left: 16, right: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

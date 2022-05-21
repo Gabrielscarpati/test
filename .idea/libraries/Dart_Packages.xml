@@ -65,6 +65,13 @@
             </list>
           </value>
         </entry>
+        <entry key="convert">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="cross_file">
           <value>
             <list>
@@ -135,6 +142,27 @@
             </list>
           </value>
         </entry>
+        <entry key="firebase_storage">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="firebase_storage_platform_interface">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="firebase_storage_web">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter">
           <value>
             <list>
@@ -167,6 +195,13 @@
           <value>
             <list>
               <option value="$PROJECT_DIR$/../flutterextraido/flutter/packages/flutter_web_plugins/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="get">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.3/lib" />
             </list>
           </value>
         </entry>
@@ -364,6 +399,7 @@
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib" />
+      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1/lib" />
@@ -374,8 +410,12 @@
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/lib" />
+      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/lib" />
+      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6/lib" />
+      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.0/lib" />
+      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.3/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.3/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.0/lib" />
       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/lib" />

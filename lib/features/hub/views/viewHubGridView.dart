@@ -16,27 +16,38 @@ class ViewHubGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-
-      children: [
-        Text(
-            "Selecione o serviço desejado:",
-            style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 20)
-        ),
-        GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 0,
-              crossAxisSpacing: 0,
-            ),
-            shrinkWrap: true,
-            itemCount: 4,
-            itemBuilder: _buildBotaoServico,
-        ),
-      ],
+    return  Container(
+      color: Colors.blueAccent,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(width: 11,),
+          Row(
+            children: [
+              SizedBox(width: 11,),
+              Text(
+                  "Selecione o serviço desejado:",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20)
+              ),
+            ],
+          ),
+          GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 0,
+                crossAxisSpacing: 0,
+              ),
+              shrinkWrap: true,
+              itemCount: 4,
+              itemBuilder: _buildBotaoServico,
+          ),
+        ],
+      ),
     );
   }
 
@@ -44,7 +55,7 @@ class ViewHubGridView extends StatelessWidget {
     BusinessModelTiposDeServico tiposDeServico = viewModel.principaisTiposDeServicoCidade.tiposDeServico[index];
     return Padding(
 
-      padding: const EdgeInsets.fromLTRB(12, 12, 12, 12),
+      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             shadowColor: Colors.black,

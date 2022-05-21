@@ -1,33 +1,120 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
-import '../../pesquisaCidade/views/viewPesquisaCidadeBody.dart';
-import '../../signUpPart3ChooseCity/viewPesquisaCidade.dart';
+import '../../../hub/presenterHub.dart';
 import '../widgets_for_signup.dart';
 import 'backArrowSingUpScreenInstitutions.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:path/path.dart';
+import 'dart:io';
+import 'dart:io' as Io;
+import 'dart:convert';
+
+
 
 
 class BodySingUpScreenInstitution extends StatefulWidget {
 
-   const BodySingUpScreenInstitution({Key? key,
+  const BodySingUpScreenInstitution({Key? key,
 
   }) : super(key: key);
   @override
   _BodySingUpScreenInstitution createState() => _BodySingUpScreenInstitution();
 }
 class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
-  Client client = http.Client();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  Future<String> imageToString() async{
+    final bytes = await Io.File('bezkoder.png').readAsBytesSync();
+    String img64 = base64Encode(bytes);
+    print(img64.substring(0, 100));
+    return img64;
+  }
+
+  Future<void> setUserCredentials() async {
+    print('success');
+    await users.doc('flutter123').set({
+      'name': nameController,
+      'phone': phoneController,
+      'workingHours': workingHoursController,
+      'description': descriptionController,
+      'profilePicture': 'profilePicture',
+      'city': 'city',
+      'roles': 'roles',
+      'brazilianID':'brazilianID',
+      'brazilianIDPicture':'brazilianIDPicture',
+    }
+    );
+  }
+
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  Future<String?> userId() async {
+    final User? user = await auth.currentUser;
+    final userId = user?.uid.toString();
+    return userId;
+  }
+
+  Future<String?> getUserId() {
+    return (userId().then((value){
+      print(value);
+    }
+    ));
+  }
+
+  final firebase_storage.FirebaseStorage storage = firebase_storage.FirebaseStorage.instance;
+
+  File? _photo;
+  final ImagePicker _picker = ImagePicker();
+
+  Future imgFromGallery() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (pickedFile != null) {
+        _photo = File(pickedFile.path);
+        uploadFile();
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
+
+  Future imgFromCamera() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      if (pickedFile != null) {
+        _photo = File(pickedFile.path);
+        uploadFile();
+        print('--'*30);
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
+
+  Future uploadFile() async {
+    if (_photo == null) return;
+    final fileName = basename(_photo!.path);
+    final destination = 'files/$fileName';
+
+    try {
+      final ref = firebase_storage.FirebaseStorage.instance.ref(destination).child('file/');
+      await ref.putFile(_photo!);
+    } catch (e) {
+      print('error occurred');
+    }
+  }
+
   final nameController = TextEditingController();
-  final addressController = TextEditingController();
   final itemsAcceptedController = TextEditingController();
   final workingHoursController = TextEditingController();
-  final cityController = TextEditingController();
   final phoneController = TextEditingController();
-  final  descriptionController = TextEditingController();
-
+  final descriptionController = TextEditingController();
 
   final formKeyAuthentication = GlobalKey<FormState>();
 
@@ -60,7 +147,7 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
               Row(
                 children: [
                   SizedBox(child:
-                  BackArrowSingUpScreenInstitutions(),
+                      BackArrowSingUpScreenInstitutions(),
                   ),
                   Text("SignUp",
                     style: TextStyle(color: Colors.white, fontSize: 32),),
@@ -76,21 +163,56 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 5, 30, 0),
+                    padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
                     child: Column(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.all(15),
-                          child: Center(
-                            child:SizedBox(
-                              height: 160,
-                              width: 160,
-                                child: CircleAvatar(
-                                  backgroundImage: AssetImage('assets/imageLogo.jpeg'),
-                                  radius: 70,
-                                ),
+                        Text(
+                          'Click here to choose an Image',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.0,
+                          ),
+                        ),
+                         Padding(
+                          padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
+                          child: Stack(
+                            children: [
 
-                            ),
+                               Center(
+                                  child:GestureDetector(
+                                    onTap: () {
+                                      _showPicker(context);
+                                    },
+                                    child: CircleAvatar(
+                                      radius: 62,
+                                      backgroundColor: Colors.black,
+                                      child: _photo != null
+                                          ? ClipRRect(
+                                              borderRadius: BorderRadius.circular(60),
+                                              child: Image.file(
+                                                _photo!,
+                                                width: 120,
+                                                height: 120,
+                                                fit: BoxFit.fitHeight,
+                                              ),
+                                            )
+                                          : Container(
+                                            decoration: BoxDecoration(
+                                                color: Colors.grey[200],
+                                                borderRadius: BorderRadius.circular(60)),
+                                                  width: 120,
+                                                  height: 120,
+                                                  child: Icon(
+                                                    Icons.edit,
+                                                    size: 35,
+                                                    color: Colors.grey[800],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                            ],
                           ),
                         ),
                         Form(
@@ -117,49 +239,67 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                           margin: EdgeInsets.symmetric(horizontal: 50),
 
                           child: Column(
-                              children: [
-                                ElevatedButton(
-                                  child: Ink(
-                                    decoration: BoxDecoration(
-                                        gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
-                                          begin: Alignment.centerLeft,
-                                          end: Alignment.centerRight,
-                                        ),
-                                        borderRadius: BorderRadius.circular(30.0)
-                                    ),
+                            children: [
+                              ElevatedButton(
+                                child: Ink(
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                      ),
+                                      borderRadius: BorderRadius.circular(30.0)
+                                  ),
 
-                                    child: Container(
-                                      constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        'Sign Up',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20.0,
-                                            fontWeight: FontWeight.bold
-                                        ),
+                                  child: Container(
+                                    constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      'Sign Up',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold
                                       ),
                                     ),
                                   ),
-                                  onPressed: () {
-                                    final form = formKeyAuthentication
-                                        .currentState!;
+                                ),
+                                onPressed: () async {
+                                  setUserCredentials();
+                                  print('--'*50+'1');
+                                  //getUserId();
 
-                                    if (form.validate()) {
-                                      Navigator.of(context).push(MaterialPageRoute(
-                                          builder: (context) => ViewPesquisaCidadeBodya()                                 ));
-                                    }
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.all(0),
-                                    shape: new RoundedRectangleBorder(
-                                      borderRadius: new BorderRadius.circular(30.0),
-                                    ),
+                                  await users.doc('flutter123').set({
+                                    'name': nameController.text,
+                                    'phone': phoneController.text,
+                                    'workingHours': workingHoursController.text,
+                                    'description': descriptionController.text,
+                                    'profilePicture': 'profilePicture',
+                                    'city': 'city',
+                                    'roles': 'roles',
+                                    'brazilianID':'brazilianID',
+                                    'brazilianIDPicture':'brazilianIDPicture',
+                                  }
+                                  );
+                                  print('--'*50+'2');
+
+                                  final form = formKeyAuthentication
+                                      .currentState!;
+
+                                  if (form.validate()) {
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context) => PresenterHub.presenter()                                 ));
+                                  }
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.all(0),
+                                  shape: new RoundedRectangleBorder(
+                                    borderRadius: new BorderRadius.circular(30.0),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -171,5 +311,34 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
         ),
       ),
     );
+  }
+  void _showPicker(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return SafeArea(
+            child: Container(
+              child: new Wrap(
+                children: <Widget>[
+                  new ListTile(
+                      leading: new Icon(Icons.photo_library),
+                      title: new Text('Gallery'),
+                      onTap: () {
+                        imgFromGallery();
+                        Navigator.of(context).pop();
+                      }),
+                  new ListTile(
+                    leading: new Icon(Icons.photo_camera),
+                    title: new Text('Camera'),
+                    onTap: () {
+                      imgFromCamera();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 }

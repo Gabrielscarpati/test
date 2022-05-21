@@ -38,8 +38,6 @@ class ViewHubServicos extends StatelessWidget {
                           fontSize: 20)
                   ),
 
-
-
                   Center(
                     child: Row(
                       children: [

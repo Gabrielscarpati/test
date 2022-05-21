@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/features/logIn_SingUp/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
+import '../../../../ztest/imageController.dart';
 import 'backArrowSignUp.dart';
 import 'package:email_validator/email_validator.dart';
 
@@ -21,6 +23,7 @@ class _LogInBody extends State<SignUpPart1Body> {
   final passwordController = TextEditingController();
   final cofirmPasswordController = TextEditingController();
   final formKeyAuthentication = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -197,8 +200,7 @@ class _LogInBody extends State<SignUpPart1Body> {
 
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SingUpPart2WorkerInformation()
+                                              builder: (context) =>SingUpPart2WorkerInformation()
                                           ));
                                   }
                               },
