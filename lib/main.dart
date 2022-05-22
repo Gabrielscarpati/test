@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:projeto_treinamento/features/logIn_SingUp/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
 import 'package:projeto_treinamento/ztest/imageController.dart';
 import 'daos/firebase/authService.dart';
+import 'features/logIn_SingUp/SignUpChooseCity/views/bodyViewSignUpChooseCity.dart';
 import 'ztest/daotest.dart';
 import 'features/hub/presenterHub.dart';
 import 'features/logIn_SingUp/singUpPart1/signUpScreen.dart';
@@ -55,9 +56,9 @@ class MyApp extends StatelessWidget {
             builder: (context, AsyncSnapshot snapshot){
               if (snapshot.hasData){
                 print(snapshot.hasData);
-                return SignUpPart1Body();//(user: snapshot.data,);
+                return SingUpPart2WorkerInformation();//(user: snapshot.data,);
               }
-              return SignUpPart1Body();
+              return SingUpPart2WorkerInformation();
             }
         ),
         //SingUpPart2WorkerInformation(),

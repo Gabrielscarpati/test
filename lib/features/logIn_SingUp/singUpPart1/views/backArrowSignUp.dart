@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../../../hub/presenterHub.dart';
 import '../../loginOrSignUp/views/logInSingUpBody.dart';
 
 class BackArrowLogInScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _LogInButtonState extends State<BackArrowLogInScreen> {
     Size size = MediaQuery.of(context).size;
     return TextButton.icon(onPressed: () {
       Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => LogInOrSingUpBody()
+          builder: (context) => PresenterHub.presenter()
       ));} ,
       icon:  Icon(Icons.arrow_back, color: Color(0xff4cf2c7), size: 30.0),
       label: Text(''),

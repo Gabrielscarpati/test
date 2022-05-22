@@ -17,7 +17,6 @@ class ViewHubGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      color: Colors.blueAccent,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
