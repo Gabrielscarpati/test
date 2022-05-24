@@ -20,8 +20,8 @@ file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub
 file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/lib/
 cloud_firestore
 2.16
-file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.15/
-file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.15/lib/
+file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/
+file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/lib/
 cloud_firestore_platform_interface
 2.16
 file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6/
@@ -99,9 +99,9 @@ flutter_rating_bar
 file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1/
 file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1/lib/
 get
-2.16
-file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.3/
-file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.3/lib/
+2.15
+file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/
+file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib/
 http
 2.12
 file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.3/

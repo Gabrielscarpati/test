@@ -6,7 +6,7 @@ import 'package:projeto_treinamento/features/logIn_SingUp/singUpPart2WorkerInfor
 import 'package:projeto_treinamento/ztest/imageController.dart';
 import 'daos/firebase/authService.dart';
 import 'features/logIn_SingUp/SignUpChooseCity/views/bodyViewSignUpChooseCity.dart';
-import 'ztest/daotest.dart';
+import 'features/logIn_SingUp/selectCidades/presenterSelectCidade.dart';
 import 'features/hub/presenterHub.dart';
 import 'features/logIn_SingUp/singUpPart1/signUpScreen.dart';
 import 'features/logIn_SingUp/singUpPart1/views/signUpBody.dart';

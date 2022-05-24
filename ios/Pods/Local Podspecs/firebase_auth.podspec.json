@@ -1,8 +1,8 @@
 {
   "name": "firebase_auth",
   "version": "3.3.18",
-  "summary": "Flutter plugin for Firebase Auth, enabling Android and iOS authentication using passwords, phone numbers and identity providers like Google, Facebook and Twitter.",
-  "description": "Flutter plugin for Firebase Auth, enabling Android and iOS authentication using passwords, phone numbers and identity providers like Google, Facebook and Twitter.",
+  "summary": "Flutter plugin for Firebase Auth, enabling Android and iOS firebase using passwords, phone numbers and identity providers like Google, Facebook and Twitter.",
+  "description": "Flutter plugin for Firebase Auth, enabling Android and iOS firebase using passwords, phone numbers and identity providers like Google, Facebook and Twitter.",
   "homepage": "https://firebase.flutter.dev/docs/auth/overview",
   "license": {
     "file": "../LICENSE"

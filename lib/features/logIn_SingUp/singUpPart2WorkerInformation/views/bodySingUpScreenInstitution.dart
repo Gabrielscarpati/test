@@ -1,19 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../hub/presenterHub.dart';
-import '../widgets_for_signup.dart';
+import 'widgets_for_signup.dart';
 import 'backArrowSingUpScreenInstitutions.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:path/path.dart';
 import 'dart:io';
-import 'dart:io' as Io;
-import 'dart:convert';
-
-
-
 
 class BodySingUpScreenInstitution extends StatefulWidget {
 
@@ -27,43 +23,33 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
 
   CollectionReference users = FirebaseFirestore.instance.collection('users');
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+  FirebaseStorage firebaseStorage = FirebaseStorage.instance;
 
-  Future<String> imageToString() async{
-    final bytes = await Io.File('bezkoder.png').readAsBytesSync();
-    String img64 = base64Encode(bytes);
-    print(img64.substring(0, 100));
-    return img64;
-  }
 
-  Future<void> setUserCredentials() async {
+
+/*  Future<void> setUserCredentials() async {
     print('success');
-    await users.doc('flutter123').set({
+    await users.doc('flutter1234').set({
       'name': nameController,
       'phone': phoneController,
       'workingHours': workingHoursController,
       'description': descriptionController,
-      'profilePicture': 'profilePicture',
+      'profilePicture': 'getUrlToImageFirebase()',
       'city': 'city',
       'roles': 'roles',
       'brazilianID':'brazilianID',
       'brazilianIDPicture':'brazilianIDPicture',
     }
     );
-  }
+  }*/
 
   final FirebaseAuth auth = FirebaseAuth.instance;
-  Future<String?> userId() async {
+  Future<String?> getUserId() async {
     final User? user = await auth.currentUser;
     final userId = user?.uid.toString();
     return userId;
   }
 
-  Future<String?> getUserId() {
-    return (userId().then((value){
-      print(value);
-    }
-    ));
-  }
 
   final firebase_storage.FirebaseStorage storage = firebase_storage.FirebaseStorage.instance;
 
@@ -100,14 +86,22 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
   Future uploadFile() async {
     if (_photo == null) return;
     final fileName = basename(_photo!.path);
-    final destination = 'files/$fileName';
+    final destination = 'FotoPerfilPrestadorServico/$fileName';
 
     try {
-      final ref = firebase_storage.FirebaseStorage.instance.ref(destination).child('file/');
+      final ref = firebase_storage.FirebaseStorage.instance.ref(destination).child('FotoPerfilPrestadorServico/');
       await ref.putFile(_photo!);
     } catch (e) {
       print('error occurred');
     }
+  }
+
+    Future<String> getUrlToImageFirebase() async {
+    Reference ref = await storage.ref().child(basename(_photo!.path) + DateTime.now().toString());
+    await ref.putFile(File(_photo!.path));
+    String imageUrl = await ref.getDownloadURL();
+    print(imageUrl.toString());
+     return imageUrl;
   }
 
   final nameController = TextEditingController();
@@ -117,7 +111,6 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
   final descriptionController = TextEditingController();
 
   final formKeyAuthentication = GlobalKey<FormState>();
-
 
   @override
   Widget build(BuildContext context) {
@@ -265,18 +258,19 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                                   ),
                                 ),
                                 onPressed: () async {
-                                  setUserCredentials();
+                                 //getUrlToImageFirebase();
+                                  //setUserCredentials();
                                   print('--'*50+'1');
                                   //getUserId();
 
-                                  await users.doc('flutter123').set({
-                                    'name': nameController.text,
-                                    'phone': phoneController.text,
-                                    'workingHours': workingHoursController.text,
-                                    'description': descriptionController.text,
-                                    'profilePicture': 'profilePicture',
+                                  await users.doc(await getUserId()).set({
+                                    'name': nameController.text.trim(),
+                                    'phone': phoneController.text.trim(),
+                                    'workingHours': workingHoursController.text.trim(),
+                                    'description': descriptionController.text.trim(),
+                                    'profilePicture': await getUrlToImageFirebase(),
                                     'city': 'city',
-                                    'roles': 'roles',
+                                    'roles': '-----11-----',
                                     'brazilianID':'brazilianID',
                                     'brazilianIDPicture':'brazilianIDPicture',
                                   }
