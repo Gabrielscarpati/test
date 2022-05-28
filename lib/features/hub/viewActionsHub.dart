@@ -64,13 +64,6 @@ class ViewActionsHub extends ViewActions<BlocEventHub> {
             cidade: viewModel.cidade,
             usuario: viewModel.usuario,
             listaCompletaCidade: ProviderCidade().getBusinessModels(),
-            email: BusinessModelUsuario.vazio(),
-            phone: BusinessModelUsuario.vazio(),
-            workingHours: BusinessModelUsuario.vazio(),
-            brazilianID: BusinessModelUsuario.vazio(),
-            roles: BusinessModelUsuario.vazio(),
-            description: BusinessModelUsuario.vazio(),
-            brazilianIDpicture: BusinessModelUsuario.vazio(),
         );
 
     final ViewModelInfoUsuario results = await Navigator.of(context).push(MaterialPageRoute(

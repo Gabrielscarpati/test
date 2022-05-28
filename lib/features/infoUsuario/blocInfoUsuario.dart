@@ -1,6 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
 import 'package:projeto_treinamento/framework/bloc.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
@@ -20,13 +17,7 @@ class BlocInfoUsuario extends Bloc<ViewModelInfoUsuario, BlocEventInfoUsuario> {
         cidade: blocEvent.viewModel.cidade,
         usuario: blocEvent.viewModel.usuario,
         listaCompletaCidade: ProviderCidade().getBusinessModels(),
-        workingHours: blocEvent.viewModel.workingHours,
-        description: blocEvent.viewModel.description,
-        email: blocEvent.viewModel.email,
-        phone: blocEvent.viewModel.phone,
-        brazilianID: blocEvent.viewModel.brazilianID,
-        roles:blocEvent.viewModel.roles,
-        brazilianIDpicture: blocEvent.viewModel.brazilianIDpicture,
+
     );
 
     this.sendViewModelOut(viewModel);
@@ -38,13 +29,7 @@ class BlocInfoUsuario extends Bloc<ViewModelInfoUsuario, BlocEventInfoUsuario> {
         usuario: blocEvent.viewModel.usuario,
         listaCompletaCidade: blocEvent.viewModel.listaCompletaCidade,
         imagemAtualizada: blocEvent.viewModel.imagemAtualizada,
-        workingHours: blocEvent.viewModel.workingHours,
-        description: blocEvent.viewModel.description,
-        email: blocEvent.viewModel.email,
-        phone: blocEvent.viewModel.phone,
-        brazilianID: blocEvent.viewModel.brazilianID,
-        roles:blocEvent.viewModel.roles,
-        brazilianIDpicture: blocEvent.viewModel.brazilianIDpicture,
+
     );
     this.sendViewModelOut(viewModel);
     BusinessModelUsuario businessModel = BusinessModelUsuario(email: viewModel.usuario.email,

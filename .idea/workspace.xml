@@ -4,42 +4,21 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ed77b64-fc0e-4c87-856c-9440b5c22f50" name="Default Changelist" comment="changes caio compatibility">
-      <change afterPath="$PROJECT_DIR$/lib/daos/prestadorInformation/daoUsuario.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/daos/prestadorInformation/dataModePrestadorInformation.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/infoUsuario/views/InfoUsuarioBody.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/infoUsuario/views/buttonSalvarInfoUsuario.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/infoUsuario/views/changeInfoUsuario.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/infoUsuario/views/customEditPrestadorInformation.dart" afterDir="false" />
+    <list default="true" id="7ed77b64-fc0e-4c87-856c-9440b5c22f50" name="Default Changelist" comment="Mudando Tela Perfil">
+      <change afterPath="$PROJECT_DIR$/lib/businessModels/businessModelPrestadorInfomation.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/providers/prestadorInformation/adapterPrestadorInformation.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/providers/prestadorInformation/providerPrestadorInformation.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/businessModels/businessModelUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/businessModels/businessModelUsuario.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/daos/usuario/daoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/usuario/daoUsuario.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/daos/usuario/dataModelBuilderUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/usuario/dataModelBuilderUsuario.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/daos/usuario/dataModelUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/usuario/dataModelUsuario.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/daos/prestadorInformation/daoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/prestadorInformation/daoPrestadorInformatio.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/daos/prestadorInformation/dataModelBuilderPrestadorInformation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/prestadorInformation/dataModelBuilderPrestadorInformation.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/hub/blocHub.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/blocHub.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/hub/viewActionsHub.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/viewActionsHub.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/hub/viewModelHub.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/viewModelHub.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/hub/views/viewHubBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/views/viewHubBody.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/hub/views/viewHubUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/views/viewHubUsuario.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/hub/views/viewHubUsuarioNoData.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/infoUsuario/blocEventInfoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoUsuario/blocEventInfoUsuario.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/infoUsuario/blocInfoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoUsuario/blocInfoUsuario.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/infoUsuario/viewActionsInfoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoUsuario/viewActionsInfoUsuario.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/infoUsuario/viewInfoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoUsuario/viewInfoUsuario.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/infoUsuario/viewModelInfoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoUsuario/viewModelInfoUsuario.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/infoUsuario/views/headerInfoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoUsuario/views/headerInfoUsuario.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/SignUpChooseCity/viewSignUpChooseCity.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/prestadorInformation/dataModelBuilderPrestadorInformation.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/SignUpChooseCity/views/bodyViewSignUpChooseCity.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/signUPButtonLogInScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/signUPButtonLogInScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/signUpBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart1/views/signUpBody.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/views/bodySingUpScreenInstitution.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/views/bodySingUpScreenInstitution.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/providers/usuario/adapterUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/usuario/adapterUsuario.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/customEditor.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/customEditor.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/customTextEditor.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/customTextEditor.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +64,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/daos" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/providers" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -94,11 +73,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/providers" />
+      <recent name="$PROJECT_DIR$/lib/businessModels" />
       <recent name="$PROJECT_DIR$/lib/daos" />
       <recent name="$PROJECT_DIR$/lib/features/logIn_SingUp/selectCidades/views" />
       <recent name="$PROJECT_DIR$/lib/features/logIn_SingUp/selectCidades" />
-      <recent name="$PROJECT_DIR$/lib/features/logIn_SingUp" />
-      <recent name="$PROJECT_DIR$/lib/features/pesquisaCidade" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/features/infoUsuario/views" />
@@ -180,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653433158732</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Mudando Tela Perfil">
+      <created>1653709777671</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1653709777671</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,7 +190,8 @@
     <MESSAGE value="Sing up Screens" />
     <MESSAGE value="change hub and sign up part 1" />
     <MESSAGE value="changes caio compatibility" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes caio compatibility" />
+    <MESSAGE value="Mudando Tela Perfil" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mudando Tela Perfil" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

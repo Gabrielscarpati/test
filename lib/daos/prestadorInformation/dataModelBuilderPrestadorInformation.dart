@@ -1,6 +1,6 @@
 import 'package:projeto_treinamento/framework/dataModelBuilder.dart';
 
-import 'daoUsuario.dart';
+import 'daoPrestadorInformatio.dart';
 import 'dataModePrestadorInformation.dart';
 
 
@@ -12,14 +12,14 @@ class DataModelBuilderPrestadorInfomation {
 
   DataModelPrestadorInformation? createDataModel(Map<String, dynamic> json) {
     return DataModelPrestadorInformation(
-      phone:  json['phone'],
-      city:  json['city'],
+      phone: json['phone'],
+      city: json['city'],
       description:  json['description'],
-      roles:  json['roles'],
-      workingHours:  json['workingHours'],
+      roles: json['roles'],
+      workingHours: json['workingHours'],
       brazilianID: json['brazilianID'],
-      brazilianIDPicture:  json['brazilianIDPicture'],
-      profilePicture:  json['profilePicture'],
+      brazilianIDPicture: json['brazilianIDPicture'],
+      profilePicture: json['profilePicture'],
       name: json['name'],
       IdUsuario: IdUsuario,
     );

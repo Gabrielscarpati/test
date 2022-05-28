@@ -20,7 +20,7 @@ class BlocHub extends Bloc<ViewModelHub, BlocEventHub> {
     BusinessModelUsuario usuario = BusinessModelUsuario(
       email: "tiago@teste.com.br",
       nome: "Tiago da Silva",
-      phone: '9999999999',
+      phone: '111111111',
       city: 'Colatina',
       description: 'Sou um Bom funcionaio',
       roles: 'Pedreiro/pintor',

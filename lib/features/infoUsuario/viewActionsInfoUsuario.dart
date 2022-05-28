@@ -57,13 +57,7 @@ class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
         cidade: viewModel.cidade,
         usuario: usuario,
         listaCompletaCidade: viewModel.listaCompletaCidade,
-        description: viewModel.description,
-        workingHours: viewModel.workingHours,
-        email: viewModel.email,
-        phone: viewModel.phone,
-        brazilianID: viewModel.brazilianID,
-        brazilianIDpicture: viewModel.brazilianIDpicture,
-        roles: viewModel.roles
+
     );
 
     BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
@@ -85,16 +79,10 @@ class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
     );
 
     ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(
-        cidade: viewModel.cidade,
-        usuario: usuario,
-        listaCompletaCidade: viewModel.listaCompletaCidade,
-        description: viewModel.description,
-        workingHours: viewModel.workingHours,
-        email: viewModel.email,
-        phone: viewModel.phone,
-        brazilianID: viewModel.brazilianID,
-        brazilianIDpicture: viewModel.brazilianIDpicture,
-        roles: viewModel.roles
+      cidade: viewModel.cidade,
+      usuario: usuario,
+      listaCompletaCidade: viewModel.listaCompletaCidade,
+
 
     );
 
@@ -119,13 +107,6 @@ class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
         cidade: viewModel.cidade,
         usuario: usuario,
         listaCompletaCidade: viewModel.listaCompletaCidade,
-        description: viewModel.description,
-        workingHours: viewModel.workingHours,
-        email: viewModel.email,
-        phone: viewModel.phone,
-        brazilianID: viewModel.brazilianID,
-        brazilianIDpicture: viewModel.brazilianIDpicture,
-        roles: viewModel.roles
     );
 
     BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
@@ -148,13 +129,7 @@ class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
         cidade: viewModel.cidade,
         usuario: usuario,
         listaCompletaCidade: viewModel.listaCompletaCidade,
-        description: viewModel.description,
-        workingHours: viewModel.workingHours,
-        email: viewModel.email,
-        phone: viewModel.phone,
-        brazilianID: viewModel.brazilianID,
-        brazilianIDpicture: viewModel.brazilianIDpicture,
-        roles: viewModel.roles
+
     );
 
     BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
@@ -176,13 +151,7 @@ class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
         cidade: viewModel.cidade,
         usuario: usuario,
         listaCompletaCidade: viewModel.listaCompletaCidade,
-        description: viewModel.description,
-        workingHours: viewModel.workingHours,
-        email: viewModel.email,
-        phone: viewModel.phone,
-        brazilianID: viewModel.brazilianID,
-        brazilianIDpicture: viewModel.brazilianIDpicture,
-        roles: viewModel.roles
+
     );
 
     BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
@@ -204,13 +173,7 @@ class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
         cidade: viewModel.cidade,
         usuario: usuario,
         listaCompletaCidade: viewModel.listaCompletaCidade,
-        description: viewModel.description,
-        workingHours: viewModel.workingHours,
-        email: viewModel.email,
-        phone: viewModel.phone,
-        brazilianID: viewModel.brazilianID,
-        brazilianIDpicture: viewModel.brazilianIDpicture,
-        roles: viewModel.roles
+
     );
 
     BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
@@ -221,13 +184,6 @@ class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
     ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(
         cidade: viewModel.cidade,
         listaCompletaCidade: viewModel.listaCompletaCidade,
-        description: viewModel.description,
-        workingHours: viewModel.workingHours,
-        email: viewModel.email,
-        phone: viewModel.phone,
-        brazilianID: viewModel.brazilianID,
-        brazilianIDpicture: viewModel.brazilianIDpicture,
-        roles: viewModel.roles,
         usuario: viewModel.usuario,
     );
     BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
@@ -250,13 +206,8 @@ class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
         cidade: viewModel.cidade,
         usuario: usuario,
         listaCompletaCidade: viewModel.listaCompletaCidade,
-        description: viewModel.description,
-        workingHours: viewModel.workingHours,
-        email: viewModel.email,
-        phone: viewModel.phone,
-        brazilianID: viewModel.brazilianID,
-        brazilianIDpicture: viewModel.brazilianIDpicture,
-        roles: viewModel.roles);
+
+    );
 
     BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
     blocPipeIn.send(blocEvent);

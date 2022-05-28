@@ -7,7 +7,7 @@ import 'package:projeto_treinamento/features/logIn_SingUp/singUpPart2WorkerInfor
 import 'package:projeto_treinamento/features/infoUsuario/views/customEditPrestadorInformation.dart';
 import 'package:projeto_treinamento/ztest/imageController.dart';
 import 'daos/firebase/authService.dart';
-import 'daos/prestadorInformation/daoUsuario.dart';
+import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
 import 'daos/usuario/daoUsuario.dart';
 import 'features/logIn_SingUp/selectCidades/presenterSelectCidade.dart';
 import 'features/hub/presenterHub.dart';
