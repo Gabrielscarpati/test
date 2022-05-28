@@ -1,32 +1,36 @@
 import 'package:projeto_treinamento/framework/businessModel.dart';
 import 'package:projeto_treinamento/framework/mixInDescricao.dart';
 
-class BusinessModelPrestadorInformation extends BusinessModel with MixInDescricao {
-  final String email;
+class BusinessModelPrestadorInformation extends BusinessModel
+    with MixInDescricao {
+  final String IdUsuario;
   final String nome;
-  final String? urlFoto;
   final String phone;
   final String city;
   final String description;
   final String roles;
   final String workingHours;
-  final String brazilianID;
-  final String brazilianIDpicture;
 
   BusinessModelPrestadorInformation({
-    required this.email,
+    required this.IdUsuario,
     required this.nome,
-    this.urlFoto,
     required this.phone,
     required this.city,
     required this.description,
     required this.roles,
     required this.workingHours,
-    required this.brazilianID,
-    required this.brazilianIDpicture,
-  }) : super(id: email);
+  }) : super(id: IdUsuario);
 
-  factory BusinessModelPrestadorInformation.vazio() => BusinessModelPrestadorInformation(email: "", nome: "", phone: '', roles: '', description: '', brazilianIDpicture: '', workingHours: '', city: '', brazilianID: '');
+  factory BusinessModelPrestadorInformation.vazio() =>
+      BusinessModelPrestadorInformation(
+        IdUsuario: "",
+        nome: "",
+        phone: '',
+        roles: '',
+        description: '',
+        workingHours: '',
+        city: '',
+      );
 
   String primeiroNome() {
     return nome.split(' ')[0];
@@ -36,5 +40,4 @@ class BusinessModelPrestadorInformation extends BusinessModel with MixInDescrica
   String getDescricao() {
     return this.nome;
   }
-
 }

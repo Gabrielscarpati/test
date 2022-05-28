@@ -1,12 +1,12 @@
 # This is a generated file; do not edit or check into version control.
-cloud_firestore=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/
-cloud_firestore_web=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/
-firebase_auth=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/
-firebase_auth_web=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/
-firebase_core=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/
-firebase_core_web=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/
-firebase_storage=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/
-firebase_storage_web=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/
-flutter_plugin_android_lifecycle=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/
-image_picker=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/
-image_picker_for_web=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/
+cloud_firestore=/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/
+cloud_firestore_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/
+firebase_auth=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/
+firebase_auth_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/
+firebase_core=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/
+firebase_core_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/
+firebase_storage=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/
+firebase_storage_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/
+flutter_plugin_android_lifecycle=/home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/
+image_picker=/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/
+image_picker_for_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/
