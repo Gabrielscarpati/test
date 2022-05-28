@@ -19,10 +19,7 @@ class BlocPerfilPrestadorDeServico extends Bloc<
       BlocEventPerfilPrestadorDeServicoInicializaViewModel blocEvent) async {
     ViewModelPerfilPrestadorDeServico viewModel =
         ViewModelPerfilPrestadorDeServico(
-      cidade: blocEvent.viewModel.cidade,
-      usuario: blocEvent.viewModel.usuario,
-      listaCompletaCidade: ProviderCidade().getBusinessModels(),
-    );
+            prestadorInformation: blocEvent.viewModel.prestadorInformation);
 
     this.sendViewModelOut(viewModel);
   }
@@ -31,24 +28,7 @@ class BlocPerfilPrestadorDeServico extends Bloc<
       BlocEventPerfilPrestadorDeServicoAtualizaViewModel blocEvent) {
     ViewModelPerfilPrestadorDeServico viewModel =
         ViewModelPerfilPrestadorDeServico(
-      cidade: blocEvent.viewModel.cidade,
-      usuario: blocEvent.viewModel.usuario,
-      listaCompletaCidade: blocEvent.viewModel.listaCompletaCidade,
-      imagemAtualizada: blocEvent.viewModel.imagemAtualizada,
-    );
+            prestadorInformation: blocEvent.viewModel.prestadorInformation);
     this.sendViewModelOut(viewModel);
-    BusinessModelUsuario businessModel = BusinessModelUsuario(
-      email: viewModel.usuario.email,
-      nome: viewModel.usuario.nome,
-      urlFoto: viewModel.usuario.urlFoto,
-      description: viewModel.usuario.description,
-      roles: viewModel.usuario.roles,
-      city: viewModel.usuario.city,
-      brazilianIDpicture: viewModel.usuario.brazilianIDpicture,
-      phone: viewModel.usuario.phone,
-      brazilianID: viewModel.usuario.brazilianID,
-      workingHours: viewModel.usuario.workingHours,
-    );
-    ProviderUsuario().saveBusinessModel(businessModel);
   }
 }

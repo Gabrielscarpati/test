@@ -1,12 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projeto_treinamento/businessModels/businessModelPrestadorInfomation.dart';
+import 'package:projeto_treinamento/daos/prestadorInformation/dataModePrestadorInformation.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/infoUsuario/presenterInfoUsuario.dart';
 import 'package:projeto_treinamento/features/logIn_SingUp/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
 import 'package:projeto_treinamento/features/infoUsuario/views/customEditPrestadorInformation.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
+import 'package:projeto_treinamento/providers/prestadorInformation/providerPrestadorInformation.dart';
 import 'package:projeto_treinamento/ztest/imageController.dart';
 import 'daos/firebase/authService.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
@@ -63,9 +66,10 @@ class MyApp extends StatelessWidget {
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
               print(snapshot.hasData);
-              return PresenterPerfilPrestadorDeServico.presenter(viewModel: ViewModelPerfilPrestadorDeServico()) PresenterHub.presenter();
+
+              return PresenterPerfilPrestadorDeServico.presenter();
             }
-            return PresenterHub.presenter();
+            return PresenterPerfilPrestadorDeServico.presenter();
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),

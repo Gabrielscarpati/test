@@ -1,3 +1,4 @@
+import 'package:projeto_treinamento/businessModels/businessModelPrestadorInfomation.dart';
 import 'package:projeto_treinamento/features/hub/viewModelHub.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/blocEventPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/blocPerfilPrestadorDeServico.dart';
@@ -28,9 +29,7 @@ class PresenterPerfilPrestadorDeServico extends Presenter<
     _enviaEventoInicializacaoViewModel(viewModel);
   }
 
-  factory PresenterPerfilPrestadorDeServico.presenter({
-    required ViewModelPerfilPrestadorDeServico viewModel,
-  }) {
+  factory PresenterPerfilPrestadorDeServico.presenter() {
     BlocPerfilPrestadorDeServico bloc = BlocPerfilPrestadorDeServico();
     ViewBuilderPerfilPrestadorDeServico viewBuilder =
         ViewBuilderPerfilPrestadorDeServico();
@@ -40,7 +39,16 @@ class PresenterPerfilPrestadorDeServico extends Presenter<
       bloc: bloc,
       viewBuilder: viewBuilder,
       viewActions: viewActions,
-      viewModel: viewModel,
+      viewModel: ViewModelPerfilPrestadorDeServico(
+          prestadorInformation: BusinessModelPrestadorInformation(
+        IdUsuario: "",
+        nome: "",
+        phone: "",
+        city: "",
+        description: "",
+        roles: "",
+        workingHours: "",
+      )),
     );
   }
 
