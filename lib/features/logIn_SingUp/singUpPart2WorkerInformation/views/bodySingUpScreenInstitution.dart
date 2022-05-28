@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../../daos/prestadorInformation/daoUsuario.dart';
+import '../../../../daos/usuario/daoUsuario.dart';
 import '../../../hub/presenterHub.dart';
 import 'widgets_for_signup.dart';
 import 'backArrowSingUpScreenInstitutions.dart';
@@ -21,7 +23,7 @@ class BodySingUpScreenInstitution extends StatefulWidget {
 }
 class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
 
-  CollectionReference users = FirebaseFirestore.instance.collection('users');
+  CollectionReference users = FirebaseFirestore.instance.collection('dadosPrestador');
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseStorage firebaseStorage = FirebaseStorage.instance;
 
@@ -277,12 +279,11 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                                   );
                                   print('--'*50+'2');
 
-                                  final form = formKeyAuthentication
-                                      .currentState!;
+                                  final form = formKeyAuthentication.currentState!;
 
                                   if (form.validate()) {
                                     Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => PresenterHub.presenter()                                 ));
+                                        builder: (context) => PresenterHub.presenter(),                               ));
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(

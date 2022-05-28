@@ -17,7 +17,18 @@ class BlocInfoUsuario extends Bloc<ViewModelInfoUsuario, BlocEventInfoUsuario> {
 
   void _inicializaViewModel(BlocEventInfoUsuarioInicializaViewModel blocEvent) async {
     ViewModelInfoUsuario viewModel = ViewModelInfoUsuario(
-        cidade: blocEvent.viewModel.cidade, usuario: blocEvent.viewModel.usuario, listaCompletaCidade: ProviderCidade().getBusinessModels());
+        cidade: blocEvent.viewModel.cidade,
+        usuario: blocEvent.viewModel.usuario,
+        listaCompletaCidade: ProviderCidade().getBusinessModels(),
+        workingHours: blocEvent.viewModel.workingHours,
+        description: blocEvent.viewModel.description,
+        email: blocEvent.viewModel.email,
+        phone: blocEvent.viewModel.phone,
+        brazilianID: blocEvent.viewModel.brazilianID,
+        roles:blocEvent.viewModel.roles,
+        brazilianIDpicture: blocEvent.viewModel.brazilianIDpicture,
+    );
+
     this.sendViewModelOut(viewModel);
   }
 
@@ -26,9 +37,26 @@ class BlocInfoUsuario extends Bloc<ViewModelInfoUsuario, BlocEventInfoUsuario> {
         cidade: blocEvent.viewModel.cidade,
         usuario: blocEvent.viewModel.usuario,
         listaCompletaCidade: blocEvent.viewModel.listaCompletaCidade,
-        imagemAtualizada: blocEvent.viewModel.imagemAtualizada);
+        imagemAtualizada: blocEvent.viewModel.imagemAtualizada,
+        workingHours: blocEvent.viewModel.workingHours,
+        description: blocEvent.viewModel.description,
+        email: blocEvent.viewModel.email,
+        phone: blocEvent.viewModel.phone,
+        brazilianID: blocEvent.viewModel.brazilianID,
+        roles:blocEvent.viewModel.roles,
+        brazilianIDpicture: blocEvent.viewModel.brazilianIDpicture,
+    );
     this.sendViewModelOut(viewModel);
-    BusinessModelUsuario businessModel = BusinessModelUsuario(email: viewModel.usuario.email, nome: viewModel.usuario.nome, urlFoto: viewModel.usuario.urlFoto);
+    BusinessModelUsuario businessModel = BusinessModelUsuario(email: viewModel.usuario.email,
+      nome: viewModel.usuario.nome,
+      urlFoto: viewModel.usuario.urlFoto,
+      description: viewModel.usuario.description,
+      roles: viewModel.usuario.roles,
+      city: viewModel.usuario.city,
+      brazilianIDpicture: viewModel.usuario.brazilianIDpicture,
+      phone: viewModel.usuario.phone,
+      brazilianID:  viewModel.usuario.brazilianID,
+      workingHours:  viewModel.usuario.workingHours,);
     ProviderUsuario().saveBusinessModel(businessModel);
   }
 }

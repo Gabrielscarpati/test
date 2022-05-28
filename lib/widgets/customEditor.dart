@@ -17,9 +17,6 @@ abstract class CustomEditor<T extends MixInDescricao, R extends Object> extends 
     required this.onEditionComplete,
   }) : super(key: key);
 
-//@override
-//State<StatefulWidget> createState() => CustomEditorState();
-
 }
 
 abstract class CustomEditorState<T extends MixInDescricao, R extends Object, C extends CustomEditor<T, R>> extends State<C> {
@@ -31,23 +28,30 @@ abstract class CustomEditorState<T extends MixInDescricao, R extends Object, C e
   }
 
   Widget _buildNotEditing(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           Icon(widget.iconData),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                widget.labelText,
-                style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: Theme.of(context).textTheme.bodyText1!.fontSize),
-              ),
-              Text(
-                (widget.item == null ? "" : widget.item!.getDescricao()),
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: Theme.of(context).textTheme.bodyText1!.fontSize),
-              ),
-            ],
+          SizedBox(
+            width: 20,
+          ),
+          Container(
+            width: screenWidth*0.4,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.labelText,
+                  style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: Theme.of(context).textTheme.bodyText1!.fontSize),
+                ),
+                Text(
+                  (widget.item == null ? "" : widget.item!.getDescricao()),
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: Theme.of(context).textTheme.bodyText1!.fontSize),
+                ),
+              ],
+            ),
           ),
         ]),
         IconButton(

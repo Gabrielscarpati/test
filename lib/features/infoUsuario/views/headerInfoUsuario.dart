@@ -9,6 +9,9 @@ import 'package:projeto_treinamento/features/infoUsuario/viewModelInfoUsuario.da
 import 'package:projeto_treinamento/widgets/customDropdownButtonEditor.dart';
 import 'package:projeto_treinamento/widgets/customTextEditor.dart';
 
+import '../../../util/libraryComponents/colors/colors.dart';
+import 'changeInfoUsuario.dart';
+
 class HeaderInfoUsuario extends StatelessWidget {
   HeaderInfoUsuario({Key? key, required this.viewModel, required this.viewActions, required});
 
@@ -20,10 +23,7 @@ class HeaderInfoUsuario extends StatelessWidget {
     return Column(
       children: [
         Container(
-          //decoration: new BoxDecoration(
-          //  color: Colors.grey,
-          //  borderRadius: BorderRadius.vertical(bottom: Radius.circular(40.0)),
-          //),
+          color: BackgroundColorGrey,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -37,7 +37,7 @@ class HeaderInfoUsuario extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 32.0),
+                            padding: const EdgeInsets.only(top: 8, bottom: 8),
                             child: _renderizarAvatar(context, viewModel, viewActions),
                           ),
                         ],
@@ -50,15 +50,7 @@ class HeaderInfoUsuario extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                _informacaoSobreCidade(context, this.viewModel, this.viewActions),
-                                CustomTextEditor<BusinessModelUsuario>(
-                                  labelText: "Nome",
-                                  iconData: Icons.account_box,
-                                  item: this.viewModel.usuario,
-                                  onEditionComplete: (String novoNome) {
-                                    this.viewActions.onChangeName(novoNome, viewModel);
-                                  },
-                                )
+                                ChangeInfoUsuario(viewActions: viewActions, viewModel: viewModel,),
                               ],
                             ),
                           ),
@@ -84,7 +76,7 @@ Widget _renderizarAvatar(BuildContext context, ViewModelInfoUsuario viewModel, V
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         backgroundImage: NetworkImage(viewModel.usuario.urlFoto!),
-        radius: 88.0,
+        radius: 70.0,
         child: Padding(
           padding: EdgeInsets.only(
             left: 88,
@@ -160,45 +152,6 @@ Widget _renderizarAvatar(BuildContext context, ViewModelInfoUsuario viewModel, V
       ),
     );
   }
-}
-
-Widget _informacaoSobreCidade(BuildContext context, ViewModelInfoUsuario viewModel, ViewActionsInfoUsuario viewActions) {
-  List<BusinessModelCidade> _listaInicialDeCidades = List.empty(growable: true);
-  return FutureBuilder<List<BusinessModelCidade>>(
-      future: viewModel.listaCompletaCidade,
-      initialData: _listaInicialDeCidades,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          if (snapshot.data!.length > 0) {
-            return CustomDropdownButtonEditor<BusinessModelCidade>(
-              iconData: Icons.location_on,
-              labelText: "Cidade",
-              items: snapshot.data!,
-              selectedIndex: snapshot.data!.indexWhere((cidade) => cidade.codCidade == viewModel.cidade.codCidade),
-              onEditionComplete: (BusinessModelCidade novaCidade) {
-                viewActions.onChangeCidade(novaCidade, viewModel);
-              },
-            );
-          } else {
-            return (CupertinoActivityIndicator());
-          }
-
-          /*
-            CustomDropdownButtonEditor(
-            text: viewModel.cidade.nome,
-            labelText: "Cidade",
-            iconData: Icons.location_on,
-            viewActions: viewActions,
-            viewModel: viewModel,
-            listaCompletadeCidades: snapshot.data!,
-          );
-             */
-        } else {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-      });
 }
 
 Widget _infoDoPrestadorDeServico(BuildContext context, IconData iconData, String texto) {

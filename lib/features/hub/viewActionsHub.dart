@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelPrincipaisTiposDeServicoCidade.dart';
+import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
 import 'package:projeto_treinamento/features/hub/viewModelHub.dart';
 import 'package:projeto_treinamento/features/infoUsuario/presenterInfoUsuario.dart';
 import 'package:projeto_treinamento/features/infoUsuario/viewModelInfoUsuario.dart';
@@ -59,7 +60,18 @@ class ViewActionsHub extends ViewActions<BlocEventHub> {
 
   void AbreTelaInfoUsuario(BuildContext context, ViewModelHub viewModel) async {
     ViewModelInfoUsuario _viewModel =
-        ViewModelInfoUsuario(cidade: viewModel.cidade, usuario: viewModel.usuario, listaCompletaCidade: ProviderCidade().getBusinessModels());
+        ViewModelInfoUsuario(
+            cidade: viewModel.cidade,
+            usuario: viewModel.usuario,
+            listaCompletaCidade: ProviderCidade().getBusinessModels(),
+            email: BusinessModelUsuario.vazio(),
+            phone: BusinessModelUsuario.vazio(),
+            workingHours: BusinessModelUsuario.vazio(),
+            brazilianID: BusinessModelUsuario.vazio(),
+            roles: BusinessModelUsuario.vazio(),
+            description: BusinessModelUsuario.vazio(),
+            brazilianIDpicture: BusinessModelUsuario.vazio(),
+        );
 
     final ViewModelInfoUsuario results = await Navigator.of(context).push(MaterialPageRoute(
         builder: (BuildContext context) => PresenterInfoUsuario.presenter(
@@ -68,7 +80,18 @@ class ViewActionsHub extends ViewActions<BlocEventHub> {
 
     if (results != null) {
       ViewModelHub novoViewModel =
-          ViewModelHub(cidade: results.cidade, usuario: results.usuario, principaisTiposDeServicoCidade: BusinessModelPrincipaisTiposDeServicoCidade.vazio());
+          ViewModelHub(
+              cidade: results.cidade,
+              usuario: results.usuario,
+              principaisTiposDeServicoCidade: BusinessModelPrincipaisTiposDeServicoCidade.vazio(),
+              email: viewModel.email,
+              phone: viewModel.phone,
+              workingHours: viewModel.workingHours,
+              brazilianID: viewModel.brazilianID,
+              roles: viewModel.roles,
+              description: viewModel.description,
+              brazilianIDpicture: viewModel.brazilianIDpicture,
+          );
       AtualizaTelaHub(novoViewModel);
     }
   }

@@ -7,7 +7,7 @@ import 'package:projeto_treinamento/framework/mixInDescricao.dart';
 import 'customEditor.dart';
 
 class CustomTextEditor<T extends MixInDescricao> extends CustomEditor<T, String> {
-  CustomTextEditor({
+    CustomTextEditor({
     required String labelText,
     required IconData iconData,
     required T? item,
@@ -21,7 +21,7 @@ class CustomTextEditor<T extends MixInDescricao> extends CustomEditor<T, String>
 class CustomTextEditorState<T extends MixInDescricao> extends CustomEditorState<T, String, CustomTextEditor<T>> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
-  late TextEditingController textEditingController = TextEditingController(text:'fefvv');// super.widget.item == null ? "" : super.widget.item!.getDescricao());
+  late TextEditingController textEditingController = TextEditingController(text:'');// super.widget.item == null ? "" : super.widget.item!.getDescricao());
 
   @override
   Widget getEditingWidget(BuildContext context) {
@@ -35,7 +35,7 @@ class CustomTextEditorState<T extends MixInDescricao> extends CustomEditorState<
         prefixIcon: Icon(super.widget.iconData),
         labelText: super.widget.labelText,
         enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(20.0)),
           borderSide: const BorderSide(
             color: Colors.grey,
           ),

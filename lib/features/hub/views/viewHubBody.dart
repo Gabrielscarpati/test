@@ -4,10 +4,7 @@ import 'package:projeto_treinamento/features/hub/views/viewHubCidade.dart';
 import 'package:projeto_treinamento/features/hub/views/viewHubGridView.dart';
 import 'package:projeto_treinamento/features/hub/views/viewHubServicos.dart';
 import 'package:projeto_treinamento/features/hub/views/viewHubUsuario.dart';
-import 'package:projeto_treinamento/features/hub/views/viewHubUsuarioNoData.dart';
 import 'package:projeto_treinamento/util/libraryComponents/colors/colorGradient.dart';
-
-import '../../../daos/firebase/authService.dart';
 import '../../../util/libraryComponents/colors/colors.dart';
 import '../viewActionsHub.dart';
 import '../viewModelHub.dart';
@@ -26,14 +23,11 @@ class ViewHubBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecorationColorGradient(context),
-      
+
       child: Column(
 
         children: [
-          ViewHubUsuarioNoData(),
-              /*return ViewHubUsuario(viewModel: viewModel, viewActions: viewActions);
-            }
-          return ViewHubUsuarioNoData();*/
+           ViewHubUsuario(viewModel: viewModel, viewActions: viewActions),
 
           Expanded(
             child:Container(

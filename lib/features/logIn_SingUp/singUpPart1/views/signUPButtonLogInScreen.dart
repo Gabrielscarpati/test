@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_treinamento/util/libraryComponents/colors/colorGradient.dart';
 
 class SignUpButtonLogInScreen extends StatefulWidget {
   const SignUpButtonLogInScreen({Key? key}) : super(key: key);
@@ -13,13 +14,7 @@ class _SignUpButtonState extends State<SignUpButtonLogInScreen> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       child: Ink(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-            ),
-            borderRadius: BorderRadius.circular(30.0)
-        ),
+        decoration: BoxDecorationColorGradient(context),
 
         child: Container(
           constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),

@@ -2,10 +2,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projeto_treinamento/features/infoUsuario/presenterInfoUsuario.dart';
 import 'package:projeto_treinamento/features/logIn_SingUp/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
+import 'package:projeto_treinamento/features/infoUsuario/views/customEditPrestadorInformation.dart';
 import 'package:projeto_treinamento/ztest/imageController.dart';
 import 'daos/firebase/authService.dart';
-import 'features/logIn_SingUp/SignUpChooseCity/views/bodyViewSignUpChooseCity.dart';
+import 'daos/prestadorInformation/daoUsuario.dart';
+import 'daos/usuario/daoUsuario.dart';
 import 'features/logIn_SingUp/selectCidades/presenterSelectCidade.dart';
 import 'features/hub/presenterHub.dart';
 import 'features/logIn_SingUp/singUpPart1/signUpScreen.dart';
@@ -56,9 +59,9 @@ class MyApp extends StatelessWidget {
             builder: (context, AsyncSnapshot snapshot){
               if (snapshot.hasData){
                 print(snapshot.hasData);
-                return SingUpPart2WorkerInformation();//(user: snapshot.data,);
+                return PresenterHub.presenter();
               }
-              return SingUpPart2WorkerInformation();
+              return PresenterHub.presenter();
             }
         ),
         //SingUpPart2WorkerInformation(),

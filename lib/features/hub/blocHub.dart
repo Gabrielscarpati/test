@@ -20,6 +20,13 @@ class BlocHub extends Bloc<ViewModelHub, BlocEventHub> {
     BusinessModelUsuario usuario = BusinessModelUsuario(
       email: "tiago@teste.com.br",
       nome: "Tiago da Silva",
+      phone: '9999999999',
+      city: 'Colatina',
+      description: 'Sou um Bom funcionaio',
+      roles: 'Pedreiro/pintor',
+      workingHours: 'so depois do almoco',
+      brazilianID: '11111111111',
+      brazilianIDpicture: 'brazilianIDpicture',
       urlFoto: 'https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg',
     );
     String idCidadeDoUsuario = "1"; // 1=colatina
@@ -57,6 +64,13 @@ class BlocHub extends Bloc<ViewModelHub, BlocEventHub> {
     BusinessModelUsuario usuarioTemp = BusinessModelUsuario(
       email: blocEvent.viewModel.usuario.email,
       nome: blocEvent.viewModel.usuario.nome,
+      phone: blocEvent.viewModel.usuario.phone,
+      city: blocEvent.viewModel.usuario.city,
+      description: blocEvent.viewModel.usuario.description,
+      roles: blocEvent.viewModel.usuario.roles,
+      workingHours: blocEvent.viewModel.usuario.workingHours,
+      brazilianID: blocEvent.viewModel.usuario.brazilianID,
+      brazilianIDpicture: blocEvent.viewModel.usuario.brazilianIDpicture,
       urlFoto: 'https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg',
     );
 
@@ -72,6 +86,13 @@ class BlocHub extends Bloc<ViewModelHub, BlocEventHub> {
     BusinessModelUsuario usuario = BusinessModelUsuario(
       email: blocEvent.viewModel.usuario.email,
       nome: blocEvent.viewModel.usuario.nome,
+      phone: blocEvent.viewModel.usuario.phone,
+      city: blocEvent.viewModel.usuario.city,
+      description: blocEvent.viewModel.usuario.description,
+      roles: blocEvent.viewModel.usuario.roles,
+      workingHours: blocEvent.viewModel.usuario.workingHours,
+      brazilianID: blocEvent.viewModel.usuario.brazilianID,
+      brazilianIDpicture: blocEvent.viewModel.usuario.brazilianIDpicture,
       urlFoto: 'https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg',
     );
     debugPrint(blocEvent.viewModel.cidade.id);

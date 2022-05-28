@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:image_picker/image_picker.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
@@ -41,19 +40,198 @@ class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
   }
 
   onChangeName(String novoNome, ViewModelInfoUsuario viewModel) {
-    BusinessModelUsuario usuario = BusinessModelUsuario(nome: novoNome, email: viewModel.usuario.email, urlFoto: viewModel.usuario.urlFoto);
-    ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(cidade: viewModel.cidade, usuario: usuario, listaCompletaCidade: viewModel.listaCompletaCidade);
+    BusinessModelUsuario usuario = BusinessModelUsuario(
+        nome: novoNome,
+        email: viewModel.usuario.email,
+        urlFoto: viewModel.usuario.urlFoto,
+        description: viewModel.usuario.description ,
+        phone: viewModel.usuario.phone,
+        brazilianID: viewModel.usuario.brazilianID,
+        brazilianIDpicture: viewModel.usuario.brazilianIDpicture,
+        workingHours: viewModel.usuario.workingHours,
+        roles: viewModel.usuario.roles,
+        city: viewModel.usuario.city
+    );
+    ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(
+
+        cidade: viewModel.cidade,
+        usuario: usuario,
+        listaCompletaCidade: viewModel.listaCompletaCidade,
+        description: viewModel.description,
+        workingHours: viewModel.workingHours,
+        email: viewModel.email,
+        phone: viewModel.phone,
+        brazilianID: viewModel.brazilianID,
+        brazilianIDpicture: viewModel.brazilianIDpicture,
+        roles: viewModel.roles
+    );
 
     BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
     blocPipeIn.send(blocEvent);
-    //algo para salvar novo usuario
+  }
+
+  onChangeNumber(String novoNome, ViewModelInfoUsuario viewModel) {
+    BusinessModelUsuario usuario = BusinessModelUsuario(
+        nome: novoNome,
+        email: viewModel.usuario.email,
+        urlFoto: viewModel.usuario.urlFoto,
+        description: viewModel.usuario.description ,
+        phone: viewModel.usuario.phone,
+        brazilianID: viewModel.usuario.brazilianID,
+        brazilianIDpicture: viewModel.usuario.brazilianIDpicture,
+        workingHours: viewModel.usuario.workingHours,
+        roles: viewModel.usuario.roles,
+        city: viewModel.usuario.city
+    );
+
+    ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(
+        cidade: viewModel.cidade,
+        usuario: usuario,
+        listaCompletaCidade: viewModel.listaCompletaCidade,
+        description: viewModel.description,
+        workingHours: viewModel.workingHours,
+        email: viewModel.email,
+        phone: viewModel.phone,
+        brazilianID: viewModel.brazilianID,
+        brazilianIDpicture: viewModel.brazilianIDpicture,
+        roles: viewModel.roles
+
+    );
+
+    BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
+    blocPipeIn.send(blocEvent);
+  }
+
+  onChangeEmail(String novoNome, ViewModelInfoUsuario viewModel) {
+    BusinessModelUsuario usuario = BusinessModelUsuario(
+        nome: novoNome,
+        email: viewModel.usuario.email,
+        urlFoto: viewModel.usuario.urlFoto,
+        description: viewModel.usuario.description ,
+        phone: viewModel.usuario.phone,
+        brazilianID: viewModel.usuario.brazilianID,
+        brazilianIDpicture: viewModel.usuario.brazilianIDpicture,
+        workingHours: viewModel.usuario.workingHours,
+        roles: viewModel.usuario.roles,
+        city: viewModel.usuario.city
+    );
+    ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(
+        cidade: viewModel.cidade,
+        usuario: usuario,
+        listaCompletaCidade: viewModel.listaCompletaCidade,
+        description: viewModel.description,
+        workingHours: viewModel.workingHours,
+        email: viewModel.email,
+        phone: viewModel.phone,
+        brazilianID: viewModel.brazilianID,
+        brazilianIDpicture: viewModel.brazilianIDpicture,
+        roles: viewModel.roles
+    );
+
+    BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
+    blocPipeIn.send(blocEvent);
+  }
+  onChangeDescricao(String novoNome, ViewModelInfoUsuario viewModel) {
+    BusinessModelUsuario usuario = BusinessModelUsuario(
+        nome: novoNome,
+        email: viewModel.usuario.email,
+        urlFoto: viewModel.usuario.urlFoto,
+        description: viewModel.usuario.description ,
+        phone: viewModel.usuario.phone,
+        brazilianID: viewModel.usuario.brazilianID,
+        brazilianIDpicture: viewModel.usuario.brazilianIDpicture,
+        workingHours: viewModel.usuario.workingHours,
+        roles: viewModel.usuario.roles,
+        city: viewModel.usuario.city
+     );
+    ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(
+        cidade: viewModel.cidade,
+        usuario: usuario,
+        listaCompletaCidade: viewModel.listaCompletaCidade,
+        description: viewModel.description,
+        workingHours: viewModel.workingHours,
+        email: viewModel.email,
+        phone: viewModel.phone,
+        brazilianID: viewModel.brazilianID,
+        brazilianIDpicture: viewModel.brazilianIDpicture,
+        roles: viewModel.roles
+    );
+
+    BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
+    blocPipeIn.send(blocEvent);
+  }  onChangeHorasDeTrabalho(String novoNome, ViewModelInfoUsuario viewModel) {
+    BusinessModelUsuario usuario = BusinessModelUsuario(
+        nome: novoNome,
+        email: viewModel.usuario.email,
+        urlFoto: viewModel.usuario.urlFoto,
+        description: viewModel.usuario.description ,
+        phone: viewModel.usuario.phone,
+        brazilianID: viewModel.usuario.brazilianID,
+        brazilianIDpicture: viewModel.usuario.brazilianIDpicture,
+        workingHours: viewModel.usuario.workingHours,
+        roles: viewModel.usuario.roles,
+        city: viewModel.usuario.city    );
+
+    ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(
+        cidade: viewModel.cidade,
+        usuario: usuario,
+        listaCompletaCidade: viewModel.listaCompletaCidade,
+        description: viewModel.description,
+        workingHours: viewModel.workingHours,
+        email: viewModel.email,
+        phone: viewModel.phone,
+        brazilianID: viewModel.brazilianID,
+        brazilianIDpicture: viewModel.brazilianIDpicture,
+        roles: viewModel.roles
+    );
+
+    BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
+    blocPipeIn.send(blocEvent);
+  }  onChangeServico(String novoNome, ViewModelInfoUsuario viewModel) {
+    BusinessModelUsuario usuario = BusinessModelUsuario(
+        nome: novoNome,
+        email: viewModel.usuario.email,
+        urlFoto: viewModel.usuario.urlFoto,
+        description: viewModel.usuario.description ,
+        phone: viewModel.usuario.phone,
+        brazilianID: viewModel.usuario.brazilianID,
+        brazilianIDpicture: viewModel.usuario.brazilianIDpicture,
+        workingHours: viewModel.usuario.workingHours,
+        roles: viewModel.usuario.roles,
+        city: viewModel.usuario.city    );
+    ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(
+
+        cidade: viewModel.cidade,
+        usuario: usuario,
+        listaCompletaCidade: viewModel.listaCompletaCidade,
+        description: viewModel.description,
+        workingHours: viewModel.workingHours,
+        email: viewModel.email,
+        phone: viewModel.phone,
+        brazilianID: viewModel.brazilianID,
+        brazilianIDpicture: viewModel.brazilianIDpicture,
+        roles: viewModel.roles
+    );
+
+    BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
+    blocPipeIn.send(blocEvent);
   }
 
   onChangeCidade(BusinessModelCidade novaCidade, ViewModelInfoUsuario viewModel) async {
-    ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(cidade: novaCidade, usuario: viewModel.usuario, listaCompletaCidade: viewModel.listaCompletaCidade);
+    ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(
+        cidade: viewModel.cidade,
+        listaCompletaCidade: viewModel.listaCompletaCidade,
+        description: viewModel.description,
+        workingHours: viewModel.workingHours,
+        email: viewModel.email,
+        phone: viewModel.phone,
+        brazilianID: viewModel.brazilianID,
+        brazilianIDpicture: viewModel.brazilianIDpicture,
+        roles: viewModel.roles,
+        usuario: viewModel.usuario,
+    );
     BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
     blocPipeIn.send(blocEvent);
-    //algo para salvar novo usuario
   }
 
   Future<BusinessModelCidade> _getBuisnessModelCidadeByCodCidade(String codCidade) async {
@@ -68,7 +246,17 @@ class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
   }
 
   void onChangeImagem(Uint8List imagem, BusinessModelUsuario usuario, ViewModelInfoUsuario viewModel) {
-    ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(cidade: viewModel.cidade, usuario: usuario, listaCompletaCidade: viewModel.listaCompletaCidade, imagemAtualizada: imagem);
+    ViewModelInfoUsuario _viewModel = ViewModelInfoUsuario(
+        cidade: viewModel.cidade,
+        usuario: usuario,
+        listaCompletaCidade: viewModel.listaCompletaCidade,
+        description: viewModel.description,
+        workingHours: viewModel.workingHours,
+        email: viewModel.email,
+        phone: viewModel.phone,
+        brazilianID: viewModel.brazilianID,
+        brazilianIDpicture: viewModel.brazilianIDpicture,
+        roles: viewModel.roles);
 
     BlocEventInfoUsuarioAtualizaViewModel blocEvent = BlocEventInfoUsuarioAtualizaViewModel(viewModel: _viewModel);
     blocPipeIn.send(blocEvent);

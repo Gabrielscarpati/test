@@ -1,7 +1,5 @@
-import 'package:projeto_treinamento/features/hub/viewModelHub.dart';
 import 'package:projeto_treinamento/features/infoUsuario/viewModelInfoUsuario.dart';
 import 'package:projeto_treinamento/framework/blocEvent.dart';
-import 'package:projeto_treinamento/framework/viewModel.dart';
 
 abstract class BlocEventInfoUsuario extends BlocEvent {}
 

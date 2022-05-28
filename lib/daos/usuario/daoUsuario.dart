@@ -1,5 +1,4 @@
 import 'package:projeto_treinamento/framework/daoWebApi.dart';
-
 import 'dataModelBuilderUsuario.dart';
 import 'dataModelUsuario.dart';
 

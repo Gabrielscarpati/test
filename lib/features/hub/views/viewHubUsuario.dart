@@ -59,7 +59,7 @@ class ViewHubUsuario extends StatelessWidget {
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.black,
                   backgroundImage: NetworkImage(usuario.urlFoto!),
-                  radius: 36.0, // Mudei de 30 para 36
+                  radius: 36.0,
                   child: Text("", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
                 ),
               ),

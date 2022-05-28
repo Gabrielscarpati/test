@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:projeto_treinamento/features/hub/viewActionsHub.dart';
-import 'package:projeto_treinamento/features/infoUsuario/views/headerInfoUsuario.dart';
+import 'package:projeto_treinamento/features/infoUsuario/views/InfoUsuarioBody.dart';
+import 'package:projeto_treinamento/features/infoUsuario/views/buttonSalvarInfoUsuario.dart';
 import 'package:projeto_treinamento/framework/view.dart';
 import 'viewActionsInfoUsuario.dart';
 import 'viewModelInfoUsuario.dart';
@@ -18,6 +18,12 @@ class ViewInfoUsuario extends View<ViewModelInfoUsuario, ViewActionsInfoUsuario>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Perfil',
+          style: TextStyle(color:
+          Colors.black,
+              fontSize:20
+          ),
+        ),
         automaticallyImplyLeading: false,
         leading: IconButton(
           icon: Icon(MdiIcons.arrowLeft),
@@ -27,6 +33,13 @@ class ViewInfoUsuario extends View<ViewModelInfoUsuario, ViewActionsInfoUsuario>
         ),
       ),
       body: _buildBody(context),
+      bottomNavigationBar:
+      BottomAppBar(
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: ButtonSaveInfoUsuario(),
+        ),
+      ),
     );
   }
 
@@ -36,7 +49,10 @@ class ViewInfoUsuario extends View<ViewModelInfoUsuario, ViewActionsInfoUsuario>
         child: CircularProgressIndicator(),
       );
     } else {
-      return HeaderInfoUsuario(viewModel: this.viewModel!, viewActions: viewActions);
+      return InfoUsuarioBody(viewModel: this.viewModel!, viewActions: viewActions);
     }
   }
 }
+
+
+//

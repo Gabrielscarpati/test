@@ -9,6 +9,13 @@ class DataModelBuilderUsuario extends DataModelBuilder<DataModelUsuario> {
       email: json["email"],
       nome: json["nome"],
       urlFoto: json["final String? urlFoto;"],
+      phone: 'phone',
+      city: 'city',
+      description: 'description',
+      roles: 'roles',
+      workingHours: 'workingHours',
+      brazilianID: 'brazilianID',
+      brazilianIDpicture: 'brazilianIDpicture',
     );
   }
 

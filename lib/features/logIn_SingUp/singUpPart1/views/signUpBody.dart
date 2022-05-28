@@ -77,8 +77,7 @@ class _LogInBody extends State<SignUpPart1Body> {
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: const[
                               BoxShadow(
-                                  color: Color.fromRGBO(
-                                      171, 171, 171, 0.7019607843137254),blurRadius: 20,offset: Offset(0,10)),
+                                  color: Color.fromRGBO(171, 171, 171, 0.7019607843137254),blurRadius: 20,offset: Offset(0,10)),
                             ],
                           ),
 
