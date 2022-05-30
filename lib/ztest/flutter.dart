@@ -2,11 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class TestAddToFirebase extends StatelessWidget {
-  CollectionReference users = FirebaseFirestore.instance.collection('users');
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+import '../businessModels/businessModelPrestadorInfomation.dart';
 
-  TestAddToFirebase({Key? key}) : super(key: key);
+class TestAddToFirebase extends StatelessWidget {
+  final BusinessModelPrestadorInformation? business;
+
+  TestAddToFirebase({Key? key, required this.business}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,11 +22,8 @@ class TestAddToFirebase extends StatelessWidget {
             children: [
               ElevatedButton(
                   onPressed: () async{
-                    print('success');
-                    await users.doc('first1').set({
-                      'name': 'Gabriel'
-                    }
-                    );
+                    print(business?.primeiroNome());
+
                   },
                   child: Text('Add data to firestore')
               ),

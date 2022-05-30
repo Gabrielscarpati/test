@@ -1,9 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewActionsInfoPrestadorDeServico.dart';
+import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewActionsPerfilPrestadorDeServico.dart';
+import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
 import '../../hub/presenterHub.dart';
 
 class ButtonSavePerfilPrestadorDeServico extends StatefulWidget {
-  const ButtonSavePerfilPrestadorDeServico({Key? key}) : super(key: key);
+  //final ViewActionsPerfilPrestadorDeServico viewActions;
+  //final ViewModelPerfilPrestadorDeServico viewModel;
+  const ButtonSavePerfilPrestadorDeServico({Key? key,
+    //required this.viewActions,
+    //required this.viewModel
+  }) : super(key: key);
 
   @override
   _ButtonSavePerfilPrestadorDeServicoState createState() =>
@@ -48,6 +56,8 @@ class _ButtonSavePerfilPrestadorDeServicoState
               ),
             ),
             onPressed: () {
+              //widget.viewActions.updatePrestadorInformation(viewModel: widget.viewModel);
+
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => PresenterHub.presenter()));
             },

@@ -1,20 +1,21 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/infoUsuario/presenterInfoUsuario.dart';
-import 'package:projeto_treinamento/features/logIn_SingUp/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
+import 'package:projeto_treinamento/features/logIn_SingUpPrestador/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
 import 'package:projeto_treinamento/features/infoUsuario/views/customEditPrestadorInformation.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
-import 'package:projeto_treinamento/ztest/imageController.dart';
+import 'package:provider/provider.dart';
 import 'daos/firebase/authService.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
 import 'daos/usuario/daoUsuario.dart';
 import 'features/hub/presenterHub.dart';
-import 'features/logIn_SingUp/singUpPart1/signUpScreen.dart';
-import 'features/logIn_SingUp/singUpPart1/views/signUpBody.dart';
-import 'features/logIn_SingUp/veryFirstScreen/veryFirstScreenUserType.dart';
+import 'features/logIn_SingUpPrestador/selectCidades/presenterSelectCidade.dart';
+import 'features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,10 +23,20 @@ void main() async {
   runApp(MyApp());
 }
 
+
+GoogleSignInAccount? _usuarioAtual;
+
+Future<String> verificarSeUsuarioNulo() async{
+  final userData = await FacebookAuth.instance.getUserData();
+  return userData.toString();
+}
+
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    GoogleSignInAccount? usuario = _usuarioAtual;
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return MaterialApp(
       title: 'Flutter Demo',
@@ -61,11 +72,11 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData) {
+            if (snapshot.hasData || usuario!= null || verificarSeUsuarioNulo()!= null) {
               print(snapshot.hasData);
-              return PresenterPerfilPrestadorDeServico.presenter(viewModel: ViewModelPerfilPrestadorDeServico()) PresenterHub.presenter();
+              return PresenterSelectCidade.presenter();
             }
-            return PresenterHub.presenter();
+            return ViewVeryFirstScreen();
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),

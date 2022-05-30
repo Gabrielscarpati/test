@@ -1,3 +1,4 @@
+import 'package:projeto_treinamento/businessModels/businessModelPrestadorInfomation.dart';
 import 'package:projeto_treinamento/features/hub/viewModelHub.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/blocEventPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/blocPerfilPrestadorDeServico.dart';
@@ -21,34 +22,41 @@ class PresenterPerfilPrestadorDeServico extends Presenter<
     required ViewActionsPerfilPrestadorDeServico viewActions,
     required ViewModelPerfilPrestadorDeServico viewModel,
   }) : super(
-          bloc: bloc,
-          viewBuilder: viewBuilder,
-          viewActions: viewActions,
-        ) {
+    bloc: bloc,
+    viewBuilder: viewBuilder,
+    viewActions: viewActions,
+  ) {
     _enviaEventoInicializacaoViewModel(viewModel);
   }
 
-  factory PresenterPerfilPrestadorDeServico.presenter({
-    required ViewModelPerfilPrestadorDeServico viewModel,
-  }) {
+  factory PresenterPerfilPrestadorDeServico.presenter() {
     BlocPerfilPrestadorDeServico bloc = BlocPerfilPrestadorDeServico();
     ViewBuilderPerfilPrestadorDeServico viewBuilder =
-        ViewBuilderPerfilPrestadorDeServico();
+    ViewBuilderPerfilPrestadorDeServico();
     ViewActionsPerfilPrestadorDeServico viewActions =
-        ViewActionsPerfilPrestadorDeServico(bloc.pipeIn);
+    ViewActionsPerfilPrestadorDeServico(bloc.pipeIn);
     return PresenterPerfilPrestadorDeServico(
       bloc: bloc,
       viewBuilder: viewBuilder,
       viewActions: viewActions,
-      viewModel: viewModel,
+      viewModel: ViewModelPerfilPrestadorDeServico(
+          prestadorInformation: BusinessModelPrestadorInformation(
+            IdUsuario: "",
+            nome: "",
+            phone: "",
+            city: "",
+            description: "",
+            roles: "",
+            workingHours: "",
+          )),
     );
   }
 
   void _enviaEventoInicializacaoViewModel(
       ViewModelPerfilPrestadorDeServico viewModel) {
     BlocEventPerfilPrestadorDeServicoInicializaViewModel blocEvent =
-        BlocEventPerfilPrestadorDeServicoInicializaViewModel(
-            viewModel: viewModel);
+    BlocEventPerfilPrestadorDeServicoInicializaViewModel(
+        viewModel: viewModel);
     this.bloc.pipeIn.send(blocEvent);
   }
 }

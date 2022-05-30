@@ -18,7 +18,7 @@ class AdapterPrestadorInformation extends Adapter<
         description: dataModel.description,
         roles: dataModel.roles,
         workingHours: dataModel.workingHours,
-        nome: '',
+        nome: dataModel.name,
       );
   }
 
@@ -34,7 +34,7 @@ class AdapterPrestadorInformation extends Adapter<
       brazilianID: '',
       brazilianIDPicture: '',
       IdUsuario: businessModel.IdUsuario,
-      name: '',
+      name: businessModel.nome,
       profilePicture: '',
     );
   }

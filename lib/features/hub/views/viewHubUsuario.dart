@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
 
+import '../../perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
 import '../viewActionsHub.dart';
 import '../viewModelHub.dart';
 
 class ViewHubUsuario extends StatelessWidget {
+
   ViewHubUsuario({
     Key? key,
     required this.viewModel,
     required this.viewActions,
+
   });
 
   final ViewModelHub viewModel;
@@ -45,7 +48,7 @@ class ViewHubUsuario extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              viewActions.AbreTelaInfoUsuario(context, viewModel);
+              viewActions.AbreTelaInfoUsuario(context, viewModel );
             },
             child: Hero(
               tag: viewModel.usuario.id,

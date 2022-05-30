@@ -6,11 +6,11 @@ import 'package:projeto_treinamento/features/infoUsuario/viewModelInfoUsuario.da
 import 'package:projeto_treinamento/framework/pipe.dart';
 import 'package:projeto_treinamento/framework/viewActions.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
-
 import 'blocEventInfoUsuario.dart';
 
 class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
   ViewActionsInfoUsuario(Pipe<BlocEventInfoUsuario> blocPipeIn) : super(blocPipeIn);
+
 
   void abrirInterfaceGaleriaCamera(ImageSource imageSource, ViewModelInfoUsuario viewModel, BusinessModelUsuario usuario) async {
     final ImagePicker _picker = ImagePicker();
@@ -214,4 +214,6 @@ class ViewActionsInfoUsuario extends ViewActions<BlocEventInfoUsuario> {
 
     /* ...inserir imagem no banco de dados... */
   }
+
+
 }

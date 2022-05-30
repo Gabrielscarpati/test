@@ -1,6 +1,5 @@
 /*
 
-
 import '../framework/mixInDescricao.dart';
 import 'package:projeto_treinamento/framework/mixInDescricao.dart';
 

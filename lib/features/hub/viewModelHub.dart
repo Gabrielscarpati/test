@@ -3,7 +3,11 @@ import 'package:projeto_treinamento/businessModels/businessModelPrincipaisTiposD
 import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
 import 'package:projeto_treinamento/framework/viewModel.dart';
 
+import '../../businessModels/businessModelPrestadorInfomation.dart';
+
 class ViewModelHub extends ViewModel {
+
+
   final BusinessModelUsuario usuario;
   final BusinessModelCidade cidade;
   final BusinessModelPrincipaisTiposDeServicoCidade principaisTiposDeServicoCidade;
@@ -28,4 +32,6 @@ class ViewModelHub extends ViewModel {
      this.brazilianID,
      this.brazilianIDpicture,
   }) : super();
+
+
 }

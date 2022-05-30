@@ -36,7 +36,7 @@ class ViewPerfilPrestadorDeServico extends View<
       bottomNavigationBar: BottomAppBar(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
-          child: ButtonSavePerfilPrestadorDeServico(),
+          child: ButtonSavePerfilPrestadorDeServico(/*viewActions: viewActions, viewModel: viewModel,*/),
         ),
       ),
     );
@@ -53,6 +53,3 @@ class ViewPerfilPrestadorDeServico extends View<
     }
   }
 }
-
-
-//
