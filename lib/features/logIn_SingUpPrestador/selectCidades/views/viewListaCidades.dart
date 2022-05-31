@@ -25,7 +25,7 @@ class _ViewListSelectCityState extends State<ViewListSelectCity> {
   Widget build(BuildContext context) {
     return ListView.builder(
         shrinkWrap: true,
-        itemCount: widget.viewModel.cidades.length,
+        itemCount: widget.viewModel.listaVisivel.length,
         itemBuilder: (BuildContext context, int index) {
           return Card(
             color: widget.viewModel.cidadesSelecionadas
@@ -38,7 +38,7 @@ class _ViewListSelectCityState extends State<ViewListSelectCity> {
                   print(widget.viewModel.cidadesSelecionadas.length);
                 },
                 title: SubstringHighlight(
-                      text: widget.viewModel.cidades[index].nome,
+                      text: widget.viewModel.listaVisivel[index].nome,
                       caseSensitive: false,
                       overflow: TextOverflow.ellipsis,
                       term: widget.viewModel.controlerFieldPesquisa.text,

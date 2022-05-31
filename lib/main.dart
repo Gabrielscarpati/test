@@ -26,10 +26,12 @@ void main() async {
 
 GoogleSignInAccount? _usuarioAtual;
 
+/*
 Future<String> verificarSeUsuarioNulo() async{
   final userData = await FacebookAuth.instance.getUserData();
   return userData.toString();
 }
+*/
 
 
 class MyApp extends StatelessWidget {
@@ -72,7 +74,7 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData || usuario!= null || verificarSeUsuarioNulo()!= null) {
+            if (snapshot.hasData || usuario!= null) {
               print(snapshot.hasData);
               return PresenterSelectCidade.presenter();
             }

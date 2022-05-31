@@ -6,7 +6,7 @@ import '../../../util/libraryComponents/colors/colors.dart';//
 import 'viewActionsSelectCidade.dart';//
 import 'viewModelSelectCidade.dart';//
 import 'views/buttonGoSignUpScreenPart4.dart';//
-import 'views/viewHeaderPesquisaCidade copy.dart';
+import 'views/viewHeaderSelectCidade.dart';
 import 'views/viewListaCidades.dart';
 
 class ViewSelectCidade extends View<ViewModelSelectCidade, ViewActionsSelectCidade> {
@@ -48,7 +48,7 @@ class ViewSelectCidade extends View<ViewModelSelectCidade, ViewActionsSelectCida
                 borderOnForeground: true,
                 child: Padding(
                   padding: const EdgeInsets.all(8),
-                  child: ViewHeaderPesquisaCidadea(viewModel: viewModel!, viewActions: viewActions,),
+                  child: ViewHeaderSelectCidadea(viewModel: viewModel!, viewActions: viewActions,),
                 ),
               ),
               Card(

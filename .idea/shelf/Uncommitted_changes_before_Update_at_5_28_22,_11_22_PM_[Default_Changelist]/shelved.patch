@@ -1,0 +1,1050 @@
+Index: lib/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'dart:typed_data';\n\nimport 'package:flutter/material.dart';\nimport 'package:image_picker/image_picker.dart';\nimport 'package:projeto_treinamento/businessModels/businessModelCidade.dart';\nimport 'package:projeto_treinamento/businessModels/businessModelPrincipaisTiposDeServicoCidade.dart';\nimport 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';\nimport 'package:projeto_treinamento/framework/viewModel.dart';\n\nclass ViewModelPerfilPrestadorDeServico extends ViewModel {\n  ViewModelPerfilPrestadorDeServico() : super();\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart b/lib/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart
+--- a/lib/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart	(revision f02c1dee8caddccc31f3f23b3aa80cee659089d0)
++++ b/lib/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart	(date 1653776876294)
+@@ -1,5 +1,4 @@
+ import 'dart:typed_data';
+-
+ import 'package:flutter/material.dart';
+ import 'package:image_picker/image_picker.dart';
+ import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
+Index: .idea/libraries/Flutter_Plugins.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\n  <library name=\"Flutter Plugins\" type=\"FlutterPluginsLibraryType\">\n    <CLASSES>\n      <root url=\"file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1\" />\n      <root url=\"file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4\" />\n      <root url=\"file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18\" />\n      <root url=\"file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15\" />\n      <root url=\"file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15\" />\n      <root url=\"file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0\" />\n      <root url=\"file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8\" />\n      <root url=\"file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16\" />\n      <root url=\"file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15\" />\n      <root url=\"file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16\" />\n    </CLASSES>\n    <JAVADOC />\n    <SOURCES />\n  </library>\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Flutter_Plugins.xml b/.idea/libraries/Flutter_Plugins.xml
+--- a/.idea/libraries/Flutter_Plugins.xml	(revision f02c1dee8caddccc31f3f23b3aa80cee659089d0)
++++ b/.idea/libraries/Flutter_Plugins.xml	(date 1653774598131)
+@@ -1,16 +1,16 @@
+ <component name="libraryTable">
+   <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
+     <CLASSES>
+-      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1" />
+       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4" />
+       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18" />
++      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16" />
++      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16" />
+       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15" />
+-      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15" />
+-      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0" />
+       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8" />
+-      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16" />
++      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15" />
+       <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15" />
+-      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16" />
++      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0" />
++      <root url="file://$PROJECT_DIR$/../flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1" />
+     </CLASSES>
+     <JAVADOC />
+     <SOURCES />
+Index: .flutter-plugins
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># This is a generated file; do not edit or check into version control.\ncloud_firestore=/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/\ncloud_firestore_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/\nfirebase_auth=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/\nfirebase_auth_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/\nfirebase_core=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/\nfirebase_core_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/\nfirebase_storage=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/\nfirebase_storage_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/\nflutter_plugin_android_lifecycle=/home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/\nimage_picker=/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/\nimage_picker_for_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.flutter-plugins b/.flutter-plugins
+--- a/.flutter-plugins	(revision f02c1dee8caddccc31f3f23b3aa80cee659089d0)
++++ b/.flutter-plugins	(date 1653774566964)
+@@ -1,12 +1,12 @@
+ # This is a generated file; do not edit or check into version control.
+-cloud_firestore=/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/
+-cloud_firestore_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/
+-firebase_auth=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/
+-firebase_auth_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/
+-firebase_core=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/
+-firebase_core_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/
+-firebase_storage=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/
+-firebase_storage_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/
+-flutter_plugin_android_lifecycle=/home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/
+-image_picker=/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/
+-image_picker_for_web=/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/
++cloud_firestore=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/
++cloud_firestore_web=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/
++firebase_auth=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/
++firebase_auth_web=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/
++firebase_core=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/
++firebase_core_web=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/
++firebase_storage=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/
++firebase_storage_web=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/
++flutter_plugin_android_lifecycle=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/
++image_picker=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/
++image_picker_for_web=/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"NONE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"7ed77b64-fc0e-4c87-856c-9440b5c22f50\" name=\"Default Changelist\" comment=\"Mudando Tela Perfil\">\n      <change afterPath=\"$PROJECT_DIR$/lib/businessModels/businessModelPrestadorInfomation.dart\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/lib/providers/prestadorInformation/adapterPrestadorInformation.dart\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/lib/providers/prestadorInformation/providerPrestadorInformation.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.flutter-plugins-dependencies\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.flutter-plugins-dependencies\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/lib/daos/prestadorInformation/daoUsuario.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/daos/prestadorInformation/daoPrestadorInformatio.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/lib/daos/prestadorInformation/dataModelBuilderPrestadorInformation.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/daos/prestadorInformation/dataModelBuilderPrestadorInformation.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/lib/features/hub/blocHub.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/features/hub/blocHub.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/lib/features/hub/viewActionsHub.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/features/hub/viewActionsHub.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/lib/features/infoUsuario/blocInfoUsuario.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/features/infoUsuario/blocInfoUsuario.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/lib/features/infoUsuario/viewActionsInfoUsuario.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/features/infoUsuario/viewActionsInfoUsuario.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/lib/features/infoUsuario/viewModelInfoUsuario.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/features/infoUsuario/viewModelInfoUsuario.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/views/bodySingUpScreenInstitution.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/views/bodySingUpScreenInstitution.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/lib/main.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/main.dart\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ExecutionTargetManager\" SELECTED_TARGET=\"device_and_snapshot_combo_box_target[/Users/gbscarpati/.android/avd/Pixel_3a_API_31_arm64-v8a.avd]\" />\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Dart File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"pt_11Gabriel\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitSEFilterConfiguration\">\n    <file-type-list>\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\n      <filtered-out-file-type name=\"TAG\" />\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\n    </file-type-list>\n  </component>\n  <component name=\"ProjectId\" id=\"27GAbCXyNBuQvNSGns9IosxLzyf\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"dart.analysis.tool.window.visible\" value=\"false\" />\n    <property name=\"io.flutter.reload.alreadyRun\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/lib/providers\" />\n    <property name=\"project.structure.last.edited\" value=\"Project\" />\n    <property name=\"project.structure.proportion\" value=\"0.0\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.language.Kotlin\" />\n    <property name=\"show.migrate.to.gradle.popup\" value=\"false\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/lib/providers\" />\n      <recent name=\"$PROJECT_DIR$/lib/businessModels\" />\n      <recent name=\"$PROJECT_DIR$/lib/daos\" />\n      <recent name=\"$PROJECT_DIR$/lib/features/logIn_SingUp/selectCidades/views\" />\n      <recent name=\"$PROJECT_DIR$/lib/features/logIn_SingUp/selectCidades\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/lib/features/infoUsuario/views\" />\n      <recent name=\"$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation\" />\n      <recent name=\"$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/views\" />\n      <recent name=\"$PROJECT_DIR$/lib/features/logIn_SingUp\" />\n      <recent name=\"$PROJECT_DIR$/lib/daos/cidade\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"7ed77b64-fc0e-4c87-856c-9440b5c22f50\" name=\"Default Changelist\" comment=\"\" />\n      <created>1648936123200</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1648936123200</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Erro corrigido\">\n      <created>1648936558741</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1648936558741</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Modifying hub screen\">\n      <created>1649397152917</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1649397152917</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"hub almost done\">\n      <created>1649411751768</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1649411751768</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"All of the headings have the same pattern, and background color is grey\">\n      <created>1649731913505</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1649731913505</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"All of the headings have the same pattern, and background color is grey\">\n      <created>1650153333296</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1650153333296</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Sing up Screens\">\n      <created>1650155290238</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1650155290238</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"changes caio compatibility\">\n      <created>1651093070241</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1651093070241</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"change hub and sign up part 1\">\n      <created>1652321470143</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1652321470143</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"changes caio compatibility\">\n      <created>1653433158732</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1653433158732</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"Mudando Tela Perfil\">\n      <created>1653709777671</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1653709777671</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"11\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n    <MESSAGE value=\"Erro corrigido\" />\n    <MESSAGE value=\"Modifying hub screen\" />\n    <MESSAGE value=\"hub almost done\" />\n    <MESSAGE value=\"All of the headings have the same pattern, and background color is grey\" />\n    <MESSAGE value=\"Sing up Screens\" />\n    <MESSAGE value=\"change hub and sign up part 1\" />\n    <MESSAGE value=\"changes caio compatibility\" />\n    <MESSAGE value=\"Mudando Tela Perfil\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Mudando Tela Perfil\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <default-breakpoints>\n        <breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"CidrExceptionBreakpoint\" />\n      </default-breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f02c1dee8caddccc31f3f23b3aa80cee659089d0)
++++ b/.idea/workspace.xml	(date 1653777046958)
+@@ -5,20 +5,15 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="7ed77b64-fc0e-4c87-856c-9440b5c22f50" name="Default Changelist" comment="Mudando Tela Perfil">
+-      <change afterPath="$PROJECT_DIR$/lib/businessModels/businessModelPrestadorInfomation.dart" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/lib/providers/prestadorInformation/adapterPrestadorInformation.dart" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/lib/providers/prestadorInformation/providerPrestadorInformation.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/daos/prestadorInformation/daoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/prestadorInformation/daoPrestadorInformatio.dart" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/daos/prestadorInformation/dataModelBuilderPrestadorInformation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/prestadorInformation/dataModelBuilderPrestadorInformation.dart" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/features/hub/blocHub.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/blocHub.dart" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/features/hub/viewActionsHub.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hub/viewActionsHub.dart" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/features/infoUsuario/blocInfoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoUsuario/blocInfoUsuario.dart" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/features/infoUsuario/viewActionsInfoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoUsuario/viewActionsInfoUsuario.dart" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/features/infoUsuario/viewModelInfoUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoUsuario/viewModelInfoUsuario.dart" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/views/bodySingUpScreenInstitution.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUp/singUpPart2WorkerInformation/views/bodySingUpScreenInstitution.dart" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/lib/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -166,7 +161,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1653709777671</updated>
+     </task>
+-    <option name="localTasksCounter" value="11" />
++    <task id="LOCAL-00011" summary="Mudando Tela Perfil">
++      <created>1653762238995</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1653762238995</updated>
++    </task>
++    <option name="localTasksCounter" value="12" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+Index: .dart_tool/version
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>2.11.0-0.0.pre.710
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.dart_tool/version b/.dart_tool/version
+--- a/.dart_tool/version	(revision f02c1dee8caddccc31f3f23b3aa80cee659089d0)
++++ b/.dart_tool/version	(date 1653774566832)
+@@ -1,1 +1,1 @@
+-2.11.0-0.0.pre.710
+\ No newline at end of file
++2.12.0-4.2.pre
+\ No newline at end of file
+Index: .dart_tool/package_config.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"configVersion\": 2,\n  \"packages\": [\n    {\n      \"name\": \"async\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/async-2.8.2\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"boolean_selector\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"characters\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"charcode\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"clock\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"cloud_firestore\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"cloud_firestore_platform_interface\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"cloud_firestore_web\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"collection\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"convert\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"cross_file\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"cupertino_icons\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"email_validator\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"fake_async\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"firebase_auth\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"firebase_auth_platform_interface\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"firebase_auth_web\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"firebase_core\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"firebase_core_platform_interface\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"firebase_core_web\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"firebase_storage\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"firebase_storage_platform_interface\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"firebase_storage_web\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"flutter\",\n      \"rootUri\": \"file:///home/caio/development/flutter/packages/flutter\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"flutter_plugin_android_lifecycle\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"flutter_rating_bar\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.14\"\n    },\n    {\n      \"name\": \"flutter_test\",\n      \"rootUri\": \"file:///home/caio/development/flutter/packages/flutter_test\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"flutter_web_plugins\",\n      \"rootUri\": \"file:///home/caio/development/flutter/packages/flutter_web_plugins\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"get\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/get-4.6.5\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.15\"\n    },\n    {\n      \"name\": \"http\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http-0.13.3\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"http_parser\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"image_picker\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"image_picker_for_web\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"image_picker_platform_interface\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"intl\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"js\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/js-0.6.4\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.16\"\n    },\n    {\n      \"name\": \"matcher\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"material_color_utilities\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.13\"\n    },\n    {\n      \"name\": \"material_design_icons_flutter\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"meta\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"multi_select_flutter\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"path\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/path-1.8.1\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"pedantic\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"percent_indicator\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"plugin_platform_interface\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"sky_engine\",\n      \"rootUri\": \"file:///home/caio/development/flutter/bin/cache/pkg/sky_engine\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"source_span\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.14\"\n    },\n    {\n      \"name\": \"stack_trace\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"stream_channel\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"string_scanner\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"substring_highlight\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"term_glyph\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"test_api\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"typed_data\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    },\n    {\n      \"name\": \"vector_math\",\n      \"rootUri\": \"file:///home/caio/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.14\"\n    },\n    {\n      \"name\": \"projeto_treinamento\",\n      \"rootUri\": \"../\",\n      \"packageUri\": \"lib/\",\n      \"languageVersion\": \"2.12\"\n    }\n  ],\n  \"generated\": \"2022-05-28T18:27:47.180483Z\",\n  \"generator\": \"pub\",\n  \"generatorVersion\": \"2.17.0-150.0.dev\"\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.dart_tool/package_config.json b/.dart_tool/package_config.json
+--- a/.dart_tool/package_config.json	(revision f02c1dee8caddccc31f3f23b3aa80cee659089d0)
++++ b/.dart_tool/package_config.json	(date 1653774566716)
+@@ -3,331 +3,331 @@
+   "packages": [
+     {
+       "name": "async",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/async-2.8.2",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "boolean_selector",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "characters",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "charcode",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "clock",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "cloud_firestore",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "cloud_firestore_platform_interface",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "cloud_firestore_web",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "collection",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "convert",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "cross_file",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "cupertino_icons",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "email_validator",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "fake_async",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "firebase_auth",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "firebase_auth_platform_interface",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "firebase_auth_web",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "firebase_core",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "firebase_core_platform_interface",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "firebase_core_web",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "firebase_storage",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "firebase_storage_platform_interface",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "firebase_storage_web",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "flutter",
+-      "rootUri": "file:///home/caio/development/flutter/packages/flutter",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "flutter_plugin_android_lifecycle",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "flutter_rating_bar",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1",
+       "packageUri": "lib/",
+       "languageVersion": "2.14"
+     },
+     {
+       "name": "flutter_test",
+-      "rootUri": "file:///home/caio/development/flutter/packages/flutter_test",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter_test",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "flutter_web_plugins",
+-      "rootUri": "file:///home/caio/development/flutter/packages/flutter_web_plugins",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter_web_plugins",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "get",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/get-4.6.5",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5",
+       "packageUri": "lib/",
+       "languageVersion": "2.15"
+     },
+     {
+       "name": "http",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http-0.13.3",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.3",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "http_parser",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "image_picker",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "image_picker_for_web",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "image_picker_platform_interface",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "intl",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "js",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/js-0.6.4",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4",
+       "packageUri": "lib/",
+       "languageVersion": "2.16"
+     },
+     {
+       "name": "matcher",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "material_color_utilities",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4",
+       "packageUri": "lib/",
+       "languageVersion": "2.13"
+     },
+     {
+       "name": "material_design_icons_flutter",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "meta",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "multi_select_flutter",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "path",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/path-1.8.1",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.1",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "pedantic",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "percent_indicator",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "plugin_platform_interface",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "sky_engine",
+-      "rootUri": "file:///home/caio/development/flutter/bin/cache/pkg/sky_engine",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/bin/cache/pkg/sky_engine",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "source_span",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2",
+       "packageUri": "lib/",
+       "languageVersion": "2.14"
+     },
+     {
+       "name": "stack_trace",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "stream_channel",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "string_scanner",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "substring_highlight",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "term_glyph",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "test_api",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "typed_data",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0",
+       "packageUri": "lib/",
+       "languageVersion": "2.12"
+     },
+     {
+       "name": "vector_math",
+-      "rootUri": "file:///home/caio/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
++      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
+       "packageUri": "lib/",
+       "languageVersion": "2.14"
+     },
+@@ -338,7 +338,7 @@
+       "languageVersion": "2.12"
+     }
+   ],
+-  "generated": "2022-05-28T18:27:47.180483Z",
++  "generated": "2022-05-28T21:49:26.710977Z",
+   "generator": "pub",
+-  "generatorVersion": "2.17.0-150.0.dev"
++  "generatorVersion": "2.17.0-182.2.beta"
+ }
+Index: .dart_tool/package_config_subset
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>projeto_treinamento\n2.12\nfile:///home/caio/%C3%81rea%20de%20Trabalho/apps/quickfix/\nfile:///home/caio/%C3%81rea%20de%20Trabalho/apps/quickfix/lib/\nasync\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/lib/\nboolean_selector\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib/\ncharacters\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0/lib/\ncharcode\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1/lib/\nclock\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/lib/\ncloud_firestore\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/lib/\ncloud_firestore_platform_interface\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6/lib/\ncloud_firestore_web\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/lib/\ncollection\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib/\nconvert\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1/lib/\ncross_file\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3/lib/\ncupertino_icons\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib/\nemail_validator\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1/lib/\nfake_async\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/lib/\nfirebase_auth\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/lib/\nfirebase_auth_platform_interface\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6/lib/\nfirebase_auth_web\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/lib/\nfirebase_core\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/lib/\nfirebase_core_platform_interface\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0/lib/\nfirebase_core_web\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/lib/\nfirebase_storage\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/lib/\nfirebase_storage_platform_interface\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6/lib/\nfirebase_storage_web\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/lib/\nflutter_plugin_android_lifecycle\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/lib/\nflutter_rating_bar\n2.14\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1/lib/\nget\n2.15\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib/\nhttp\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/http-0.13.3/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/http-0.13.3/lib/\nhttp_parser\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/lib/\nimage_picker\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/lib/\nimage_picker_for_web\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/lib/\nimage_picker_platform_interface\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0/lib/\nintl\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/lib/\njs\n2.16\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/lib/\nmatcher\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/lib/\nmaterial_color_utilities\n2.13\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4/lib/\nmaterial_design_icons_flutter\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595/lib/\nmeta\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/lib/\nmulti_select_flutter\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2/lib/\npath\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/path-1.8.1/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/path-1.8.1/lib/\npedantic\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1/lib/\npercent_indicator\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0/lib/\nplugin_platform_interface\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2/lib/\nsource_span\n2.14\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2/lib/\nstack_trace\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/lib/\nstream_channel\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0/lib/\nstring_scanner\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0/lib/\nsubstring_highlight\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33/lib/\nterm_glyph\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0/lib/\ntest_api\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9/lib/\ntyped_data\n2.12\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0/lib/\nvector_math\n2.14\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/\nfile:///home/caio/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/lib/\nsky_engine\n2.12\nfile:///home/caio/development/flutter/bin/cache/pkg/sky_engine/\nfile:///home/caio/development/flutter/bin/cache/pkg/sky_engine/lib/\nflutter\n2.12\nfile:///home/caio/development/flutter/packages/flutter/\nfile:///home/caio/development/flutter/packages/flutter/lib/\nflutter_test\n2.12\nfile:///home/caio/development/flutter/packages/flutter_test/\nfile:///home/caio/development/flutter/packages/flutter_test/lib/\nflutter_web_plugins\n2.12\nfile:///home/caio/development/flutter/packages/flutter_web_plugins/\nfile:///home/caio/development/flutter/packages/flutter_web_plugins/lib/\n2\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.dart_tool/package_config_subset b/.dart_tool/package_config_subset
+--- a/.dart_tool/package_config_subset	(revision f02c1dee8caddccc31f3f23b3aa80cee659089d0)
++++ b/.dart_tool/package_config_subset	(date 1653774566863)
+@@ -1,225 +1,225 @@
+-projeto_treinamento
+-2.12
+-file:///home/caio/%C3%81rea%20de%20Trabalho/apps/quickfix/
+-file:///home/caio/%C3%81rea%20de%20Trabalho/apps/quickfix/lib/
+ async
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/lib/
+ boolean_selector
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib/
+ characters
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0/lib/
+ charcode
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1/lib/
+ clock
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/lib/
+ cloud_firestore
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/lib/
+ cloud_firestore_platform_interface
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6/lib/
+ cloud_firestore_web
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/lib/
+ collection
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib/
+ convert
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1/lib/
+ cross_file
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3/lib/
+ cupertino_icons
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib/
+ email_validator
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1/lib/
+ fake_async
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/lib/
+ firebase_auth
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/lib/
+ firebase_auth_platform_interface
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6/lib/
+ firebase_auth_web
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/lib/
+ firebase_core
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/lib/
+ firebase_core_platform_interface
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0/lib/
+ firebase_core_web
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/lib/
+ firebase_storage
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/lib/
+ firebase_storage_platform_interface
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6/lib/
+ firebase_storage_web
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/lib/
+ flutter_plugin_android_lifecycle
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/lib/
+ flutter_rating_bar
+ 2.14
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1/lib/
+ get
+ 2.15
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib/
+ http
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http-0.13.3/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http-0.13.3/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.3/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.3/lib/
+ http_parser
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/lib/
+ image_picker
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/lib/
+ image_picker_for_web
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/lib/
+ image_picker_platform_interface
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0/lib/
+ intl
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/lib/
+ js
+ 2.16
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/lib/
+ matcher
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/lib/
+ material_color_utilities
+ 2.13
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4/lib/
+ material_design_icons_flutter
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595/lib/
+ meta
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/lib/
+ multi_select_flutter
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2/lib/
+ path
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/path-1.8.1/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/path-1.8.1/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.1/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.1/lib/
+ pedantic
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1/lib/
+ percent_indicator
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0/lib/
+ plugin_platform_interface
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2/lib/
+ source_span
+ 2.14
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2/lib/
+ stack_trace
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/lib/
+ stream_channel
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0/lib/
+ string_scanner
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0/lib/
+ substring_highlight
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33/lib/
+ term_glyph
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0/lib/
+ test_api
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9/lib/
+ typed_data
+ 2.12
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0/lib/
+ vector_math
+ 2.14
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/
+-file:///home/caio/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/lib/
+ sky_engine
+ 2.12
+-file:///home/caio/development/flutter/bin/cache/pkg/sky_engine/
+-file:///home/caio/development/flutter/bin/cache/pkg/sky_engine/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/bin/cache/pkg/sky_engine/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/bin/cache/pkg/sky_engine/lib/
+ flutter
+ 2.12
+-file:///home/caio/development/flutter/packages/flutter/
+-file:///home/caio/development/flutter/packages/flutter/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter/lib/
+ flutter_test
+ 2.12
+-file:///home/caio/development/flutter/packages/flutter_test/
+-file:///home/caio/development/flutter/packages/flutter_test/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter_test/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter_test/lib/
+ flutter_web_plugins
+ 2.12
+-file:///home/caio/development/flutter/packages/flutter_web_plugins/
+-file:///home/caio/development/flutter/packages/flutter_web_plugins/lib/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter_web_plugins/
++file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter_web_plugins/lib/
++projeto_treinamento
++2.12
++file:///Users/gbscarpati/Documents/quickfix/
++file:///Users/gbscarpati/Documents/quickfix/lib/
+ 2
+Index: .packages
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># This file is deprecated. Tools should instead consume \n# `.dart_tool/package_config.json`.\n# \n# For more info see: https://dart.dev/go/dot-packages-deprecation\n# \n# Generated by pub on 2022-05-28 15:27:47.154556.\nasync:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/lib/\nboolean_selector:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib/\ncharacters:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0/lib/\ncharcode:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1/lib/\nclock:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/lib/\ncloud_firestore:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/lib/\ncloud_firestore_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6/lib/\ncloud_firestore_web:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/lib/\ncollection:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib/\nconvert:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1/lib/\ncross_file:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3/lib/\ncupertino_icons:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib/\nemail_validator:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1/lib/\nfake_async:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/lib/\nfirebase_auth:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/lib/\nfirebase_auth_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6/lib/\nfirebase_auth_web:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/lib/\nfirebase_core:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/lib/\nfirebase_core_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0/lib/\nfirebase_core_web:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/lib/\nfirebase_storage:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/lib/\nfirebase_storage_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6/lib/\nfirebase_storage_web:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/lib/\nflutter:file:///home/caio/development/flutter/packages/flutter/lib/\nflutter_plugin_android_lifecycle:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/lib/\nflutter_rating_bar:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1/lib/\nflutter_test:file:///home/caio/development/flutter/packages/flutter_test/lib/\nflutter_web_plugins:file:///home/caio/development/flutter/packages/flutter_web_plugins/lib/\nget:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib/\nhttp:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http-0.13.3/lib/\nhttp_parser:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/lib/\nimage_picker:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/lib/\nimage_picker_for_web:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/lib/\nimage_picker_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0/lib/\nintl:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/lib/\njs:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/lib/\nmatcher:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/lib/\nmaterial_color_utilities:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4/lib/\nmaterial_design_icons_flutter:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595/lib/\nmeta:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/lib/\nmulti_select_flutter:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2/lib/\npath:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/path-1.8.1/lib/\npedantic:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1/lib/\npercent_indicator:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0/lib/\nplugin_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2/lib/\nsky_engine:file:///home/caio/development/flutter/bin/cache/pkg/sky_engine/lib/\nsource_span:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2/lib/\nstack_trace:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/lib/\nstream_channel:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0/lib/\nstring_scanner:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0/lib/\nsubstring_highlight:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33/lib/\nterm_glyph:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0/lib/\ntest_api:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9/lib/\ntyped_data:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0/lib/\nvector_math:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/lib/\nprojeto_treinamento:lib/\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.packages b/.packages
+--- a/.packages	(revision f02c1dee8caddccc31f3f23b3aa80cee659089d0)
++++ b/.packages	(date 1653774566705)
+@@ -3,60 +3,60 @@
+ # 
+ # For more info see: https://dart.dev/go/dot-packages-deprecation
+ # 
+-# Generated by pub on 2022-05-28 15:27:47.154556.
+-async:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/lib/
+-boolean_selector:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib/
+-characters:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0/lib/
+-charcode:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1/lib/
+-clock:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/lib/
+-cloud_firestore:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/lib/
+-cloud_firestore_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6/lib/
+-cloud_firestore_web:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/lib/
+-collection:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib/
+-convert:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1/lib/
+-cross_file:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3/lib/
+-cupertino_icons:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib/
+-email_validator:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1/lib/
+-fake_async:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/lib/
+-firebase_auth:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/lib/
+-firebase_auth_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6/lib/
+-firebase_auth_web:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/lib/
+-firebase_core:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/lib/
+-firebase_core_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0/lib/
+-firebase_core_web:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/lib/
+-firebase_storage:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/lib/
+-firebase_storage_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6/lib/
+-firebase_storage_web:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/lib/
+-flutter:file:///home/caio/development/flutter/packages/flutter/lib/
+-flutter_plugin_android_lifecycle:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/lib/
+-flutter_rating_bar:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1/lib/
+-flutter_test:file:///home/caio/development/flutter/packages/flutter_test/lib/
+-flutter_web_plugins:file:///home/caio/development/flutter/packages/flutter_web_plugins/lib/
+-get:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib/
+-http:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http-0.13.3/lib/
+-http_parser:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/lib/
+-image_picker:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/lib/
+-image_picker_for_web:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/lib/
+-image_picker_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0/lib/
+-intl:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/lib/
+-js:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/lib/
+-matcher:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/lib/
+-material_color_utilities:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4/lib/
+-material_design_icons_flutter:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595/lib/
+-meta:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/lib/
+-multi_select_flutter:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2/lib/
+-path:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/path-1.8.1/lib/
+-pedantic:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1/lib/
+-percent_indicator:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0/lib/
+-plugin_platform_interface:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2/lib/
+-sky_engine:file:///home/caio/development/flutter/bin/cache/pkg/sky_engine/lib/
+-source_span:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2/lib/
+-stack_trace:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/lib/
+-stream_channel:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0/lib/
+-string_scanner:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0/lib/
+-substring_highlight:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33/lib/
+-term_glyph:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0/lib/
+-test_api:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9/lib/
+-typed_data:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0/lib/
+-vector_math:file:///home/caio/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/lib/
++# Generated by pub on 2022-05-28 18:49:26.699162.
++async:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/lib/
++boolean_selector:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib/
++characters:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0/lib/
++charcode:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/charcode-1.3.1/lib/
++clock:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/lib/
++cloud_firestore:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/lib/
++cloud_firestore_platform_interface:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-5.5.6/lib/
++cloud_firestore_web:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/lib/
++collection:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib/
++convert:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1/lib/
++cross_file:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3/lib/
++cupertino_icons:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib/
++email_validator:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/email_validator-2.0.1/lib/
++fake_async:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/lib/
++firebase_auth:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/lib/
++firebase_auth_platform_interface:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.6/lib/
++firebase_auth_web:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/lib/
++firebase_core:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/lib/
++firebase_core_platform_interface:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.4.0/lib/
++firebase_core_web:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/lib/
++firebase_storage:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/lib/
++firebase_storage_platform_interface:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-4.1.6/lib/
++firebase_storage_web:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/lib/
++flutter:file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter/lib/
++flutter_plugin_android_lifecycle:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/lib/
++flutter_rating_bar:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1/lib/
++flutter_test:file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter_test/lib/
++flutter_web_plugins:file:///Users/gbscarpati/Documents/flutterextraido/flutter/packages/flutter_web_plugins/lib/
++get:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib/
++http:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.3/lib/
++http_parser:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/lib/
++image_picker:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/lib/
++image_picker_for_web:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/lib/
++image_picker_platform_interface:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.5.0/lib/
++intl:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/lib/
++js:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/lib/
++matcher:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/lib/
++material_color_utilities:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4/lib/
++material_design_icons_flutter:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-5.0.6595/lib/
++meta:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/lib/
++multi_select_flutter:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.1.2/lib/
++path:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.1/lib/
++pedantic:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1/lib/
++percent_indicator:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/percent_indicator-3.4.0/lib/
++plugin_platform_interface:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.1.2/lib/
++sky_engine:file:///Users/gbscarpati/Documents/flutterextraido/flutter/bin/cache/pkg/sky_engine/lib/
++source_span:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2/lib/
++stack_trace:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/lib/
++stream_channel:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0/lib/
++string_scanner:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0/lib/
++substring_highlight:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/substring_highlight-1.0.33/lib/
++term_glyph:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0/lib/
++test_api:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9/lib/
++typed_data:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0/lib/
++vector_math:file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2/lib/
+ projeto_treinamento:lib/
+Index: .flutter-plugins-dependencies
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\"info\":\"This is a generated file; do not edit or check into version control.\",\"plugins\":{\"ios\":[{\"name\":\"cloud_firestore\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/\",\"native_build\":true,\"dependencies\":[\"firebase_core\"]},{\"name\":\"firebase_auth\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/\",\"native_build\":true,\"dependencies\":[\"firebase_core\"]},{\"name\":\"firebase_core\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/\",\"native_build\":true,\"dependencies\":[]},{\"name\":\"firebase_storage\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/\",\"native_build\":true,\"dependencies\":[\"firebase_core\"]},{\"name\":\"image_picker\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/\",\"native_build\":true,\"dependencies\":[]}],\"android\":[{\"name\":\"cloud_firestore\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/\",\"native_build\":true,\"dependencies\":[\"firebase_core\"]},{\"name\":\"firebase_auth\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/\",\"native_build\":true,\"dependencies\":[\"firebase_core\"]},{\"name\":\"firebase_core\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/\",\"native_build\":true,\"dependencies\":[]},{\"name\":\"firebase_storage\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/\",\"native_build\":true,\"dependencies\":[\"firebase_core\"]},{\"name\":\"flutter_plugin_android_lifecycle\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/\",\"native_build\":true,\"dependencies\":[]},{\"name\":\"image_picker\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/\",\"native_build\":true,\"dependencies\":[\"flutter_plugin_android_lifecycle\"]}],\"macos\":[{\"name\":\"cloud_firestore\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/\",\"native_build\":true,\"dependencies\":[\"firebase_core\"]},{\"name\":\"firebase_auth\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/\",\"native_build\":true,\"dependencies\":[\"firebase_core\"]},{\"name\":\"firebase_core\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/\",\"native_build\":true,\"dependencies\":[]},{\"name\":\"firebase_storage\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/\",\"native_build\":true,\"dependencies\":[\"firebase_core\"]}],\"linux\":[],\"windows\":[],\"web\":[{\"name\":\"cloud_firestore_web\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/\",\"dependencies\":[\"firebase_core_web\"]},{\"name\":\"firebase_auth_web\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/\",\"dependencies\":[\"firebase_core_web\"]},{\"name\":\"firebase_core_web\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/\",\"dependencies\":[]},{\"name\":\"firebase_storage_web\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/\",\"dependencies\":[\"firebase_core_web\"]},{\"name\":\"image_picker_for_web\",\"path\":\"/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/\",\"dependencies\":[]}]},\"dependencyGraph\":[{\"name\":\"cloud_firestore\",\"dependencies\":[\"cloud_firestore_web\",\"firebase_core\"]},{\"name\":\"cloud_firestore_web\",\"dependencies\":[\"firebase_core\",\"firebase_core_web\"]},{\"name\":\"firebase_auth\",\"dependencies\":[\"firebase_auth_web\",\"firebase_core\"]},{\"name\":\"firebase_auth_web\",\"dependencies\":[\"firebase_core\",\"firebase_core_web\"]},{\"name\":\"firebase_core\",\"dependencies\":[\"firebase_core_web\"]},{\"name\":\"firebase_core_web\",\"dependencies\":[]},{\"name\":\"firebase_storage\",\"dependencies\":[\"firebase_core\",\"firebase_storage_web\"]},{\"name\":\"firebase_storage_web\",\"dependencies\":[\"firebase_core\",\"firebase_core_web\"]},{\"name\":\"flutter_plugin_android_lifecycle\",\"dependencies\":[]},{\"name\":\"image_picker\",\"dependencies\":[\"flutter_plugin_android_lifecycle\",\"image_picker_for_web\"]},{\"name\":\"image_picker_for_web\",\"dependencies\":[]}],\"date_created\":\"2022-05-28 15:27:48.555056\",\"version\":\"2.11.0-0.0.pre.710\"}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.flutter-plugins-dependencies b/.flutter-plugins-dependencies
+--- a/.flutter-plugins-dependencies	(revision f02c1dee8caddccc31f3f23b3aa80cee659089d0)
++++ b/.flutter-plugins-dependencies	(date 1653774566977)
+@@ -1,1 +1,1 @@
+-{"info":"This is a generated file; do not edit or check into version control.","plugins":{"ios":[{"name":"cloud_firestore","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_auth","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_core","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/","native_build":true,"dependencies":[]},{"name":"firebase_storage","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/","native_build":true,"dependencies":["firebase_core"]},{"name":"image_picker","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/","native_build":true,"dependencies":[]}],"android":[{"name":"cloud_firestore","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_auth","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_core","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/","native_build":true,"dependencies":[]},{"name":"firebase_storage","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/","native_build":true,"dependencies":["firebase_core"]},{"name":"flutter_plugin_android_lifecycle","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/","native_build":true,"dependencies":[]},{"name":"image_picker","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/","native_build":true,"dependencies":["flutter_plugin_android_lifecycle"]}],"macos":[{"name":"cloud_firestore","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_auth","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_core","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/","native_build":true,"dependencies":[]},{"name":"firebase_storage","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/","native_build":true,"dependencies":["firebase_core"]}],"linux":[],"windows":[],"web":[{"name":"cloud_firestore_web","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/","dependencies":["firebase_core_web"]},{"name":"firebase_auth_web","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/","dependencies":["firebase_core_web"]},{"name":"firebase_core_web","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/","dependencies":[]},{"name":"firebase_storage_web","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/","dependencies":["firebase_core_web"]},{"name":"image_picker_for_web","path":"/home/caio/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/","dependencies":[]}]},"dependencyGraph":[{"name":"cloud_firestore","dependencies":["cloud_firestore_web","firebase_core"]},{"name":"cloud_firestore_web","dependencies":["firebase_core","firebase_core_web"]},{"name":"firebase_auth","dependencies":["firebase_auth_web","firebase_core"]},{"name":"firebase_auth_web","dependencies":["firebase_core","firebase_core_web"]},{"name":"firebase_core","dependencies":["firebase_core_web"]},{"name":"firebase_core_web","dependencies":[]},{"name":"firebase_storage","dependencies":["firebase_core","firebase_storage_web"]},{"name":"firebase_storage_web","dependencies":["firebase_core","firebase_core_web"]},{"name":"flutter_plugin_android_lifecycle","dependencies":[]},{"name":"image_picker","dependencies":["flutter_plugin_android_lifecycle","image_picker_for_web"]},{"name":"image_picker_for_web","dependencies":[]}],"date_created":"2022-05-28 15:27:48.555056","version":"2.11.0-0.0.pre.710"}
+\ No newline at end of file
++{"info":"This is a generated file; do not edit or check into version control.","plugins":{"ios":[{"name":"cloud_firestore","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_auth","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_core","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/","native_build":true,"dependencies":[]},{"name":"firebase_storage","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/","native_build":true,"dependencies":["firebase_core"]},{"name":"image_picker","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/","native_build":true,"dependencies":[]}],"android":[{"name":"cloud_firestore","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_auth","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_core","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/","native_build":true,"dependencies":[]},{"name":"firebase_storage","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/","native_build":true,"dependencies":["firebase_core"]},{"name":"flutter_plugin_android_lifecycle","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/","native_build":true,"dependencies":[]},{"name":"image_picker","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1/","native_build":true,"dependencies":["flutter_plugin_android_lifecycle"]}],"macos":[{"name":"cloud_firestore","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-3.1.16/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_auth","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.18/","native_build":true,"dependencies":["firebase_core"]},{"name":"firebase_core","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.17.0/","native_build":true,"dependencies":[]},{"name":"firebase_storage","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.2.16/","native_build":true,"dependencies":["firebase_core"]}],"linux":[],"windows":[],"web":[{"name":"cloud_firestore_web","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-2.6.15/","dependencies":["firebase_core_web"]},{"name":"firebase_auth_web","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.15/","dependencies":["firebase_core_web"]},{"name":"firebase_core_web","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4/","dependencies":[]},{"name":"firebase_storage_web","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.2.15/","dependencies":["firebase_core_web"]},{"name":"image_picker_for_web","path":"/Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8/","dependencies":[]}]},"dependencyGraph":[{"name":"cloud_firestore","dependencies":["cloud_firestore_web","firebase_core"]},{"name":"cloud_firestore_web","dependencies":["firebase_core","firebase_core_web"]},{"name":"firebase_auth","dependencies":["firebase_auth_web","firebase_core"]},{"name":"firebase_auth_web","dependencies":["firebase_core","firebase_core_web"]},{"name":"firebase_core","dependencies":["firebase_core_web"]},{"name":"firebase_core_web","dependencies":[]},{"name":"firebase_storage","dependencies":["firebase_core","firebase_storage_web"]},{"name":"firebase_storage_web","dependencies":["firebase_core","firebase_core_web"]},{"name":"flutter_plugin_android_lifecycle","dependencies":[]},{"name":"image_picker","dependencies":["flutter_plugin_android_lifecycle","image_picker_for_web"]},{"name":"image_picker_for_web","dependencies":[]}],"date_created":"2022-05-28 18:49:26.969887","version":"2.12.0-4.2.pre"}
+\ No newline at end of file

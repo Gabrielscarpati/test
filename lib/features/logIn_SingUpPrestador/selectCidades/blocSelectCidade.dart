@@ -46,18 +46,12 @@ class BlocSelectCidade
       });
     });
 
-    List<FeatureModelSelectCidade> listaCompletaFeatureModels = await _buscaListaFeatureModelCidade();
- /*   ViewModelSelectCidade viewModel = ViewModelSelectCidade(
-      listaCompleta: listaCompletaFeatureModels,
-      cidades: [],
-      cidadesSelecionadas: [],
-    );
-    this.sendViewModelOut(viewModel);
-*/
+    List<BusinessModelCidade> listaCompletaBusinessModels = await _buscaListaBusinessModelCidade();
+
     ViewModelSelectCidade viewModelTmp = ViewModelSelectCidade(
       cidades: listacidades,
       cidadesSelecionadas: [],
-      listaCompleta: listaCompletaFeatureModels,
+      listaCompleta: listaCompletaBusinessModels,
     );
     this.sendViewModelOut(viewModelTmp);
   }
@@ -70,7 +64,7 @@ class BlocSelectCidade
 
     for (int i = 0; i < blocEvent.viewModel.cidadesSelecionadas.length; i++) {
       if (blocEvent.viewModel.cidadesSelecionadas[i].nome ==
-          blocEvent.viewModel.cidades[blocEvent.idCidadeSelecionada].nome) {
+          blocEvent.viewModel.listaVisivel[blocEvent.idCidadeSelecionada].nome) {
         novaListaCidadesSelecionadas
             .remove(blocEvent.viewModel.cidadesSelecionadas[i]);
         removed = true;
@@ -78,7 +72,7 @@ class BlocSelectCidade
     }
     if (!removed) {
       novaListaCidadesSelecionadas
-          .add(blocEvent.viewModel.cidades[blocEvent.idCidadeSelecionada]);
+          .add(blocEvent.viewModel.listaVisivel[blocEvent.idCidadeSelecionada]);
     }
 
     ViewModelSelectCidade viewModel = await _aplicaCidadeSelecionadaNoViewModel(
@@ -110,34 +104,13 @@ class BlocSelectCidade
     this.sendViewModelOut(viewModel);
   }
 
-  Future<List<FeatureModelSelectCidade>> _buscaListaFeatureModelCidade() async {
-    List<BusinessModelCidade> listaBusinessModelTiposDeServico = await ProviderCidade().getBusinessModels();
-    listaBusinessModelTiposDeServico.sort((a, b) {
+  Future<List<BusinessModelCidade>> _buscaListaBusinessModelCidade() async {
+    List<BusinessModelCidade> listaBusinessModelSelectCidade = await ProviderCidade().getBusinessModels();
+    listaBusinessModelSelectCidade.sort((a, b) {
       return a.nome.compareTo(b.nome);
     });
-    List<FeatureModelSelectCidade> listaCompletaFeatureModels = List.empty(growable: true);
-    listaBusinessModelTiposDeServico.forEach((businessModel) {
-      FeatureModelSelectCidade featureModelSelectCidade = FeatureModelSelectCidade(
-        cidade: businessModel,
-      );
-      listaCompletaFeatureModels.add(featureModelSelectCidade);
-    });
-    return listaCompletaFeatureModels;
+    return listaBusinessModelSelectCidade;
   }
 
 
-/* List<BusinessModelCidade> filterListaCidades (String value, ViewModelSelectCidade viewModel){
-
-    List<BusinessModelCidade> listaCompleta =  viewModel.cidades;
-
-    List<BusinessModelCidade> listaAtualizada = [];
-
-    listaAtualizada = listaCompleta.where((element) => element.contains(value.toLowerCase())).toList();
-    if (value.isNotEmpty && listaAtualizada.length == 0) {
-      print('foodListSearch length ${listaAtualizada.length}');
-      return listaCompleta;
-    }
-    print(listaAtualizada);
-    return listaCompleta;
-  }*/
 }
