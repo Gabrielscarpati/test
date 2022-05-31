@@ -41,6 +41,7 @@ class PresenterPerfilPrestadorDeServico extends Presenter<
       viewActions: viewActions,
       viewModel: ViewModelPerfilPrestadorDeServico(
           prestadorInformation: BusinessModelPrestadorInformation(
+
             IdUsuario: "",
             nome: "",
             phone: "",
@@ -49,6 +50,7 @@ class PresenterPerfilPrestadorDeServico extends Presenter<
             roles: "",
             workingHours: "",
           )),
+
     );
   }
 

@@ -27,6 +27,7 @@ class ViewActionsPerfilPrestadorDeServico
 
   onChangeName(String novoNome, ViewModelPerfilPrestadorDeServico viewModel) {
     ViewModelPerfilPrestadorDeServico _viewModel =
+
     ViewModelPerfilPrestadorDeServico(
         prestadorInformation: BusinessModelPrestadorInformation(
           nome: novoNome,
@@ -124,12 +125,14 @@ class ViewActionsPerfilPrestadorDeServico
     }
 
 
+
     Future<BusinessModelCidade> _getBuisnessModelCidadeByCodCidade(
         String codCidade) async {
       BusinessModelCidade cidade =
       await ProviderCidade().getBusinessModel(codCidade);
       return cidade;
     }
+
 
     Future<List<BusinessModelCidade>> getListaCompletaCidades() async {
       List<BusinessModelCidade> listaCompletaDeCidades =
@@ -145,6 +148,7 @@ class ViewActionsPerfilPrestadorDeServico
     final User? user = await auth.currentUser;
     final userId = user?.uid.toString();
     return userId;
+
   }
 
   updatePrestadorInformation(
@@ -159,5 +163,6 @@ class ViewActionsPerfilPrestadorDeServico
       'name': viewModel.prestadorInformation.nome,
     });
   }
+
 
 }

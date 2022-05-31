@@ -13,7 +13,13 @@ import 'package:projeto_treinamento/framework/viewModel.dart';
 class ViewModelPerfilPrestadorDeServico extends ViewModel {
   BusinessModelPrestadorInformation prestadorInformation;
 
+l
 
   ViewModelPerfilPrestadorDeServico({ required this.prestadorInformation})
       : super();
 }
+
+  ViewModelPerfilPrestadorDeServico({required this.prestadorInformation})
+      : super();
+}
+

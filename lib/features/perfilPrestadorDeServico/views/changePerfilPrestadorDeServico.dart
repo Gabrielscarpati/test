@@ -101,4 +101,3 @@ class ChangePerfilPrestadorDeServico extends StatelessWidget {
       ),
     );
   }
-}

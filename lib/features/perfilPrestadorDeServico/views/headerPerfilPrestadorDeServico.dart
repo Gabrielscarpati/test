@@ -19,6 +19,7 @@ class HeaderPerfilPrestadorDeServico extends StatelessWidget {
 final ViewModelPerfilPrestadorDeServico viewModel;
 final ViewActionsPerfilPrestadorDeServico viewActions;
 
+
 @override
 Widget build(BuildContext context) {
   return Column(
@@ -61,4 +62,5 @@ Widget build(BuildContext context) {
     ],
   );
 }
+
 }
