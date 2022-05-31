@@ -29,8 +29,7 @@ class BlocSelectCidade
   void _inicializaViewModel(
       BlocEventSelectCidadeInicializaViewModel blocEvent) async {
 
-    final String response =
-        await rootBundle.loadString('lib/daos/cidade/cidades.json');
+    final String response = await rootBundle.loadString('lib/daos/cidade/cidades.json');
     Map<String, dynamic> data = await json.decode(response);
     List<dynamic> estados = data["estados"];
     List<BusinessModelCidade> listacidades = List.empty(growable: true);
@@ -43,12 +42,22 @@ class BlocSelectCidade
         String nome = cidade + " - " + sigla;
         listacidades.add(BusinessModelCidade(
             codCidade: nome.hashCode, nome: nome, totalPrestadoresServico: 0));
+
       });
     });
+
+    List<FeatureModelSelectCidade> listaCompletaFeatureModels = await _buscaListaFeatureModelCidade();
+ /*   ViewModelSelectCidade viewModel = ViewModelSelectCidade(
+      listaCompleta: listaCompletaFeatureModels,
+      cidades: [],
+      cidadesSelecionadas: [],
+    );
+    this.sendViewModelOut(viewModel);
+*/
     ViewModelSelectCidade viewModelTmp = ViewModelSelectCidade(
       cidades: listacidades,
       cidadesSelecionadas: [],
-      listaCompleta: [],
+      listaCompleta: listaCompletaFeatureModels,
     );
     this.sendViewModelOut(viewModelTmp);
   }
@@ -91,31 +100,44 @@ class BlocSelectCidade
     ViewModelSelectCidade viewModel = blocEvent.viewModel;
     viewModel.aplicaFiltroDePesquisa();
     if (viewModel.listaVisivel.isEmpty) {
+      print('-'*50);
+
       viewModel.mensagemDeErro = "Não existem cidades que contenha a palavra '${viewModel.controlerFieldPesquisa.text}'";
     } else {
       viewModel.mensagemDeErro = "";
+
     }
     this.sendViewModelOut(viewModel);
   }
 
+  Future<List<FeatureModelSelectCidade>> _buscaListaFeatureModelCidade() async {
+    List<BusinessModelCidade> listaBusinessModelTiposDeServico = await ProviderCidade().getBusinessModels();
+    listaBusinessModelTiposDeServico.sort((a, b) {
+      return a.nome.compareTo(b.nome);
+    });
+    List<FeatureModelSelectCidade> listaCompletaFeatureModels = List.empty(growable: true);
+    listaBusinessModelTiposDeServico.forEach((businessModel) {
+      FeatureModelSelectCidade featureModelSelectCidade = FeatureModelSelectCidade(
+        cidade: businessModel,
+      );
+      listaCompletaFeatureModels.add(featureModelSelectCidade);
+    });
+    return listaCompletaFeatureModels;
+  }
 
 
-  List<String> filterCidadesSelecionadas (value){
-    final TextEditingController controlerFieldPesquisa = TextEditingController();
-    List<String> listacidades =['aasa', 'asas', 'asas', 'ass'];
+/* List<BusinessModelCidade> filterListaCidades (String value, ViewModelSelectCidade viewModel){
 
-    List<String> listaAtualizada =[];
-    listaAtualizada = listacidades
-          .where(
-              (element) => element.toLowerCase().contains(value.toLowerCase()))
-          .toList();
-      if (controlerFieldPesquisa.text.isNotEmpty &&
-          listaAtualizada.length == 0) {
-        print('foodListSearch length ${listaAtualizada.length}');
-        return listacidades;
-      }
-        print(listaAtualizada);
-        return listacidades;
+    List<BusinessModelCidade> listaCompleta =  viewModel.cidades;
 
+    List<BusinessModelCidade> listaAtualizada = [];
+
+    listaAtualizada = listaCompleta.where((element) => element.contains(value.toLowerCase())).toList();
+    if (value.isNotEmpty && listaAtualizada.length == 0) {
+      print('foodListSearch length ${listaAtualizada.length}');
+      return listaCompleta;
     }
+    print(listaAtualizada);
+    return listaCompleta;
+  }*/
 }

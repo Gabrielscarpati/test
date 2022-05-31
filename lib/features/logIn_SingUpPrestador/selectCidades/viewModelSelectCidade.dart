@@ -15,4 +15,11 @@ class ViewModelSelectCidade extends ViewModelLista<FeatureModelSelectCidade> {
     required this.cidades,
     required this.cidadesSelecionadas,
   }) : super(listaVisivel: List.empty(growable: true)..addAll(listaCompleta), listaCompleta: listaCompleta);
+
+  BusinessModelCidade getCidadePeloCodCidade(int codCidade) {
+    for (int i = 0; i < this.listaCompleta.length; i++) {
+      if (this.listaCompleta[i].cidade.codCidade == codCidade) return this.listaCompleta[i].cidade;
+    }
+    return BusinessModelCidade.vazio();
+  }
 }

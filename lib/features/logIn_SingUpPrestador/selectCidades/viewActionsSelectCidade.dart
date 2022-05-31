@@ -25,4 +25,10 @@ class ViewActionsSelectCidade extends ViewActions<BlocEventSelectCidade> {
     blocPipeIn.send(bolcEvent);
   }
 
+  void filterListaCidades(ViewModelSelectCidade viewModel) {
+    BlocEventSelectCidadeAplicaFiltroDePesquisa blocEvent = BlocEventSelectCidadeAplicaFiltroDePesquisa(viewModel);
+    blocPipeIn.send(blocEvent);
+  }
+
+
 }
