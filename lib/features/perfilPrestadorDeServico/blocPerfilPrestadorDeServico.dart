@@ -18,8 +18,10 @@ class BlocPerfilPrestadorDeServico extends Bloc<
   void _inicializaViewModel(
       BlocEventPerfilPrestadorDeServicoInicializaViewModel blocEvent) async {
     ViewModelPerfilPrestadorDeServico viewModel =
+
     ViewModelPerfilPrestadorDeServico(
         prestadorInformation: blocEvent.viewModel.prestadorInformation);
+
 
     this.sendViewModelOut(viewModel);
   }
@@ -27,8 +29,11 @@ class BlocPerfilPrestadorDeServico extends Bloc<
   void _atualizaViewModel(
       BlocEventPerfilPrestadorDeServicoAtualizaViewModel blocEvent) {
     ViewModelPerfilPrestadorDeServico viewModel =
+
     ViewModelPerfilPrestadorDeServico(
         prestadorInformation: blocEvent.viewModel.prestadorInformation);
+
+
     this.sendViewModelOut(viewModel);
   }
 }

@@ -19,7 +19,10 @@ class ChangePerfilPrestadorDeServico extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
     return Container(
       child: Padding(
         padding: const EdgeInsets.only(right: 20, left: 20),
@@ -58,7 +61,8 @@ class ChangePerfilPrestadorDeServico extends StatelessWidget {
                         item: this.viewModel.prestadorInformation.phone,
                         hintText: 'Digite o seu Numero',
                         onEditionComplete: (String novoNumero) {
-                          this.viewActions.onChangeNumero(novoNumero, viewModel);
+                          this.viewActions.onChangeNumero(
+                              novoNumero, viewModel);
                         },
                       ),
                       Divider(),
@@ -68,7 +72,8 @@ class ChangePerfilPrestadorDeServico extends StatelessWidget {
                         item: this.viewModel.prestadorInformation.roles,
                         hintText: 'Digite aqui',
                         onEditionComplete: (String novosServicos) {
-                          this.viewActions.onChangeServicosPrestados(novosServicos, viewModel);
+                          this.viewActions.onChangeServicosPrestados(
+                              novosServicos, viewModel);
                         },
                       ),
                       Divider(),
@@ -78,7 +83,8 @@ class ChangePerfilPrestadorDeServico extends StatelessWidget {
                         item: this.viewModel.prestadorInformation.workingHours,
                         hintText: 'Digite aqui',
                         onEditionComplete: (String novasHoras) {
-                          this.viewActions.onChangeHorasTrabalhadas(novasHoras, viewModel);
+                          this.viewActions.onChangeHorasTrabalhadas(
+                              novasHoras, viewModel);
                         },
                       ),
                       Divider(),
@@ -88,7 +94,8 @@ class ChangePerfilPrestadorDeServico extends StatelessWidget {
                         item: this.viewModel.prestadorInformation.description,
                         hintText: 'Faca uma descricao',
                         onEditionComplete: (String novaDescricao) {
-                          this.viewActions.onChangeDescricao(novaDescricao, viewModel);
+                          this.viewActions.onChangeDescricao(
+                              novaDescricao, viewModel);
                         },
                       ),
                     ],

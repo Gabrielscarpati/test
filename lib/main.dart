@@ -1,15 +1,20 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/infoUsuario/presenterInfoUsuario.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
 import 'package:projeto_treinamento/features/infoUsuario/views/customEditPrestadorInformation.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
+
 import 'package:provider/provider.dart';
+
+
 import 'daos/firebase/authService.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
 import 'daos/usuario/daoUsuario.dart';
@@ -26,12 +31,12 @@ void main() async {
 
 GoogleSignInAccount? _usuarioAtual;
 
-/*
+
 Future<String> verificarSeUsuarioNulo() async{
   final userData = await FacebookAuth.instance.getUserData();
   return userData.toString();
 }
-*/
+
 
 
 class MyApp extends StatelessWidget {
@@ -74,11 +79,13 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData || usuario!= null) {
+            if (snapshot.hasData || usuario!= null || verificarSeUsuarioNulo() != null) {
               print(snapshot.hasData);
+
               return PresenterSelectCidade.presenter();
             }
             return ViewVeryFirstScreen();
+
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),

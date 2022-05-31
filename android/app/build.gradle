@@ -47,6 +47,9 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
+        manifestPlaceholders = [appAuthRedirectScheme: "com.example.projeto_treinamento",
+                                applicationName: "com.example.projeto_treinamento"]
+
     }
 
     buildTypes {
