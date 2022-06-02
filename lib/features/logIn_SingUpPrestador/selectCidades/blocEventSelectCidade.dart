@@ -35,5 +35,11 @@ class BlocEventSelectCidadeAplicaFiltroDePesquisa extends BlocEventSelectCidade 
   BlocEventSelectCidadeAplicaFiltroDePesquisa(this.viewModel);
 }
 
+class BlocEventSavarListaSelecionadaFirebase extends BlocEventSelectCidade {
+  final ViewModelSelectCidade viewModel;
+
+  BlocEventSavarListaSelecionadaFirebase(this.viewModel);
+}
+
 
 

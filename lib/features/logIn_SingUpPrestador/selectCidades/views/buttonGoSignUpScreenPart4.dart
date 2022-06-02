@@ -1,8 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_treinamento/features/logIn_SingUpPrestador/selectCidades/viewActionsSelectCidade.dart';
+import 'package:projeto_treinamento/features/logIn_SingUpPrestador/selectCidades/viewModelSelectCidade.dart';
+
+import '../../selectServicos/presenterSelectServicos.dart';
 
 class ButtonGoSignUpScreenPart4 extends StatelessWidget {
-  const ButtonGoSignUpScreenPart4({Key? key}) : super(key: key);
+  final ViewActionsSelectCidade viewActions;
+  final ViewModelSelectCidade viewModel;
+  const ButtonGoSignUpScreenPart4({Key? key, required this.viewActions, required this.viewModel, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +46,9 @@ class ButtonGoSignUpScreenPart4 extends StatelessWidget {
               ),
             ),
             onPressed: () {
+              this.viewActions.savarListaSelecionadaFirebase(viewModel);
+             Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => PresenterSelectServicos.presenter()));
             },
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.all(0),

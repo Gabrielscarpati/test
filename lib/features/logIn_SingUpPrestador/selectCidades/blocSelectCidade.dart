@@ -1,30 +1,29 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
-import 'package:projeto_treinamento/businessModels/businessModelPrincipaisTiposDeServicoCidade.dart';
-import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
 import 'package:projeto_treinamento/framework/bloc.dart';
-import 'package:projeto_treinamento/framework/viewModelLista.dart';
-import 'package:projeto_treinamento/providers/principaisTiposDeServicoCidade/providerPrincipaisTiposDeServicoCidade.dart';
-
+import '../../../daos/firebase/addingUser.dart';
 import '../../../providers/cidade/providerCidade.dart';
 import 'blocEventSelectCidade.dart';
-import 'featureModelSelectCidade.dart';
 import 'viewModelSelectCidade.dart';
 
-class BlocSelectCidade
-    extends Bloc<ViewModelSelectCidade, BlocEventSelectCidade> {
+class BlocSelectCidade extends Bloc<ViewModelSelectCidade, BlocEventSelectCidade> {
   @override
   void onReceiveBlocEvent(BlocEventSelectCidade blocEvent) {
     if (blocEvent is BlocEventSelectCidadeInicializaViewModel)
       _inicializaViewModel(blocEvent);
+
     if (blocEvent is BlocEventSelectCidadeAtualizaCidadesSelecionadas)
       _selecionaCidade(blocEvent);
-    if (blocEvent is BlocEventSelectCidadeAplicaFiltroDePesquisa) _aplicaFiltroDePesquisa(blocEvent);
 
+    if (blocEvent is BlocEventSelectCidadeAplicaFiltroDePesquisa)
+      _aplicaFiltroDePesquisa(blocEvent);
+
+    if (blocEvent is BlocEventSavarListaSelecionadaFirebase)
+      _savarListaSelecionadaFirebase(blocEvent);
   }
+
+
 
   void _inicializaViewModel(
       BlocEventSelectCidadeInicializaViewModel blocEvent) async {
@@ -94,7 +93,6 @@ class BlocSelectCidade
     ViewModelSelectCidade viewModel = blocEvent.viewModel;
     viewModel.aplicaFiltroDePesquisa();
     if (viewModel.listaVisivel.isEmpty) {
-      print('-'*50);
 
       viewModel.mensagemDeErro = "Não existem cidades que contenha a palavra '${viewModel.controlerFieldPesquisa.text}'";
     } else {
@@ -113,4 +111,15 @@ class BlocSelectCidade
   }
 
 
+    void _savarListaSelecionadaFirebase(BlocEventSavarListaSelecionadaFirebase blocEvent){
+      ViewModelSelectCidade viewModel = blocEvent.viewModel;
+      List<String> cidades = [];
+      viewModel.cidadesSelecionadas.forEach((element) {
+        cidades.add(element.nome);
+       }
+      );
+
+      UpdatePrestadorFirebase updatePrestadorFirebase = UpdatePrestadorFirebase(cidades: cidades,);
+      updatePrestadorFirebase.updatePrestadorInformation();
+  }
 }

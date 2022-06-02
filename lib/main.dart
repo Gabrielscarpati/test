@@ -7,7 +7,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/infoUsuario/presenterInfoUsuario.dart';
-import 'package:projeto_treinamento/features/logIn_SingUpPrestador/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
 import 'package:projeto_treinamento/features/infoUsuario/views/customEditPrestadorInformation.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
@@ -20,6 +19,7 @@ import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
 import 'daos/usuario/daoUsuario.dart';
 import 'features/hub/presenterHub.dart';
 import 'features/logIn_SingUpPrestador/selectCidades/presenterSelectCidade.dart';
+import 'features/logIn_SingUpPrestador/signUpPart1PrestadorServico/signUpPart1Prestador.dart';
 import 'features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 
 void main() async {
@@ -82,7 +82,7 @@ class MyApp extends StatelessWidget {
             if (snapshot.hasData || usuario!= null || verificarSeUsuarioNulo() != null) {
               print(snapshot.hasData);
 
-              return PresenterSelectCidade.presenter();
+              return SignUpPart1();
             }
             return ViewVeryFirstScreen();
 

@@ -30,5 +30,8 @@ class ViewActionsSelectCidade extends ViewActions<BlocEventSelectCidade> {
     blocPipeIn.send(blocEvent);
   }
 
-
+  void savarListaSelecionadaFirebase(ViewModelSelectCidade viewModel) {
+    BlocEventSavarListaSelecionadaFirebase blocEvent = BlocEventSavarListaSelecionadaFirebase(viewModel);
+    blocPipeIn.send(blocEvent);
+  }
 }

@@ -1,11 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
-import '../../../logIn_SingUpPrestador/singUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
+import '../../../logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
 import 'backArrowSignUp.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 
 
@@ -23,6 +26,7 @@ class _LogInBody extends State<SignUpPart1Body> {
   final cofirmPasswordController = TextEditingController();
   final formKeyAuthentication = GlobalKey<FormState>();
 
+  bool? _isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -107,6 +111,7 @@ class _LogInBody extends State<SignUpPart1Body> {
                                   keyboardType: TextInputType.emailAddress,
                                 ),
                               ),
+
                               Container(
                                 padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
@@ -157,6 +162,35 @@ class _LogInBody extends State<SignUpPart1Body> {
                             ),
                           ),
                         ),
+                        CheckboxListTile(
+                            value: _isChecked,
+                            onChanged: (bool? novoValor){
+
+                              setState(() {
+                                _isChecked = true;
+                              });
+                            },
+                            title: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('  Li e concordo com a',
+                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                                ),
+                                 TextButton(onPressed: () async {
+                                   await  _launchURLPoliticasDeprivacidade;
+                                  },
+                                      child: Text('Politica de privacidade',
+                                        style: TextStyle(fontWeight: FontWeight.bold,
+                                            color: Colors.indigoAccent,
+                                            fontSize: 14),
+                                      ),
+                                 ),
+                              ],
+                            ),
+
+                          //shape: ro,
+                          checkColor: Colors.indigo,
+                           ),
                          SizedBox(height: screenHeight*0.011848*4),
                         // #login
                         Container(
@@ -193,7 +227,7 @@ class _LogInBody extends State<SignUpPart1Body> {
                               ),
                               onPressed: () async {
                                 final form = formKeyAuthentication.currentState!;
-                                  if (form.validate()) {
+                                  if (form.validate() && _isChecked == true) {
                                     await AuthService().registerUser(emailController.text, passwordController.text);
 
                                       Navigator.of(context).push(
@@ -295,6 +329,14 @@ class _LogInBody extends State<SignUpPart1Body> {
         ),
       ),
     );
+  }
+  void _launchURLPoliticasDeprivacidade() async {
+    const url = 'https://linktr.ee/Lifecoin_WhitePapers';
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
 

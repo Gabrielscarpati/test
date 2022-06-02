@@ -23,23 +23,3 @@ class ViewModelSelectCidade extends ViewModelLista<BusinessModelCidade> {
     return BusinessModelCidade.vazio();
   }
 }
-
-/*
-class ViewModelPesquisaCidade extends ViewModelLista<FeatureModelPesquisaCidade> {
-  final BusinessModelIcone iconeCidade;
-  final TextEditingController controlerFieldPesquisa = TextEditingController();
-  String mensagemDeErro = '';
-
-  ViewModelPesquisaCidade({
-    required List<FeatureModelPesquisaCidade> listaCompleta,
-    required this.iconeCidade,
-  }) : super(listaVisivel: List.empty(growable: true)..addAll(listaCompleta), listaCompleta: listaCompleta);
-
-  BusinessModelCidade getCidadePeloCodCidade(int codCidade) {
-    for (int i = 0; i < this.listaCompleta.length; i++) {
-      if (this.listaCompleta[i].cidade.codCidade == codCidade) return this.listaCompleta[i].cidade;
-    }
-    return BusinessModelCidade.vazio();
-  }
-}
-*/
