@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
 import '../../../../daos/usuario/daoUsuario.dart';
 import '../../../hub/presenterHub.dart';
@@ -27,24 +28,6 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
   CollectionReference users = FirebaseFirestore.instance.collection('dadosPrestador');
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseStorage firebaseStorage = FirebaseStorage.instance;
-
-
-
-/*  Future<void> setUserCredentials() async {
-    print('success');
-    await users.doc('flutter1234').set({
-      'name': nameController,
-      'phone': phoneController,
-      'workingHours': workingHoursController,
-      'description': descriptionController,
-      'profilePicture': 'getUrlToImageFirebase()',
-      'city': 'city',
-      'roles': 'roles',
-      'brazilianID':'brazilianID',
-      'brazilianIDPicture':'brazilianIDPicture',
-    }
-    );
-  }*/
 
   final FirebaseAuth auth = FirebaseAuth.instance;
   Future<String?> getUserId() async {
@@ -89,10 +72,10 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
   Future uploadFile() async {
     if (_photo == null) return;
     final fileName = basename(_photo!.path);
-    final destination = 'FotoPerfilPrestadorServico/$fileName';
+    final destination = 'FotoIdentidadePrestadorServico/$fileName';
 
     try {
-      final ref = firebase_storage.FirebaseStorage.instance.ref(destination).child('FotoPerfilPrestadorServico/');
+      final ref = firebase_storage.FirebaseStorage.instance.ref(destination).child('FotoIdentidadePrestadorServico/');
       await ref.putFile(_photo!);
     } catch (e) {
       print('error occurred');
@@ -106,13 +89,6 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
     print(imageUrl.toString());
      return imageUrl;
   }
-
-  final nameController = TextEditingController();
-  final itemsAcceptedController = TextEditingController();
-  final workingHoursController = TextEditingController();
-  final phoneController = TextEditingController();
-  final descriptionController = TextEditingController();
-
   final formKeyAuthentication = GlobalKey<FormState>();
 
   @override
@@ -145,7 +121,7 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
                   SizedBox(child:
                       BackArrowSingUpScreenInstitutions(),
                   ),
-                  Text("SignUp",
+                  Text("Documentos",
                     style: TextStyle(color: Colors.white, fontSize: 32),),
                 ],
               ),
@@ -162,50 +138,53 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
                     padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
                     child: Column(
                       children: [
+                        SizedBox(
+                          height: 20,
+                        ),
                         Text(
-                          'Click here to choose an Image',
+                          'Clique no lapis para escolher\numa imagem do seu RG',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: 16.0,
+                              fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
+                         SizedBox(
+                           height: 20,
+                         ),
                          Padding(
                           padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
                           child: Stack(
                             children: [
-
                                Center(
                                   child:GestureDetector(
                                     onTap: () {
                                       _showPicker(context);
                                     },
-                                    child: CircleAvatar(
-                                      radius: 62,
-                                      backgroundColor: Colors.black,
                                       child: _photo != null
                                           ? ClipRRect(
-                                              borderRadius: BorderRadius.circular(60),
+                                              borderRadius: BorderRadius.circular(0),
                                               child: Image.file(
                                                 _photo!,
-                                                width: 120,
-                                                height: 120,
+                                                width:250,
+                                                height: 323,
                                                 fit: BoxFit.fitHeight,
                                               ),
                                             )
                                           : Container(
                                             decoration: BoxDecoration(
                                                 color: Colors.grey[200],
-                                                borderRadius: BorderRadius.circular(60)),
-                                                  width: 120,
-                                                  height: 120,
+                                                borderRadius: BorderRadius.circular(0)),
+                                                  width: 250,
+                                                  height: 323,
                                                   child: Icon(
                                                     Icons.edit,
                                                     size: 35,
                                                     color: Colors.grey[800],
                                         ),
                                       ),
-                                    ),
+
                                   ),
                                 ),
                             ],
@@ -217,14 +196,6 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Column(
-                              children: [
-                                NameWidget(nameController: nameController),
-                                PhoneWidget(phoneController: phoneController),
-                                WorkingHoursWidget(workingHoursController: workingHoursController,),
-                                DescriptionWidget(descriptionController: descriptionController,),
-                              ],
                             ),
                           ),
                         ),
@@ -250,7 +221,7 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
                                     constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
                                     alignment: Alignment.center,
                                     child: Text(
-                                      'Sign Up',
+                                      'Continuar',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.white,
@@ -261,27 +232,11 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
                                   ),
                                 ),
                                 onPressed: () async {
-                                 //getUrlToImageFirebase();
-                                  //setUserCredentials();
-                                  print('--'*50+'1');
-                                  //getUserId();
+                                  UpdateIdentidadePrestador updateIdentidadePrestador = UpdateIdentidadePrestador(identidade: await getUrlToImageFirebase());
 
-                                  await users.doc(await getUserId()).set({
-                                    'name': nameController.text.trim(),
-                                    'phone': phoneController.text.trim(),
-                                    'workingHours': workingHoursController.text.trim(),
-                                    'description': descriptionController.text.trim(),
-                                    'profilePicture': await getUrlToImageFirebase(),
-                                    'city': 'city',
-                                    'roles': '-----11-----',
-                                    'brazilianID':'brazilianID',
-                                    'brazilianIDPicture':'brazilianIDPicture',
-                                  }
-                                  );
-                                  print('--'*50+'2');
+                                  updateIdentidadePrestador.updateIdentidadePrestador();
 
                                   final form = formKeyAuthentication.currentState!;
-
                                   if (form.validate()) {
                                     Navigator.of(context).push(MaterialPageRoute(
                                         builder: (context) => PresenterSelectCidade.presenter(),                               ));

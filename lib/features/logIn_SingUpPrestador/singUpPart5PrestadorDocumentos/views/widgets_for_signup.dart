@@ -147,8 +147,8 @@ class DescriptionWidget extends StatelessWidget {
           keyboardType: TextInputType.multiline,
           textInputAction: TextInputAction.next,
           validator: (nameController) {
-            if (nameController!.isEmpty || nameController.length < 50) {
-              return "Enter a description of at lest 50 characters. ${50 - nameController.length} left";
+            if (nameController!.isEmpty || nameController.length < 1) {
+              return "Enter a description of at lest 50 characters. ${1 - nameController.length} left";
             }else{
               return null;
             }

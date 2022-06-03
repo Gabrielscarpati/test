@@ -71,8 +71,13 @@ dependencies:
 
   flutter_masked_text2: ^0.9.1
 
-  url_launcher: ^6.0.10
+  url_launcher: ^6.1.2
 
+  flutter_modular: ^4.5.1+1
+
+  shared_preferences: ^2.0.6
+
+  fluttertoast: ^8.0.9
 
 dev_dependencies:
   flutter_test:

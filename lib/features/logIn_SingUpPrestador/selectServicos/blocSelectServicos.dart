@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/framework/bloc.dart';
-import '../../../daos/firebase/addingUser.dart';
+import '../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../daos/listaDeServicos/listaDeServicos.dart';
 import '../../../providers/cidade/providerCidade.dart';
 import 'blocEventSelectServicos.dart';
@@ -111,7 +111,7 @@ class BlocSelectServicos
         servicos.add(element.nome);
       }
       );
-      UpdatePrestadorFirebase updatePrestadorFirebase = UpdatePrestadorFirebase(cidades: servicos,);
-      updatePrestadorFirebase.updatePrestadorInformation();
+      UpdateServicoPrestador updatePrestadorFirebase = UpdateServicoPrestador(servicos: servicos,);
+      updatePrestadorFirebase.updateServicosPrestador();
   }
 }

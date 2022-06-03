@@ -59,60 +59,9 @@ class ListItemAvaliacaoPrestadorDeServico extends StatelessWidget {
               textAlign: TextAlign.justify,
               style: Theme.of(context).textTheme.caption,
             )
-
-            /*
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 12,
-                  left: 32,
-                  right: 32,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [Text(avaliacao.id)],
-                ),
-              ),
-
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 12,
-                  left: 32,
-                  right: 32,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    CustomRatingBar(
-                      rating: avaliacao.nota,
-                    ),
-                    Text(avaliacao.data)
-                  ],
-                ),
-              ),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 32, left: 32, right: 32, bottom: 20),
-                    child: Text(
-                      avaliacao.comentario,
-                      overflow: TextOverflow.ellipsis,
-                      softWrap: false,
-                      maxLines: 20,
-                      textAlign: TextAlign.justify,
-                    ),
-                  )
-                ],
-              ),
-
-              */
           ],
         ),
-
-
       ),
     );
-
   }
 }

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/framework/bloc.dart';
-import '../../../daos/firebase/addingUser.dart';
+import '../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../providers/cidade/providerCidade.dart';
 import 'blocEventSelectCidade.dart';
 import 'viewModelSelectCidade.dart';
@@ -119,7 +119,7 @@ class BlocSelectCidade extends Bloc<ViewModelSelectCidade, BlocEventSelectCidade
        }
       );
 
-      UpdatePrestadorFirebase updatePrestadorFirebase = UpdatePrestadorFirebase(cidades: cidades,);
-      updatePrestadorFirebase.updatePrestadorInformation();
+      UpdateCidadePrestador updatePrestadorFirebase = UpdateCidadePrestador(cidades: cidades,);
+      updatePrestadorFirebase.updateCidadePrestador();
   }
 }

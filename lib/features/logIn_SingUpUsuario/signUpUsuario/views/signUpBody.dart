@@ -10,7 +10,6 @@ import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
 import 'backArrowSignUp.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 
@@ -39,11 +38,9 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
 
   @override
   Widget build(BuildContext context) {
-    return usuario != null ? _usuarioNaologado(context) : _usuarioNaologado(context);
+    return usuario == null && _userData == null ? _usuarioNaologado(context) : _usuarioLogado(context);
   }
   Widget _usuarioNaologado(BuildContext context) {
-
-    Map<String, dynamic>? _userData;
 
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -210,8 +207,6 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                 ),
                               ),
                               onPressed: () async {
-                                print(_userData);
-                                print(';;;;;;;;');
 
                                 final form = formKeyAuthentication.currentState!;
                                   if (form.validate()) {

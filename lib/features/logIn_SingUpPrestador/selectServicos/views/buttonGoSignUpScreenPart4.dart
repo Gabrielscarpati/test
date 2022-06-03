@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../singUpPart5PrestadorDocumentos/ViewSingUpScreenInstitution.dart';
+import '../../singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart';
 import '../viewActionsSelectServicos.dart';
 import '../viewModelSelectServicos.dart';
 

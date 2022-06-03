@@ -15,7 +15,6 @@ class ViewSignUpUsuario extends StatefulWidget {
 }
 
 class _ViewSignUpUsuario extends State<ViewSignUpUsuario> {
-  Client client = http.Client();
 
   @override
   Widget build(BuildContext context) {

@@ -1,12 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../hub/presenterHub.dart';
 import '../../../../daos/firebase/authService.dart';
 import 'fazerAsFuncoesLOGINESALVAr.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:projeto_treinamento/main.dart';
+
+GoogleSignInAccount? _usuarioAtual;
 
 
 class LogInBodyUsuario extends StatefulWidget {
@@ -21,9 +26,18 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
   final passwordController = TextEditingController();
   final formKeyAuthenticationLogIn = GlobalKey<FormState>();
 
+  Map? _userData;
+
+  GoogleSignInAccount? usuario = _usuarioAtual;
 
   @override
   Widget build(BuildContext context) {
+    return usuario == null && _userData == null ? _usuarioNaologado(context) : _usuarioLogado(context);
+  }
+
+  @override
+  Widget _usuarioNaologado(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
 
@@ -191,18 +205,19 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                         borderRadius: new BorderRadius.circular(20.0),
                                       ),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: ()  async {
+                                      await signInWithFacebook();
+                                      print('-'*50);
+
+                                    },
                                     child: Center(
                                       child: Container(
                                         child: Row(
                                           children: <Widget>[
-                                            SizedBox(
-                                              child: new Image.network('https://wpaperhd.com/wp-content/uploads/2019/12/2551091659-apple-logo-JE5P-JE5P-1920x1080-MM-78.jpg',
-                                                height: 30,
-                                              ),
-                                            ),
-                                            SizedBox(width: 10,),
-                                            Text('Apple',
+                                            Icon(FontAwesomeIcons.facebook, color: Colors.indigoAccent,),
+
+                                            SizedBox(width: screenWidth*0.015,),
+                                            Text('Facebook',
                                               style: TextStyle(
                                                   fontSize: 20,
                                                   color: Colors.black
@@ -215,41 +230,48 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                   ),
                                 )
                             ),
-                            const SizedBox(width: 30),
+                            SizedBox(width: screenWidth*0.02564*.7),
                             Expanded(
-                              child: SizedBox(
-                                height: 50,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
+                                child: SizedBox(
+                                  height: 50,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
                                       primary: Colors.white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
                                       shape: new RoundedRectangleBorder(
                                         borderRadius: new BorderRadius.circular(20.0),
                                       ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Center(
-                                    child: Container(
-                                      child: Row(
-                                        children: <Widget>[
-                                          SizedBox(
-                                            child: new Image.network('https://logowik.com/content/uploads/images/985_google_g_icon.jpg',
-                                              height: 30,
+                                    ),
+                                    onPressed: () {
+                                      signInWithGoogle();
+                                      setState(() {
+
+
+                                      });
+
+
+                                    },
+
+                                    child: Center(
+                                      child: Container(
+                                        child: Row(
+                                          children: <Widget>[
+                                            Icon(FontAwesomeIcons.google, color: Colors.indigoAccent,),
+
+
+                                            SizedBox(width: screenWidth*0.02564,),
+                                            Text('Google',
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.black
+                                              ),
                                             ),
-                                          ),
-                                          SizedBox(width: 10,),
-                                          Text('Google',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                              color: Colors.black
-                                            ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              )
-                                ),
+                                )
+                            ),
                           ],
                         ),
                       ],
@@ -263,35 +285,53 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
       ),
     );
   }
-}
+  Future<UserCredential> signInWithFacebook() async {
 
-Widget _createLoginButtonGoogle() {
-  return Expanded(
-    child: Container(
-      color: Colors.blueAccent,
-      margin: EdgeInsets.fromLTRB(1.0, 6.0, 6.0, 1.0),
-      child:  ElevatedButton(
-        onPressed: () {},
-        child: Center(
-          child: Container(
-            color: Colors.blueAccent,
-            child: Row(
-              children: <Widget>[
-                SizedBox(
-                  child: new Image.network('https://logowik.com/content/uploads/images/985_google_g_icon.jpg',height: 10,
-                  ),
-                ),
+    final LoginResult result = await FacebookAuth.instance.login(permissions:['email']);
 
-                SizedBox(width: 10,),
-                Text('Google',
-                style: TextStyle(
-                  fontSize: 20
-                ),),
-              ],
-            ),
-          ),
-        ),
-      ),
-    ),
-  );
+
+    if (result.status == LoginStatus.success) {
+
+      final userData = await FacebookAuth.instance.getUserData();
+
+      _userData = userData;
+    } else {
+      print(result.message);
+    }
+
+    setState(() {
+      String haha = '';
+      haha = _userData?['email'];
+    });
+
+
+    final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(result.accessToken!.token);
+
+    return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+  }
+
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    var userEmail = '';
+
+    userEmail = googleUser.email;
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  Widget _usuarioLogado(BuildContext context) {
+    return PresenterHub.presenter();
+  }
+
 }
