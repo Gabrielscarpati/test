@@ -18,10 +18,11 @@ import 'daos/firebase/authService.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
 import 'daos/usuario/daoUsuario.dart';
 import 'features/hub/presenterHub.dart';
+import 'features/infoPrestadorDeServico/views/comentariosInfoPrestadorDeServico.dart';
 import 'features/logIn_SingUpPrestador/selectCidades/presenterSelectCidade.dart';
 import 'features/logIn_SingUpPrestador/signUpEplicandoTelaDocumentos/viewSignUpEplicandoTelaDocumentos.dart';
 import 'features/logIn_SingUpPrestador/signUpPart1PrestadorServico/signUpPart1Prestador.dart';
-import 'features/logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
+import 'features/logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSignUpPart2WorkerInformatio.dart';
 import 'features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart';
 import 'features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 
@@ -85,7 +86,7 @@ class MyApp extends StatelessWidget {
             if (snapshot.hasData || usuario!= null || verificarSeUsuarioNulo() != null) {
               print(snapshot.hasData);
 
-              return PresenterHub.presenter();
+              return ComentariosInfoPrestadorDeServico();
             }
             return ViewVeryFirstScreen();
 

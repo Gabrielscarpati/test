@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart';
-import '../../signUpPart2WorkerInformation/views/backArrowSingUpScreenInstitutions.dart';
+import '../../signUpPart2WorkerInformation/views/backArrowSignUpPart2WorkerInformation.dart';
 
 class BodyViewsignUpEplicandoTelaDocumentos extends StatefulWidget {
 
@@ -38,7 +38,7 @@ class _BodyViewsignUpEplicandoTelaDocumentos extends State<BodyViewsignUpEplican
               Row(
                 children: [
                   SizedBox(child:
-                  BackArrowSingUpScreenInstitutions(),
+                  BackArrowSignUpPart2WorkerInformation(),
                   ),
                   Text("Documentos",
                     style: TextStyle(color: Colors.white, fontSize: 32),),

@@ -82,3 +82,64 @@ class UpdateIdentidadePrestador{
     this.identidade;
   }
 }
+
+
+
+
+
+
+
+
+
+class UpdateComentarioAvaliacao{
+
+  CollectionReference dadosPrestador = FirebaseFirestore.instance.collection('dadosPrestador');
+
+  Future<List> getListaComentarios() async{
+    DocumentSnapshot result = await dadosPrestador.doc('flutter123').get();
+    print(result.data());
+    return result.data() as List;
+  }
+
+
+
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
+  Future<String?> getUserId() async {
+    final User? user = await auth.currentUser;
+    final userId = user?.uid.toString();
+    return userId;
+  }
+
+  final String dataDoComentario;
+  final double nota;
+  final String textoComentario;
+  final String emailUsuario;
+
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  updateComentarioAvaliacao() async {
+    print('-'*50);
+    await firestore.collection('dadosPrestador').doc(await getUserId()).update({
+      'comentarios': {
+        'data': dataDoComentario,
+        'nota': nota,
+        'textoComentario': textoComentario,
+        'usuario': emailUsuario,
+        },
+      }
+    );
+  }
+
+  UpdateComentarioAvaliacao({
+    required this.dataDoComentario,
+    required this.nota,
+    required this.textoComentario,
+    required this.emailUsuario,
+  }){
+    this.dataDoComentario;
+    this.nota;
+    this.textoComentario;
+    this.emailUsuario;
+  }
+}

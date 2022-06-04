@@ -9,7 +9,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
 import '../../../hub/presenterHub.dart';
-import '../../../logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSingUpScreenInstitution.dart';
+import '../../../logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSignUpPart2WorkerInformatio.dart';
 import 'backArrowSignUp.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:url_launcher/url_launcher.dart';

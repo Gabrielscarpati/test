@@ -87,7 +87,7 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
     await ref.putFile(File(_photo!.path));
     String imageUrl = await ref.getDownloadURL();
     print(imageUrl.toString());
-     return imageUrl;
+     return imageUrl.toString();
   }
   final formKeyAuthentication = GlobalKey<FormState>();
 
@@ -239,7 +239,7 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
                                   final form = formKeyAuthentication.currentState!;
                                   if (form.validate()) {
                                     Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => PresenterSelectCidade.presenter(),                               ));
+                                        builder: (context) => PresenterSelectCidade.presenter(),));
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(

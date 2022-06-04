@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../signUpEplicandoTelaDocumentos/viewSignUpEplicandoTelaDocumentos.dart';
 import '../../singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart';
 import '../viewActionsSelectServicos.dart';
 import '../viewModelSelectServicos.dart';
@@ -47,7 +48,7 @@ class ButtonGoSignUpScreenPart4 extends StatelessWidget {
             onPressed: () {
               this.viewActions.savarListaSelecionadaFirebase(viewModel);
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => SignUpPart5PrestadorDocumentos()));
+                  builder: (context) => ViewsignUpEplicandoTelaDocumentos()));
 
             },
             style: ElevatedButton.styleFrom(
