@@ -3,25 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
 
+import '../../../businessModels/businessModelDadosPrestador.dart';
 import '../../perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
 import '../viewActionsHub.dart';
 import '../viewModelHub.dart';
 
-class ViewHubUsuario extends StatelessWidget {
+class ViewHubPrestador extends StatelessWidget {
 
-  ViewHubUsuario({
+  ViewHubPrestador({
     Key? key,
     required this.viewModel,
     required this.viewActions,
 
   });
 
-  final ViewModelHub viewModel;
-  final ViewActionsHub viewActions;
+  final ViewModelHubPrestador viewModel;
+  final ViewActionsHubPrestador viewActions;
 
   @override
   Widget build(BuildContext context) {
-    BusinessModelUsuario usuario = viewModel.usuario;
+    BusinessModelDadosPrestador usuario = viewModel.prestador;
     return Padding(
       padding: const EdgeInsets.only(top: 44, left: 32, right: 32, bottom: 24),
       child: Row(
@@ -51,7 +52,7 @@ class ViewHubUsuario extends StatelessWidget {
               viewActions.AbreTelaInfoUsuario(context, viewModel );
             },
             child: Hero(
-              tag: viewModel.usuario.id,
+              tag: viewModel.prestador.id,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -61,7 +62,7 @@ class ViewHubUsuario extends StatelessWidget {
                 child: CircleAvatar(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.black,
-                  backgroundImage: NetworkImage(usuario.urlFoto!),
+                  backgroundImage: NetworkImage(viewModel.prestador.profilePicture),
                   radius: 36.0,
                   child: Text("", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
                 ),

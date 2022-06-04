@@ -11,14 +11,6 @@ class AdapterUsuario extends Adapter<BusinessModelUsuario, DataModelUsuario> {
       return BusinessModelUsuario(
         email: dataModel.email,
         nome: dataModel.nome,
-        urlFoto: dataModel.urlFoto,
-        phone: dataModel.phone,
-        city: dataModel.city,
-        description: dataModel.description,
-        roles: dataModel.roles,
-        workingHours: dataModel.workingHours,
-        brazilianID: dataModel.brazilianID,
-        brazilianIDpicture: dataModel.brazilianIDpicture,
       );
   }
 
@@ -27,15 +19,6 @@ class AdapterUsuario extends Adapter<BusinessModelUsuario, DataModelUsuario> {
     return DataModelUsuario(
       email: businessModel.email,
       nome: businessModel.nome,
-      urlFoto: businessModel.urlFoto,
-      phone: businessModel.phone,
-      city: businessModel.city,
-      description: businessModel.description,
-      roles: businessModel.roles,
-      workingHours: businessModel.workingHours,
-      brazilianID: businessModel.brazilianID,
-      brazilianIDpicture: businessModel.brazilianIDpicture,
-
 
     );
   }

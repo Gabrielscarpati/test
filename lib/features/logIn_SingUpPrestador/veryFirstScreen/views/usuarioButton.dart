@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../hub/presenterHub.dart';
 import '../../../logIn_SingUpUsuario/loginOrSignUpUsuario/viewLogInOrSignUpUsuario.dart';
 import '../../loginOrSignUpPrestadorServico/viewLogInOrSignUpPrestadorServico.dart';
 

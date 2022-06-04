@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
 import '../../../../daos/usuario/daoUsuario.dart';
-import '../../../hub/presenterHub.dart';
 import '../../selectCidades/presenterSelectCidade.dart';
 import 'widgets_for_signup.dart';
 import 'backArrowSignUpPart2WorkerInformation.dart';
@@ -271,15 +270,20 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
                                   await users.doc(await getUserId()).set({
                                     'name': nameController.text.trim(),
                                     'phone': phoneController.text.trim(),
-                                    'workingHours': workingHoursController.text.trim(),
-                                    'description': descriptionController.text.trim(),
+                                    'workingHours': workingHoursController.text
+                                        .trim(),
+                                    'description': descriptionController.text
+                                        .trim(),
                                     'profilePicture': await getUrlToImageFirebase(),
                                     'city': 'city',
                                     'roles': '-----11-----',
-                                    'brazilianIDPicture':'brazilianIDPicture',
+                                    'brazilianIDPicture': 'brazilianIDPicture',
                                     'comentarios': listaComentarios,
                                     'numeroDeCliquesNoLigarOuWhatsApp': 0,
-                                      }
+                                    'dataVencimentoPlano': 'dataVencimentoPlano',
+                                    'dataAberturaConta': 'dataAberturaConta',
+                                    'IdPrestador': await getUserId(),
+                                  }
                                     );
 
                                   final form = formKeyAuthentication.currentState!;

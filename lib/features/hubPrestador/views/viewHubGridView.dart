@@ -11,8 +11,8 @@ class ViewHubGridView extends StatelessWidget {
     required this.viewActions,
   });
 
-  final ViewModelHub viewModel;
-  final ViewActionsHub viewActions;
+  final ViewModelHubPrestador viewModel;
+  final ViewActionsHubPrestador viewActions;
 
   @override
   Widget build(BuildContext context) {

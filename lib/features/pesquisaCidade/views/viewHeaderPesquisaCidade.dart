@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_treinamento/features/hub/views/viewHubUsuario.dart';
 import 'package:projeto_treinamento/features/pesquisaCidade/viewModelPesquisaCidade.dart';
 import 'package:projeto_treinamento/features/pesquisaCidade/viewPesquisaCidade.dart';
 

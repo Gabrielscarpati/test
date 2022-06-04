@@ -4,10 +4,10 @@ import 'viewActionsHub.dart';
 import 'viewHub.dart';
 import 'viewModelHub.dart';
 
-class ViewBuilderHub extends ViewBuilder<ViewHub, ViewModelHub, ViewActionsHub> {
+class ViewBuilderHubPrestador extends ViewBuilder<ViewHubPrestador, ViewModelHubPrestador, ViewActionsHubPrestador> {
   @override
-  ViewHub createView(ViewModelHub? viewModel, ViewActionsHub viewActions) {
-    return ViewHub(
+  ViewHubPrestador createView(ViewModelHubPrestador? viewModel, ViewActionsHubPrestador viewActions) {
+    return ViewHubPrestador(
       viewModel: viewModel,
       viewActions: viewActions,
     );

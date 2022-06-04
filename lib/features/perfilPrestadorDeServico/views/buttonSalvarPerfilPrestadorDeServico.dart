@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewActionsInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewActionsPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
-import '../../hub/presenterHub.dart';
 
 class ButtonSavePerfilPrestadorDeServico extends StatefulWidget {
   //final ViewActionsPerfilPrestadorDeServico viewActions;
@@ -59,7 +59,7 @@ class _ButtonSavePerfilPrestadorDeServicoState
               //widget.viewActions.updatePrestadorInformation(viewModel: widget.viewModel);
 
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => PresenterHub.presenter()));
+                  builder: (context) => PresenterHubPrestador.presenter()));
             },
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.all(0),

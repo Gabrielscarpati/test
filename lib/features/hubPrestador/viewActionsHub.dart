@@ -4,11 +4,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelPrincipaisTiposDeServicoCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
-import 'package:projeto_treinamento/features/hub/viewModelHub.dart';
+import 'package:projeto_treinamento/features/hubPrestador/viewModelHub.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/presenterInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
-import 'package:projeto_treinamento/features/infoUsuario/presenterInfoUsuario.dart';
-import 'package:projeto_treinamento/features/infoUsuario/viewModelInfoUsuario.dart';
 import 'package:projeto_treinamento/features/listaPrestadoresDeServico/presenterListaPrestadoresDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/pesquisaCidade/presenterPesquisaCidade.dart';
@@ -21,10 +19,10 @@ import '../../businessModels/businessModelPrestadorInfomation.dart';
 import '../perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'blocEventHub.dart';
 
-class ViewActionsHub extends ViewActions<BlocEventHub> {
-  ViewActionsHub(Pipe<BlocEventHub> blocPipeIn) : super(blocPipeIn);
+class ViewActionsHubPrestador extends ViewActions<BlocEventHubPrestador> {
+  ViewActionsHubPrestador(Pipe<BlocEventHubPrestador> blocPipeIn) : super(blocPipeIn);
 
-  void abreTelaMostraPrestadoresDeServico(BuildContext context, ViewModelHub viewModel, int codTipoDeServico) {
+  void abreTelaMostraPrestadoresDeServico(BuildContext context, ViewModelHubPrestador viewModel, int codTipoDeServico) {
     Navigator.of(context)
         .push(
       MaterialPageRoute(
@@ -37,7 +35,7 @@ class ViewActionsHub extends ViewActions<BlocEventHub> {
     });
   }
 
-  void abreTelaDePesquisaDeCidade(BuildContext context, ViewModelHub viewModel) {
+  void abreTelaDePesquisaDeCidade(BuildContext context, ViewModelHubPrestador viewModel) {
     Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => PresenterPesquisaCidade.presenter(codTipoDeServico: 0))).then((codCidade) {
       if (codCidade != null) {
         BlocEventHubSelecionaCidade blocEvent = BlocEventHubSelecionaCidade(viewModel: viewModel, codCidade: codCidade);
@@ -46,7 +44,7 @@ class ViewActionsHub extends ViewActions<BlocEventHub> {
     });
   }
 
-  void abreTelaDePesquisaDeTipoDeServico(BuildContext context, ViewModelHub viewModel) {
+  void abreTelaDePesquisaDeTipoDeServico(BuildContext context, ViewModelHubPrestador viewModel) {
     Navigator.of(context)
         .push(
       MaterialPageRoute(
@@ -63,50 +61,26 @@ class ViewActionsHub extends ViewActions<BlocEventHub> {
     });
   }
 
-  /*  void AbreTelaInfoUsuario(BuildContext context, ViewModelHub viewModel) async {
-    ViewModelInfoUsuario _viewModel =
-        ViewModelInfoUsuario(cidade: viewModel.cidade, usuario: viewModel.usuario, listaCompletaCidade: ProviderCidade().getBusinessModels());
-
-    final ViewModelInfoUsuario results = await Navigator.of(context).push(MaterialPageRoute(
-        builder: (BuildContext context) => PresenterInfoUsuario.presenter(
-              viewModel: _viewModel,
-            )));
-
-    if (results != null) {
-      ViewModelHub novoViewModel =
-          ViewModelHub(cidade: results.cidade, usuario: results.usuario, principaisTiposDeServicoCidade: BusinessModelPrincipaisTiposDeServicoCidade.vazio());
-      AtualizaTelaHub(novoViewModel);
-    }
-  }*/
-
-  void AbreTelaInfoUsuario(BuildContext context, ViewModelHub viewModel) async {
-    ViewModelInfoUsuario _viewModel =
-    ViewModelInfoUsuario(cidade: viewModel.cidade, usuario: viewModel.usuario, listaCompletaCidade: ProviderCidade().getBusinessModels());
+  void AbreTelaInfoUsuario(BuildContext context, ViewModelHubPrestador viewModel) async {
+    ViewModelPerfilPrestadorDeServico _viewModel = ViewModelPerfilPrestadorDeServico(prestadorInformation: BusinessModelPrestadorInformation);
 
 
-    final ViewModelInfoUsuario results = await Navigator.of(context).push(MaterialPageRoute(
+    final ViewModelHubPrestador results = await Navigator.of(context).push(MaterialPageRoute(
         builder: (BuildContext context) =>PresenterPerfilPrestadorDeServico.presenter()));
 
     if (results != null) {
-      ViewModelHub novoViewModel =
-          ViewModelHub(
+      ViewModelHubPrestador novoViewModel =
+          ViewModelHubPrestador(
+              prestador: prestador,
               cidade: results.cidade,
-              usuario: results.usuario,
               principaisTiposDeServicoCidade: BusinessModelPrincipaisTiposDeServicoCidade.vazio(),
-              email: viewModel.email,
-              phone: viewModel.phone,
-              workingHours: viewModel.workingHours,
-              brazilianID: viewModel.brazilianID,
-              roles: viewModel.roles,
-              description: viewModel.description,
-              brazilianIDpicture: viewModel.brazilianIDpicture,
           );
       AtualizaTelaHub(novoViewModel);
     }
   }
 
-  void AtualizaTelaHub(ViewModelHub viewModel) {
-    BlocEventHubAtualizaViewModel blocEvent = BlocEventHubAtualizaViewModel(viewModel: viewModel);
+  void AtualizaTelaHub(ViewModelHubPrestador viewModel) {
+    BlocEventHubPrestadorAtualizaViewModel blocEvent = BlocEventHubPrestadorAtualizaViewModel(viewModel: viewModel);
     blocPipeIn.send(blocEvent);
   }
 }

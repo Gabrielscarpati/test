@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
-import '../../../hub/presenterHub.dart';
 import '../../../logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSignUpPart2WorkerInformatio.dart';
 import 'backArrowSignUp.dart';
 import 'package:email_validator/email_validator.dart';
@@ -401,7 +401,7 @@ class _LogInBody extends State<SignUpPart1Body> {
   }
 
   Widget _usuarioLogado(BuildContext context) {
-    return PresenterHub.presenter();
+    return PresenterHubPrestador.presenter();
   }
 }
 

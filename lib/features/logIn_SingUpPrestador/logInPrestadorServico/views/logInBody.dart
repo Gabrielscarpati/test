@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
-import '../../../hub/presenterHub.dart';
 import '../../../../daos/firebase/authService.dart';
 import 'fazerAsFuncoesLOGINESALVAr.dart';
 import 'package:http/http.dart' as http;
@@ -179,7 +179,7 @@ class _LogInBody extends State<LogInBody> {
                                     await AuthService().loginUser(emailController.text, passwordController.text);
 
                                     Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context) => PresenterHub.presenter())
+                                        MaterialPageRoute(builder: (context) => PresenterHubPrestador.presenter())
                                     );
                                   }
                               },
@@ -333,6 +333,6 @@ class _LogInBody extends State<LogInBody> {
   }
 
   Widget _usuarioLogado(BuildContext context) {
-    return PresenterHub.presenter();
+    return PresenterHubPrestador.presenter();
   }
 }

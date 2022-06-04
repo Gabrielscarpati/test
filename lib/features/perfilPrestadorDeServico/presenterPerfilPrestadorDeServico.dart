@@ -1,5 +1,4 @@
 import 'package:projeto_treinamento/businessModels/businessModelPrestadorInfomation.dart';
-import 'package:projeto_treinamento/features/hub/viewModelHub.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/blocEventPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/blocPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/framework/presenter.dart';

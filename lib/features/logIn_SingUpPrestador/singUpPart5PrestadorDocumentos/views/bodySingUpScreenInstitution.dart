@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
 import '../../../../daos/usuario/daoUsuario.dart';
-import '../../../hub/presenterHub.dart';
 import '../../selectCidades/presenterSelectCidade.dart';
 import 'widgets_for_signup.dart';
 import 'backArrowSingUpScreenInstitutions.dart';

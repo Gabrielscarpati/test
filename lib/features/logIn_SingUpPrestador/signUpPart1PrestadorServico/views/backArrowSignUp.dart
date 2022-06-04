@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/loginOrSignUpPrestadorServico/viewLogInOrSignUpPrestadorServico.dart';
 
-import '../../../hub/presenterHub.dart';
-
 class BackArrowLogInScreen extends StatefulWidget {
   const BackArrowLogInScreen({Key? key}) : super(key: key);
 

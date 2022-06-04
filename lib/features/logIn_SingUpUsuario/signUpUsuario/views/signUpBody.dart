@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:projeto_treinamento/features/hub/presenterHub.dart';
+import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/signUpPart1PrestadorServico/views/googleSignUp.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
@@ -214,7 +214,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
 
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
-                                              builder: (context) =>PresenterHub.presenter()
+                                              builder: (context) =>PresenterHubPrestador.presenter()
                                           ));
                                   }
 
@@ -368,7 +368,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
   }
 
   Widget _usuarioLogado(BuildContext context) {
-    return PresenterHub.presenter();
+    return PresenterHubPrestador.presenter();
   }
 }
 

@@ -1,23 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_treinamento/features/hub/views/viewHubCidade.dart';
-import 'package:projeto_treinamento/features/hub/views/viewHubGridView.dart';
-import 'package:projeto_treinamento/features/hub/views/viewHubServicos.dart';
-import 'package:projeto_treinamento/features/hub/views/viewHubUsuario.dart';
+import 'package:projeto_treinamento/features/hubPrestador/views/viewHubCidade.dart';
+import 'package:projeto_treinamento/features/hubPrestador/views/viewHubGridView.dart';
+import 'package:projeto_treinamento/features/hubPrestador/views/viewHubServicos.dart';
 import 'package:projeto_treinamento/util/libraryComponents/colors/colorGradient.dart';
 import '../../../util/libraryComponents/colors/colors.dart';
 import '../viewActionsHub.dart';
+import '../viewHub.dart';
 import '../viewModelHub.dart';
 
-class ViewHubBody extends StatelessWidget {
-  ViewHubBody({
+class ViewHubBodyPrestador extends StatelessWidget {
+  ViewHubBodyPrestador({
     Key? key,
     required this.viewModel,
     required this.viewActions,
   });
 
-  final ViewModelHub viewModel;
-  final ViewActionsHub viewActions;
+  final ViewModelHubPrestador viewModel;
+  final ViewActionsHubPrestador viewActions;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ViewHubBody extends StatelessWidget {
       child: Column(
 
         children: [
-           ViewHubUsuario(viewModel: viewModel, viewActions: viewActions),
+           ViewHubPrestador(viewModel: viewModel, viewActions: viewActions),
 
           Expanded(
             child:Container(
