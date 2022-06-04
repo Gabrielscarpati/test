@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class UpdateCidadePrestador{
+class UpdateCidadePrestador {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<String?> getUserId() async {
@@ -15,20 +15,18 @@ class UpdateCidadePrestador{
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   updateCidadePrestador() async {
-    print('-'*50);
+    print('-' * 50);
     await firestore.collection('dadosPrestador').doc(await getUserId()).update({
       'city': cidades,
-      }
-    );
+    });
   }
 
-  UpdateCidadePrestador({ required this.cidades}){
+  UpdateCidadePrestador({required this.cidades}) {
     this.cidades;
   }
 }
 
-
-class UpdateServicoPrestador{
+class UpdateServicoPrestador {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<String?> getUserId() async {
@@ -42,22 +40,18 @@ class UpdateServicoPrestador{
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   updateServicosPrestador() async {
-    print('-'*50);
+    print('-' * 50);
     await firestore.collection('dadosPrestador').doc(await getUserId()).update({
       'roles': servicos,
-    }
-    );
+    });
   }
 
-  UpdateServicoPrestador({ required this.servicos}){
+  UpdateServicoPrestador({required this.servicos}) {
     this.servicos;
   }
 }
 
-
-
-
-class UpdateIdentidadePrestador{
+class UpdateIdentidadePrestador {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<String?> getUserId() async {
@@ -71,37 +65,26 @@ class UpdateIdentidadePrestador{
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   updateIdentidadePrestador() async {
-    print('-'*50);
+    print('-' * 50);
     await firestore.collection('dadosPrestador').doc(await getUserId()).update({
       'brazilianIDPicture': identidade,
-    }
-    );
+    });
   }
 
-  UpdateIdentidadePrestador({ required this.identidade}){
+  UpdateIdentidadePrestador({required this.identidade}) {
     this.identidade;
   }
 }
 
+class UpdateComentarioAvaliacao {
+  CollectionReference dadosPrestador =
+      FirebaseFirestore.instance.collection('dadosPrestador');
 
-
-
-
-
-
-
-
-class UpdateComentarioAvaliacao{
-
-  CollectionReference dadosPrestador = FirebaseFirestore.instance.collection('dadosPrestador');
-
-  Future<List> getListaComentarios() async{
+  Future<List> getListaComentarios() async {
     DocumentSnapshot result = await dadosPrestador.doc('flutter123').get();
     print(result.data());
     return result.data() as List;
   }
-
-
 
   final FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -119,16 +102,14 @@ class UpdateComentarioAvaliacao{
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   updateComentarioAvaliacao() async {
-    print('-'*50);
-    await firestore.collection('dadosPrestador').doc(await getUserId()).update({
-      'comentarios': {
-        'data': dataDoComentario,
-        'nota': nota,
-        'textoComentario': textoComentario,
-        'usuario': emailUsuario,
-        },
-      }
-    );
+    print('-' * 50);
+    await firestore.collection('comentarios').add({
+      'data': dataDoComentario,
+      'nota': nota,
+      'textoComentario': textoComentario,
+      'emailUsuario': emailUsuario,
+      'idPrestador': await getUserId()
+    });
   }
 
   UpdateComentarioAvaliacao({
@@ -136,7 +117,7 @@ class UpdateComentarioAvaliacao{
     required this.nota,
     required this.textoComentario,
     required this.emailUsuario,
-  }){
+  }) {
     this.dataDoComentario;
     this.nota;
     this.textoComentario;

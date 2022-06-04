@@ -13,7 +13,6 @@ import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelP
 
 import 'package:provider/provider.dart';
 
-
 import 'daos/firebase/authService.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
 import 'daos/usuario/daoUsuario.dart';
@@ -32,16 +31,12 @@ void main() async {
   runApp(MyApp());
 }
 
-
 GoogleSignInAccount? _usuarioAtual;
 
-
-Future<String> verificarSeUsuarioNulo() async{
+Future<String> verificarSeUsuarioNulo() async {
   final userData = await FacebookAuth.instance.getUserData();
   return userData.toString();
 }
-
-
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -83,13 +78,14 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData || usuario!= null || verificarSeUsuarioNulo() != null) {
+            if (snapshot.hasData ||
+                usuario != null ||
+                verificarSeUsuarioNulo() != '') {
+              print("-------------------------------");
               print(snapshot.hasData);
-
               return ComentariosInfoPrestadorDeServico();
             }
             return ViewVeryFirstScreen();
-
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),
