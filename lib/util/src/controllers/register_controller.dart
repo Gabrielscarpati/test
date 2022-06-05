@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../models/enums/request.dart';
@@ -24,6 +23,6 @@ class RegisterController {
     String password = this._passwordController.text;
     final model =
         RegisterModel(name: name, username: username, password: password);
-    return userService.register(model);
+    return await userService.register(model);
   }
 }

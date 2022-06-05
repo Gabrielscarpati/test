@@ -1,17 +1,18 @@
 import 'package:projeto_treinamento/main.dart';
-import 'package:projeto_treinamento/src/components/alerts/alert.dart';
-import 'package:projeto_treinamento/src/exceptions/validation_exception.dart';
-import 'package:projeto_treinamento/src/models/enums/request.dart';
-import 'package:projeto_treinamento/src/models/erro_model.dart';
-import 'package:projeto_treinamento/src/models/login_model.dart';
-import 'package:projeto_treinamento/src/models/register_model.dart';
-import 'package:projeto_treinamento/src/models/user_model.dart';
-import 'package:projeto_treinamento/src/repositories/user_repository.dart';
-import 'package:projeto_treinamento/src/utils/throw_error.dart';
-import 'package:projeto_treinamento/src/validations/login_validation.dart';
-import 'package:projeto_treinamento/src/validations/register_validation.dart';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_treinamento/util/src/components/alerts/alert.dart';
+import 'package:projeto_treinamento/util/src/exceptions/validation_exception.dart';
+import 'package:projeto_treinamento/util/src/models/enums/request.dart';
+import 'package:projeto_treinamento/util/src/models/erro_model.dart';
+import 'package:projeto_treinamento/util/src/models/login_model.dart';
+import 'package:projeto_treinamento/util/src/models/register_model.dart';
+import 'package:projeto_treinamento/util/src/models/user_model.dart';
+import 'package:projeto_treinamento/util/src/repositories/user_repository.dart';
+import 'package:projeto_treinamento/util/src/utils/throw_error.dart';
+import 'package:projeto_treinamento/util/src/validations/login_validation.dart';
+import 'package:projeto_treinamento/util/src/validations/register_validation.dart';
 
 class UserService {
   final UserRepository userRepository = new UserRepository();

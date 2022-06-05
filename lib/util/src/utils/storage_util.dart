@@ -1,6 +1,7 @@
 import 'dart:convert';
-import '../models/transfer_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/transfer_model.dart';
 
 class Storage {
   Future setToken(String token) async {

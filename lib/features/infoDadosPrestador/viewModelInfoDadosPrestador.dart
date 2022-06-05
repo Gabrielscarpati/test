@@ -12,8 +12,7 @@ class ViewModelInfoDadosPrestador extends ViewModel {
   final BusinessModelDadosPrestador prestador;
   final List<BusinessModelCidade> cidades;
   final Uint8List? imagemAtualizada;
-  final Future<List<BusinessModelCidade>> listaCompletaCidade;
-
+  final List<BusinessModelCidade> listaCompletaCidade;
 
   ViewModelInfoDadosPrestador({
     required this.prestador,

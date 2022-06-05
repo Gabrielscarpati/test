@@ -9,9 +9,9 @@ import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
+import 'package:projeto_treinamento/util/src/utils/storage_util.dart';
 
 import 'package:provider/provider.dart';
-
 
 import 'daos/firebase/authService.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
@@ -24,22 +24,21 @@ import 'features/logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSignUpPa
 import 'features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart';
 import 'features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 
+final navigatorKey = GlobalKey<NavigatorState>();
+final Storage storage = new Storage();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
 }
 
-
 GoogleSignInAccount? _usuarioAtual;
 
-
-Future<String> verificarSeUsuarioNulo() async{
+Future<String> verificarSeUsuarioNulo() async {
   final userData = await FacebookAuth.instance.getUserData();
   return userData.toString();
 }
-
-
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -81,13 +80,14 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData || usuario!= null || verificarSeUsuarioNulo() != null) {
+            if (snapshot.hasData ||
+                usuario != null ||
+                verificarSeUsuarioNulo() != null) {
               print(snapshot.hasData);
 
               return PresenterHubPrestador.presenter();
             }
             return ViewVeryFirstScreen();
-
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),

@@ -9,12 +9,10 @@ import '../viewActionsHub.dart';
 import '../viewModelHub.dart';
 
 class ViewHubPrestador extends StatelessWidget {
-
   ViewHubPrestador({
     Key? key,
     required this.viewModel,
     required this.viewActions,
-
   });
 
   final ViewModelHubPrestador viewModel;
@@ -31,25 +29,21 @@ class ViewHubPrestador extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Olá,",
-                style: TextStyle(
-                    color: Colors.grey[600],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24)
-              ),
-              Text(
-                usuario.primeiroNome(),
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 36)
-              ),
+              Text("Olá,",
+                  style: TextStyle(
+                      color: Colors.grey[600],
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24)),
+              Text(usuario.primeiroNome(),
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 36)),
             ],
           ),
           InkWell(
             onTap: () {
-              viewActions.AbreTelaInfoUsuario(context, viewModel );
+              viewActions.AbreTelaInfoPrestador(context, viewModel);
             },
             child: Hero(
               tag: viewModel.prestador.id,
@@ -57,14 +51,20 @@ class ViewHubPrestador extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,
-                  boxShadow: [BoxShadow(blurRadius: 10, color: Colors.black, spreadRadius: 1)],
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 10, color: Colors.black, spreadRadius: 1)
+                  ],
                 ),
                 child: CircleAvatar(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.black,
-                  backgroundImage: NetworkImage(viewModel.prestador.profilePicture),
+                  backgroundImage:
+                      NetworkImage(viewModel.prestador.profilePicture),
                   radius: 36.0,
-                  child: Text("", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
+                  child: Text("",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20.0)),
                 ),
               ),
             ),

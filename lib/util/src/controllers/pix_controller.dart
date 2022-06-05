@@ -10,9 +10,9 @@ class PixController {
 
   PixController(this.inputController);
 
-  Future<List> findAll() async {
+  Future<List<PixResponse>> findAll() async {
     return await service.findAll();
-  }      //Troquei para futue list
+  } //Troquei para futue list
 
   Future<void> register() async {
     if (inputController != null) {
