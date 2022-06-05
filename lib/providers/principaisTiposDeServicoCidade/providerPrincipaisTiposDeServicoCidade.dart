@@ -29,9 +29,12 @@ class ProviderPrincipaisTiposDeServicoCidade
     List<BusinessModelDadosPrestador> prestadores =
         await ProvideDadosPrestador().getBusinessModels();
 
+    print(cidades);
     prestadores = prestadores
         .where((element) => element.city == cidades[int.parse(id)].nome)
         .toList();
+
+    print(prestadores);
 
     List<BusinessModelTiposDeServico> listBusinessModelTipoDeServico = [];
     prestadores.forEach((element) {
@@ -42,13 +45,36 @@ class ProviderPrincipaisTiposDeServicoCidade
         listBusinessModelTipoDeServico.add(tiposDeServico);
       });
     });
+
+    List<BusinessModelTiposDeServico> listPrincipaisBusinessModelTipoDeServico =
+        [];
+//verigicar logica para principais tipos de servico
+    int count = 0;
+    int maiorCodtipoServico = 0;
+    int maiorCount = 0;
+    for (int i = 0; i < listBusinessModelTipoDeServico.length; i++) {
+      for (int j = i + 1; j < listBusinessModelTipoDeServico.length; j++) {
+        if (listBusinessModelTipoDeServico[i].codTipoServico ==
+            listBusinessModelTipoDeServico[j].codTipoServico) {
+          count++;
+        }
+
+        if (maiorCount < count) {
+          maiorCount = count;
+          maiorCodtipoServico = i;
+          listPrincipaisBusinessModelTipoDeServico
+              .add(listBusinessModelTipoDeServico[i]);
+        }
+      }
+      maiorCodtipoServico = i;
+    }
+
     dataModelPrincipaisTiposDeServicoCidade =
         BusinessModelPrincipaisTiposDeServicoCidade(
       cidade: cidades[int.parse(id)],
       tiposDeServico: listBusinessModelTipoDeServico,
     );
-    // TODO: implement getBusinessModel
-    throw UnimplementedError();
+    return dataModelPrincipaisTiposDeServicoCidade;
   }
 
   @override

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:material_design_icons_flutter/icon_map.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/daos/cidade/daoCidade.dart';
 import 'package:projeto_treinamento/daos/cidade/dataModelCidade.dart';
@@ -29,13 +30,14 @@ class ProviderCidade extends Provider<BusinessModelCidade> {
     estados.forEach((estado) {
       String sigla = estado["sigla"];
       List<dynamic> cidades = estado["cidades"];
-      cidades.forEach((cidade) {
-        String nome = cidade + " - " + sigla;
+      for (int i = 0; i < cidades.length; i++) {
+        String nome = cidades[i] + " - " + sigla;
         listacidades.add(BusinessModelCidade(
-            codCidade: nome.hashCode, nome: nome, totalPrestadoresServico: 0));
-      });
+            codCidade: i, nome: nome, totalPrestadoresServico: 0));
+      }
     });
 
+    print(listacidades);
     return listacidades;
   }
 

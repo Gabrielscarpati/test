@@ -4,31 +4,34 @@ import '../../framework/dao.dart';
 import 'dataModelBuilderDadosPrestador.dart';
 import 'firebaseInterfaceDadosPrestador.dart';
 
+class DaoDadosPrestador extends Dao<DataModelDadosPrestador> {
+  FirebaseinterfaceDadosPrestador firebaseInterface =
+      FirebaseinterfaceDadosPrestador(
+    tableName: 'dadosPrestador',
+    dataModelBuilder: DataModelBuilderDadosPrestador(),
+  );
 
- class DaoDadosPrestador extends Dao<DataModelDadosPrestador>{
+  Future<DataModelDadosPrestador?> getDataModel(String id) async {
+    DataModelDadosPrestador? dataModelDadosPrestador;
+    dataModelDadosPrestador =
+        await firebaseInterface.getDataModelFromFirebase();
+    return dataModelDadosPrestador;
+  }
 
-   FirebaseinterfaceDadosPrestador firebaseInterface = FirebaseinterfaceDadosPrestador(
-       tableName: 'dadosPrestador',
-       dataModelBuilder: DataModelBuilderDadosPrestador(),
-   );
-
-   Future<DataModelDadosPrestador?> getDataModel(String id) async{
-     DataModelDadosPrestador? dataModelDadosPrestador;
-     dataModelDadosPrestador = await firebaseInterface.getDataModelFromFirebase();
-     return dataModelDadosPrestador;
-   }
-
-  Future<List<DataModelDadosPrestador>> getDataModels() async{
+  Future<List<DataModelDadosPrestador>> getDataModels() async {
     List<DataModelDadosPrestador> listaDataModelDadosPrestador = [];
+    listaDataModelDadosPrestador =
+        await firebaseInterface.getDataModelsFromFirebase();
     return listaDataModelDadosPrestador;
   }
 
-  Future<RespostaProcessamento> saveDataModel(DataModelDadosPrestador dataModel) async{
+  Future<RespostaProcessamento> saveDataModel(
+      DataModelDadosPrestador dataModel) async {
     return RespostaProcessamento.ok();
   }
 
-  Future<RespostaProcessamento> removeDataModel(DataModelDadosPrestador dataModel)async{
+  Future<RespostaProcessamento> removeDataModel(
+      DataModelDadosPrestador dataModel) async {
     return RespostaProcessamento.ok();
-
   }
 }

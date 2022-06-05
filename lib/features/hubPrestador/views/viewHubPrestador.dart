@@ -8,8 +8,8 @@ import '../../perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
 import '../viewActionsHub.dart';
 import '../viewModelHub.dart';
 
-class ViewHubPrestador extends StatelessWidget {
-  ViewHubPrestador({
+class ViewHubPrestadorHeader extends StatelessWidget {
+  ViewHubPrestadorHeader({
     Key? key,
     required this.viewModel,
     required this.viewActions,

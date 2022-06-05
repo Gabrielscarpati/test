@@ -22,11 +22,10 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
   Future<D?> getDataModelFromFirebase() async {
     _instance = FirebaseFirestore.instance;
 
-    CollectionReference dadosPrestador =
-    _instance!.collection(tableName);
+    CollectionReference dadosPrestador = _instance!.collection(tableName);
 
     DocumentSnapshot snapshot =
-    await dadosPrestador.doc(await getUserId()).get();
+        await dadosPrestador.doc(await getUserId()).get();
 
     var data = snapshot.data() as Map<String, dynamic>;
     var dataTable = data[tableName];
@@ -43,9 +42,16 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
     }
   }
 
+  Future<List<D>> getDataModelsFromFirebase() async {
+    List<D> response = [];
+    _instance = FirebaseFirestore.instance;
+
+    return response;
+  }
+
   Future<RespostaProcessamento> saveDataModelInFirebase(
-      D dataModel,
-      ) async {
+    D dataModel,
+  ) async {
     final FirebaseAuth auth = FirebaseAuth.instance;
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
@@ -55,7 +61,7 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
           .collection('dadosPrestador')
           .doc(await getUserId())
           .update(
-          dataModelBuilder.createJson(dataModel) as Map<String, dynamic>);
+              dataModelBuilder.createJson(dataModel) as Map<String, dynamic>);
     } catch (err) {
       response = RespostaProcessamento.erro(err.toString());
     }

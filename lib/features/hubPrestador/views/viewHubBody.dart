@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/features/hubPrestador/views/viewHubCidade.dart';
 import 'package:projeto_treinamento/features/hubPrestador/views/viewHubGridView.dart';
+import 'package:projeto_treinamento/features/hubPrestador/views/viewHubPrestador.dart';
 import 'package:projeto_treinamento/features/hubPrestador/views/viewHubServicos.dart';
 import 'package:projeto_treinamento/util/libraryComponents/colors/colorGradient.dart';
 import '../../../util/libraryComponents/colors/colors.dart';
@@ -26,7 +27,8 @@ class ViewHubBodyPrestador extends StatelessWidget {
       decoration: BoxDecorationColorGradient(context),
       child: Column(
         children: [
-          ViewHubPrestador(viewModel: viewModel, viewActions: viewActions),
+          ViewHubPrestadorHeader(
+              viewModel: viewModel, viewActions: viewActions),
           Expanded(
             child: Container(
               decoration: BoxDecoration(
