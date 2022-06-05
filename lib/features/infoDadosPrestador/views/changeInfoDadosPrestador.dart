@@ -10,7 +10,9 @@ import '../viewActionsInfoDadosPrestador.dart';
 import '../viewModelInfoDadosPrestador.dart';
 
 class ChangeInfoDadosPrestador extends StatelessWidget {
-  const ChangeInfoDadosPrestador({Key? key, required this.viewModel, required this.viewActions}) : super(key: key);
+  const ChangeInfoDadosPrestador(
+      {Key? key, required this.viewModel, required this.viewActions})
+      : super(key: key);
 
   final ViewModelInfoDadosPrestador viewModel;
   final ViewActionsInfoDadosPrestador viewActions;
@@ -31,19 +33,16 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                  
                       CustomEditPrestadorInformationNome(
                         labelText: "Nome",
                         iconData: Icons.account_box,
                         item: this.viewModel.prestador.name,
                         hintText: 'Digite o seu Nome',
                         onEditionComplete: (String novoNome) {
-                        //    this.viewActions.onChangeName(novoNome, viewModel);
+                          //    this.viewActions.onChangeName(novoNome, viewModel);
                         },
                       ),
-                      Divider(
-                      ),
-
+                      Divider(),
                       CustomEditPrestadorInformationTelefone(
                         labelText: "numero",
                         iconData: Icons.phone,
@@ -53,10 +52,9 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                           //  this.viewActions.onChangeName(novoNome, viewModel);
                         },
                       ),
-                      Divider(
-                      ),
+                      Divider(),
 
-                      CustomEditPrestadorInformationServicosPrestados(
+                      /*CustomEditPrestadorInformationServicosPrestados(
                         labelText: "Servicos Prestados",
                         iconData: Icons.work,
                         item: this.viewModel.prestador.roles,
@@ -66,7 +64,7 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                         },
                       ),
                       Divider(
-                      ),
+                      ),*/
 
                       CustomEditPrestadorInformationHorasDeTrabaho(
                         labelText: "Horas que voce trabalha",
@@ -77,16 +75,14 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                           //  this.viewActions.onChangeName(novoNome, viewModel);
                         },
                       ),
-                      Divider(
-                      ),
-
+                      Divider(),
                       CustomEditPrestadorInformationDescricao(
                         labelText: "Descricao",
                         iconData: Icons.description,
                         item: this.viewModel.prestador.description,
                         hintText: 'Faca uma descricao',
                         onEditionComplete: (String novoNome) {
-                         //   this.viewActions.onChangeName(novoNome, viewModel);
+                          //   this.viewActions.onChangeName(novoNome, viewModel);
                         },
                       ),
                     ],

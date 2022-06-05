@@ -22,40 +22,42 @@ class ViewHubBodyPrestador extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height,
       decoration: BoxDecorationColorGradient(context),
-
       child: Column(
-
         children: [
-           ViewHubPrestador(viewModel: viewModel, viewActions: viewActions),
-
+          ViewHubPrestador(viewModel: viewModel, viewActions: viewActions),
           Expanded(
-            child:Container(
+            child: Container(
               decoration: BoxDecoration(
-                boxShadow: [BoxShadow(blurRadius: 15, color: Colors.blue.shade900, spreadRadius: 1)],
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 15,
+                      color: Colors.blue.shade900,
+                      spreadRadius: 1)
+                ],
                 color: BackgroundColorGrey,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(40),topRight: Radius.circular(40)),
-
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40)),
               ),
-
-              child:  Padding(
+              child: Padding(
                 padding: const EdgeInsets.only(right: 12, left: 12, top: 8),
-                child:
-                Column(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-
-                        ViewHubCidade(viewModel: viewModel, viewActions: viewActions),
-
-                       ViewHubGridView(viewModel: viewModel, viewActions: viewActions),
-
-                     ViewHubServicos(viewModel: viewModel, viewActions: viewActions),
+                    ViewHubCidade(
+                        viewModel: viewModel, viewActions: viewActions),
+                    ViewHubGridView(
+                        viewModel: viewModel, viewActions: viewActions),
+                    ViewHubServicos(
+                        viewModel: viewModel, viewActions: viewActions),
                   ],
                 ),
               ),
-             ),
-           ),
+            ),
+          ),
         ],
       ),
     );

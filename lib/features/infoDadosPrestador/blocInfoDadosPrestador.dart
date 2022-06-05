@@ -43,7 +43,7 @@ class BlocInfoDadosPrestador
     this.sendViewModelOut(viewModel);
     BusinessModelDadosPrestador businessModel = BusinessModelDadosPrestador(
       city: viewModel.prestador.city,
-      IdPrestador: viewModel.prestador.city,
+      IdPrestador: viewModel.prestador.IdPrestador,
       dataAberturaConta: viewModel.prestador.dataAberturaConta,
       dataVencimentoPlano: viewModel.prestador.dataVencimentoPlano,
       name: viewModel.prestador.name,

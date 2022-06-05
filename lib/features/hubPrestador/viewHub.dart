@@ -8,7 +8,8 @@ import '../../businessModels/businessModelDadosPrestador.dart';
 import '../../businessModels/businessModelUsuario.dart';
 import 'viewActionsHub.dart';
 
-class ViewHubPrestador extends View<ViewModelHubPrestador, ViewActionsHubPrestador> {
+class ViewHubPrestador
+    extends View<ViewModelHubPrestador, ViewActionsHubPrestador> {
   ViewHubPrestador({
     Key? key,
     ViewModelHubPrestador? viewModel,
@@ -17,10 +18,9 @@ class ViewHubPrestador extends View<ViewModelHubPrestador, ViewActionsHubPrestad
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        body: _buildBody(context),
-      );
-
+    return Scaffold(
+      body: _buildBody(context),
+    );
   }
 
   _buildBody(BuildContext context) {
@@ -29,8 +29,8 @@ class ViewHubPrestador extends View<ViewModelHubPrestador, ViewActionsHubPrestad
         child: CircularProgressIndicator(),
       );
     } else {
-      BusinessModelDadosPrestador prestador = viewModel!.prestador;
-      return ViewHubBodyPrestador(viewModel: viewModel!, viewActions: viewActions);
+      return ViewHubBodyPrestador(
+          viewModel: viewModel!, viewActions: viewActions);
     }
   }
 }
