@@ -7,7 +7,6 @@ import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
 import 'package:projeto_treinamento/providers/principaisTiposDeServicoCidade/providerPrincipaisTiposDeServicoCidade.dart';
 
 import '../../businessModels/businessModelDadosPrestador.dart';
-import '../../businessModels/businessModelUsuario.dart';
 import 'blocEventHub.dart';
 import 'viewModelHub.dart';
 

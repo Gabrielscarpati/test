@@ -24,8 +24,7 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
 
     CollectionReference dadosPrestador = _instance!.collection(tableName);
 
-    DocumentSnapshot snapshot =
-        await dadosPrestador.doc(await getUserId()).get();
+    DocumentSnapshot snapshot = await dadosPrestador.doc(await getUserId()).get();
 
     var data = snapshot.data() as Map<String, dynamic>;
     var dataTable = data[tableName];
@@ -44,6 +43,37 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
 
   Future<List<D>> getDataModelsFromFirebase() async {
     List<D> response = [];
+
+
+
+    CollectionReference dadosPrestador = _instance!.collection(tableName);
+
+    dadosPrestador.get().then((querySnapshot) => {
+      querySnapshot.docs.map((doc) {
+        print(doc.data());
+          //response.add(dataModelBuilder.createDataModel(doc.data()));
+      })
+   
+     }
+    );
+    /*
+    async getMarkers() {
+  const events = await firebase.firestore().collection('events').get()
+    .then(querySnapshot => {
+      querySnapshot.docs.map(doc => {
+        console.log('LOG 1', doc.data());
+        return doc.data();
+      });
+    });
+  console.log('LOG 2', events);
+  return events;
+}
+    */
+
+
+
+    
+
     _instance = FirebaseFirestore.instance;
 
     return response;

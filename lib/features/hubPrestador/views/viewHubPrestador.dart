@@ -59,8 +59,6 @@ class ViewHubPrestadorHeader extends StatelessWidget {
                 child: CircleAvatar(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.black,
-                  backgroundImage:
-                      NetworkImage(viewModel.prestador.profilePicture),
                   radius: 36.0,
                   child: Text("",
                       style: TextStyle(

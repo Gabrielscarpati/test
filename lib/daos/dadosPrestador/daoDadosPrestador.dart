@@ -20,9 +20,10 @@ class DaoDadosPrestador extends Dao<DataModelDadosPrestador> {
 
   Future<List<DataModelDadosPrestador>> getDataModels() async {
     List<DataModelDadosPrestador> listaDataModelDadosPrestador = [];
-    listaDataModelDadosPrestador =
-        await firebaseInterface.getDataModelsFromFirebase();
-    return listaDataModelDadosPrestador;
+    listaDataModelDadosPrestador = await firebaseInterface.getDataModelsFromFirebase();
+    
+        return listaDataModelDadosPrestador;
+  
   }
 
   Future<RespostaProcessamento> saveDataModel(

@@ -1,3 +1,6 @@
+import 'dart:collection';
+
+import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelDadosPrestador.dart';
 import 'package:projeto_treinamento/businessModels/businessModelPrestadorDeServicoxCidade.dart';
@@ -14,7 +17,6 @@ import 'package:projeto_treinamento/providers/dadosPrestador/providerDadosPresta
 import 'package:projeto_treinamento/providers/tiposDeServico/providerTiposDeServico.dart';
 import 'package:projeto_treinamento/util/resposta_processamento.dart';
 
-import 'adapterPrincipaisTiposDeServicoCidade.dart';
 
 class ProviderPrincipaisTiposDeServicoCidade
     extends Provider<BusinessModelPrincipaisTiposDeServicoCidade> {
@@ -24,10 +26,8 @@ class ProviderPrincipaisTiposDeServicoCidade
     BusinessModelPrincipaisTiposDeServicoCidade
         dataModelPrincipaisTiposDeServicoCidade;
 
-    List<BusinessModelCidade> cidades =
-        await ProviderCidade().getBusinessModels();
-    List<BusinessModelDadosPrestador> prestadores =
-        await ProvideDadosPrestador().getBusinessModels();
+    List<BusinessModelCidade> cidades = await ProviderCidade().getBusinessModels();
+    List<BusinessModelDadosPrestador> prestadores = await ProvideDadosPrestador().getBusinessModels();
 
     print(cidades);
     prestadores = prestadores
@@ -40,34 +40,65 @@ class ProviderPrincipaisTiposDeServicoCidade
     prestadores.forEach((element) {
       BusinessModelTiposDeServico tiposDeServico;
       element.roles.forEach((element) async {
-        tiposDeServico =
-            await ProviderTiposDeServico().getBusinessModel(element.toString());
+        tiposDeServico = await ProviderTiposDeServico().getBusinessModel(element.toString());
         listBusinessModelTipoDeServico.add(tiposDeServico);
       });
     });
 
-    List<BusinessModelTiposDeServico> listPrincipaisBusinessModelTipoDeServico =
-        [];
-//verigicar logica para principais tipos de servico
-    int count = 0;
-    int maiorCodtipoServico = 0;
-    int maiorCount = 0;
-    for (int i = 0; i < listBusinessModelTipoDeServico.length; i++) {
-      for (int j = i + 1; j < listBusinessModelTipoDeServico.length; j++) {
-        if (listBusinessModelTipoDeServico[i].codTipoServico ==
-            listBusinessModelTipoDeServico[j].codTipoServico) {
-          count++;
-        }
 
-        if (maiorCount < count) {
-          maiorCount = count;
-          maiorCodtipoServico = i;
-          listPrincipaisBusinessModelTipoDeServico
-              .add(listBusinessModelTipoDeServico[i]);
+    List<BusinessModelTiposDeServico> listPrincipaisBusinessModelTipoDeServico = [];
+    //verificar logica para principais tipos de servico
+    Map mapQuantidadeServicoUmaCidade = {};
+
+
+    for (int i = 0; i < listBusinessModelTipoDeServico.length; i++) {
+      if(mapQuantidadeServicoUmaCidade.containsKey(listBusinessModelTipoDeServico[i].codTipoServico)){
+        mapQuantidadeServicoUmaCidade[listBusinessModelTipoDeServico[i].codTipoServico] = mapQuantidadeServicoUmaCidade[listBusinessModelTipoDeServico[i].codTipoServico]+1;
+
+      } else{
+        mapQuantidadeServicoUmaCidade[listBusinessModelTipoDeServico[i].codTipoServico] = 1;
+      }
+    }
+
+    print(mapQuantidadeServicoUmaCidade);
+
+    List<int> listaQuantidadePrestadores = [];
+    List<String> listKeys = [];
+
+    mapQuantidadeServicoUmaCidade.forEach((key, value){
+      listaQuantidadePrestadores.add(value);
+      listBusinessModelTipoDeServico.add(key);
+    });
+
+    List<int> listaindexMaiorValor = [];
+    for(int i = 0; i < listaQuantidadePrestadores.length; i++ ){
+      int indexMaiorValor = i;
+      for(int j = 0; j < listaQuantidadePrestadores.length; j++ ){
+        if(listaQuantidadePrestadores[j] > listaQuantidadePrestadores[indexMaiorValor]){
+          indexMaiorValor = j;
         }
       }
-      maiorCodtipoServico = i;
+      listaindexMaiorValor.add(indexMaiorValor);
+      listaQuantidadePrestadores[indexMaiorValor] = 0;
     }
+
+    List<String> listKeysOrdenadasFinal = [];
+
+    listaindexMaiorValor.forEach((valor){
+      listKeysOrdenadasFinal.add(listKeys[valor]);
+    });
+
+    print(listaindexMaiorValor);
+
+    listKeysOrdenadasFinal.forEach((element) {
+      listPrincipaisBusinessModelTipoDeServico.add(BusinessModelTiposDeServico(
+          codTipoServico: int.parse(element),
+          descricao: '',
+          icone: Icons.add,
+          qtdePrestadoresDeServico: mapQuantidadeServicoUmaCidade[element]));
+     }
+    );
+
 
     dataModelPrincipaisTiposDeServicoCidade =
         BusinessModelPrincipaisTiposDeServicoCidade(
