@@ -41,11 +41,28 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
     }
   }
 
+
   Future<List<D>> getDataModelsFromFirebase() async {
     List<D> response = [];
 
+    _instance?.collection(tableName).get().then(
+            (querySnapshot) => {
+          querySnapshot.docs.map((doc) {
+            print('FFFFFFF');
+            print(doc.data() );
+
+            //response.add(dataModelBuilder.createDataModel(doc.data()));
+          })
+            });
+    _instance = FirebaseFirestore.instance;
+
+    return response;
+  }
 
 
+
+/*  Future<List<D>> getDataModelsFromFirebase() async {
+    List<D> response = [];
     CollectionReference dadosPrestador = _instance!.collection(tableName);
 
     dadosPrestador.get().then((querySnapshot) => {
@@ -56,28 +73,10 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
    
      }
     );
-    /*
-    async getMarkers() {
-  const events = await firebase.firestore().collection('events').get()
-    .then(querySnapshot => {
-      querySnapshot.docs.map(doc => {
-        console.log('LOG 1', doc.data());
-        return doc.data();
-      });
-    });
-  console.log('LOG 2', events);
-  return events;
-}
-    */
-
-
-
-    
-
     _instance = FirebaseFirestore.instance;
 
     return response;
-  }
+  }*/
 
   Future<RespostaProcessamento> saveDataModelInFirebase(
     D dataModel,

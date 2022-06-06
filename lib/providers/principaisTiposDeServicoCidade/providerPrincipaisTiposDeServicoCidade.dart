@@ -47,7 +47,6 @@ class ProviderPrincipaisTiposDeServicoCidade
 
 
     List<BusinessModelTiposDeServico> listPrincipaisBusinessModelTipoDeServico = [];
-    //verificar logica para principais tipos de servico
     Map mapQuantidadeServicoUmaCidade = {};
 
 
