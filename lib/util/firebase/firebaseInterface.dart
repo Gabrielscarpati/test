@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:projeto_treinamento/daos/dadosPrestador/dataModelDadosPrestador.dart';
 import 'package:projeto_treinamento/framework/dataModel.dart';
 import 'package:projeto_treinamento/framework/dataModelBuilder.dart';
 import 'package:projeto_treinamento/util/resposta_processamento.dart';
+import 'package:projeto_treinamento/daos/dadosPrestador/dataModelBuilderDadosPrestador.dart';
 
 class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
   final FirebaseAuth auth = FirebaseAuth.instance;
@@ -24,7 +26,8 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
 
     CollectionReference dadosPrestador = _instance!.collection(tableName);
 
-    DocumentSnapshot snapshot = await dadosPrestador.doc(await getUserId()).get();
+    DocumentSnapshot snapshot =
+        await dadosPrestador.doc(await getUserId()).get();
 
     var data = snapshot.data() as Map<String, dynamic>;
     var dataTable = data[tableName];
@@ -41,24 +44,26 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
     }
   }
 
-
-  Future<List<D>> getDataModelsFromFirebase() async {
-    List<D> response = [];
+  Future<List<DataModelDadosPrestador>> getDataModelsFromFirebase() async {
+    List<DataModelDadosPrestador> response = [];
     FirebaseFirestore _instance = FirebaseFirestore.instance;
-    _instance.collection(tableName).get().then(
-            (querySnapshot) => {
-          querySnapshot.docs.map((doc) {
-            print('FFFFFFF');
-            print(doc.data() );
+    QuerySnapshot resp = await _instance.collection(tableName).get();
 
-            //response.add(dataModelBuilder.createDataModel(doc.data()));
-          })
-            });
+    DataModelBuilderDadosPrestador dataModelBuilder =
+        new DataModelBuilderDadosPrestador();
+
+    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    resp.docs.forEach((doc) {
+      response.add(dataModelBuilder
+          .createDataModel(doc.data() as Map<String, dynamic>)!);
+    });
+
+    print(response);
 
     return response;
   }
-
-
 
 /*  Future<List<D>> getDataModelsFromFirebase() async {
     List<D> response = [];

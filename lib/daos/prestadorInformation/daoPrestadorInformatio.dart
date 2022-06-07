@@ -35,7 +35,6 @@ class DaoPrestadorInformation extends Dao<DataModelPrestadorInformation> {
 
     var data = snapshot.data() as Map<String, dynamic>;
     var prestadorData = data['description'];
-    print(data);
 
     String? IdUsuario = await getUserId();
 
@@ -44,7 +43,6 @@ class DaoPrestadorInformation extends Dao<DataModelPrestadorInformation> {
           DataModelBuilderPrestadorInfomation(IdUsuario: IdUsuario)
               .createDataModel(data);
       if (dataModel != null) {
-        print(dataModel.toString());
         return dataModel;
       }
     }
