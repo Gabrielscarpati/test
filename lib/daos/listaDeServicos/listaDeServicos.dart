@@ -9,14 +9,12 @@ import '../prestadorInformation/dataModePrestadorInformation.dart';
 import '../prestadorInformation/dataModelBuilderPrestadorInformation.dart';
 
 class GetListaServicosFirebase {
-
-  Future<Object?> getListaServicosFirebase() async {
-
-    CollectionReference servico =  await FirebaseFirestore.instance.collection('listaServices');
+  Future<List<String>> getListaServicosFirebase() async {
+    CollectionReference servico =
+        await FirebaseFirestore.instance.collection('listaServices');
     DocumentSnapshot listaDeServicoFirebase = await servico.doc('1').get();
     var mapServices = listaDeServicoFirebase.data() as Map<String, dynamic>;
-    List listaDeServico = mapServices['list'];
+    List<String> listaDeServico = mapServices['list'].cast<String>();
     return listaDeServico;
   }
-
 }

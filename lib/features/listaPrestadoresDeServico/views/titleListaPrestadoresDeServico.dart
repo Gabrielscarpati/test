@@ -17,12 +17,13 @@ class TitleListaDePrestadoresDeServico extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Icon(viewModel.tiposDeServico.icone),
-        Text(viewModel.tiposDeServico.descricao,
-        style: TextStyle(color: Colors.white
-    ),),
-        Text("(" + viewModel.listaVisivel.length.toString() + ")",
-          style: TextStyle(color: Colors.white
-          ),
+        Text(
+          viewModel.tiposDeServico.descricao,
+          style: TextStyle(color: Colors.white),
+        ),
+        Text(
+          "(" + viewModel.listaVisivel.length.toString() + ")",
+          style: TextStyle(color: Colors.white),
         ),
       ],
     );

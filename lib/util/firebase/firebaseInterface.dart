@@ -44,13 +44,10 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
     }
   }
 
-  Future<List<DataModelDadosPrestador>> getDataModelsFromFirebase() async {
-    List<DataModelDadosPrestador> response = [];
+  Future<List<D>> getDataModelsFromFirebase(DB dataModelBuilder) async {
+    List<D> response = [];
     FirebaseFirestore _instance = FirebaseFirestore.instance;
     QuerySnapshot resp = await _instance.collection(tableName).get();
-
-    DataModelBuilderDadosPrestador dataModelBuilder =
-        new DataModelBuilderDadosPrestador();
 
     print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");

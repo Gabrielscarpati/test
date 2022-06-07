@@ -1,7 +1,8 @@
 import 'package:projeto_treinamento/framework/dataModelBuilder.dart';
 import 'dataModelDadosPrestador.dart';
 
-class DataModelBuilderDadosPrestador extends DataModelBuilder<DataModelDadosPrestador> {
+class DataModelBuilderDadosPrestador
+    extends DataModelBuilder<DataModelDadosPrestador> {
   @override
   DataModelDadosPrestador? createDataModel(Map<String, dynamic> json) {
     return DataModelDadosPrestador(
@@ -10,11 +11,12 @@ class DataModelBuilderDadosPrestador extends DataModelBuilder<DataModelDadosPres
       workingHours: json["workingHours"],
       description: json["description"],
       profilePicture: json["profilePicture"],
-      city: json['city'],
-      roles: json["roles"],
-      numeroDeCliquesNoLigarOuWhatsApp: int.parse(json["numeroDeCliquesNoLigarOuWhatsApp"]),
-      dataVencimentoPlano: DateTime.parse(json["dataVencimentoPlano"],),
-      dataAberturaConta: DateTime.parse(json["dataAberturaConta"],),
+      city: json['city'].cast<String>(),
+      roles: json["roles"].cast<int>(),
+      numeroDeCliquesNoLigarOuWhatsApp:
+          json["numeroDeCliquesNoLigarOuWhatsApp"],
+      dataVencimentoPlano: json["dataVencimentoPlano"].toDate(),
+      dataAberturaConta: json["dataAberturaConta"].toDate(),
       IdPrestador: json["IdPrestador"],
     );
   }
@@ -30,7 +32,8 @@ class DataModelBuilderDadosPrestador extends DataModelBuilder<DataModelDadosPres
       "profilePicture": dataModel.profilePicture,
       "city": dataModel.city,
       "roles": dataModel.roles,
-      "numeroDeCliquesNoLigarOuWhatsApp": dataModel.numeroDeCliquesNoLigarOuWhatsApp,
+      "numeroDeCliquesNoLigarOuWhatsApp":
+          dataModel.numeroDeCliquesNoLigarOuWhatsApp,
       "dataVencimentoPlano": dataModel.dataVencimentoPlano,
       "dataAberturaConta": dataModel.dataAberturaConta,
       "IdPrestador": dataModel.IdPrestador,

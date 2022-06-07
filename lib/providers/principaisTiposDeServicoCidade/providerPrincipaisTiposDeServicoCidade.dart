@@ -7,7 +7,6 @@ import 'package:projeto_treinamento/businessModels/businessModelPrestadorDeServi
 import 'package:projeto_treinamento/businessModels/businessModelPrincipaisTiposDeServicoCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelTiposDeServico.dart';
 import 'package:projeto_treinamento/daos/principaisTiposDeServicoCidade/daoPrincipaisTiposDeServicoCidade.dart';
-import 'package:projeto_treinamento/daos/principaisTiposDeServicoCidade/dataModelPrincipaisTiposDeServicoCidade.dart';
 import 'package:projeto_treinamento/daos/tiposDeServico/dataModelBuilderTipoDeServico.dart';
 import 'package:projeto_treinamento/daos/tiposDeServico/dataModelTipoDeServico.dart';
 import 'package:projeto_treinamento/framework/provider.dart';
@@ -17,45 +16,57 @@ import 'package:projeto_treinamento/providers/dadosPrestador/providerDadosPresta
 import 'package:projeto_treinamento/providers/tiposDeServico/providerTiposDeServico.dart';
 import 'package:projeto_treinamento/util/resposta_processamento.dart';
 
-
 class ProviderPrincipaisTiposDeServicoCidade
     extends Provider<BusinessModelPrincipaisTiposDeServicoCidade> {
   @override
   Future<BusinessModelPrincipaisTiposDeServicoCidade> getBusinessModel(
       String id) async {
     BusinessModelPrincipaisTiposDeServicoCidade
-        dataModelPrincipaisTiposDeServicoCidade;
+        businessModelPrincipaisTiposDeServicoCidade;
 
-    List<BusinessModelCidade> cidades = await ProviderCidade().getBusinessModels();
-    List<BusinessModelDadosPrestador> prestadores = await ProvideDadosPrestador().getBusinessModels();
+    List<BusinessModelCidade> cidades =
+        await ProviderCidade().getBusinessModels();
+    List<BusinessModelDadosPrestador> prestadores =
+        await ProvideDadosPrestador().getBusinessModels();
 
-    print(cidades);
-    prestadores = prestadores
+    List<BusinessModelDadosPrestador> prestadoresFiltrados = [];
+    print(cidades[int.parse(id)]);
+    prestadoresFiltrados = prestadores
         .where((element) => element.city == cidades[int.parse(id)].nome)
         .toList();
 
     print(prestadores);
 
+    if (prestadoresFiltrados.length < 4) {
+      prestadoresFiltrados = prestadores;
+    }
+
     List<BusinessModelTiposDeServico> listBusinessModelTipoDeServico = [];
-    prestadores.forEach((element) {
+    prestadoresFiltrados.forEach((element) {
       BusinessModelTiposDeServico tiposDeServico;
       element.roles.forEach((element) async {
-        tiposDeServico = await ProviderTiposDeServico().getBusinessModel(element.toString());
+        print(element);
+        tiposDeServico =
+            await ProviderTiposDeServico().getBusinessModel(element.toString());
+        print(tiposDeServico);
         listBusinessModelTipoDeServico.add(tiposDeServico);
       });
     });
 
-
-    List<BusinessModelTiposDeServico> listPrincipaisBusinessModelTipoDeServico = [];
+    List<BusinessModelTiposDeServico> listPrincipaisBusinessModelTipoDeServico =
+        [];
     Map mapQuantidadeServicoUmaCidade = {};
 
-
     for (int i = 0; i < listBusinessModelTipoDeServico.length; i++) {
-      if(mapQuantidadeServicoUmaCidade.containsKey(listBusinessModelTipoDeServico[i].codTipoServico)){
-        mapQuantidadeServicoUmaCidade[listBusinessModelTipoDeServico[i].codTipoServico] = mapQuantidadeServicoUmaCidade[listBusinessModelTipoDeServico[i].codTipoServico]+1;
-
-      } else{
-        mapQuantidadeServicoUmaCidade[listBusinessModelTipoDeServico[i].codTipoServico] = 1;
+      if (mapQuantidadeServicoUmaCidade
+          .containsKey(listBusinessModelTipoDeServico[i].codTipoServico)) {
+        mapQuantidadeServicoUmaCidade[listBusinessModelTipoDeServico[i]
+            .codTipoServico] = mapQuantidadeServicoUmaCidade[
+                listBusinessModelTipoDeServico[i].codTipoServico] +
+            1;
+      } else {
+        mapQuantidadeServicoUmaCidade[
+            listBusinessModelTipoDeServico[i].codTipoServico] = 1;
       }
     }
 
@@ -64,16 +75,17 @@ class ProviderPrincipaisTiposDeServicoCidade
     List<int> listaQuantidadePrestadores = [];
     List<String> listKeys = [];
 
-    mapQuantidadeServicoUmaCidade.forEach((key, value){
+    mapQuantidadeServicoUmaCidade.forEach((key, value) {
       listaQuantidadePrestadores.add(value);
       listBusinessModelTipoDeServico.add(key);
     });
 
     List<int> listaindexMaiorValor = [];
-    for(int i = 0; i < listaQuantidadePrestadores.length; i++ ){
+    for (int i = 0; i < listaQuantidadePrestadores.length; i++) {
       int indexMaiorValor = i;
-      for(int j = 0; j < listaQuantidadePrestadores.length; j++ ){
-        if(listaQuantidadePrestadores[j] > listaQuantidadePrestadores[indexMaiorValor]){
+      for (int j = 0; j < listaQuantidadePrestadores.length; j++) {
+        if (listaQuantidadePrestadores[j] >
+            listaQuantidadePrestadores[indexMaiorValor]) {
           indexMaiorValor = j;
         }
       }
@@ -83,7 +95,7 @@ class ProviderPrincipaisTiposDeServicoCidade
 
     List<String> listKeysOrdenadasFinal = [];
 
-    listaindexMaiorValor.forEach((valor){
+    listaindexMaiorValor.forEach((valor) {
       listKeysOrdenadasFinal.add(listKeys[valor]);
     });
 
@@ -95,16 +107,19 @@ class ProviderPrincipaisTiposDeServicoCidade
           descricao: '',
           icone: Icons.add,
           qtdePrestadoresDeServico: mapQuantidadeServicoUmaCidade[element]));
-     }
-    );
+    });
 
+    if (listPrincipaisBusinessModelTipoDeServico.length < 4) {
+      listPrincipaisBusinessModelTipoDeServico =
+          await ProviderTiposDeServico().getBusinessModels();
+    }
 
-    dataModelPrincipaisTiposDeServicoCidade =
+    businessModelPrincipaisTiposDeServicoCidade =
         BusinessModelPrincipaisTiposDeServicoCidade(
       cidade: cidades[int.parse(id)],
-      tiposDeServico: listBusinessModelTipoDeServico,
+      tiposDeServico: listPrincipaisBusinessModelTipoDeServico,
     );
-    return dataModelPrincipaisTiposDeServicoCidade;
+    return businessModelPrincipaisTiposDeServicoCidade;
   }
 
   @override
