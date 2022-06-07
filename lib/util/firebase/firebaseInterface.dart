@@ -44,8 +44,8 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
 
   Future<List<D>> getDataModelsFromFirebase() async {
     List<D> response = [];
-
-    _instance?.collection(tableName).get().then(
+    FirebaseFirestore _instance = FirebaseFirestore.instance;
+    _instance.collection(tableName).get().then(
             (querySnapshot) => {
           querySnapshot.docs.map((doc) {
             print('FFFFFFF');
@@ -54,7 +54,6 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
             //response.add(dataModelBuilder.createDataModel(doc.data()));
           })
             });
-    _instance = FirebaseFirestore.instance;
 
     return response;
   }
