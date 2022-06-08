@@ -49,15 +49,10 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
     FirebaseFirestore _instance = FirebaseFirestore.instance;
     QuerySnapshot resp = await _instance.collection(tableName).get();
 
-    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     resp.docs.forEach((doc) {
       response.add(dataModelBuilder
           .createDataModel(doc.data() as Map<String, dynamic>)!);
     });
-
-    print(response);
 
     return response;
   }
