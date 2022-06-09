@@ -28,23 +28,7 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
   FirebaseStorage firebaseStorage = FirebaseStorage.instance;
 
 
-
-/*  Future<void> setUserCredentials() async {
-    print('success');
-    await users.doc('flutter1234').set({
-      'name': nameController,
-      'phone': phoneController,
-      'workingHours': workingHoursController,
-      'description': descriptionController,
-      'profilePicture': 'getUrlToImageFirebase()',
-      'city': 'city',
-      'roles': 'roles',
-      'brazilianID':'brazilianID',
-      'brazilianIDPicture':'brazilianIDPicture',
-    }
-    );
-  }*/
-
+   
   final FirebaseAuth auth = FirebaseAuth.instance;
   Future<String?> getUserId() async {
     final User? user = await auth.currentUser;
@@ -78,7 +62,6 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
       if (pickedFile != null) {
         _photo = File(pickedFile.path);
         uploadFile();
-        print('--'*30);
       } else {
         print('No image selected.');
       }
@@ -280,8 +263,8 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
                                     'brazilianIDPicture': 'brazilianIDPicture',
                                     'comentarios': listaComentarios,
                                     'numeroDeCliquesNoLigarOuWhatsApp': 0,
-                                    'dataVencimentoPlano': 'dataVencimentoPlano',
-                                    'dataAberturaConta': 'dataAberturaConta',
+                                    'dataVencimentoPlano': DateTime.now(),
+                                    'dataAberturaConta': DateTime.now(),
                                     'IdPrestador': await getUserId(),
                                   }
                                     );

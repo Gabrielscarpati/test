@@ -1,23 +1,22 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
-
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
+import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
 import 'package:projeto_treinamento/util/src/utils/storage_util.dart';
-
+import 'package:projeto_treinamento/ztest/flutter.dart';
 import 'package:provider/provider.dart';
-
 import 'daos/firebase/authService.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
 import 'daos/usuario/daoUsuario.dart';
 import 'features/infoPrestadorDeServico/views/comentariosInfoPrestadorDeServico.dart';
 import 'features/logIn_SingUpPrestador/selectCidades/presenterSelectCidade.dart';
+import 'features/logIn_SingUpPrestador/selectCidades/viewSelectCidade.dart';
 import 'features/logIn_SingUpPrestador/signUpEplicandoTelaDocumentos/viewSignUpEplicandoTelaDocumentos.dart';
 import 'features/logIn_SingUpPrestador/signUpPart1PrestadorServico/signUpPart1Prestador.dart';
 import 'features/logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSignUpPart2WorkerInformatio.dart';
@@ -36,6 +35,7 @@ void main() async {
 GoogleSignInAccount? _usuarioAtual;
 
 Future<String> verificarSeUsuarioNulo() async {
+ 
   final userData = await FacebookAuth.instance.getUserData();
   return userData.toString();
 }

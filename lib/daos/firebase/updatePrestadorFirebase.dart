@@ -15,7 +15,6 @@ class UpdateCidadePrestador{
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   updateCidadePrestador() async {
-    print('-'*50);
     await firestore.collection('dadosPrestador').doc(await getUserId()).update({
       'city': cidades,
       }
@@ -42,7 +41,6 @@ class UpdateServicoPrestador{
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   updateServicosPrestador() async {
-    print('-'*50);
     await firestore.collection('dadosPrestador').doc(await getUserId()).update({
       'roles': servicos,
     }
@@ -71,7 +69,6 @@ class UpdateIdentidadePrestador{
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   updateIdentidadePrestador() async {
-    print('-'*50);
     await firestore.collection('dadosPrestador').doc(await getUserId()).update({
       'brazilianIDPicture': identidade,
     }
@@ -97,7 +94,6 @@ class UpdateComentarioAvaliacao{
 
   Future<List> getListaComentarios() async{
     DocumentSnapshot result = await dadosPrestador.doc('flutter123').get();
-    print(result.data());
     return result.data() as List;
   }
 
@@ -119,7 +115,6 @@ class UpdateComentarioAvaliacao{
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   updateComentarioAvaliacao() async {
-    print('-'*50);
     await firestore.collection('dadosPrestador').doc(await getUserId()).update({
       'comentarios': {
         'data': dataDoComentario,

@@ -8,6 +8,8 @@ class ViewActionsPesquisaCidade extends ViewActions<BlocEventPesquisaCidade> {
   ViewActionsPesquisaCidade(Pipe<BlocEventPesquisaCidade> blocPipeIn) : super(blocPipeIn);
 
   void aplicaFiltroPesquisa(ViewModelPesquisaCidade viewModel) {
+    print('aplicaFiltroPesquisa');
+    print( DateTime.now().toString());
     BlocEventPesquisaCidadeAplicaFiltroDePesquisa blocEvent = BlocEventPesquisaCidadeAplicaFiltroDePesquisa(viewModel);
     blocPipeIn.send(blocEvent);
   }

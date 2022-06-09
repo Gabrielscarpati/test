@@ -13,8 +13,7 @@ class DaoDadosPrestador extends Dao<DataModelDadosPrestador> {
 
   Future<DataModelDadosPrestador?> getDataModel(String id) async {
     DataModelDadosPrestador? dataModelDadosPrestador;
-    dataModelDadosPrestador =
-        await firebaseInterface.getDataModelFromFirebase();
+    dataModelDadosPrestador = await firebaseInterface.getDataModelFromFirebase();
     return dataModelDadosPrestador;
   }
 

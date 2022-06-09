@@ -3,13 +3,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../businessModels/businessModelPrestadorInfomation.dart';
+import '../util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
 
 class TestAddToFirebase extends StatelessWidget {
-  final BusinessModelPrestadorInformation? business;
 
-  TestAddToFirebase({Key? key, required this.business}) : super(key: key);
+
+  TestAddToFirebase({Key? key,}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+
+    GetQtdePrestadoresDeServicoPorTipoSeervicoECidade jjjjj = GetQtdePrestadoresDeServicoPorTipoSeervicoECidade();
     return Scaffold(
       appBar: AppBar(),
       body: Container(
@@ -22,7 +25,7 @@ class TestAddToFirebase extends StatelessWidget {
             children: [
               ElevatedButton(
                   onPressed: () async{
-                    print(business?.primeiroNome());
+                    jjjjj.action();
 
                   },
                   child: Text('Add data to firestore')

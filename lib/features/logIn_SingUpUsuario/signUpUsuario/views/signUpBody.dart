@@ -243,7 +243,6 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                     ),
                                     onPressed: ()  async {
                                       await signInWithFacebook();
-                                      print('-'*50);
 
                                     },
                                     child: Center(

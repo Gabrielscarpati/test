@@ -40,7 +40,6 @@ class ProvideDadosPrestador extends Provider<BusinessModelDadosPrestador> {
           workingHours: element.workingHours));
     });
 
-    print(prestadores);
     return prestadores;
   }
 

@@ -30,6 +30,7 @@ class BlocSelectServicos
 
     for(int i = 0; i<listaServices.length; i++){
       print(listaServices[i]);
+      print('Aaaaaaaaaaaaaaaaaa');
       listacidades.add(
         BusinessModelCidade(codCidade: listaServices[i].hashCode, nome: listaServices[i], totalPrestadoresServico: 0)
       );

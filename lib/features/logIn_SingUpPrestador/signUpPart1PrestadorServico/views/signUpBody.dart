@@ -269,7 +269,6 @@ class _LogInBody extends State<SignUpPart1Body> {
                                     ),
                                     onPressed: ()  async {
                                       await signInWithFacebook();
-                                      print('-'*50);
 
                                     },
                                     child: Center(

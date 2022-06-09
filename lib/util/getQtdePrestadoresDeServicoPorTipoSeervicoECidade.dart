@@ -6,9 +6,11 @@ class GetQtdePrestadoresDeServicoPorTipoSeervicoECidade {
   final FirebaseFirestore _instance = FirebaseFirestore.instance;
 
   Future<int> action() async {
+    print('----------------uu--------------');
+
     QuerySnapshot resp = await _instance
         .collection('dadosPrestador')
-        .where('city', arrayContains: idCidade)
+        .where('city', arrayContainsAny: [idCidade])
         .where('roles', arrayContains: idServico)
         .get();
     print('------------------------------');

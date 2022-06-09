@@ -20,12 +20,13 @@ class ProviderCidade extends Provider<BusinessModelCidade> {
 
   @override
   Future<List<BusinessModelCidade>> getBusinessModels() async {
-    final String response =
-        await rootBundle.loadString('lib/daos/cidade/cidades.json');
+
+    final String response = await rootBundle.loadString('lib/daos/cidade/cidades.json');
     Map<String, dynamic> data = await json.decode(response);
+
+
     List<dynamic> estados = data["estados"];
     List<BusinessModelCidade> listacidades = List.empty(growable: true);
-    print(estados);
 
     estados.forEach((estado) {
       String sigla = estado["sigla"];
@@ -36,8 +37,6 @@ class ProviderCidade extends Provider<BusinessModelCidade> {
             codCidade: i, nome: nome, totalPrestadoresServico: 0));
       }
     });
-
-    print(listacidades);
     return listacidades;
   }
 

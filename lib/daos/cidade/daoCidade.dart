@@ -12,18 +12,38 @@ class DaoCidade extends DaoWebApi<DataModelCidade, DataModelBuilderCidade> {
         );        // acessando o banco diretamente
 
 /*
-  static List<DataModelCidade> _dados = List.empty(growable: true)
-    ..add(DataModelCidade(
-      codCidade: 1,
-      nome: "Colatina",
-    ))
-    ..add(DataModelCidade(
-      codCidade: 2,
-      nome: "Vitória",
-    ))
-    ..add(DataModelCidade(
-      codCidade: 3,
-      nome: "Vila Velha",
-    ));
+/*{
+    "estados": [
+      {
+        "sigla": "AC",
+        "nome": "Acre",
+        "cidades": [
+          "Acrelândia",
+          "Assis Brasil",
+          "Brasiléia",
+          "Bujari",
+          "Capixaba",
+          "Cruzeiro do Sul",
+          "Epitaciolândia",
+          "Feijó",
+          "Jordão",
+          "Mâncio Lima",
+          "Manoel Urbano",
+          "Marechal Thaumaturgo",
+          "Plácido de Castro",
+          "Porto Acre",
+          "Porto Walter",
+          "Rio Branco",
+          "Rodrigues Alves",
+          "Santa Rosa do Purus",
+          "Sena Madureira",
+          "Senador Guiomard",
+          "Tarauacá",
+          "Xapuri"
+        ]
+      }
+    ]
+  }*/
+
    */
 }

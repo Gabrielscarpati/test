@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_treinamento/features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
 import '../../../../daos/usuario/daoUsuario.dart';
@@ -61,7 +62,6 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
       if (pickedFile != null) {
         _photo = File(pickedFile.path);
         uploadFile();
-        print('--'*30);
       } else {
         print('No image selected.');
       }
@@ -85,7 +85,6 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
     Reference ref = await storage.ref().child(basename(_photo!.path) + DateTime.now().toString());
     await ref.putFile(File(_photo!.path));
     String imageUrl = await ref.getDownloadURL();
-    print(imageUrl.toString());
      return imageUrl.toString();
   }
   final formKeyAuthentication = GlobalKey<FormState>();
@@ -238,7 +237,7 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
                                   final form = formKeyAuthentication.currentState!;
                                   if (form.validate()) {
                                     Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => PresenterSelectCidade.presenter(),));
+                                        builder: (context) => ViewVeryFirstScreen(),));
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(

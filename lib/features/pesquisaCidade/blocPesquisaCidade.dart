@@ -15,6 +15,8 @@ class BlocPesquisaCidade extends Bloc<ViewModelPesquisaCidade, BlocEventPesquisa
   }                                                                // abrir whataspp
 
   void _inicializaViewModel(BlocEventPesquisaCidadeInicializaViewModel blocEvent) async {
+    print('_inicializaViewModel');
+    print( DateTime.now().toString());
     List<FeatureModelPesquisaCidade> listaCompletaFeatureModels = await _buscaListaFeatureModelCidade();
     ViewModelPesquisaCidade viewModel = ViewModelPesquisaCidade(
       listaCompleta: listaCompletaFeatureModels,
@@ -37,6 +39,8 @@ class BlocPesquisaCidade extends Bloc<ViewModelPesquisaCidade, BlocEventPesquisa
   }
 
   Future<List<FeatureModelPesquisaCidade>> _buscaListaFeatureModelCidade() async {
+    print('_buscaListaFeatureModelCidadeII');
+    print( DateTime.now().toString());
     List<BusinessModelCidade> listaBusinessModelTiposDeServico = await ProviderCidade().getBusinessModels();
     listaBusinessModelTiposDeServico.sort((a, b) {
       return a.nome.compareTo(b.nome);
@@ -48,6 +52,8 @@ class BlocPesquisaCidade extends Bloc<ViewModelPesquisaCidade, BlocEventPesquisa
       );
       listaCompletaFeatureModels.add(featureModelPesquisaCidade);
     });
+    print('_buscaListaFeatureModelCidade FF');
+    print( DateTime.now().toString());
     return listaCompletaFeatureModels;
   }
 }
