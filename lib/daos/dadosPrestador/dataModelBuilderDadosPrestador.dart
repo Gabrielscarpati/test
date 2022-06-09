@@ -5,14 +5,15 @@ class DataModelBuilderDadosPrestador
     extends DataModelBuilder<DataModelDadosPrestador> {
   @override
   DataModelDadosPrestador? createDataModel(Map<String, dynamic> json) {
+    print(json['city']);
     return DataModelDadosPrestador(
       name: json["name"],
       phone: json["phone"],
       workingHours: json["workingHours"],
       description: json["description"],
       profilePicture: json["profilePicture"],
-      city: json['city'].cast<String>(),
-      roles: json["roles"].cast<int>(),
+      city: List<String>.from(json['city']),
+      roles: List<int>.from(json["roles"]),
       numeroDeCliquesNoLigarOuWhatsApp:
           json["numeroDeCliquesNoLigarOuWhatsApp"],
       dataVencimentoPlano: json["dataVencimentoPlano"].toDate(),
