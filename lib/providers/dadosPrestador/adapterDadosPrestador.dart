@@ -3,8 +3,8 @@ import '../../businessModels/businessModelDadosPrestador.dart';
 import '../../businessModels/businessModelPrestadorInfomation.dart';
 import '../../daos/dadosPrestador/dataModelDadosPrestador.dart';
 
-class AdapterDadosPrestador extends Adapter<
-    BusinessModelDadosPrestador, DataModelDadosPrestador> {
+class AdapterDadosPrestador
+    extends Adapter<BusinessModelDadosPrestador, DataModelDadosPrestador> {
   @override
   Future<BusinessModelDadosPrestador> createBusinessModel(
       DataModelDadosPrestador? dataModel) async {
@@ -14,16 +14,16 @@ class AdapterDadosPrestador extends Adapter<
       return BusinessModelDadosPrestador(
         IdPrestador: dataModel.IdPrestador,
         phone: dataModel.phone,
-        city: dataModel.city,
+        city: dataModel.city as List<String>,
         description: dataModel.description,
-        roles: dataModel.roles,
+        roles: dataModel.roles as List<int>,
         workingHours: dataModel.workingHours,
         name: dataModel.name,
-        dataAberturaConta:  dataModel.dataAberturaConta,
-        dataVencimentoPlano:  dataModel.dataVencimentoPlano,
-        numeroDeCliquesNoLigarOuWhatsApp: dataModel.numeroDeCliquesNoLigarOuWhatsApp,
-        profilePicture:  dataModel.name,
-
+        dataAberturaConta: dataModel.dataAberturaConta,
+        dataVencimentoPlano: dataModel.dataVencimentoPlano,
+        numeroDeCliquesNoLigarOuWhatsApp:
+            dataModel.numeroDeCliquesNoLigarOuWhatsApp,
+        profilePicture: dataModel.name,
       );
   }
 
@@ -41,7 +41,8 @@ class AdapterDadosPrestador extends Adapter<
       IdPrestador: businessModel.IdPrestador,
       dataAberturaConta: businessModel.dataAberturaConta,
       dataVencimentoPlano: businessModel.dataVencimentoPlano,
-      numeroDeCliquesNoLigarOuWhatsApp: businessModel.numeroDeCliquesNoLigarOuWhatsApp,
+      numeroDeCliquesNoLigarOuWhatsApp:
+          businessModel.numeroDeCliquesNoLigarOuWhatsApp,
     );
   }
 }
