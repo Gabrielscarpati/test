@@ -22,8 +22,6 @@ class ViewHubCidade extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BusinessModelDadosPrestador usuario = viewModel.prestador;
-
     if (viewModel.cidade.codCidade == 0) {
       return SizedBox.shrink();
     }

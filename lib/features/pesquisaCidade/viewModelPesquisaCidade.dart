@@ -5,6 +5,7 @@ import 'package:projeto_treinamento/framework/viewModelLista.dart';
 
 import 'featureModelPesquisaCidade.dart';
 
+
 class ViewModelPesquisaCidade extends ViewModelLista<FeatureModelPesquisaCidade> {
   final BusinessModelIcone iconeCidade;
   final TextEditingController controlerFieldPesquisa = TextEditingController();
@@ -16,13 +17,9 @@ class ViewModelPesquisaCidade extends ViewModelLista<FeatureModelPesquisaCidade>
   }) : super(listaVisivel: List.empty(growable: true)..addAll(listaCompleta), listaCompleta: listaCompleta);
 
   BusinessModelCidade getCidadePeloCodCidade(int codCidade) {
-    print('getCidadePeloCodCidade');
-    print( DateTime.now().toString());
     for (int i = 0; i < this.listaCompleta.length; i++) {
       if (this.listaCompleta[i].cidade.codCidade == codCidade) return this.listaCompleta[i].cidade;
     }
-    print('getCidadePeloCodCidadefff');
-    print( DateTime.now().toString());
     return BusinessModelCidade.vazio();
   }
 }

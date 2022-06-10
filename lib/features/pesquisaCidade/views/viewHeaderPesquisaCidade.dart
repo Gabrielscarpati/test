@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_treinamento/features/pesquisaCidade/viewModelPesquisaCidade.dart';
-import 'package:projeto_treinamento/features/pesquisaCidade/viewPesquisaCidade.dart';
-
 import '../viewActionsPesquisaCidade.dart';
+import '../viewModelPesquisaCidade.dart';
 
-class ViewHeaderPesquisaCidade extends StatelessWidget {
-  ViewHeaderPesquisaCidade({
+
+class ViewHeaderSelectCidadea extends StatelessWidget {
+  ViewHeaderSelectCidadea({
     Key? key,
     required this.viewModel,
     required this.viewActions,
@@ -17,11 +16,12 @@ class ViewHeaderPesquisaCidade extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Column(
       children: [
         TextField(
           controller: viewModel.controlerFieldPesquisa,
-          onChanged: (text) {
+          onChanged: (value) {
             this.viewActions.aplicaFiltroPesquisa(this.viewModel);
           },
           decoration: new InputDecoration(
@@ -31,7 +31,7 @@ class ViewHeaderPesquisaCidade extends StatelessWidget {
             prefixIcon: new Icon(Icons.search,
               color: Colors.blue.shade800,
             ),
-            labelText: "Pesquisa prestador de serviço",
+            labelText: "Pesquisa pela cidade",
               labelStyle: TextStyle(
                 color: Colors.blue.shade800,
               ),

@@ -14,27 +14,22 @@ class PresenterPesquisaCidade extends Presenter<ViewPesquisaCidade, ViewModelPes
     required ViewActionsPesquisaCidade viewActions,
     required int codTipoDeServico,
   }) : super(
-          bloc: bloc,
-          viewBuilder: viewBuilder,
-          viewActions: viewActions,
-        ) {
+    bloc: bloc,
+    viewBuilder: viewBuilder,
+    viewActions: viewActions,
+  ) {
     _enviaEventoInicializacaoViewModel();
   }
 
   factory PresenterPesquisaCidade.presenter({codTipoDeServico}) {
-    print('_factoryII');
-    print( DateTime.now().toString());
     BlocPesquisaCidade bloc = BlocPesquisaCidade();
     ViewBuilderPesquisaCidade viewBuilder = ViewBuilderPesquisaCidade();
     ViewActionsPesquisaCidade viewActions = ViewActionsPesquisaCidade(bloc.pipeIn);
-    print( DateTime.now().toString());
-    print('_factoryFF');
     return PresenterPesquisaCidade(
       bloc: bloc,
       viewBuilder: viewBuilder,
       viewActions: viewActions,
       codTipoDeServico: codTipoDeServico,
-
     );
   }
 

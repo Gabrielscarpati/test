@@ -26,7 +26,7 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
       IdPrestador: 'IdPrestador',
       dataAberturaConta: DateTime.now(),
       dataVencimentoPlano: DateTime.now(),
-      name: 'GAbriel',
+      name: 'Gabriel',
       numeroDeCliquesNoLigarOuWhatsApp: 4,
       profilePicture: 'foto',
       phone: '111111111',

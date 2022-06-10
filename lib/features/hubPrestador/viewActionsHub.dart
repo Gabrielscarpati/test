@@ -10,7 +10,6 @@ import 'package:projeto_treinamento/features/infoPrestadorDeServico/presenterInf
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/listaPrestadoresDeServico/presenterListaPrestadoresDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
-import 'package:projeto_treinamento/features/pesquisaCidade/presenterPesquisaCidade.dart';
 import 'package:projeto_treinamento/features/pesquisaTipoServico/presenterPesquisaTipoServico.dart';
 import 'package:projeto_treinamento/framework/pipe.dart';
 import 'package:projeto_treinamento/framework/viewActions.dart';
@@ -19,6 +18,7 @@ import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
 import '../../businessModels/businessModelPrestadorInfomation.dart';
 import '../infoDadosPrestador/viewModelInfoDadosPrestador.dart';
 import '../perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
+import '../pesquisaCidade/presenterPesquisaCidade.dart';
 import 'blocEventHub.dart';
 
 class ViewActionsHubPrestador extends ViewActions<BlocEventHubPrestador> {

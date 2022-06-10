@@ -12,5 +12,3 @@ class BlocEventPesquisaCidadeAplicaFiltroDePesquisa extends BlocEventPesquisaCid
 }
 
 
-
-// quais sao os eventos, o que da para fazer com essa tela

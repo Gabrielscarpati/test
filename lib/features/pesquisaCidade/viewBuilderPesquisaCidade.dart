@@ -1,3 +1,4 @@
+
 import 'package:projeto_treinamento/framework/viewBuilder.dart';
 
 import 'viewActionsPesquisaCidade.dart';
@@ -13,3 +14,5 @@ class ViewBuilderPesquisaCidade extends ViewBuilder<ViewPesquisaCidade, ViewMode
     );
   }
 }
+
+// toda view precisa de model e actions
