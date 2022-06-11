@@ -107,10 +107,12 @@ class BlocSelectServicos
     void _savarListaSelecionadaFirebase(BlocEventSavarListaSelecionadaFirebase blocEvent){
       ViewModelSelectServicos viewModel = blocEvent.viewModel;
 
-      List<String> servicos = [];
+      int index = 0;
+      List<int> servicos = [];
       viewModel.cidadesSelecionadas.forEach((element) {
-        servicos.add(element.nome);
-      }
+        servicos.add(index);
+        index++;
+        }
       );
       UpdateServicoPrestador updatePrestadorFirebase = UpdateServicoPrestador(servicos: servicos,);
       updatePrestadorFirebase.updateServicosPrestador();

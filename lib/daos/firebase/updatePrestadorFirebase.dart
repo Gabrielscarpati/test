@@ -36,7 +36,7 @@ class UpdateServicoPrestador{
     return userId;
   }
 
-  final List<String> servicos;
+  final List<int> servicos;
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 

@@ -8,6 +8,7 @@ import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInf
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
+import 'package:projeto_treinamento/util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
 import 'package:projeto_treinamento/util/src/utils/storage_util.dart';
 import 'package:projeto_treinamento/ztest/flutter.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
+  /*GetQtdePrestadoresDeServicoPorTipoSeervicoECidade kkk = GetQtdePrestadoresDeServicoPorTipoSeervicoECidade();
+  kkk.action();*/
 }
 
 GoogleSignInAccount? _usuarioAtual;
@@ -81,11 +84,11 @@ class MyApp extends StatelessWidget {
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData ||
-                usuario != null ||
-                verificarSeUsuarioNulo() != null) {
+                usuario != null
+                /*verificarSeUsuarioNulo() == null*/) {
               return PresenterHubPrestador.presenter();
             }
-            return ViewVeryFirstScreen();
+            return PresenterHubPrestador.presenter();
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),

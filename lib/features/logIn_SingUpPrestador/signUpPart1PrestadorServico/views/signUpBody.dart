@@ -71,7 +71,6 @@ class _LogInBody extends State<SignUpPart1Body> {
               ),
             ),
              SizedBox(height: screenHeight*0.011848),
-
             Expanded(
               child: Container(
                 decoration: const BoxDecoration(

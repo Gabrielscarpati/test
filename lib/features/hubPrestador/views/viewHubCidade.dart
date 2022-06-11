@@ -22,9 +22,9 @@ class ViewHubCidade extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (viewModel.cidade.codCidade == 0) {
+    /*if (viewModel.cidade.codCidade == 0) {
       return SizedBox.shrink();
-    }
+    }*/
 
     return Padding(
       padding: const EdgeInsets.only(top: 12, left: 16, right: 16),
@@ -68,10 +68,9 @@ class ViewHubCidade extends StatelessWidget {
                       Icon(Icons.search,
                         size: 32,
                         color: Colors.blue.shade800,
-
-                      ),
-                    ],
                   ),
+                ],
+              ),
            ),
         ],
       ),

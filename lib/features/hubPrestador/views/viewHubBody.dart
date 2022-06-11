@@ -45,17 +45,19 @@ class ViewHubBodyPrestador extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.only(right: 12, left: 12, top: 8),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ViewHubCidade(
-                        viewModel: viewModel, viewActions: viewActions),
-                    ViewHubGridView(
-                        viewModel: viewModel, viewActions: viewActions),
-                    ViewHubServicos(
-                        viewModel: viewModel, viewActions: viewActions),
-                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ViewHubCidade(
+                          viewModel: viewModel, viewActions: viewActions),
+                      ViewHubGridView(
+                          viewModel: viewModel, viewActions: viewActions),
+                      ViewHubServicos(
+                          viewModel: viewModel, viewActions: viewActions),
+                    ],
+                  ),
                 ),
               ),
             ),
