@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class GetQtdePrestadoresDeServicoPorTipoSeervicoECidade {
-  final String idCidade = 'Colatina - ES';
-  final int idServico = 2;
+  final String idCidade;
+  final int idServico;
+GetQtdePrestadoresDeServicoPorTipoSeervicoECidade({required this.idCidade, required this.idServico});
+
   final FirebaseFirestore _instance = FirebaseFirestore.instance;
 
   Future<int> action() async {

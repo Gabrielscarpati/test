@@ -16,6 +16,7 @@ import 'package:projeto_treinamento/framework/viewActions.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
 
 import '../../businessModels/businessModelPrestadorInfomation.dart';
+import '../../util/getCodigoCidade.dart';
 import '../infoDadosPrestador/viewModelInfoDadosPrestador.dart';
 import '../perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import '../pesquisaCidade/presenterPesquisaCidade.dart';
@@ -47,12 +48,13 @@ class ViewActionsHubPrestador extends ViewActions<BlocEventHubPrestador> {
         .push(MaterialPageRoute(
             builder: (BuildContext context) =>
                 PresenterPesquisaCidade.presenter(codTipoDeServico: 0)))
-        .then((codCidade) {
-      if (codCidade != null) {
-        BlocEventHubSelecionaCidade blocEvent = BlocEventHubSelecionaCidade(
-            viewModel: viewModel, codCidade: codCidade);
+        .then((codCidade) async {
+      if (codCidade != null)  {
+        int newcodCidade = await GetCodCidade(nomeCidade: codCidade).action();        BlocEventHubSelecionaCidade blocEvent = BlocEventHubSelecionaCidade(
+            viewModel: viewModel, codCidade: newcodCidade);
         blocPipeIn.send(blocEvent);
       }
+    
     });
   }
 

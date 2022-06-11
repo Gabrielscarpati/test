@@ -119,7 +119,7 @@ class ProviderPrincipaisTiposDeServicoCidade
     List<BusinessModelTiposDeServico> finalListTiposDeServico = [];
     listPrincipaisBusinessModelTipoDeServico.forEach((element) async {
       int qtePrestadores =
-          await GetQtdePrestadoresDeServicoPorTipoSeervicoECidade().action();
+          await GetQtdePrestadoresDeServicoPorTipoSeervicoECidade(idCidade: cidades[int.parse(id)].nome , idServico: element.codTipoServico).action();
       finalListTiposDeServico.add(BusinessModelTiposDeServico(
         codTipoServico: element.codTipoServico,
         descricao: element.descricao,

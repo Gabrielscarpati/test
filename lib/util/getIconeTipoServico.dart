@@ -2,97 +2,100 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class GetIconeTipoServico {
+  final String nomeIcon;
+  GetIconeTipoServico({required this.nomeIcon}){
+    this.nomeIcon;
+  }
 
-  String aaa = 'aaa';
-  IconData getIconeTipoServico(String aaa){
-    if(aaa == 'Pintor'){
+  IconData getIconeTipoServico(String nomeIcon){
+    if(nomeIcon == 'Pintor'){
       return FontAwesomeIcons.paintRoller;
   }
-  if(aaa == 'Encanador'){
+  if(nomeIcon == 'Encanador'){
       return FontAwesomeIcons.screwdriverWrench;
   }
-  if(aaa == 'Limpeza de lotes'){
+  if(nomeIcon == 'Limpeza de lotes'){
       return FontAwesomeIcons.snowplow;
   }
-  if(aaa == 'Carpinteiro'){
+  if(nomeIcon == 'Carpinteiro'){
       return Icons.cut;
   }
-  if(aaa == 'Confeiteiro'){
+  if(nomeIcon == 'Confeiteiro'){
       return FontAwesomeIcons.cakeCandles;
   }
-  if(aaa == 'Designer gráfico'){
+  if(nomeIcon == 'Designer gráfico'){
       return FontAwesomeIcons.pen;
   }
-  if(aaa == 'Planejador de eventos'){
+  if(nomeIcon == 'Planejador de eventos'){
       return FontAwesomeIcons.book;
   }
-  if(aaa == 'Caseiro'){
+  if(nomeIcon == 'Caseiro'){
       return Icons.house;
   }
-  if(aaa == 'Eletricista'){
+  if(nomeIcon == 'Eletricista'){
       return FontAwesomeIcons.bolt;
   }
-  if(aaa == 'Soldador'){
+  if(nomeIcon == 'Soldador'){
       return FontAwesomeIcons.userAstronaut;
   }
-  if(aaa == 'Motorista pessoal'){
+  if(nomeIcon == 'Motorista pessoal'){
       return FontAwesomeIcons.car;
   }
-  if(aaa == 'Cortador de grama'){
+  if(nomeIcon == 'Cortador de grama'){
       return Icons.grass;
   }
-  if(aaa == 'Secretária'){
+  if(nomeIcon == 'Secretária'){
       return Icons.edit_note;
   }
-  if(aaa == 'Vendedor'){
+  if(nomeIcon == 'Vendedor'){
       return Icons.storefront;
   }
-  if(aaa == 'Comprador / importador'){
+  if(nomeIcon == 'Comprador / importador'){
       return Icons.sell;
   }
-  if(aaa == 'Instalador de piso'){
+  if(nomeIcon == 'Instalador de piso'){
       return Icons.face;
   }
-  if(aaa == 'Reparos gerais para casa'){
+  if(nomeIcon == 'Reparos gerais para casa'){
       return Icons.access_alarm_sharp;
   }
-  if(aaa == 'Frete de pequenas distâncias'){
+  if(nomeIcon == 'Frete de pequenas distâncias'){
       return FontAwesomeIcons.truckFast;
   }
-  if(aaa == 'Mudanças'){
+  if(nomeIcon == 'Mudanças'){
       return FontAwesomeIcons.truckArrowRight;
   }
-  if(aaa == 'Montador de móveis'){
+  if(nomeIcon == 'Montador de móveis'){
       return Icons.chair;
   }
-  if(aaa == 'Ajudante de mudanças'){
+  if(nomeIcon == 'Ajudante de mudanças'){
       return Icons.people;
   }
-  if(aaa == 'Designer de logo'){
+  if(nomeIcon == 'Designer de logo'){
       return Icons.logo_dev;
   }
-  if(aaa == 'Ajudante de pedreiro'){
+  if(nomeIcon == 'Ajudante de pedreiro'){
       return Icons.code;
   }
-  if(aaa == 'Fotografo'){
+  if(nomeIcon == 'Fotografo'){
       return Icons.no_photography;
   }
-  if(aaa == 'Instrutor fitness'){
+  if(nomeIcon == 'Instrutor fitness'){
       return Icons.close;
   }
-  if(aaa == 'Professor partícular'){
+  if(nomeIcon == 'Professor partícular'){
       return Icons.bookmark_add_rounded;
   }
-  if(aaa == 'Social media'){
+  if(nomeIcon == 'Social media'){
       return FontAwesomeIcons.instagram;
   }
-  if(aaa == 'Cuidador de idosos'){
+  if(nomeIcon == 'Cuidador de idosos'){
       return Icons.elderly;
   }
-    if(aaa == 'Babá'){
+    if(nomeIcon == 'Babá'){
       return FontAwesomeIcons.baby;
   }
-    if(aaa == 'Massagistas'){
+    if(nomeIcon == 'Massagistas'){
       return FontAwesomeIcons.accessibleIcon;
   }
    return Icons.bolt;

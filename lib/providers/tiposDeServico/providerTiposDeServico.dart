@@ -7,9 +7,11 @@ import 'package:projeto_treinamento/util/resposta_processamento.dart';
 import '../../businessModels/businessModelTiposDeServico.dart';
 import '../../daos/tiposDeServico/daoTipoDeServico.dart';
 import '../../daos/tiposDeServico/dataModelTipoDeServico.dart';
+import '../../util/getIconeTipoServico.dart';
 
 class ProviderTiposDeServico extends Provider<BusinessModelTiposDeServico> {
   DaoTipoDeServico dao = DaoTipoDeServico();
+  GetIconeTipoServico getIconeTipoServico = GetIconeTipoServico(nomeIcon: '');
   @override
   Future<BusinessModelTiposDeServico> getBusinessModel(String id) async {
     List<BusinessModelTiposDeServico> listaTiposDeServico =
@@ -25,11 +27,13 @@ class ProviderTiposDeServico extends Provider<BusinessModelTiposDeServico> {
     List<DataModelTipoDeServico> listaDataModels = [];
 
     listaDataModels = await dao.getDataModels();
+    int index = 0;
     listaDataModels.forEach((element) {
+      index++;
       listaDeTiposDeServico.add(BusinessModelTiposDeServico(
           codTipoServico: element.codTipoServico,
           descricao: element.descricao,
-          icone: Icons.add,
+          icone: getIconeTipoServico.getIconeTipoServico(element.descricao),
           qtdePrestadoresDeServico: 0));
     });
 

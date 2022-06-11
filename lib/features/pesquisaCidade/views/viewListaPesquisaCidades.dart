@@ -28,8 +28,7 @@ class _ViewListaPesquisaCidade extends State<ViewListaPesquisaCidade> {
           return Card(
             child: ListTile(
                 onTap: () {
-                  Navigator.of(context).pop(index);
-                },
+                    Navigator.of(context).pop(widget.viewModel.listaVisivel[index].cidade.nome);                },
                 title: SubstringHighlight(
                   text: widget.viewModel.listaVisivel[index].cidade.nome,
                   caseSensitive: false,

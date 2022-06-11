@@ -16,13 +16,11 @@ class AdapterTipoDeServico
       return BusinessModelTiposDeServico.vazio();
     else {
       //BusinessModelIcone businessModelIcone = await AdapterIcone().createBusinessModel(dataModel.icone);
-      int qtdePrestadoresDeServico =
-          await GetQtdePrestadoresDeServicoPorTipoSeervicoECidade().action();
       return BusinessModelTiposDeServico(
         codTipoServico: dataModel.codTipoServico,
         descricao: dataModel.descricao,
         icone: Icons.add,
-        qtdePrestadoresDeServico: qtdePrestadoresDeServico,
+        qtdePrestadoresDeServico: 0,
       );
     }
   }

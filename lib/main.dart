@@ -10,7 +10,6 @@ import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelP
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
 import 'package:projeto_treinamento/util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
 import 'package:projeto_treinamento/util/src/utils/storage_util.dart';
-import 'package:projeto_treinamento/ztest/flutter.dart';
 import 'package:provider/provider.dart';
 import 'daos/firebase/authService.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
@@ -31,8 +30,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
-  /*GetQtdePrestadoresDeServicoPorTipoSeervicoECidade kkk = GetQtdePrestadoresDeServicoPorTipoSeervicoECidade();
-  kkk.action();*/
 }
 
 GoogleSignInAccount? _usuarioAtual;
