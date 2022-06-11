@@ -10,9 +10,8 @@ class GetQtdePrestadoresDeServicoPorTipoSeervicoECidade {
 
     QuerySnapshot resp = await _instance
         .collection('dadosPrestador')
-        .where('city', arrayContainsAny: [idCidade])
-        .where('roles', arrayContains: idServico)
-        .get();
+        .where('city', arrayContainsAny: [idCidade]).where('roles',
+            arrayContains: [idServico]).get();
     print('------------------------------');
     print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
     print(resp.docs.length);

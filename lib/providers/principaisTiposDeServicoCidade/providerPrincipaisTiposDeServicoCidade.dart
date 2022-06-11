@@ -16,6 +16,8 @@ import 'package:projeto_treinamento/providers/dadosPrestador/providerDadosPresta
 import 'package:projeto_treinamento/providers/tiposDeServico/providerTiposDeServico.dart';
 import 'package:projeto_treinamento/util/resposta_processamento.dart';
 
+import '../../util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
+
 class ProviderPrincipaisTiposDeServicoCidade
     extends Provider<BusinessModelPrincipaisTiposDeServicoCidade> {
   @override
@@ -113,6 +115,18 @@ class ProviderPrincipaisTiposDeServicoCidade
       listPrincipaisBusinessModelTipoDeServico =
           await ProviderTiposDeServico().getBusinessModels();
     }
+    //GetQtdePrestadoresDeServicoPorTipoSeervicoECidade
+    List<BusinessModelTiposDeServico> finalListTiposDeServico = [];
+    listPrincipaisBusinessModelTipoDeServico.forEach((element) async {
+      int qtePrestadores =
+          await GetQtdePrestadoresDeServicoPorTipoSeervicoECidade().action();
+      finalListTiposDeServico.add(BusinessModelTiposDeServico(
+        codTipoServico: element.codTipoServico,
+        descricao: element.descricao,
+        icone: element.icone,
+        qtdePrestadoresDeServico: qtePrestadores,
+      ));
+    });
 
     businessModelPrincipaisTiposDeServicoCidade =
         BusinessModelPrincipaisTiposDeServicoCidade(

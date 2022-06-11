@@ -28,7 +28,9 @@ class ViewListaTipoServico extends StatelessWidget {
                 padding: const EdgeInsets.all(2.0),
                 child: Text(
                   "Selecione o tipo de serviço:",
-                  style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: Theme.of(context).textTheme.bodyText2!.fontSize),
+                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                      fontSize:
+                          Theme.of(context).textTheme.bodyText2!.fontSize),
                 ),
               ),
             ),
