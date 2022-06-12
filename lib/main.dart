@@ -8,6 +8,7 @@ import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInf
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
+import 'package:projeto_treinamento/util/getPrestadoresDeServicoPorCidadeTipoDeServico.dart';
 import 'package:projeto_treinamento/util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
 import 'package:projeto_treinamento/util/src/utils/storage_util.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
+  GetPrestadoresDeServicoPorTipoSeervicoECidade ooo = GetPrestadoresDeServicoPorTipoSeervicoECidade(idCidade: 'Colatina - ES', idServico: 1);
+  ooo.action();
 }
 
 GoogleSignInAccount? _usuarioAtual;
@@ -81,7 +84,7 @@ class MyApp extends StatelessWidget {
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData ||
                 usuario != null /*verificarSeUsuarioNulo() == null*/) {
-              return ViewVeryFirstScreen();
+              return PresenterHubPrestador.presenter();
             }
             return PresenterHubPrestador.presenter();
           }),
