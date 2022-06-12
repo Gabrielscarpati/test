@@ -136,7 +136,7 @@ class ViewHubGridView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Icon(Icons.wifi_off, size: 80, ),
+            Icon(icons.wifi_off, size: 80, ),
 
             Text('Conecte-se à internet'),
           ],

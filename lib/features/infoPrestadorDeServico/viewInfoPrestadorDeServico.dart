@@ -4,6 +4,7 @@ import 'package:projeto_treinamento/features/infoPrestadorDeServico/views/viewIn
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/views/viewInfoPrestadorDeServicoHeader.dart';
 import 'package:projeto_treinamento/framework/view.dart';
 
+import '../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
 import '../../util/libraryComponents/colors/colors.dart';
 import 'viewActionsInfoPrestadorDeServico.dart';
 import 'viewModelInfoPrestadorDeServico.dart';
@@ -23,7 +24,7 @@ class ViewInfoPrestadorDeServico extends View<ViewModelInfoPrestadorDeServico, V
         titleSpacing: 0,
         // automaticallyImplyLeading: false,
         title: viewModel == null
-            ? CircularProgressIndicator()
+            ? CircularProgressIndicatorPersonalizado()
             : ViewInfoPrestadorDeServicoHeader(
                 viewActions: this.viewActions,
                 viewModel: this.viewModel!,

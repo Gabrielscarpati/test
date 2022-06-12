@@ -9,6 +9,7 @@ import 'package:projeto_treinamento/framework/provider.dart';
 import 'package:projeto_treinamento/framework/providerDireto.dart';
 import 'package:projeto_treinamento/util/resposta_processamento.dart';
 
+import '../../util/getQtdePrestadoresDeServicoPorCidade.dart';
 import 'adapterCidade.dart';
 
 class ProviderCidade extends Provider<BusinessModelCidade> {
@@ -28,13 +29,13 @@ class ProviderCidade extends Provider<BusinessModelCidade> {
     List<dynamic> estados = data["estados"];
     List<BusinessModelCidade> listacidades = List.empty(growable: true);
 
-    estados.forEach((estado) {
+    estados.forEach((estado) async {
       String sigla = estado["sigla"];
       List<dynamic> cidades = estado["cidades"];
       for (int i = 0; i < cidades.length; i++) {
         String nome = cidades[i] + " - " + sigla;
         listacidades.add(BusinessModelCidade(
-            codCidade: i, nome: nome, totalPrestadoresServico: 0));
+            codCidade: i, nome: nome, totalPrestadoresServico: await GetQtdePrestadoresDeServicoPorCidade(idCidade: nome).numeroPrestadorPorCidade()));
       }
     });
     return listacidades;

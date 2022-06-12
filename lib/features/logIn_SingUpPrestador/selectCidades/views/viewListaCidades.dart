@@ -35,7 +35,6 @@ class _ViewListSelectCityState extends State<ViewListSelectCity> {
             child: ListTile(
                 onTap: () {
                   widget.viewAction.selectCidade(context, widget.viewModel, index);
-                  print(widget.viewModel.cidadesSelecionadas.length);
                 },
                 title: SubstringHighlight(
                       text: widget.viewModel.listaVisivel[index].nome,

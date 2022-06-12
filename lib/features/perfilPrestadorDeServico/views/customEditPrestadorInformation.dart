@@ -104,7 +104,6 @@ class _CustomEditPrestadorInformationNomeState extends State<CustomEditPrestador
                         }
                       },
                       onChanged: (text) {
-                        print(text);
                       },
                       decoration: new InputDecoration(
                         prefixIcon: Icon(super.widget.iconData),
@@ -263,7 +262,6 @@ class _CustomEditPrestadorInformationTelefoneState extends State<CustomEditPrest
                 }
               },
               onChanged: (text) {
-                print(text);
               },
               decoration: new InputDecoration(
                 prefixIcon: Icon(super.widget.iconData),
@@ -423,7 +421,6 @@ class _CustomEditPrestadorInformationDescricaoState extends State<CustomEditPres
                 }
               },
               onChanged: (text) {
-                print(text);
               },
               decoration: new InputDecoration(
                 prefixIcon: Icon(super.widget.iconData),
@@ -583,7 +580,6 @@ class _CustomEditPrestadorInformationHorasDeTrabahoState extends State<CustomEdi
                 }
               },
               onChanged: (text) {
-                print(text);
               },
               decoration: new InputDecoration(
                 prefixIcon: Icon(super.widget.iconData),
@@ -743,7 +739,6 @@ class _CustomEditPrestadorInformationServicosPrestadosState extends State<Custom
                 }
               },
               onChanged: (text) {
-                print(text);
               },
               decoration: new InputDecoration(
                 prefixIcon: Icon(super.widget.iconData),

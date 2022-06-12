@@ -17,13 +17,13 @@ GetQtdePrestadoresDeServicoPorTipoSeervicoECidade({required this.idCidade, requi
       return !(element['roles'] as List).contains(idServico);
     });
 
-    print('------------------------------');
+    /*print('------------------------------');
     print('Quantidade de prestadores em ' +
         idCidade +
         ' que prestam o serviço ' +
         idServico.toString() +
         ': ' +
-        docs.length.toString());
+        docs.length.toString());*/
 
     return docs.length;
   }

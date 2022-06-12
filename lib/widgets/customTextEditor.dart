@@ -29,7 +29,6 @@ class CustomTextEditorState<T extends MixInDescricao> extends CustomEditorState<
       key: _formKey,
       controller: textEditingController,
       onChanged: (text) {
-        print(text);
       },
       decoration: new InputDecoration(
         prefixIcon: Icon(super.widget.iconData),

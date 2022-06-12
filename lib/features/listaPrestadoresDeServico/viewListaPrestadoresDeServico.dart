@@ -5,6 +5,7 @@ import 'package:projeto_treinamento/features/listaPrestadoresDeServico/views/bod
 import 'package:projeto_treinamento/features/listaPrestadoresDeServico/views/titleListaPrestadoresDeServico.dart';
 import 'package:projeto_treinamento/framework/view.dart';
 
+import '../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
 import '../../util/libraryComponents/colors/colors.dart';
 import 'viewActionsListaPrestadoresDeServico.dart';
 import 'viewModelListaPrestadoresDeServico.dart';
@@ -20,7 +21,7 @@ class ViewListaPrestadoresDeServico extends View<ViewModelListaPrestadoresDeServ
   Widget build(BuildContext context) {
     if (viewModel == null) {
       return Center(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicatorPersonalizado(),
       );
     } else {
       return Scaffold(

@@ -50,7 +50,6 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
         _photo = File(pickedFile.path);
         uploadFile();
       } else {
-        print('No image selected.');
       }
     });
   }

@@ -50,7 +50,6 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
         _photo = File(pickedFile.path);
         uploadFile();
       } else {
-        print('No image selected.');
       }
     });
   }
@@ -63,7 +62,6 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
         _photo = File(pickedFile.path);
         uploadFile();
       } else {
-        print('No image selected.');
       }
     });
   }
@@ -77,7 +75,6 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
       final ref = firebase_storage.FirebaseStorage.instance.ref(destination).child('FotoPerfilPrestadorServico/');
       await ref.putFile(_photo!);
     } catch (e) {
-      print('error occurred');
     }
   }
 
@@ -85,7 +82,6 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
     Reference ref = await storage.ref().child(basename(_photo!.path) + DateTime.now().toString());
     await ref.putFile(File(_photo!.path));
     String imageUrl = await ref.getDownloadURL();
-    print(imageUrl.toString());
      return imageUrl;
   }
 

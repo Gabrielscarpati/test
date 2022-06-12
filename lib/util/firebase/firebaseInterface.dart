@@ -31,14 +31,12 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
 
     var data = snapshot.data() as Map<String, dynamic>;
     var dataTable = data[tableName];
-    print(dataTable);
 
     String? IdUsuario = await getUserId();
 
     if (IdUsuario != null) {
       D? dataModel = dataModelBuilder.createDataModel(dataTable);
       if (dataModel != null) {
-        print(dataModel.toString());
         return dataModel;
       }
     }
@@ -56,23 +54,6 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
 
     return response;
   }
-
-/*  Future<List<D>> getDataModelsFromFirebase() async {
-    List<D> response = [];
-    CollectionReference dadosPrestador = _instance!.collection(tableName);
-
-    dadosPrestador.get().then((querySnapshot) => {
-      querySnapshot.docs.map((doc) {
-        print(doc.data());
-          //response.add(dataModelBuilder.createDataModel(doc.data()));
-      })
-   
-     }
-    );
-    _instance = FirebaseFirestore.instance;
-
-    return response;
-  }*/
 
   Future<RespostaProcessamento> saveDataModelInFirebase(
     D dataModel,

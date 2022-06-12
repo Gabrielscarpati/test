@@ -32,12 +32,10 @@ class ProviderPrincipaisTiposDeServicoCidade
         await ProvideDadosPrestador().getBusinessModels();
 
     List<BusinessModelDadosPrestador> prestadoresFiltrados = [];
-    print(cidades[int.parse(id)]);
     prestadoresFiltrados = prestadores
         .where((element) => element.city == cidades[int.parse(id)].nome)
         .toList();
 
-    print(prestadores);
 
     if (prestadoresFiltrados.length < 4) {
       prestadoresFiltrados = prestadores;
@@ -47,10 +45,8 @@ class ProviderPrincipaisTiposDeServicoCidade
     prestadoresFiltrados.forEach((element) {
       BusinessModelTiposDeServico tiposDeServico;
       element.roles.forEach((element) async {
-        print(element);
         tiposDeServico =
             await ProviderTiposDeServico().getBusinessModel(element.toString());
-        print(tiposDeServico);
         listBusinessModelTipoDeServico.add(tiposDeServico);
       });
     });
@@ -72,7 +68,6 @@ class ProviderPrincipaisTiposDeServicoCidade
       }
     }
 
-    print(mapQuantidadeServicoUmaCidade);
 
     List<int> listaQuantidadePrestadores = [];
     List<String> listKeys = [];
@@ -101,7 +96,6 @@ class ProviderPrincipaisTiposDeServicoCidade
       listKeysOrdenadasFinal.add(listKeys[valor]);
     });
 
-    print(listaindexMaiorValor);
 
     listKeysOrdenadasFinal.forEach((element) {
       listPrincipaisBusinessModelTipoDeServico.add(BusinessModelTiposDeServico(

@@ -332,7 +332,6 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
 
       _userData = userData;
     } else {
-      print(result.message);
     }
 
     setState(() {

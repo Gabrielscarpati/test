@@ -20,12 +20,12 @@ class DaoIcone extends DaoWebApi<DataModelIcone, DataModelBuilderIcone> {
     ..add(DataModelIcone.fromIconData(id: "whatsApp", iconData: MdiIcons.whatsapp))
     ..add(DataModelIcone.fromIconData(id: "statusOnline", iconData: MdiIcons.checkboxBlankCircle))
     ..add(DataModelIcone.fromIconData(id: "cidades", iconData: MdiIcons.city))
-    ..add(DataModelIcone.fromIconData(id: "servicosGerais", iconData: Icons.handyman_outlined))
-    ..add(DataModelIcone.fromIconData(id: "motoboy", iconData: Icons.motorcycle))
-    ..add(DataModelIcone.fromIconData(id: "baba", iconData: Icons.baby_changing_station))
-    ..add(DataModelIcone.fromIconData(id: "motorista", iconData: Icons.drive_eta))
-    ..add(DataModelIcone.fromIconData(id: "eletricista", iconData: Icons.electrical_services))
-    ..add(DataModelIcone.fromIconData(id: "pedreiro", iconData: Icons.hardware))
-    ..add(DataModelIcone.fromIconData(id: "bombeiroEncanador", iconData: Icons.plumbing));
+    ..add(DataModelIcone.fromIconData(id: "servicosGerais", iconData: icons.handyman_outlined))
+    ..add(DataModelIcone.fromIconData(id: "motoboy", iconData: icons.motorcycle))
+    ..add(DataModelIcone.fromIconData(id: "baba", iconData: icons.baby_changing_station))
+    ..add(DataModelIcone.fromIconData(id: "motorista", iconData: icons.drive_eta))
+    ..add(DataModelIcone.fromIconData(id: "eletricista", iconData: icons.electrical_services))
+    ..add(DataModelIcone.fromIconData(id: "pedreiro", iconData: icons.hardware))
+    ..add(DataModelIcone.fromIconData(id: "bombeiroEncanador", iconData: icons.plumbing));
    */
 }

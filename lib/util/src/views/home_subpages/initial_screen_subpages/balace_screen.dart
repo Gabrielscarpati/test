@@ -28,7 +28,6 @@ class _BalanceScreenState extends State<BalanceScreen> {
 
   refresh() async {
     var result = await bankAccountController.fetchStatements();
-    print(result);
     setState(() {
       statements = result;
     });

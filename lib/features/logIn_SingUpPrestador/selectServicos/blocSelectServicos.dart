@@ -29,8 +29,6 @@ class BlocSelectServicos
     final List listaServices = await getListaServicosFirebase.getListaServicosFirebase() as List;
 
     for(int i = 0; i<listaServices.length; i++){
-      print(listaServices[i]);
-      print('Aaaaaaaaaaaaaaaaaa');
       listacidades.add(
         BusinessModelCidade(codCidade: listaServices[i].hashCode, nome: listaServices[i], totalPrestadoresServico: 0)
       );

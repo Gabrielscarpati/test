@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';//
 import 'package:flutter/material.dart';//
 import 'package:projeto_treinamento/framework/view.dart';//
+import '../../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
 import '../../../util/libraryComponents/colors/colorGradient.dart';//
 import '../../../util/libraryComponents/colors/colors.dart';//
 import 'viewActionsSelectCidade.dart';//
@@ -27,7 +28,7 @@ class ViewSelectCidade extends View<ViewModelSelectCidade, ViewActionsSelectCida
   _buildBody(BuildContext context) {
     if (viewModel == null) {
       return Center(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicatorPersonalizado(),
       );
     } else {
       return Scaffold(

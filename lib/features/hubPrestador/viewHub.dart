@@ -6,6 +6,7 @@ import 'package:projeto_treinamento/framework/view.dart';
 
 import '../../businessModels/businessModelDadosPrestador.dart';
 import '../../businessModels/businessModelUsuario.dart';
+import '../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
 import 'viewActionsHub.dart';
 
 class ViewHubPrestador
@@ -26,7 +27,7 @@ class ViewHubPrestador
   _buildBody(BuildContext context) {
     if (viewModel == null) {
       return Center(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicatorPersonalizado(),
       );
     } else {
       return ViewHubBodyPrestador(

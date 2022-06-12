@@ -82,7 +82,7 @@ class _CustomDropdownButtonEditor extends State<CustomDropdownButtonEditor> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           IconButton(
-            icon: Icon(Icons.close),
+            icon: Icon(icons.close),
             onPressed: () {
               setState(() {
                 editing = !editing;
@@ -92,7 +92,7 @@ class _CustomDropdownButtonEditor extends State<CustomDropdownButtonEditor> {
           Expanded(
             child: DropdownButton<String>(
                 value: dropdownValue,
-                icon: const Icon(Icons.arrow_downward),
+                icon: const Icon(icons.arrow_downward),
                 elevation: 16,
                 isExpanded: true,
                 style: const TextStyle(color: Colors.black),

@@ -11,8 +11,6 @@ class BlocSelectCidade
     extends Bloc<ViewModelSelectCidade, BlocEventSelectCidade> {
   @override
   void onReceiveBlocEvent(BlocEventSelectCidade blocEvent) {
-    print('onReceiveBlocEvent');
-    print( DateTime.now().toString());
     if (blocEvent is BlocEventSelectCidadeInicializaViewModel)
       _inicializaViewModel(blocEvent);
 

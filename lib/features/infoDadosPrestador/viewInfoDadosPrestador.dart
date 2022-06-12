@@ -4,6 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:projeto_treinamento/features/infoDadosPrestador/views/InfoDadosPrestadorBody.dart';
 import 'package:projeto_treinamento/features/infoDadosPrestador/views/buttonSalvarInfoUsuario.dart';
 import 'package:projeto_treinamento/framework/view.dart';
+import '../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
 import 'viewActionsInfoDadosPrestador.dart';
 import 'viewModelInfoDadosPrestador.dart';
 
@@ -46,7 +47,7 @@ class ViewInfoDadosPrestador extends View<ViewModelInfoDadosPrestador, ViewActio
   _buildBody(BuildContext context) {
     if (viewModel == null) {
       return Center(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicatorPersonalizado(),
       );
     } else {
       return InfoDadosPrestadorBody(viewModel: this.viewModel!, viewActions: viewActions);

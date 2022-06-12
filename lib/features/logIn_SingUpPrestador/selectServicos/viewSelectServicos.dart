@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';//
 import 'package:flutter/material.dart';//
 import 'package:projeto_treinamento/framework/view.dart';//
+import '../../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
 import '../../../util/libraryComponents/colors/colorGradient.dart';//
 import '../../../util/libraryComponents/colors/colors.dart';//
 import 'viewActionsSelectServicos.dart';//
@@ -27,13 +28,7 @@ class ViewSelectServicos extends View<ViewModelSelectServicos, ViewActionsSelect
   _buildBody(BuildContext context) {
     if (viewModel == null) {
       return Center(
-        child: Container(
-          width: 100,
-          height: 100,
-          child: CircularProgressIndicator(
-            color: Colors.indigo,
-          ),
-        ),
+        child: CircularProgressIndicatorPersonalizado()
       );
     } else {
       return Scaffold(

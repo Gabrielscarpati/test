@@ -295,7 +295,6 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
 
       _userData = userData;
     } else {
-      print(result.message);
     }
 
     setState(() {

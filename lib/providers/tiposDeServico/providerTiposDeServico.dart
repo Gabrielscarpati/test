@@ -16,7 +16,6 @@ class ProviderTiposDeServico extends Provider<BusinessModelTiposDeServico> {
   Future<BusinessModelTiposDeServico> getBusinessModel(String id) async {
     List<BusinessModelTiposDeServico> listaTiposDeServico =
         await getBusinessModels();
-    print(listaTiposDeServico);
     return listaTiposDeServico[int.parse(id)];
   }
 

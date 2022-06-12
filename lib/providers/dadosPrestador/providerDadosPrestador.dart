@@ -22,7 +22,6 @@ class ProvideDadosPrestador extends Provider<BusinessModelDadosPrestador> {
     List<DataModelDadosPrestador> dataModelsPrestadores;
     dataModelsPrestadores = await dao.getDataModels();
 
-    print(dataModelsPrestadores);
 
     dataModelsPrestadores.forEach((element) {
       prestadores.add(BusinessModelDadosPrestador(
