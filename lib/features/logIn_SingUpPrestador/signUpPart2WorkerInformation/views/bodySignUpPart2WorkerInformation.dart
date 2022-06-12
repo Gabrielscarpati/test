@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
 import '../../../../daos/usuario/daoUsuario.dart';
 import '../../selectCidades/presenterSelectCidade.dart';
@@ -14,21 +15,20 @@ import 'package:path/path.dart';
 import 'dart:io';
 
 class BodySignUpPart2WorkerInformation extends StatefulWidget {
-
-  const BodySignUpPart2WorkerInformation({Key? key,
-
+  const BodySignUpPart2WorkerInformation({
+    Key? key,
   }) : super(key: key);
   @override
   _BodySingUpScreenInstitution createState() => _BodySingUpScreenInstitution();
 }
-class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformation> {
 
-  CollectionReference users = FirebaseFirestore.instance.collection('dadosPrestador');
+class _BodySingUpScreenInstitution
+    extends State<BodySignUpPart2WorkerInformation> {
+  CollectionReference users =
+      FirebaseFirestore.instance.collection('dadosPrestador');
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseStorage firebaseStorage = FirebaseStorage.instance;
 
-
-   
   final FirebaseAuth auth = FirebaseAuth.instance;
   Future<String?> getUserId() async {
     final User? user = await auth.currentUser;
@@ -36,8 +36,8 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
     return userId;
   }
 
-
-  final firebase_storage.FirebaseStorage storage = firebase_storage.FirebaseStorage.instance;
+  final firebase_storage.FirebaseStorage storage =
+      firebase_storage.FirebaseStorage.instance;
 
   File? _photo;
   final ImagePicker _picker = ImagePicker();
@@ -49,8 +49,7 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
       if (pickedFile != null) {
         _photo = File(pickedFile.path);
         uploadFile();
-      } else {
-      }
+      } else {}
     });
   }
 
@@ -61,8 +60,7 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
       if (pickedFile != null) {
         _photo = File(pickedFile.path);
         uploadFile();
-      } else {
-      }
+      } else {}
     });
   }
 
@@ -72,17 +70,20 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
     final destination = 'FotoPerfilPrestadorServico/$fileName';
 
     try {
-      final ref = firebase_storage.FirebaseStorage.instance.ref(destination).child('FotoPerfilPrestadorServico/');
+      final ref = firebase_storage.FirebaseStorage.instance
+          .ref(destination)
+          .child('FotoPerfilPrestadorServico/');
       await ref.putFile(_photo!);
-    } catch (e) {
-    }
+    } catch (e) {}
   }
 
-    Future<String> getUrlToImageFirebase() async {
-    Reference ref = await storage.ref().child(basename(_photo!.path) + DateTime.now().toString());
+  Future<String> getUrlToImageFirebase() async {
+    Reference ref = await storage
+        .ref()
+        .child(basename(_photo!.path) + DateTime.now().toString());
     await ref.putFile(File(_photo!.path));
     String imageUrl = await ref.getDownloadURL();
-     return imageUrl;
+    return imageUrl;
   }
 
   final nameController = TextEditingController();
@@ -93,41 +94,37 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
 
   final formKeyAuthentication = GlobalKey<FormState>();
 
-  List listaComentarios = [];
+  final RoundedLoadingButtonController _btnController =
+      RoundedLoadingButtonController();
 
+  List listaComentarios = [];
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
-
         width: double.infinity,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [
-                  Colors.blue.shade900,
-                  Colors.blue.shade500,
-                  Colors.blue.shade400,
-                ]
-            )
-        ),
-
+            gradient: LinearGradient(begin: Alignment.topCenter, colors: [
+          Colors.blue.shade900,
+          Colors.blue.shade500,
+          Colors.blue.shade400,
+        ])),
         child: Column(
-
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(12, 34, 0, 4),
-              child:
-              Row(
+              child: Row(
                 children: [
-                  SizedBox(child:
-                      BackArrowSignUpPart2WorkerInformation(),
+                  SizedBox(
+                    child: BackArrowSignUpPart2WorkerInformation(),
                   ),
-                  Text("SignUp",
-                    style: TextStyle(color: Colors.white, fontSize: 32),),
+                  Text(
+                    "SignUp",
+                    style: TextStyle(color: Colors.white, fontSize: 32),
+                  ),
                 ],
               ),
             ),
@@ -135,7 +132,8 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
               child: Container(
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(30),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
                       topRight: Radius.circular(30)),
                 ),
                 child: SingleChildScrollView(
@@ -147,48 +145,49 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
                           'Click here to choose an Image',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16.0,
+                            color: Colors.black,
+                            fontSize: 16.0,
                           ),
                         ),
-                         Padding(
+                        Padding(
                           padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
                           child: Stack(
                             children: [
-
-                               Center(
-                                  child:GestureDetector(
-                                    onTap: () {
-                                      _showPicker(context);
-                                    },
-                                    child: CircleAvatar(
-                                      radius: 62,
-                                      backgroundColor: Colors.black,
-                                      child: _photo != null
-                                          ? ClipRRect(
-                                              borderRadius: BorderRadius.circular(60),
-                                              child: Image.file(
-                                                _photo!,
-                                                width: 120,
-                                                height: 120,
-                                                fit: BoxFit.fitHeight,
-                                              ),
-                                            )
-                                          : Container(
+                              Center(
+                                child: GestureDetector(
+                                  onTap: () {
+                                    _showPicker(context);
+                                  },
+                                  child: CircleAvatar(
+                                    radius: 62,
+                                    backgroundColor: Colors.black,
+                                    child: _photo != null
+                                        ? ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(60),
+                                            child: Image.file(
+                                              _photo!,
+                                              width: 120,
+                                              height: 120,
+                                              fit: BoxFit.fitHeight,
+                                            ),
+                                          )
+                                        : Container(
                                             decoration: BoxDecoration(
                                                 color: Colors.grey[200],
-                                                borderRadius: BorderRadius.circular(60)),
-                                                  width: 120,
-                                                  height: 120,
-                                                  child: Icon(
-                                                    Icons.edit,
-                                                    size: 35,
-                                                    color: Colors.grey[800],
-                                        ),
-                                      ),
-                                    ),
+                                                borderRadius:
+                                                    BorderRadius.circular(60)),
+                                            width: 120,
+                                            height: 120,
+                                            child: Icon(
+                                              Icons.edit,
+                                              size: 35,
+                                              color: Colors.grey[800],
+                                            ),
+                                          ),
                                   ),
                                 ),
+                              ),
                             ],
                           ),
                         ),
@@ -203,32 +202,42 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
                               children: [
                                 NameWidget(nameController: nameController),
                                 PhoneWidget(phoneController: phoneController),
-                                WorkingHoursWidget(workingHoursController: workingHoursController,),
-                                DescriptionWidget(descriptionController: descriptionController,),
+                                WorkingHoursWidget(
+                                  workingHoursController:
+                                      workingHoursController,
+                                ),
+                                DescriptionWidget(
+                                  descriptionController: descriptionController,
+                                ),
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(height: screenHeight*.02),
+                        SizedBox(height: screenHeight * .02),
                         // #login
                         Container(
                           height: 50,
                           margin: EdgeInsets.symmetric(horizontal: 50),
-
                           child: Column(
                             children: [
-                              ElevatedButton(
+                              RoundedLoadingButton(
+                                controller: _btnController,
                                 child: Ink(
                                   decoration: BoxDecoration(
-                                      gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Colors.blue.shade900,
+                                          Colors.blue.shade500,
+                                          Colors.blue.shade400
+                                        ],
                                         begin: Alignment.centerLeft,
                                         end: Alignment.centerRight,
                                       ),
-                                      borderRadius: BorderRadius.circular(30.0)
-                                  ),
-
+                                      borderRadius:
+                                          BorderRadius.circular(30.0)),
                                   child: Container(
-                                    constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
+                                    constraints: BoxConstraints(
+                                        maxWidth: 350.0, minHeight: 50.0),
                                     alignment: Alignment.center,
                                     child: Text(
                                       'Sign Up',
@@ -236,24 +245,24 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 20.0,
-                                          fontWeight: FontWeight.bold
-                                      ),
+                                          fontWeight: FontWeight.bold),
                                     ),
                                   ),
                                 ),
                                 onPressed: () async {
-                                 //getUrlToImageFirebase();
+                                  //getUrlToImageFirebase();
                                   //setUserCredentials();
                                   //getUserId();
 
                                   await users.doc(await getUserId()).set({
                                     'name': nameController.text.trim(),
                                     'phone': phoneController.text.trim(),
-                                    'workingHours': workingHoursController.text
-                                        .trim(),
-                                    'description': descriptionController.text
-                                        .trim(),
-                                    'profilePicture': await getUrlToImageFirebase(),
+                                    'workingHours':
+                                        workingHoursController.text.trim(),
+                                    'description':
+                                        descriptionController.text.trim(),
+                                    'profilePicture':
+                                        await getUrlToImageFirebase(),
                                     'city': 'city',
                                     'roles': '-----11-----',
                                     'brazilianIDPicture': 'brazilianIDPicture',
@@ -262,22 +271,22 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
                                     'dataVencimentoPlano': DateTime.now(),
                                     'dataAberturaConta': DateTime.now(),
                                     'IdPrestador': await getUserId(),
-                                  }
-                                    );
+                                  });
 
-                                  final form = formKeyAuthentication.currentState!;
+                                  final form =
+                                      formKeyAuthentication.currentState!;
 
                                   if (form.validate()) {
-                                    Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => PresenterSelectCidade.presenter(),                               ));
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) {
+                                        _btnController.success();
+                                        return PresenterSelectCidade
+                                            .presenter();
+                                      },
+                                    ));
                                   }
                                 },
-                                style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.all(0),
-                                  shape: new RoundedRectangleBorder(
-                                    borderRadius: new BorderRadius.circular(30.0),
-                                  ),
-                                ),
                               ),
                             ],
                           ),
@@ -293,6 +302,7 @@ class _BodySingUpScreenInstitution extends State<BodySignUpPart2WorkerInformatio
       ),
     );
   }
+
   void _showPicker(context) {
     showModalBottomSheet(
         context: context,
