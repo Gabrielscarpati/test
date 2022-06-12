@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/gbscarpati/Documents/quickfix/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v21/values-watch-v21.xml",
+            "outputFile": "/home/caio/Área de Trabalho/apps/quickfix/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "/Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/7ec74af5f287894b89d12d6af21466ee/appcompat-1.1.0/res/values-watch-v21/values-watch-v21.xml",
+                    "source": "/home/caio/.gradle/caches/transforms-2/files-2.1/7ec74af5f287894b89d12d6af21466ee/appcompat-1.1.0/res/values-watch-v21/values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",
