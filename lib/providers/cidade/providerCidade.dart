@@ -21,23 +21,24 @@ class ProviderCidade extends Provider<BusinessModelCidade> {
 
   @override
   Future<List<BusinessModelCidade>> getBusinessModels() async {
-
-    final String response = await rootBundle.loadString('lib/daos/cidade/cidades.json');
+    final String response =
+        await rootBundle.loadString('lib/daos/cidade/cidades.json');
     Map<String, dynamic> data = await json.decode(response);
 
-
     List<dynamic> estados = data["estados"];
-    List<BusinessModelCidade> listacidades = List.empty(growable: true);
+    List<BusinessModelCidade> listacidades = [];
 
-    estados.forEach((estado) async {
-      String sigla = estado["sigla"];
-      List<dynamic> cidades = estado["cidades"];
+    for (int j = 0; j < estados.length; j++) {
+      String sigla = estados[j]["sigla"];
+      List<dynamic> cidades = estados[j]["cidades"];
       for (int i = 0; i < cidades.length; i++) {
         String nome = cidades[i] + " - " + sigla;
+
         listacidades.add(BusinessModelCidade(
-            codCidade: i, nome: nome, totalPrestadoresServico: await GetQtdePrestadoresDeServicoPorCidade(idCidade: nome).numeroPrestadorPorCidade()));
+            codCidade: i, nome: nome, totalPrestadoresServico: 0));
       }
-    });
+    }
+
     return listacidades;
   }
 

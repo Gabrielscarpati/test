@@ -28,7 +28,9 @@ class _ViewListaPesquisaCidade extends State<ViewListaPesquisaCidade> {
           return Card(
             child: ListTile(
                 onTap: () {
-                    Navigator.of(context).pop(widget.viewModel.listaVisivel[index].cidade.nome);                },
+                  Navigator.of(context)
+                      .pop(widget.viewModel.listaVisivel[index].cidade.nome);
+                },
                 title: SubstringHighlight(
                   text: widget.viewModel.listaVisivel[index].cidade.nome,
                   caseSensitive: false,
@@ -41,15 +43,6 @@ class _ViewListaPesquisaCidade extends State<ViewListaPesquisaCidade> {
                         Theme.of(context).textTheme.headline2!.backgroundColor,
                   ),
                   words: false,
-                ),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(widget.viewModel.listaVisivel[index].cidade
-                            .totalPrestadoresServico
-                            .toString() +
-                        " Prestadores nessa cidade"),
-                  ],
                 ),
                 leading: Icon(Icons.location_city)),
           );
