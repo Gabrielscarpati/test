@@ -70,7 +70,7 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
     BusinessModelPrincipaisTiposDeServicoCidade principaisTiposDeServicoCidade =
         await ProviderPrincipaisTiposDeServicoCidade()
             .getBusinessModel(idCidade);
-
+    print(principaisTiposDeServicoCidade);
     ViewModelHubPrestador viewModel = ViewModelHubPrestador(
       prestador: prestador,
       cidade: principaisTiposDeServicoCidade.cidade,

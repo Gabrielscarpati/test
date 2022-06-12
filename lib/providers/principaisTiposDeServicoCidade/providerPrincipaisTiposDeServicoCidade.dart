@@ -117,21 +117,26 @@ class ProviderPrincipaisTiposDeServicoCidade
     }
     //GetQtdePrestadoresDeServicoPorTipoSeervicoECidade
     List<BusinessModelTiposDeServico> finalListTiposDeServico = [];
-    listPrincipaisBusinessModelTipoDeServico.forEach((element) async {
+    for (int i = 0; i < listPrincipaisBusinessModelTipoDeServico.length; i++) {
       int qtePrestadores =
-          await GetQtdePrestadoresDeServicoPorTipoSeervicoECidade(idCidade: cidades[int.parse(id)].nome , idServico: element.codTipoServico).action();
+          await GetQtdePrestadoresDeServicoPorTipoSeervicoECidade(
+                  idCidade: cidades[int.parse(id)].nome,
+                  idServico: listPrincipaisBusinessModelTipoDeServico[i]
+                      .codTipoServico)
+              .action();
       finalListTiposDeServico.add(BusinessModelTiposDeServico(
-        codTipoServico: element.codTipoServico,
-        descricao: element.descricao,
-        icone: element.icone,
+        codTipoServico:
+            listPrincipaisBusinessModelTipoDeServico[i].codTipoServico,
+        descricao: listPrincipaisBusinessModelTipoDeServico[i].descricao,
+        icone: listPrincipaisBusinessModelTipoDeServico[i].icone,
         qtdePrestadoresDeServico: qtePrestadores,
       ));
-    });
+    }
 
     businessModelPrincipaisTiposDeServicoCidade =
         BusinessModelPrincipaisTiposDeServicoCidade(
       cidade: cidades[int.parse(id)],
-      tiposDeServico: listPrincipaisBusinessModelTipoDeServico,
+      tiposDeServico: finalListTiposDeServico,
     );
     return businessModelPrincipaisTiposDeServicoCidade;
   }

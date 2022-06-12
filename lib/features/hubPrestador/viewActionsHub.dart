@@ -49,12 +49,12 @@ class ViewActionsHubPrestador extends ViewActions<BlocEventHubPrestador> {
             builder: (BuildContext context) =>
                 PresenterPesquisaCidade.presenter(codTipoDeServico: 0)))
         .then((codCidade) async {
-      if (codCidade != null)  {
-        int newcodCidade = await GetCodCidade(nomeCidade: codCidade).action();        BlocEventHubSelecionaCidade blocEvent = BlocEventHubSelecionaCidade(
+      if (codCidade != null) {
+        int newcodCidade = await GetCodCidade(nomeCidade: codCidade).action();
+        BlocEventHubSelecionaCidade blocEvent = BlocEventHubSelecionaCidade(
             viewModel: viewModel, codCidade: newcodCidade);
         blocPipeIn.send(blocEvent);
       }
-    
     });
   }
 
@@ -70,14 +70,15 @@ class ViewActionsHubPrestador extends ViewActions<BlocEventHubPrestador> {
       ),
     )
         .then((codTipoDeServico) {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (BuildContext context) =>
-              PresenterListaPrestadoresDeServico.presenter(
-                  codTipoDeServico: codTipoDeServico,
-                  codCidade: viewModel.cidade.codCidade),
-        ),
-      );
+      if (codTipoDeServico != null)
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (BuildContext context) =>
+                PresenterListaPrestadoresDeServico.presenter(
+                    codTipoDeServico: codTipoDeServico,
+                    codCidade: viewModel.cidade.codCidade),
+          ),
+        );
     });
   }
 
