@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/gbscarpati/Documents/quickfix/build/google_sign_in_android/intermediates/res/merged/debug/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "/home/caio/Área de Trabalho/apps/quickfix/build/google_sign_in_android/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "/Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/850ef13ec2cd7a7ea527ff79a705c18a/jetified-play-services-auth-20.0.1/res/values-watch-v20/values.xml",
+                    "source": "/home/caio/.gradle/caches/transforms-2/files-2.1/850ef13ec2cd7a7ea527ff79a705c18a/jetified-play-services-auth-20.0.1/res/values-watch-v20/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",
@@ -23,10 +23,10 @@
             ]
         },
         {
-            "outputFile": "/Users/gbscarpati/Documents/quickfix/build/google_sign_in_android/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "/home/caio/Área de Trabalho/apps/quickfix/build/google_sign_in_android/intermediates/res/merged/debug/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "/Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/850ef13ec2cd7a7ea527ff79a705c18a/jetified-play-services-auth-20.0.1/res/values-watch-v20/values.xml",
+                    "source": "/home/caio/.gradle/caches/transforms-2/files-2.1/850ef13ec2cd7a7ea527ff79a705c18a/jetified-play-services-auth-20.0.1/res/values-watch-v20/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",
