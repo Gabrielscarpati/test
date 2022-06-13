@@ -1,5 +1,6 @@
-import 'package:projeto_treinamento/features/logIn_SingUpPrestador/selectCidades/viewModelSelectCidade.dart';
 import 'package:projeto_treinamento/framework/blocEvent.dart';
+
+import '../selectCidades/viewModelSelectCidade.dart';
 
 abstract class BlocEventSelectCidade extends BlocEvent {}
 

@@ -84,7 +84,7 @@ class MyApp extends StatelessWidget {
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData ||
                 usuario != null /*verificarSeUsuarioNulo() == null*/) {
-              return PresenterSelectCidade.presenter();
+              return ViewVeryFirstScreen();
             }
             return ViewVeryFirstScreen();
           }),

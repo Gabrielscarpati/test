@@ -104,9 +104,8 @@ class BlocSelectCidade
       cidades.add(element.nome);
     });
 
-    UpdateCidadePrestador updatePrestadorFirebase = UpdateCidadePrestador(
-      cidades: cidades,
+    SetPrestadorInformation(
+      city: cidades,
     );
-    updatePrestadorFirebase.updateCidadePrestador();
   }
 }

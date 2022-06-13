@@ -4,6 +4,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
 import '../../../../daos/usuario/daoUsuario.dart';
 import '../../selectCidades/presenterSelectCidade.dart';
@@ -21,6 +22,7 @@ class BodySignUpPart2WorkerInformation extends StatefulWidget {
   @override
   _BodySingUpScreenInstitution createState() => _BodySingUpScreenInstitution();
 }
+
 
 class _BodySingUpScreenInstitution
     extends State<BodySignUpPart2WorkerInformation> {
@@ -221,6 +223,62 @@ class _BodySingUpScreenInstitution
                           margin: EdgeInsets.symmetric(horizontal: 50),
                           child: Column(
                             children: [
+                              ElevatedButton(
+                                child: Ink(
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Colors.blue.shade900,
+                                          Colors.blue.shade500,
+                                          Colors.blue.shade400
+                                        ],
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                      ),
+                                      borderRadius:
+                                          BorderRadius.circular(30.0)),
+                                  child: Container(
+                                    constraints: BoxConstraints(
+                                        maxWidth: 350.0, minHeight: 50.0),
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      'Continuar',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ),
+                                onPressed: () async {
+                                   SetPrestadorInformation(
+                                    name: nameController.text.trim(),
+                                    phone: phoneController.text.trim(),
+                                    workingHours: workingHoursController.text.trim(),
+                                    description: descriptionController.text.trim(),
+                                    profilePicture: await getUrlToImageFirebase(),
+                                    comentarios: listaComentarios,
+                                  );
+
+
+                                  final form = formKeyAuthentication.currentState!;
+
+                                  if (form.validate()) {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) {
+
+                                        return PresenterSelectCidade.presenter();
+                                      },
+                                    ));
+                                  }
+                                },
+                              ),
+
+
+
+                              /*
                               RoundedLoadingButton(
                                 controller: _btnController,
                                 child: Ink(
@@ -251,44 +309,29 @@ class _BodySingUpScreenInstitution
                                   ),
                                 ),
                                 onPressed: () async {
-                                  //getUrlToImageFirebase();
-                                  //setUserCredentials();
-                                  //getUserId();
+                                   SetPrestadorInformation(
+                                    name: nameController.text.trim(),
+                                    phone: phoneController.text.trim(),
+                                    workingHours: workingHoursController.text.trim(),
+                                    description: descriptionController.text.trim(),
+                                    profilePicture: await getUrlToImageFirebase(),
+                                    comentarios: listaComentarios,
+                                  );
 
-                                  await users.doc(await getUserId()).set({
-                                    'name': nameController.text.trim(),
-                                    'phone': phoneController.text.trim(),
-                                    'workingHours':
-                                        workingHoursController.text.trim(),
-                                    'description':
-                                        descriptionController.text.trim(),
-                                    'profilePicture':
-                                        await getUrlToImageFirebase(),
-                                    'city': 'city',
-                                    'roles': '-----11-----',
-                                    'brazilianIDPicture': 'brazilianIDPicture',
-                                    'comentarios': listaComentarios,
-                                    'numeroDeCliquesNoLigarOuWhatsApp': 0,
-                                    'dataVencimentoPlano': DateTime.now(),
-                                    'dataAberturaConta': DateTime.now(),
-                                    'IdPrestador': await getUserId(),
-                                  });
 
-                                  final form =
-                                      formKeyAuthentication.currentState!;
+                                  final form = formKeyAuthentication.currentState!;
 
                                   if (form.validate()) {
                                     Navigator.of(context)
                                         .push(MaterialPageRoute(
                                       builder: (context) {
-                                       // _btnController.success();
-                                        return PresenterSelectCidade
-                                            .presenter();
+                                        _btnController.success();
+                                        return PresenterSelectCidade.presenter();
                                       },
                                     ));
                                   }
                                 },
-                              ),
+                              ),*/
                             ],
                           ),
                         ),

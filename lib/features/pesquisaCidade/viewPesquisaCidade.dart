@@ -4,7 +4,6 @@ import 'package:projeto_treinamento/features/pesquisaCidade/views/viewListaPesqu
 import 'package:projeto_treinamento/framework/view.dart';//
 import '../../../util/libraryComponents/colors/colorGradient.dart';//
 import '../../../util/libraryComponents/colors/colors.dart';//
-import '../logIn_SingUpPrestador/selectCidades/views/viewListaCidades.dart';
 import 'viewActionsPesquisaCidade.dart';//
 import 'viewModelPesquisaCidade.dart';//
 import 'views/viewHeaderPesquisaCidade.dart';

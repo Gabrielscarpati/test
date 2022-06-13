@@ -30,7 +30,7 @@ class ViewActionsSelectServicos extends ViewActions<BlocEventSelectServicos> {
     blocPipeIn.send(blocEvent);
   }
 
-  void savarListaSelecionadaFirebase(ViewModelSelectServicos viewModel) {
+    void savarListaSelecionadaFirebase(ViewModelSelectServicos viewModel) {
     BlocEventSavarListaSelecionadaFirebase blocEvent = BlocEventSavarListaSelecionadaFirebase(viewModel);
     blocPipeIn.send(blocEvent);
   }

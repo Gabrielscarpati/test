@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_treinamento/features/logIn_SingUpPrestador/selectCidades/viewActionsSelectCidade.dart';
-import 'package:projeto_treinamento/features/logIn_SingUpPrestador/selectCidades/viewModelSelectCidade.dart';
-
+import '../../selectCidades/viewActionsSelectCidade.dart';
+import '../../selectCidades/viewModelSelectCidade.dart';
 import '../../selectServicos/presenterSelectServicos.dart';
 
 class ButtonGoSignUpScreenPart4 extends StatelessWidget {

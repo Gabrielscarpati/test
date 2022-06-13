@@ -112,7 +112,8 @@ class BlocSelectServicos
         index++;
         }
       );
-      UpdateServicoPrestador updatePrestadorFirebase = UpdateServicoPrestador(servicos: servicos,);
-      updatePrestadorFirebase.updateServicosPrestador();
+      SetPrestadorInformation(
+        roles: servicos,
+      );
   }
 }

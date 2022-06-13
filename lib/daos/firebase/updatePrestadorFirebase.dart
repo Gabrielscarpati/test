@@ -1,6 +1,95 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+/* await users.doc(await getUserId()).set({
+    'name': nameController.text.trim(),
+    'phone': phoneController.text.trim(),
+    'workingHours':
+        workingHoursController.text.trim(),
+    'description':
+        descriptionController.text.trim(),
+    'profilePicture':
+        await getUrlToImageFirebase(),
+    'city': 'city',
+    'roles': '-----11-----',
+    'brazilianIDPicture': 'brazilianIDPicture',
+    'comentarios': listaComentarios,
+    'numeroDeCliquesNoLigarOuWhatsApp': 0,
+    'dataVencimentoPlano': DateTime.now(),
+    'dataAberturaConta': DateTime.now(),
+    'IdPrestador': await getUserId(),
+  });*/
+
+class SetPrestadorInformation{
+  final String? name;
+  final String? phone;
+  final String? workingHours;
+  final String? description;
+  final String? profilePicture;
+  final List<String>? city;
+  final List<int>? roles;
+  final String? brazilianIDPicture;
+  final List<dynamic>? comentarios;
+  final int? numeroDeCliquesNoLigarOuWhatsApp;
+  final DateTime? dataVencimentoPlano;
+  final DateTime? dataAberturaConta;
+  final String? IdPrestador;
+  final String? identidade;
+
+  SetPrestadorInformation({
+    this.name,
+    this.phone,
+    this.workingHours,
+    this.description,
+    this.profilePicture,
+    this.city,
+    this.roles,
+    this.brazilianIDPicture,
+    this.comentarios,
+    this.numeroDeCliquesNoLigarOuWhatsApp,
+    this.dataVencimentoPlano,
+    this.dataAberturaConta,
+    this.IdPrestador,
+    this.identidade,
+  });
+
+  FirebaseAuth auth = FirebaseAuth.instance;
+
+  Future<String?> getUserId() async {
+    final User? user = await auth.currentUser;
+    final userId = user?.uid.toString();
+    return userId;
+  }
+
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  setPrestadorInformation() async {
+    await firestore.collection('dadosPrestador').doc(await getUserId()).set({
+      'name': name,
+      'phone': phone,
+      'workingHours': workingHours,
+      'description': description,
+      'profilePicture': profilePicture,
+      'city': city,
+      'roles': roles,
+      'brazilianIDPicture': brazilianIDPicture,
+      'comentarios': comentarios,
+      'numeroDeCliquesNoLigarOuWhatsApp': 0,
+      'dataVencimentoPlano': DateTime.now(),
+      'dataAberturaConta': DateTime.now(),
+      'IdPrestador': await getUserId(),
+    }
+    );
+  }
+}
+
+
+
+
+
+
+
+
 class UpdateCidadePrestador{
   final FirebaseAuth auth = FirebaseAuth.instance;
 

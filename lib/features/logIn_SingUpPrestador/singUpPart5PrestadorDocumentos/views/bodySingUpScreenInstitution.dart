@@ -7,7 +7,6 @@ import 'package:projeto_treinamento/features/logIn_SingUpPrestador/veryFirstScre
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
 import '../../../../daos/usuario/daoUsuario.dart';
-import '../../selectCidades/presenterSelectCidade.dart';
 import 'widgets_for_signup.dart';
 import 'backArrowSingUpScreenInstitutions.dart';
 import 'package:image_picker/image_picker.dart';
@@ -229,9 +228,13 @@ class _BodySignUpPart2PrestadorDocumentos extends State<BodySignUpPart2Prestador
                                   ),
                                 ),
                                 onPressed: () async {
-                                  UpdateIdentidadePrestador updateIdentidadePrestador = UpdateIdentidadePrestador(identidade: await getUrlToImageFirebase());
 
-                                  updateIdentidadePrestador.updateIdentidadePrestador();
+                                  SetPrestadorInformation(
+                                      brazilianIDPicture: await getUrlToImageFirebase()
+                                      );
+
+                                  SetPrestadorInformation salvarNoFirebase = SetPrestadorInformation();
+                                  salvarNoFirebase.setPrestadorInformation();
 
                                   final form = formKeyAuthentication.currentState!;
                                   if (form.validate()) {
