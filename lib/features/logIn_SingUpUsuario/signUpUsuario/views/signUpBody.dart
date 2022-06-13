@@ -14,7 +14,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 
 
-GoogleSignInAccount? _usuarioAtual;
+GoogleSignInAccount? _usuarioAtualGoogle;
 
 class SignUpUsuarioBody extends StatefulWidget {
 
@@ -26,19 +26,25 @@ class SignUpUsuarioBody extends StatefulWidget {
 }
 class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
 
-  Map? _userData;
+  Map? _userDataFacebook;
+  bool _estaEscondidoSenha = false;
+  bool _estaEscondidoConfirmarSenha = false;
+
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final cofirmPasswordController = TextEditingController();
   final formKeyAuthentication = GlobalKey<FormState>();
 
+  bool? _isChecked = false;
 
-  GoogleSignInAccount? usuario = _usuarioAtual;
+
+
+  GoogleSignInAccount? usuarioGoogle = _usuarioAtualGoogle;
 
   @override
   Widget build(BuildContext context) {
-    return usuario == null && _userData == null ? _usuarioNaologado(context) : _usuarioLogado(context);
+    return usuarioGoogle == null && _userDataFacebook == null ? _usuarioNaologado(context) : _usuarioLogado(context);
   }
   Widget _usuarioNaologado(BuildContext context) {
 
@@ -95,7 +101,6 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                             ],
                           ),
 
-
                           child: Form(
                             key: formKeyAuthentication,
                             child: Column(
@@ -107,9 +112,10 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                 ),
                                 child: TextFormField(
                                   validator: (emailController) => !EmailValidator.validate(emailController!)
-                                      ? 'Enter a valid email'
+                                      ? 'Email inválido'
                                       : null,
                                   controller: emailController,
+                                  cursorColor: Colors.indigoAccent,
                                   decoration: InputDecoration(
                                     suffixIcon: IconButton(
                                       icon: Icon(Icons.close),
@@ -129,19 +135,26 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                 ),
                                 child: TextFormField(
                                   controller: passwordController,
+                                  cursorColor: Colors.indigoAccent,
+                                  obscureText: _estaEscondidoSenha,
+
                                   validator: (passwordController) {
                                     if (passwordController!.isEmpty || !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$').hasMatch(passwordController)){
-                                      return "Your password should contain Lower and upper\n case letters and a special symbol";
+                                      return "Sua senha deve conter uma letra maiúscula,\n minúscula e um número";
                                     }else{
                                       return null;
                                     }
                                   },
                                   decoration: InputDecoration(
-                                      suffixIcon: IconButton(
-                                        icon: Icon(Icons.close),
-                                        onPressed: () => passwordController.clear(),
+                                      suffix: InkWell(
+                                        onTap: _togglePasswordViewSenha,
+                                        child: Icon(
+                                          _estaEscondidoSenha
+                                              ? Icons.visibility
+                                              : Icons.visibility_off,
+                                        ),
                                       ),
-                                      hintText: "Password",
+                                      hintText: "Senha",
                                       hintStyle: TextStyle(color: Colors.grey),
                                       border: InputBorder.none
                                    ),
@@ -154,15 +167,21 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                 ),
                                 child: TextFormField(
                                   validator: (cofirmPasswordController) => passwordController.text != cofirmPasswordController.toString()
-                                      ? 'The password must be the same'
+                                      ? 'As senhas precisam ser iguais'
                                       : null,
                                   controller: cofirmPasswordController,
+                                  cursorColor: Colors.indigoAccent,
+                                  obscureText: _estaEscondidoConfirmarSenha,
                                   decoration: InputDecoration(
-                                      suffixIcon: IconButton(
-                                        icon: Icon(Icons.close),
-                                        onPressed: () => cofirmPasswordController.clear(),
+                                      suffix: InkWell(
+                                        onTap: _togglePasswordViewConfirmarSenha,
+                                        child: Icon(
+                                          _estaEscondidoConfirmarSenha
+                                              ? Icons.visibility
+                                              : Icons.visibility_off,
+                                        ),
                                       ),
-                                      hintText: "Confirm Password",
+                                      hintText: "Confirme senha",
                                       hintStyle: TextStyle(color: Colors.grey),
                                       border: InputBorder.none
                                   ),
@@ -172,7 +191,39 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                             ),
                           ),
                         ),
-                         SizedBox(height: screenHeight*0.011848*4),
+                        CheckboxListTile(
+                          value: _isChecked,
+                          onChanged: (bool? novoValor) {
+                            setState(() {
+                              _isChecked = true;
+                            });
+                          },
+                          title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '  Li e concordo com a',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 14),
+                              ),
+                              TextButton(
+                                onPressed: () async {
+
+                                },
+                                child: Text(
+                                  'Politica de privacidade',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.indigoAccent,
+                                      fontSize: 14),
+                                ),
+                              ),
+                            ],
+                          ),
+                          //shape: ro,
+                          checkColor: Colors.indigo,
+                        ),
+                         SizedBox(height: screenHeight*0.011848*2),
                         // #login
                         Container(
                           height: screenHeight*0.011848*5,
@@ -196,7 +247,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                   constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
                                   alignment: Alignment.center,
                                   child: Text(
-                                    'Sign Up',
+                                    'Cadastre-se',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: Colors.white,
@@ -207,12 +258,24 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                 ),
                               ),
                               onPressed: () async {
-
+                                print(await usuarioGoogle);
+                                print('kk');
+                                print(await _userDataFacebook);
+                                if(usuarioGoogle != null || _userDataFacebook != null){
+                                  Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                          builder: (context) =>PresenterHubPrestador.presenter()
+                                      ));
+                                }
                                 final form = formKeyAuthentication.currentState!;
-                                  if (form.validate()) {
+                                  if (form.validate() && _isChecked == true) {
                                     await AuthService().registerUser(emailController.text, passwordController.text);
+                                    await usuarios.doc(await getUserId()).set({
+                                      'email': emailController.text.trim(),
+                                      'senha': passwordController.text.trim(),
+                                    });
 
-                                      Navigator.of(context).push(
+                                    Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>PresenterHubPrestador.presenter()
                                           ));
@@ -330,13 +393,13 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
 
       final userData = await FacebookAuth.instance.getUserData();
 
-      _userData = userData;
+      _userDataFacebook = userData;
     } else {
     }
 
     setState(() {
       String haha = '';
-      haha = _userData?['email'];
+      haha = _userDataFacebook?['email'];
     });
 
 
@@ -357,16 +420,36 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
-    var userEmail = '';
-
-    userEmail = googleUser.email;
 
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
+  void _togglePasswordViewSenha() {
+    setState(() {
+      _estaEscondidoSenha = !_estaEscondidoSenha;
+    });
+  }
+
+  void _togglePasswordViewConfirmarSenha() {
+    setState(() {
+      _estaEscondidoConfirmarSenha = !_estaEscondidoConfirmarSenha;
+    });
+  }
+
   Widget _usuarioLogado(BuildContext context) {
     return PresenterHubPrestador.presenter();
   }
+  CollectionReference usuarios = FirebaseFirestore.instance.collection('usuarios');
+
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  Future<String?> getUserId() async {
+    final User? user = await auth.currentUser;
+    final userId = user?.uid.toString();
+    return userId;
+  }
+
+
+
 }
 

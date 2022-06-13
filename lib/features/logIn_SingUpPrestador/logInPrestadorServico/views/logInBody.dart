@@ -14,22 +14,20 @@ import 'package:http/http.dart';
 
 GoogleSignInAccount? _usuarioAtual;
 
-class LogInBody extends StatefulWidget {
-  final Client client;
-  const LogInBody({Key? key,
-    required this.client
+class LogInBodyPrestador extends StatefulWidget {
+  const LogInBodyPrestador({Key? key,
   }) : super(key: key);
   @override
-  _LogInBody createState() => _LogInBody();
+  _LogInBodyPrestador createState() => _LogInBodyPrestador();
 }
-class _LogInBody extends State<LogInBody> {
-  Client client = http.Client();
+class _LogInBodyPrestador extends State<LogInBodyPrestador> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKeyAuthenticationLogIn = GlobalKey<FormState>();
 
   Map? _userData;
   GoogleSignInAccount? usuario = _usuarioAtual;
+  bool _estaEscondido = false;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +36,6 @@ class _LogInBody extends State<LogInBody> {
   Widget _usuarioNaologado(BuildContext context) {
 
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
 
@@ -63,7 +60,7 @@ class _LogInBody extends State<LogInBody> {
                 children: const[
                   Text("Login",style: TextStyle(color: Colors.white,fontSize: 40),),
                   SizedBox(height: 10,),
-                  Text("Welcome to Quick Fix",style: TextStyle(color: Colors.white,fontSize: 20),),
+                  Text("Bem-vindo de volta",style: TextStyle(color: Colors.white,fontSize: 20),),
                 ],
               ),
             ),
@@ -103,6 +100,7 @@ class _LogInBody extends State<LogInBody> {
                                   ),
                                   child: TextField(
                                     controller: emailController,
+                                    cursorColor: Colors.indigoAccent,
                                     decoration: InputDecoration(
                                       suffixIcon: IconButton(
                                         icon: Icon(Icons.close),
@@ -122,12 +120,18 @@ class _LogInBody extends State<LogInBody> {
                                   ),
                                   child:  TextField(
                                     controller: passwordController,
+                                    cursorColor: Colors.indigoAccent,
+                                    obscureText: _estaEscondido,
                                     decoration: InputDecoration(
-                                        suffixIcon: IconButton(
-                                          icon: Icon(Icons.close),
-                                          onPressed: () => passwordController.clear(),
-                                        ),
-                                        hintText: "Password",
+                                        suffix: InkWell(
+                                            onTap: _togglePasswordView,
+                                            child: Icon(
+                                              _estaEscondido
+                                                  ? Icons.visibility
+                                                  : Icons.visibility_off,
+                                            ),
+                                          ),
+                                        hintText: "Senha",
                                         hintStyle: TextStyle(color: Colors.grey),
                                         border: InputBorder.none
                                     ),
@@ -244,11 +248,7 @@ class _LogInBody extends State<LogInBody> {
                                     onPressed: () {
                                       signInWithGoogle();
                                       setState(() {
-
-
                                       });
-
-
                                     },
 
                                     child: Center(
@@ -328,6 +328,12 @@ class _LogInBody extends State<LogInBody> {
 
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  void _togglePasswordView() {
+    setState(() {
+      _estaEscondido = !_estaEscondido;
+    });
   }
 
   Widget _usuarioLogado(BuildContext context) {

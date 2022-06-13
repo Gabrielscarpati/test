@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class NameWidget extends StatelessWidget {
 
+
   final TextEditingController nameController;
   const NameWidget({Key? key, required this.nameController}) : super(key: key);
 
@@ -17,7 +18,7 @@ class NameWidget extends StatelessWidget {
           textInputAction: TextInputAction.next,
           validator: (nameController) {
             if (nameController!.isEmpty || !RegExp(r'^[a-z A-Z]+$').hasMatch(nameController)){
-              return "Enter a valid name";
+              return "Digite um nome válido";
             }else{
               return null;
             }
@@ -27,8 +28,8 @@ class NameWidget extends StatelessWidget {
               icon: Icon(Icons.close),
               onPressed: () => nameController.clear(),
             ),
-            hintText: 'Enter the name of your institution',
-            labelText: 'Name',
+            hintText: 'Digite o seu nome',
+            labelText: 'Nome',
             labelStyle: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
@@ -59,7 +60,7 @@ class PhoneWidget extends StatelessWidget {
           textInputAction: TextInputAction.next,
           validator: (phoneNumberController) {
             if ( phoneNumberController!.isEmpty|| phoneNumberController.length !=10  || !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$').hasMatch(phoneNumberController)){
-              return "Enter a valid phone number: 9999999999";
+              return "Digite um número válido: 27999999999";
             } else{
               return null;
             }
@@ -69,8 +70,8 @@ class PhoneWidget extends StatelessWidget {
               icon: Icon(Icons.close),
               onPressed: () => phoneController.clear(),
             ),
-            hintText: 'Enter your phone number',
-            labelText: 'Phone number',
+            hintText: 'Digite seu telofone (apenas números)',
+            labelText: 'Número de telefone',
             labelStyle: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
@@ -105,8 +106,8 @@ class WorkingHoursWidget extends StatelessWidget {
               icon: Icon(Icons.close),
               onPressed: () => workingHoursController.clear(),
             ),
-            hintText: '7 Am to 7 Pm',
-            labelText: 'Working Hours',
+            hintText: 'Trabalho de 7 às 18',
+            labelText: 'Horas de trabalho',
             labelStyle: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
@@ -133,13 +134,6 @@ class DescriptionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Stack(
       children: [
-
-        /*TextFormField(
-              minLines: 1,
-              maxLines: 5,  // allow user to enter 5 line in textfield
-              keyboardType: TextInputType.multiline,  // user keyboard will have a button to move cursor to next line
-              controller: _Textcontroller,
-            ),*/
         TextFormField(
           minLines: 1,
           maxLines: 9,
@@ -147,8 +141,8 @@ class DescriptionWidget extends StatelessWidget {
           keyboardType: TextInputType.multiline,
           textInputAction: TextInputAction.next,
           validator: (nameController) {
-            if (nameController!.isEmpty || nameController.length < 50) {
-              return "Enter a description of at lest 50 characters. ${50 - nameController.length} left";
+            if (nameController!.isEmpty) {
+              return "A descrição do seu serviço não pode ser nula.";
             }else{
               return null;
             }
@@ -158,8 +152,8 @@ class DescriptionWidget extends StatelessWidget {
               icon: Icon(Icons.close),
               onPressed: () => descriptionController.clear(),
             ),
-            hintText: 'Make a description about your job',
-            labelText: 'Description about your job',
+            hintText: 'Faça uma descrição do seu serviço',
+            labelText: 'Descrição do seu serviço',
             labelStyle: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,

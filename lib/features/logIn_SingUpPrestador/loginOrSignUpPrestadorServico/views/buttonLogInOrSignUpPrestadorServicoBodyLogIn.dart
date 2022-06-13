@@ -37,7 +37,7 @@ class ButtonLogInOrSignUpPrestadorServicoBodyLogIn extends StatelessWidget {
       ),
       onPressed: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => LogInScreen()
+            builder: (context) => LogInScreenPrestador()
         ));
       },
 

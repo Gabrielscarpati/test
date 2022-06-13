@@ -26,6 +26,7 @@ class ViewSelectServicos extends View<ViewModelSelectServicos, ViewActionsSelect
   }
 
   _buildBody(BuildContext context) {
+    double _ScreenWidth = MediaQuery.of(context).size.width;
     if (viewModel == null) {
       return Center(
         child: CircularProgressIndicatorPersonalizado()
@@ -33,8 +34,20 @@ class ViewSelectServicos extends View<ViewModelSelectServicos, ViewActionsSelect
     } else {
       return Scaffold(
         appBar: AppBar(
+            leading: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+
+              }, icon: Icon(Icons.arrow_back, color: Color(0xff4cf2c7), size: 28.0),
+            ),
+
             toolbarHeight: 70,
-            title: Text('Escolha servico'),
+            title: Text('Escolha um ou mais serviços\nque pretende prestar',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
             centerTitle: true,
             flexibleSpace: Container(
               decoration: BoxDecorationColorGradient(context),
@@ -55,30 +68,33 @@ class ViewSelectServicos extends View<ViewModelSelectServicos, ViewActionsSelect
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(4.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Selecione as cidades que voce pretende trabalhar",
-                        style: Theme.of(context).textTheme.headline3!.copyWith(
-                            fontSize: Theme.of(context)
-                                .textTheme
-                                .bodyText2!
-                                .fontSize),
-                      ),
-                      Text(
-                        "Cidades selecionadas: ${viewModel!.cidadesSelecionadas.length} ",
-                        textAlign: TextAlign.start,
-                        style: Theme.of(context).textTheme.headline3!.copyWith(
-                            fontSize: Theme.of(context)
-                                .textTheme
-                                .bodyText2!
-                                .fontSize),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      )
-                    ],
+                  child: Container(
+                    width: _ScreenWidth,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Selecione os serviços que você pretende prestar",
+                          style: Theme.of(context).textTheme.headline3!.copyWith(
+                              fontSize: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2!
+                                  .fontSize),
+                        ),
+                        Text(
+                          "Serviços selecionados: ${viewModel!.cidadesSelecionadas.length} ",
+                          textAlign: TextAlign.start,
+                          style: Theme.of(context).textTheme.headline3!.copyWith(
+                              fontSize: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2!
+                                  .fontSize),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -8,21 +8,13 @@ import 'package:http/http.dart';
 import 'views/logInBody.dart';
 
 
-class LogInScreen extends StatefulWidget {
-  const LogInScreen({Key? key}) : super(key: key);
-
-  @override
-  _ViewHomeScreenState createState() => _ViewHomeScreenState();
-}
-
-class _ViewHomeScreenState extends State<LogInScreen> {
-  Client client = http.Client();
-
+class LogInScreenPrestador extends StatelessWidget {
+  const LogInScreenPrestador({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LogInBody(client: client,),
+      body: LogInBodyPrestador(),
     );
   }
 }

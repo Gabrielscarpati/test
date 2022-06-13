@@ -13,7 +13,7 @@ import '../../../../daos/firebase/authService.dart';
 import '../../../logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSignUpPart2WorkerInformatio.dart';
 import 'backArrowSignUp.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 
 GoogleSignInAccount? _usuarioAtual;
 
@@ -32,6 +32,9 @@ class _LogInBody extends State<SignUpPart1Body> {
   final formKeyAuthentication = GlobalKey<FormState>();
   final RoundedLoadingButtonController _btnController =
       RoundedLoadingButtonController();
+
+  bool _estaEscondidoSenha = false;
+  bool _estaEscondidoConfirmarSenha = false;
 
   bool? _isChecked = false;
   Map? _userData;
@@ -66,12 +69,12 @@ class _LogInBody extends State<SignUpPart1Body> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Sign Up",
+                    "Cadastre-se",
                     style: TextStyle(color: Colors.white, fontSize: 40),
                   ),
                   SizedBox(height: screenHeight * 0.011848),
                   Text(
-                    "Welcome Back",
+                    "Seja bem vindo ao Quick Fix",
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                 ],
@@ -120,9 +123,10 @@ class _LogInBody extends State<SignUpPart1Body> {
                                     validator: (emailController) =>
                                         !EmailValidator.validate(
                                                 emailController!)
-                                            ? 'Enter a valid email'
+                                            ? 'Email inválido'
                                             : null,
                                     controller: emailController,
+                                    cursorColor: Colors.indigoAccent,
                                     decoration: InputDecoration(
                                         suffixIcon: IconButton(
                                           icon: Icon(Icons.close),
@@ -145,22 +149,27 @@ class _LogInBody extends State<SignUpPart1Body> {
                                   ),
                                   child: TextFormField(
                                     controller: passwordController,
+                                    cursorColor: Colors.indigoAccent,
+                                    obscureText: _estaEscondidoSenha,
                                     validator: (passwordController) {
                                       if (passwordController!.isEmpty ||
                                           !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$')
                                               .hasMatch(passwordController)) {
-                                        return "Your password should contain Lower and upper\n case letters and a special symbol";
+                                        return "Sua senha deve conter uma letra maiúscula,\n minúscula e um número";
                                       } else {
                                         return null;
                                       }
                                     },
                                     decoration: InputDecoration(
-                                        suffixIcon: IconButton(
-                                          icon: Icon(Icons.close),
-                                          onPressed: () =>
-                                              passwordController.clear(),
+                                        suffix: InkWell(
+                                          onTap: _togglePasswordViewSenha,
+                                          child: Icon(
+                                            _estaEscondidoSenha
+                                                ? Icons.visibility
+                                                : Icons.visibility_off,
+                                          ),
                                         ),
-                                        hintText: "Password",
+                                        hintText: "Senha",
                                         hintStyle:
                                             TextStyle(color: Colors.grey),
                                         border: InputBorder.none),
@@ -178,16 +187,21 @@ class _LogInBody extends State<SignUpPart1Body> {
                                         passwordController.text !=
                                                 cofirmPasswordController
                                                     .toString()
-                                            ? 'The password must be the same'
+                                            ? 'As senhas precisam ser iguais'
                                             : null,
                                     controller: cofirmPasswordController,
+                                    cursorColor: Colors.indigoAccent,
+                                    obscureText: _estaEscondidoConfirmarSenha,
                                     decoration: InputDecoration(
-                                        suffixIcon: IconButton(
-                                          icon: Icon(Icons.close),
-                                          onPressed: () =>
-                                              cofirmPasswordController.clear(),
+                                        suffix: InkWell(
+                                          onTap: _togglePasswordViewConfirmarSenha,
+                                          child: Icon(
+                                            _estaEscondidoConfirmarSenha
+                                                ? Icons.visibility
+                                                : Icons.visibility_off,
+                                          ),
                                         ),
-                                        hintText: "Confirm Password",
+                                        hintText: "Confirme senha",
                                         hintStyle:
                                             TextStyle(color: Colors.grey),
                                         border: InputBorder.none),
@@ -257,7 +271,7 @@ class _LogInBody extends State<SignUpPart1Body> {
                                       maxWidth: 350.0, minHeight: 50.0),
                                   alignment: Alignment.center,
                                   child: Text(
-                                    'Sign Up',
+                                    'Cadastre-se',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: Colors.white,
@@ -430,6 +444,17 @@ class _LogInBody extends State<SignUpPart1Body> {
     } else {
       throw 'Could not launch $url';
     }
+  }
+  void _togglePasswordViewSenha() {
+    setState(() {
+      _estaEscondidoSenha = !_estaEscondidoSenha;
+    });
+  }
+
+  void _togglePasswordViewConfirmarSenha() {
+    setState(() {
+      _estaEscondidoConfirmarSenha = !_estaEscondidoConfirmarSenha;
+    });
   }
 
   Widget _usuarioLogado(BuildContext context) {

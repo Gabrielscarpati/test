@@ -27,6 +27,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
   final formKeyAuthenticationLogIn = GlobalKey<FormState>();
 
   Map? _userData;
+  bool _estaEscondido = false;
 
   GoogleSignInAccount? usuario = _usuarioAtual;
 
@@ -62,7 +63,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                 children: const[
                   Text("Login",style: TextStyle(color: Colors.white,fontSize: 40),),
                   SizedBox(height: 10,),
-                  Text("Welcome to Quick Fix",style: TextStyle(color: Colors.white,fontSize: 20),),
+                  Text("Bem-vindo de volta",style: TextStyle(color: Colors.white,fontSize: 20),),
                 ],
               ),
             ),
@@ -102,6 +103,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                   ),
                                   child: TextField(
                                     controller: emailController,
+                                    cursorColor: Colors.indigoAccent,
                                     decoration: InputDecoration(
                                       suffixIcon: IconButton(
                                         icon: Icon(Icons.close),
@@ -121,12 +123,18 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                   ),
                                   child:  TextField(
                                     controller: passwordController,
+                                    obscureText: _estaEscondido,
+                                    cursorColor: Colors.indigoAccent,
                                     decoration: InputDecoration(
-                                        suffixIcon: IconButton(
-                                          icon: Icon(Icons.close),
-                                          onPressed: () => passwordController.clear(),
+                                        suffix: InkWell(
+                                          onTap: _togglePasswordView,
+                                          child: Icon(
+                                            _estaEscondido
+                                                ? Icons.visibility
+                                                : Icons.visibility_off,
+                                          ),
                                         ),
-                                        hintText: "Password",
+                                        hintText: "Senha",
                                         hintStyle: TextStyle(color: Colors.grey),
                                         border: InputBorder.none
                                     ),
@@ -327,6 +335,12 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
+
+    void _togglePasswordView() {
+      setState(() {
+        _estaEscondido = !_estaEscondido;
+      });
+    }
 
   Widget _usuarioLogado(BuildContext context) {
     return PresenterHubPrestador.presenter();

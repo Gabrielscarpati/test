@@ -31,7 +31,7 @@ class ViewHeaderSelectCidadea extends StatelessWidget {
             prefixIcon: new Icon(Icons.search,
               color: Colors.blue.shade800,
             ),
-            labelText: "Pesquisa pela cidade",
+            labelText: "Pesquise pela cidade",
               labelStyle: TextStyle(
                 color: Colors.blue.shade800,
               ),

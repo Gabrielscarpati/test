@@ -122,8 +122,8 @@ class _BodySingUpScreenInstitution
                     child: BackArrowSignUpPart2WorkerInformation(),
                   ),
                   Text(
-                    "SignUp",
-                    style: TextStyle(color: Colors.white, fontSize: 32),
+                    "Complete com seus dados",
+                    style: TextStyle(color: Colors.white, fontSize: 24),
                   ),
                 ],
               ),
@@ -142,11 +142,12 @@ class _BodySingUpScreenInstitution
                     child: Column(
                       children: [
                         Text(
-                          'Click here to choose an Image',
+                          'Clique aqui para escolher uma\nimagem de perfil',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.0,
                           ),
                         ),
                         Padding(
@@ -160,11 +161,11 @@ class _BodySingUpScreenInstitution
                                   },
                                   child: CircleAvatar(
                                     radius: 62,
-                                    backgroundColor: Colors.black,
+                                    backgroundColor: Colors.indigo,
                                     child: _photo != null
                                         ? ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(60),
+                                                BorderRadius.circular(120),
                                             child: Image.file(
                                               _photo!,
                                               width: 120,
@@ -176,11 +177,11 @@ class _BodySingUpScreenInstitution
                                             decoration: BoxDecoration(
                                                 color: Colors.grey[200],
                                                 borderRadius:
-                                                    BorderRadius.circular(60)),
+                                                    BorderRadius.circular(120)),
                                             width: 120,
                                             height: 120,
                                             child: Icon(
-                                              Icons.edit,
+                                              Icons.photo_camera,
                                               size: 35,
                                               color: Colors.grey[800],
                                             ),
@@ -240,7 +241,7 @@ class _BodySingUpScreenInstitution
                                         maxWidth: 350.0, minHeight: 50.0),
                                     alignment: Alignment.center,
                                     child: Text(
-                                      'Sign Up',
+                                      'Continuar',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.white,
@@ -280,7 +281,7 @@ class _BodySingUpScreenInstitution
                                     Navigator.of(context)
                                         .push(MaterialPageRoute(
                                       builder: (context) {
-                                        _btnController.success();
+                                       // _btnController.success();
                                         return PresenterSelectCidade
                                             .presenter();
                                       },

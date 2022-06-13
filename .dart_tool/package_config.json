@@ -434,6 +434,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "rounded_loading_button",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/rounded_loading_button-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "rxdart",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.27.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "shared_preferences",
       "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-2.0.15",
       "packageUri": "lib/",
@@ -614,7 +626,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-06-12T19:49:31.014313Z",
+  "generated": "2022-06-13T00:39:30.244451Z",
   "generator": "pub",
   "generatorVersion": "2.18.0-44.1.beta"
 }

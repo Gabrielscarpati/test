@@ -35,7 +35,7 @@ class ButtonGoSignUpScreenPart4 extends StatelessWidget {
                 constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
                 alignment: Alignment.center,
                 child: Text(
-                  'Sign Up',
+                  'Continuar',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
@@ -46,10 +46,11 @@ class ButtonGoSignUpScreenPart4 extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              this.viewActions.savarListaSelecionadaFirebase(viewModel);
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ViewsignUpEplicandoTelaDocumentos()));
-
+              if(1<3){
+                this.viewActions.savarListaSelecionadaFirebase(viewModel);
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ViewsignUpEplicandoTelaDocumentos()));
+              }
             },
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.all(0),
