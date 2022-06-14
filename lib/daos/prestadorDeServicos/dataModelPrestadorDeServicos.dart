@@ -1,7 +1,7 @@
 import 'package:projeto_treinamento/framework/dataModel.dart';
 
 class DataModelPrestadorDeServicos extends DataModel {
-  final int codPrestadorServico;
+  final String codPrestadorServico;
   final String nome;
   final String telefone;
   final String urlFoto;

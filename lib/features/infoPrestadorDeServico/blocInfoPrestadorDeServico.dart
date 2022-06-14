@@ -8,16 +8,20 @@ import 'package:projeto_treinamento/providers/icone/providerIcone.dart';
 import 'blocEventInfoPrestadorDeServico.dart';
 import 'viewModelInfoPrestadorDeServico.dart';
 
-class BlocInfoPrestadorDeServico extends Bloc<ViewModelInfoPrestadorDeServico, BlocEventInfoPrestadorDeServico> {
+class BlocInfoPrestadorDeServico extends Bloc<ViewModelInfoPrestadorDeServico,
+    BlocEventInfoPrestadorDeServico> {
   @override
   void onReceiveBlocEvent(BlocEventInfoPrestadorDeServico blocEvent) {
-    if (blocEvent is BlocEventInfoPrestadorDeServicoInicializaViewModel) _inicializaViewModel(blocEvent);
+    if (blocEvent is BlocEventInfoPrestadorDeServicoInicializaViewModel)
+      _inicializaViewModel(blocEvent);
   }
 
-  void _inicializaViewModel(BlocEventInfoPrestadorDeServicoInicializaViewModel blocEvent) async {
+  void _inicializaViewModel(
+      BlocEventInfoPrestadorDeServicoInicializaViewModel blocEvent) async {
     ViewModelInfoPrestadorDeServico viewModel;
 
-    BusinessModelPrestadorDeServicos prestadorDeServicos = blocEvent.prestadorDeServicos;
+    BusinessModelPrestadorDeServicos prestadorDeServicos =
+        blocEvent.prestadorDeServicos;
     viewModel = ViewModelInfoPrestadorDeServico(
       prestadorDeServicos: prestadorDeServicos,
       listaAvaliacoesPrestadorDeServico: List.empty(growable: true),
@@ -27,9 +31,13 @@ class BlocInfoPrestadorDeServico extends Bloc<ViewModelInfoPrestadorDeServico, B
     );
     this.sendViewModelOut(viewModel);
 
-    List<BusinessModelAvaliacaoPrestadorDeServico> listaAvaliacoesPrestadorDeServico;
+    List<BusinessModelAvaliacaoPrestadorDeServico>
+        listaAvaliacoesPrestadorDeServico;
     if (prestadorDeServicos.totalDeAvaliacoes > 0) {
-      listaAvaliacoesPrestadorDeServico = await ProviderAvaliacaoPrestadorDeServico().getBusinessModelsByCodPrestadorDeServico(prestadorDeServicos.codPrestadorServico);
+      listaAvaliacoesPrestadorDeServico =
+          await ProviderAvaliacaoPrestadorDeServico()
+              .getBusinessModelsByCodPrestadorDeServico(
+                  prestadorDeServicos.codPrestadorServico);
     } else {
       listaAvaliacoesPrestadorDeServico = List.empty();
     }

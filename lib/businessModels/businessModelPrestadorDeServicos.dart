@@ -1,8 +1,9 @@
 import 'package:projeto_treinamento/framework/businessModel.dart';
 import 'package:projeto_treinamento/framework/mixInDescricao.dart';
 
-class BusinessModelPrestadorDeServicos extends BusinessModel with MixInDescricao {
-  final int codPrestadorServico;
+class BusinessModelPrestadorDeServicos extends BusinessModel
+    with MixInDescricao {
+  final String codPrestadorServico;
   final String nome;
   final String telefone;
   final String urlFoto;
@@ -32,8 +33,9 @@ class BusinessModelPrestadorDeServicos extends BusinessModel with MixInDescricao
     required this.totalDeAvaliacoesNota5,
   }) : super(id: codPrestadorServico.toString());
 
-  factory BusinessModelPrestadorDeServicos.vazio() => BusinessModelPrestadorDeServicos(
-        codPrestadorServico: 0,
+  factory BusinessModelPrestadorDeServicos.vazio() =>
+      BusinessModelPrestadorDeServicos(
+        codPrestadorServico: "0",
         nome: '',
         telefone: '',
         urlFoto: '',
