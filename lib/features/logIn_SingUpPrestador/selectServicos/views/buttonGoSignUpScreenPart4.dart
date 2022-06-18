@@ -5,10 +5,29 @@ import '../../singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart
 import '../viewActionsSelectServicos.dart';
 import '../viewModelSelectServicos.dart';
 
-class ButtonGoSignUpScreenPart4 extends StatelessWidget {
-  final ViewActionsSelectServicos viewActions;
-  final ViewModelSelectServicos viewModel;
-  const ButtonGoSignUpScreenPart4({Key? key, required this.viewActions, required this.viewModel, }) : super(key: key);
+class ButtonGoSignUpScreenSelectServicos extends StatelessWidget {
+  final ViewActionsSelectServicos? viewActions;
+  final ViewModelSelectServicos? viewModel;
+  final String? name;
+  final String? phone;
+  final String? workingHours;
+  final String? description;
+  final Future<String>? profilePicture;
+  final List<dynamic>? comentarios;
+  final List<dynamic>? cidades;
+  final List<dynamic>? servicos;
+  const ButtonGoSignUpScreenSelectServicos({Key? key,
+    required this.viewActions,
+    required this.viewModel,
+    required this.name,
+    required this.phone,
+    required this.workingHours,
+    required this.description,
+    required this.profilePicture,
+    required this.comentarios,
+    required this.cidades,
+    required this.servicos,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +66,13 @@ class ButtonGoSignUpScreenPart4 extends StatelessWidget {
             ),
             onPressed: () {
               if(1<3){
-                this.viewActions.savarListaSelecionadaFirebase(viewModel);
+                this.viewActions?.savarListaSelecionadaFirebase(viewModel!);
+
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ViewsignUpEplicandoTelaDocumentos()));
+                    builder: (context) => ViewsignUpEplicandoTelaDocumentos(
+                      name: name, phone: phone, workingHours: workingHours, description: description,
+                      profilePicture: profilePicture, comentarios: comentarios,
+                      cidades: ['ciade', 'cidade'], servicos: ['servico1', 'servico2'],)));
               }
             },
             style: ElevatedButton.styleFrom(

@@ -3,11 +3,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_treinamento/features/logIn_SingUpPrestador/selectServicos/presenterSelectServicos.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
-import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
-import '../../../../daos/usuario/daoUsuario.dart';
+import '../../../../util/controllerMobxFirebase.dart';
 import '../../selectCidades/presenterSelectCidade.dart';
+import '../../selectCidades/views/buttonGoSignUpScreenSelectCidade.dart';
 import 'widgets_for_signup.dart';
 import 'backArrowSignUpPart2WorkerInformation.dart';
 import 'package:image_picker/image_picker.dart';
@@ -16,20 +17,21 @@ import 'package:path/path.dart';
 import 'dart:io';
 
 class BodySignUpPart2WorkerInformation extends StatefulWidget {
+
   const BodySignUpPart2WorkerInformation({
     Key? key,
   }) : super(key: key);
   @override
-  _BodySingUpScreenInstitution createState() => _BodySingUpScreenInstitution();
+  _BodySignUpPart2WorkerInformation createState() => _BodySignUpPart2WorkerInformation();
 }
 
 
-class _BodySingUpScreenInstitution
-    extends State<BodySignUpPart2WorkerInformation> {
-  CollectionReference users =
-      FirebaseFirestore.instance.collection('dadosPrestador');
+class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInformation> {
+
+  CollectionReference users = FirebaseFirestore.instance.collection('dadosPrestador');
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseStorage firebaseStorage = FirebaseStorage.instance;
+
 
   final FirebaseAuth auth = FirebaseAuth.instance;
   Future<String?> getUserId() async {
@@ -37,6 +39,8 @@ class _BodySingUpScreenInstitution
     final userId = user?.uid.toString();
     return userId;
   }
+
+
 
   final firebase_storage.FirebaseStorage storage =
       firebase_storage.FirebaseStorage.instance;
@@ -100,6 +104,7 @@ class _BodySingUpScreenInstitution
       RoundedLoadingButtonController();
 
   List listaComentarios = [];
+
 
   @override
   Widget build(BuildContext context) {
@@ -205,10 +210,7 @@ class _BodySingUpScreenInstitution
                               children: [
                                 NameWidget(nameController: nameController),
                                 PhoneWidget(phoneController: phoneController),
-                                WorkingHoursWidget(
-                                  workingHoursController:
-                                      workingHoursController,
-                                ),
+                                WorkingHoursWidget(workingHoursController: workingHoursController,),
                                 DescriptionWidget(
                                   descriptionController: descriptionController,
                                 ),
@@ -252,31 +254,38 @@ class _BodySingUpScreenInstitution
                                   ),
                                 ),
                                 onPressed: () async {
-                                   SetPrestadorInformation(
-                                    name: nameController.text.trim(),
-                                    phone: phoneController.text.trim(),
-                                    workingHours: workingHoursController.text.trim(),
-                                    description: descriptionController.text.trim(),
-                                    profilePicture: await getUrlToImageFirebase(),
-                                    comentarios: listaComentarios,
-                                  );
-
-
                                   final form = formKeyAuthentication.currentState!;
 
                                   if (form.validate()) {
-                                    Navigator.of(context)
-                                        .push(MaterialPageRoute(
-                                      builder: (context) {
 
-                                        return PresenterSelectCidade.presenter();
-                                      },
-                                    ));
+                                      print('--'*20);
+                                      /*await users.doc('dadosPrestador').set({
+                                        'name': nameController,
+                                        'phone': phoneController,
+                                        'workingHours': workingHoursController,
+                                        'description': descriptionController,
+                                        'profilePicture': 'profilePicture',
+                                        'city': 'city',
+                                        'roles': 'roles',
+                                        'brazilianIDPicture':'brazilianIDPicture',
+                                        'IdPrestador': await getUserId(),
+                                        'numeroDeCliquesNoLigarOuWhatsApp': 0,
+                                        'dataVencimentoPlano': DateTime.now(),
+                                        'dataAberturaConta': DateTime.now(),
+                                        'brazilianIDPicture': await getUrlToImageFirebase()
+                                        }
+                                      );*/
+
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return PresenterSelectCidade.presenter();
+                                        },
+                                      )
+                                    );
                                   }
                                 },
                               ),
-
-
 
                               /*
                               RoundedLoadingButton(
@@ -377,3 +386,6 @@ class _BodySingUpScreenInstitution
         });
   }
 }
+
+
+

@@ -1,57 +1,78 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-/* await users.doc(await getUserId()).set({
-    'name': nameController.text.trim(),
-    'phone': phoneController.text.trim(),
-    'workingHours':
-        workingHoursController.text.trim(),
-    'description':
-        descriptionController.text.trim(),
-    'profilePicture':
-        await getUrlToImageFirebase(),
-    'city': 'city',
-    'roles': '-----11-----',
-    'brazilianIDPicture': 'brazilianIDPicture',
-    'comentarios': listaComentarios,
-    'numeroDeCliquesNoLigarOuWhatsApp': 0,
-    'dataVencimentoPlano': DateTime.now(),
-    'dataAberturaConta': DateTime.now(),
-    'IdPrestador': await getUserId(),
-  });*/
 
-class SetPrestadorInformation{
-  final String? name;
-  final String? phone;
-  final String? workingHours;
-  final String? description;
-  final String? profilePicture;
-  final List<String>? city;
-  final List<int>? roles;
-  final String? brazilianIDPicture;
-  final List<dynamic>? comentarios;
-  final int? numeroDeCliquesNoLigarOuWhatsApp;
-  final DateTime? dataVencimentoPlano;
-  final DateTime? dataAberturaConta;
-  final String? IdPrestador;
-  final String? identidade;
 
-  SetPrestadorInformation({
-    this.name,
-    this.phone,
-    this.workingHours,
-    this.description,
-    this.profilePicture,
-    this.city,
-    this.roles,
-    this.brazilianIDPicture,
-    this.comentarios,
-    this.numeroDeCliquesNoLigarOuWhatsApp,
-    this.dataVencimentoPlano,
-    this.dataAberturaConta,
-    this.IdPrestador,
-    this.identidade,
-  });
+
+class SetPrestadorInformationSignUpScreen2{
+  final String name;
+  final String phone;
+  final String workingHours;
+  final String description;
+  final String profilePicture;
+  final List<dynamic> comentarios;
+
+  SetPrestadorInformationSignUpScreen2(
+          this.name,
+          this.phone,
+          this.workingHours,
+          this.description,
+          this.profilePicture,
+          this.comentarios,
+      );
+
+}
+
+
+class SetPrestadorInformationSelectCidade extends SetPrestadorInformationSignUpScreen2{
+  final String cidades;
+  SetPrestadorInformationSelectCidade(
+      String name,
+      String phone,
+      String workingHours,
+      String description,
+      String profilePicture,
+      List<dynamic>  comentarios,
+      this.cidades,
+
+  ) : super(name,phone,workingHours,description,profilePicture,comentarios);
+}
+
+class SetPrestadorInformationSelectServico extends SetPrestadorInformationSelectCidade{
+  final String servicos;
+  SetPrestadorInformationSelectServico(
+      String name,
+      String phone,
+      String workingHours,
+      String description,
+      String profilePicture,
+      List<dynamic> comentarios,
+      String cidades,
+      this.servicos,
+  ) : super(name,phone,workingHours,description,profilePicture,comentarios,cidades);
+}
+
+
+class SetPrestadorInformationDocuments extends SetPrestadorInformationSelectServico{
+  final int numeroDeCliquesNoLigarOuWhatsApp;
+  final DateTime dataVencimentoPlano;
+  final DateTime dataAberturaConta;
+  final String brazilianIDPicture;
+  SetPrestadorInformationDocuments({
+    required  String name,
+    required  String phone,
+    required  String workingHours,
+    required  String description,
+    required  String profilePicture,
+    required  List<dynamic> comentarios,
+    required  String cidades,
+    required  String servicos,
+    required  this.numeroDeCliquesNoLigarOuWhatsApp,
+    required  this.dataVencimentoPlano,
+    required  this.dataAberturaConta,
+    required  this.brazilianIDPicture,
+  }) : super(name,phone,workingHours,description,profilePicture,comentarios,
+      cidades,servicos );
 
   FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -70,18 +91,22 @@ class SetPrestadorInformation{
       'workingHours': workingHours,
       'description': description,
       'profilePicture': profilePicture,
-      'city': city,
-      'roles': roles,
-      'brazilianIDPicture': brazilianIDPicture,
       'comentarios': comentarios,
-      'numeroDeCliquesNoLigarOuWhatsApp': 0,
-      'dataVencimentoPlano': DateTime.now(),
-      'dataAberturaConta': DateTime.now(),
-      'IdPrestador': await getUserId(),
-    }
+      'city': cidades,
+      'roles': servicos,
+      'numeroDeCliquesNoLigarOuWhatsApp': numeroDeCliquesNoLigarOuWhatsApp,
+      'dataVencimentoPlano': dataVencimentoPlano,
+      'dataAberturaConta': dataAberturaConta,
+      'brazilianIDPicture': brazilianIDPicture,
+      'IdPrestador': getUserId()
+      }
     );
   }
 }
+
+
+
+
 
 
 

@@ -6,7 +6,7 @@ import '../../../util/libraryComponents/colors/colorGradient.dart';//
 import '../../../util/libraryComponents/colors/colors.dart';//
 import 'viewActionsSelectCidade.dart';//
 import 'viewModelSelectCidade.dart';//
-import 'views/buttonGoSignUpScreenPart4.dart';//
+import 'views/buttonGoSignUpScreenSelectCidade.dart';//
 import 'views/viewHeaderSelectCidade.dart';
 import 'views/viewListaCidades.dart';
 
@@ -124,7 +124,7 @@ class ViewSelectCidade extends View<ViewModelSelectCidade, ViewActionsSelectCida
         bottomNavigationBar: BottomAppBar(
           child: Padding(
             padding: const EdgeInsets.all(12.0),
-            child: ButtonGoSignUpScreenPart4(viewActions: viewActions, viewModel: viewModel!,),
+            child: ButtonGoSignUpScreenSelectCidade(viewActions: viewActions, viewModel: viewModel!, name: null, phone: null, workingHours: null, description: null, profilePicture: null, comentarios: null, cidades: null,),
           ),
         ),
       );

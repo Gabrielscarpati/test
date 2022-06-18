@@ -4,6 +4,7 @@ import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/framework/bloc.dart';
 import '../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../providers/cidade/providerCidade.dart';
+import '../signUpPart2WorkerInformation/views/bodySignUpPart2WorkerInformation.dart';
 import 'blocEventSelectCidade.dart';
 import 'viewModelSelectCidade.dart';
 
@@ -21,7 +22,7 @@ class BlocSelectCidade
       _aplicaFiltroDePesquisa(blocEvent);
 
     if (blocEvent is BlocEventSavarListaSelecionadaFirebase)
-      _savarListaSelecionadaFirebase(blocEvent);
+       _savarListaSelecionadaFirebase(blocEvent);
   }
 
   void _inicializaViewModel(
@@ -103,9 +104,5 @@ class BlocSelectCidade
     viewModel.cidadesSelecionadas.forEach((element) {
       cidades.add(element.nome);
     });
-
-    SetPrestadorInformation(
-      city: cidades,
-    );
   }
 }

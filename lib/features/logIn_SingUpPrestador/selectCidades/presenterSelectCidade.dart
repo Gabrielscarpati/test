@@ -17,6 +17,7 @@ class PresenterSelectCidade extends Presenter<
     required BlocSelectCidade bloc,
     required ViewBuilderSelectCidade viewBuilder,
     required ViewActionsSelectCidade viewActions,
+
   }) : super(
           bloc: bloc,
           viewBuilder: viewBuilder,
@@ -26,13 +27,14 @@ class PresenterSelectCidade extends Presenter<
   }
 
   factory PresenterSelectCidade.presenter() {
+
     BlocSelectCidade bloc = BlocSelectCidade();
     ViewBuilderSelectCidade viewBuilder = ViewBuilderSelectCidade();
     ViewActionsSelectCidade viewActions = ViewActionsSelectCidade(bloc.pipeIn);
     return PresenterSelectCidade(
         bloc: bloc,
         viewBuilder: viewBuilder,
-        viewActions: viewActions
+        viewActions: viewActions,
     );
   }
 

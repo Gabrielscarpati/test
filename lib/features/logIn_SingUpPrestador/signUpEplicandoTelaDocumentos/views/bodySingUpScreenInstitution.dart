@@ -4,9 +4,24 @@ import 'package:projeto_treinamento/features/logIn_SingUpPrestador/singUpPart5Pr
 import '../../signUpPart2WorkerInformation/views/backArrowSignUpPart2WorkerInformation.dart';
 
 class BodyViewsignUpEplicandoTelaDocumentos extends StatefulWidget {
+  final String? name;
+  final String? phone;
+  final String? workingHours;
+  final String? description;
+  final Future<String>? profilePicture;
+  final List<dynamic>? comentarios;
+  final List<dynamic>? cidades;
+  final List<dynamic>? servicos;
 
   const BodyViewsignUpEplicandoTelaDocumentos({Key? key,
-
+    required this.name,
+    required this.phone,
+    required this.workingHours,
+    required this.description,
+    required this.profilePicture,
+    required this.comentarios,
+    required this.cidades,
+    required this.servicos,
   }) : super(key: key);
   @override
   _BodyViewsignUpEplicandoTelaDocumentos createState() => _BodyViewsignUpEplicandoTelaDocumentos();
@@ -38,7 +53,7 @@ class _BodyViewsignUpEplicandoTelaDocumentos extends State<BodyViewsignUpEplican
               Row(
                 children: [
                   SizedBox(child:
-                  BackArrowSignUpPart2WorkerInformation(),
+                    BackArrowSignUpPart2WorkerInformation(),
                   ),
                   Text("Documentos",
                     style: TextStyle(color: Colors.white, fontSize: 32),),
@@ -148,7 +163,16 @@ class _BodyViewsignUpEplicandoTelaDocumentos extends State<BodyViewsignUpEplican
                                 onPressed: () async {
                                   Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) =>
-                                        SignUpPart5PrestadorDocumentos(),
+                                        SignUpPart5PrestadorDocumentos(
+                                          name: widget.name,
+                                          phone: widget.phone,
+                                          workingHours: widget.workingHours,
+                                          description: widget.description,
+                                          profilePicture: widget.profilePicture,
+                                          comentarios: widget.comentarios,
+                                          cidades: widget.cidades,
+                                          servicos: widget.servicos,
+                                        ),
                                   )
                                   );
                                 },

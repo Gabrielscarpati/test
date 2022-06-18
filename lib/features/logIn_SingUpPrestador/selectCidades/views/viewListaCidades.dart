@@ -8,9 +8,12 @@ import '../viewModelSelectCidade.dart';
 class ViewListSelectCity extends StatefulWidget {
   final ViewModelSelectCidade viewModel;
   final ViewActionsSelectCidade viewAction;
+
+
   ViewListSelectCity({
     required this.viewModel,
     required this.viewAction,
+
     Key? key,
   });
 

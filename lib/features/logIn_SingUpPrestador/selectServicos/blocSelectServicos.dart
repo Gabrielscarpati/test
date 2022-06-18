@@ -112,8 +112,9 @@ class BlocSelectServicos
         index++;
         }
       );
-      SetPrestadorInformation(
+      /*
+      SetPrestadorInformationCompleta(
         roles: servicos,
-      );
+      );*/
   }
 }

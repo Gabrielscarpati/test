@@ -22,16 +22,15 @@ class SignUpPart1Body extends StatefulWidget {
     Key? key,
   }) : super(key: key);
   @override
-  _LogInBody createState() => _LogInBody();
+  _SignUpPart1Body createState() => _SignUpPart1Body();
 }
 
-class _LogInBody extends State<SignUpPart1Body> {
+class _SignUpPart1Body extends State<SignUpPart1Body> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final cofirmPasswordController = TextEditingController();
   final formKeyAuthentication = GlobalKey<FormState>();
-  final RoundedLoadingButtonController _btnController =
-      RoundedLoadingButtonController();
+  final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
 
   bool _estaEscondidoSenha = false;
   bool _estaEscondidoConfirmarSenha = false;
@@ -42,7 +41,9 @@ class _LogInBody extends State<SignUpPart1Body> {
 
   @override
   Widget build(BuildContext context) {
-    return usuario == null && _userData == null
+    String? usuarioGoogle = usuario?.id.toString();
+
+    return usuarioGoogle == null && _userData == null
         ? _usuarioNaologado(context)
         : _usuarioLogado(context);
   }
@@ -280,20 +281,14 @@ class _LogInBody extends State<SignUpPart1Body> {
                                   ),
                                 ),
                               ),
-                              onPressed: () async {
-                                final form =
-                                    formKeyAuthentication.currentState!;
-                                if (form.validate() && _isChecked == true) {
-                                  await AuthService().registerUser(
-                                      emailController.text,
-                                      passwordController.text);
-
-                                  Navigator.of(context).push(
-                                      MaterialPageRoute(builder: (context) {
-                                    _btnController.success();
-                                    return SingUpPart2WorkerInformation();
-                                  }));
-                                }
+                              onPressed: ()  {
+                                Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        print('hehehe'*7);
+                                        return SingUpPart2WorkerInformation();
+                                      },
+                                    ));
                               },
                             ),
                           ),
@@ -416,6 +411,8 @@ class _LogInBody extends State<SignUpPart1Body> {
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 
+
+
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -429,9 +426,6 @@ class _LogInBody extends State<SignUpPart1Body> {
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
-    var userEmail = '';
-
-    userEmail = googleUser.email;
 
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
@@ -455,6 +449,24 @@ class _LogInBody extends State<SignUpPart1Body> {
     setState(() {
       _estaEscondidoConfirmarSenha = !_estaEscondidoConfirmarSenha;
     });
+  }
+
+  void goToSignUpPart2() async{
+    {
+    final form = formKeyAuthentication.currentState!;
+    if (form.validate() && _isChecked == true) {
+      _btnController.success();
+      await AuthService().registerUser(
+          emailController.text,
+          passwordController.text);
+
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) {
+
+            return SingUpPart2WorkerInformation();
+          }));
+    }
+    }
   }
 
   Widget _usuarioLogado(BuildContext context) {
