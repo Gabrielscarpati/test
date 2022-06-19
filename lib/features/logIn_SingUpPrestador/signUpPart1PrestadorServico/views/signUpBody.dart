@@ -6,6 +6,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
+import 'package:projeto_treinamento/features/logIn_SingUpPrestador/logInPrestadorServico/views/logInBody.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorEmailJaExisteOuNao.dart';
@@ -41,12 +42,10 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
   Map? _userData;
   GoogleSignInAccount? usuario = _usuarioAtual;
 
-
   @override
   Widget build(BuildContext context) {
-    String? usuarioGoogle = usuario?.id.toString();
 
-    return usuarioGoogle == null && _userData == null
+    return usuario == null && _userData == null
         ? _usuarioNaologado(context)
         : _usuarioLogado(context);
   }
@@ -96,11 +95,11 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.all(30),
+                    padding: const EdgeInsets.all(24),
                     child: Column(
                       children: [
                         SizedBox(height: screenHeight * 0.011848 * 2),
-                        // #email, #password
+
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -160,7 +159,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                                       if (passwordController!.isEmpty ||
                                           !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$')
                                               .hasMatch(passwordController)) {
-                                        return "Sua senha deve conter uma letra maiúscula,\n minúscula e um número";
+                                        return "Sua senha deve conter uma letra maiúscula,\n minúscula e um número e pelo menos 8 caracteres";
                                       } else {
                                         return null;
                                       }
@@ -216,6 +215,8 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                             ),
                           ),
                         ),
+                        SizedBox(height: screenHeight*0.011848*1),
+
                         CheckboxListTile(
                           value: _isChecked,
                           onChanged: (bool? novoValor) {
@@ -248,7 +249,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                           //shape: ro,
                           checkColor: Colors.indigo,
                         ),
-                        SizedBox(height: screenHeight * 0.011848 * 4),
+                        SizedBox(height: screenHeight*0.011848*1),
                         // #login
                         Container(
                           height: screenHeight * 0.011848 * 5,
@@ -305,16 +306,43 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                             ),
                           ),
                         ),
-                        SizedBox(height: screenHeight * 0.011848 * 4),
+                        SizedBox(height: screenHeight*0.011848*2),
+
+                        GestureDetector(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Já tem conta?',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text('Entrar',
+                                style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  color: Colors.blue[600],
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => LogInBodyPrestador())
+                          ),
+                        ),
+                        SizedBox(height: screenHeight*0.011848*2),
                         Row(
+                          //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Expanded(
                                 child: SizedBox(
                                   height: 50,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      primary: Colors
-                                          .white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
+                                      primary: Colors.white,
                                       shape: new RoundedRectangleBorder(
                                         borderRadius:
                                             new BorderRadius.circular(20.0),
@@ -332,60 +360,62 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                                               color: Colors.indigoAccent,
                                             ),
                                             SizedBox(
-                                              width: screenWidth * 0.015,
+                                              width: screenWidth * 0.01,
                                             ),
                                             Text(
                                               'Facebook',
                                               style: TextStyle(
-                                                  fontSize: 20,
+                                                  fontSize: 17,
                                                   color: Colors.black),
-                                            ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
-                                    ),
-                                  ),
-                            )),
-                            SizedBox(width: screenWidth * 0.02564 * .7),
-                            Expanded(
-                                child: SizedBox(
-                              height: 50,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors
-                                      .white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
-                                  shape: new RoundedRectangleBorder(
-                                    borderRadius:
-                                        new BorderRadius.circular(20.0),
-                                  ),
-                                ),
-                                onPressed: () {
-                                  signInWithGoogle();
-                                  setState(() {});
-                                },
-                                child: Center(
-                                  child: Container(
-                                    child: Row(
-                                      children: <Widget>[
-                                        Icon(
-                                          FontAwesomeIcons.google,
-                                          color: Colors.indigoAccent,
-                                        ),
-                                        SizedBox(
-                                          width: screenWidth * 0.02564,
-                                        ),
-                                        Text(
-                                          'Google',
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.black),
-                                        ),
-                                      ],
                                     ),
                                   ),
                                 ),
                               ),
-                            )),
+                            ),
+                            SizedBox(width: screenWidth * 0.02564 * .5),
+                            Expanded(
+                                child: SizedBox(
+                                  height: 50,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors
+                                          .white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
+                                      shape: new RoundedRectangleBorder(
+                                        borderRadius:
+                                            new BorderRadius.circular(20.0),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      signInWithGoogle();
+                                      setState(() {});
+                                    },
+                                    child: Center(
+                                      child: Container(
+                                        child: Row(
+                                          children: <Widget>[
+                                            Icon(
+                                              FontAwesomeIcons.google,
+                                              color: Colors.indigoAccent,
+                                            ),
+                                            SizedBox(
+                                              width: screenWidth * 0.02564,
+                                            ),
+                                            Text(
+                                              'Google',
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.black),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -489,7 +519,4 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
     context: context,
     builder: (context) => PopUpEmailJaEstaEmUso(),
   );
-
-
-
 }

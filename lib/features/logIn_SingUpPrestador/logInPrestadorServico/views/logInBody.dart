@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,8 @@ import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
 import '../../../../util/libraryComponents/popUps/popUpEmailNaoExiste.dart';
+import '../../esqueceuSenhaPrestador/esqueceuSenhaPrestador.dart';
+import '../../signUpPart1PrestadorServico/views/signUpBody.dart';
 import 'fazerAsFuncoesLOGINESALVAr.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -25,7 +28,7 @@ class LogInBodyPrestador extends StatefulWidget {
 class _LogInBodyPrestador extends State<LogInBodyPrestador> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final formKeyAuthenticationLogIn = GlobalKey<FormState>();
+  final _formKeyAuthenticationLogIn = GlobalKey<FormState>();
 
   Map? _userData;
   GoogleSignInAccount? usuario = _usuarioAtual;
@@ -73,10 +76,10 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.all(30),
+                    padding: const EdgeInsets.all(22),
                     child: Column(
                       children: [
-                        const SizedBox(height: 60,),
+                        const SizedBox(height: 40,),
                         // #email, #password
                         Container(
                           decoration: BoxDecoration(
@@ -89,7 +92,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                           ),
 
                           child: Form(
-                            key: formKeyAuthenticationLogIn,
+                            key: _formKeyAuthenticationLogIn,
                             child: Column(
                               children: [
                                 Container(
@@ -97,9 +100,12 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                   decoration: BoxDecoration(
                                     border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
                                   ),
-                                  child: TextField(
+                                  child: TextFormField(
                                     controller: emailController,
                                     cursorColor: Colors.indigoAccent,
+                                    validator: (emailController) => !EmailValidator.validate(emailController!)
+                                        ? 'Email inválido'
+                                        : null,
                                     decoration: InputDecoration(
                                       suffixIcon: IconButton(
                                         icon: Icon(Icons.close),
@@ -117,10 +123,17 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                   decoration: BoxDecoration(
                                     border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
                                   ),
-                                  child:  TextField(
+                                  child: TextFormField(
                                     controller: passwordController,
                                     cursorColor: Colors.indigoAccent,
                                     obscureText: _estaEscondido,
+                                    validator: (passwordController) {
+                                      if (passwordController!.isEmpty || !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$').hasMatch(passwordController)){
+                                        return "Sua senha deve conter uma letra maiúscula,\n minúscula e um número e pelo menos 8 caracteres";
+                                      }else{
+                                        return null;
+                                      }
+                                    },
                                     decoration: InputDecoration(
                                         suffix: InkWell(
                                             onTap: _togglePasswordView,
@@ -140,6 +153,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                             ),
                           ),
                         ),
+
                          SizedBox(height: 40),
                         // #login
                         Container(
@@ -175,9 +189,9 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                 ),
                               ),
 
-                              onPressed: ()async {
 
-                                  final formLogIn = formKeyAuthenticationLogIn.currentState!;
+                              onPressed: () async {
+                                  final formLogIn = _formKeyAuthenticationLogIn.currentState!;
                                   if (await funcaoPestadorLogInEmailNaoExiste.checkIfEmailInUse() == false){
                                     await mostrarErroEmailInvalido();
                                   } else if (formLogIn.validate()) {
@@ -197,8 +211,47 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 30),
-                        const SizedBox(height: 30),
+                        SizedBox(height: 16,),
+                        GestureDetector(
+                          child: Text('Esqueceu senha?',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            color: Colors.blue[600],
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                           ),
+                          ),
+                          onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => EsqueceuSenhaPrestadorScreen())
+                          ),
+                        ),
+                        SizedBox(height: 16,),
+                        GestureDetector(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Não tem conta?',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text('Cadastre-se',
+                                style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  color: Colors.blue[600],
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => SignUpPart1Body())
+                          ),
+                        ),
+                        const SizedBox(height: 20),
                         Row(
                           children: [
                             Expanded(
@@ -221,10 +274,10 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                           children: <Widget>[
                                             Icon(FontAwesomeIcons.facebook, color: Colors.indigoAccent,),
 
-                                            SizedBox(width: screenWidth*0.015,),
+                                            SizedBox(width: screenWidth*0.01,),
                                             Text('Facebook',
                                               style: TextStyle(
-                                                  fontSize: 20,
+                                                  fontSize: 17,
                                                   color: Colors.black
                                               ),
                                             ),
@@ -243,7 +296,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                     style: ElevatedButton.styleFrom(
                                       primary: Colors.white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
                                       shape: new RoundedRectangleBorder(
-                                        borderRadius: new BorderRadius.circular(20.0),
+                                        borderRadius: new BorderRadius.circular(18.0),
                                       ),
                                     ),
                                     onPressed: () {
@@ -340,6 +393,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
   Widget _usuarioLogado(BuildContext context) {
     return PresenterHubPrestador.presenter();
   }
+
   Future mostrarErroEmailInvalido() => showDialog(
     context: context,
     builder: (context) => PopUpEmailNaoExiste(),

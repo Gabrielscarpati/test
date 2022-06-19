@@ -6,6 +6,7 @@ import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
+import 'package:projeto_treinamento/features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/views/bodySignUpPart5PrestadorDocumentos.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
@@ -23,6 +24,7 @@ import 'features/logIn_SingUpPrestador/selectCidades/viewSelectCidade.dart';
 import 'features/logIn_SingUpPrestador/signUpEplicandoTelaDocumentos/viewSignUpEplicandoTelaDocumentos.dart';
 import 'features/logIn_SingUpPrestador/signUpPart1PrestadorServico/signUpPart1Prestador.dart';
 import 'features/logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSignUpPart2WorkerInformatio.dart';
+import 'features/logIn_SingUpPrestador/signUpPart2WorkerInformation/views/bodySignUpPart2WorkerInformation.dart';
 import 'features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart';
 import 'features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 
@@ -94,7 +96,7 @@ class MyApp extends StatelessWidget {
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData ||
                 usuario != null /*verificarSeUsuarioNulo() == null*/) {
-              return ViewVeryFirstScreen();
+              return BodySignUpPart5PrestadorDocumentos();
             }
             return  ViewVeryFirstScreen();
           }),

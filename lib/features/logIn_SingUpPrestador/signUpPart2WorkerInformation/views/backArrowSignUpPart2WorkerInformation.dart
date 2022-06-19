@@ -16,9 +16,8 @@ class _BackArrowSignUpPart2WorkerInformation extends State<BackArrowSignUpPart2W
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(onPressed: () {
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => ViewLogInOrSignUpPrestadorServico()
-      ));} ,
+      Navigator.of(context).pop();
+      } ,
       icon:  Icon(Icons.arrow_back, color: Color(0xff4cf2c7), size: 30.0),
       label: Text(''),
     );

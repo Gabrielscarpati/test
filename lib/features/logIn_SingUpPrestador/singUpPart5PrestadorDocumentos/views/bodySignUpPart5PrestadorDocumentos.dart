@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
+import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpPorFavorSelecioneUmaImagem.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
@@ -81,6 +82,7 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
     } catch (e) {
       print('error occurred');
     }
+    return _photo!.path;
   }
 
     Future<String> getUrlToImageFirebase() async {
@@ -179,9 +181,9 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
                                                   width: 250,
                                                   height: 323,
                                                   child: Icon(
-                                                    Icons.edit,
-                                                    size: 35,
-                                                    color: Colors.grey[800],
+                                                    Icons.camera_alt,
+                                                    size: 40,
+                                                    color: Colors.grey[600],
                                         ),
                                       ),
 
@@ -237,10 +239,10 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
                                   ),
                                 ),
                                 onPressed: () async {
-
                                   final form = formKeyAuthentication.currentState!;
-
-                                  if (form.validate()) {
+                                  if(await uploadFile() == null){
+                                    mostrarErroEmailInvalido(context);
+                                  } else if (form.validate()) {
                                     await firestore.collection('dadosPrestador').doc(await getUserId()).set({
                                       'name': informacoesPrestador.name,
                                       'phone': informacoesPrestador.phone,
@@ -306,5 +308,9 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
           );
         });
   }
+  Future mostrarErroEmailInvalido(context) => showDialog(
+    context: context,
+    builder: (context) => PopUpPorFavorSelecioneUmaFoto(),
+  );
 }
 

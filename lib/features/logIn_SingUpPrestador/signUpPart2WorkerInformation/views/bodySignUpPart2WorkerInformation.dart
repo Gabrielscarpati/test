@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/selectServicos/presenterSelectServicos.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
+import '../../../../util/libraryComponents/popUps/popUpPorFavorSelecioneUmaImagem.dart';
 import '../../selectCidades/presenterSelectCidade.dart';
 import '../../selectCidades/views/buttonGoSignUpScreenSelectCidade.dart';
 import 'widgets_for_signup.dart';
@@ -84,6 +85,7 @@ class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInfor
           .child('FotoPerfilPrestadorServico/');
       await ref.putFile(_photo!);
     } catch (e) {}
+    return _photo!.path;
   }
 
   Future<String> getUrlToImageFirebase() async {
@@ -259,7 +261,10 @@ class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInfor
                                 ),
                                 onPressed: () async {
                                   final form = formKeyAuthentication.currentState!;
-                                  if (form.validate()) {
+                                  if( await uploadFile() == null ){
+                                   popUpPorFavorSelecioneUmaFoto(context);
+
+                                  }else if (form.validate()) {
                                     informacoesPrestador.comentarios = listaComentarios;
                                     informacoesPrestador.name = nameController.text;
                                     informacoesPrestador.phone = phoneController.text;
@@ -323,6 +328,11 @@ class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInfor
           );
         });
   }
+
+  Future popUpPorFavorSelecioneUmaFoto(context) => showDialog(
+    context: context,
+    builder: (context) => PopUpPorFavorSelecioneUmaFoto(),
+  );
 }
 
 

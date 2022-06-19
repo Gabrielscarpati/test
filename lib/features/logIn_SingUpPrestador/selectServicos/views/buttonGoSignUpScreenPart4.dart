@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpListaSelectServicos.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../signUpEplicandoTelaDocumentos/viewSignUpEplicandoTelaDocumentos.dart';
 import '../../singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart';
@@ -55,11 +56,12 @@ class ButtonGoSignUpScreenSelectServicos extends StatelessWidget {
                 ),
               ),
             ),
-            onPressed: ()  {
+            onPressed: () {
               this.viewActions.savarListaSelecionadaFirebase(viewModel);
-              if(1<3){
-                this.viewActions.savarListaSelecionadaFirebase(viewModel);
-
+              if(viewModel.cidadesSelecionadas.length < 1){
+                mostrarErroEmailInvalido(context);
+              }
+              else{
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => ViewsignUpEplicandoTelaDocumentos()));
               }
@@ -70,50 +72,8 @@ class ButtonGoSignUpScreenSelectServicos extends StatelessWidget {
       ),
     );
   }
+  Future mostrarErroEmailInvalido(context) => showDialog(
+    context: context,
+    builder: (context) => PopUpListaSelectServicos(),
+  );
 }
-
-/*          RoundedLoadingButton(
-            controller: _btnController,
-            child: Ink(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.blue.shade900,
-                      Colors.blue.shade500,
-                      Colors.blue.shade400
-                    ],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
-                  borderRadius:
-                  BorderRadius.circular(30.0)),
-              child: Container(
-                constraints: BoxConstraints(
-                    maxWidth: 350.0, minHeight: 50.0),
-                alignment: Alignment.center,
-                child: Text(
-                  'Continuar',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            onPressed: ()  {
-
-
-              this.viewActions.savarListaSelecionadaFirebase(viewModel);
-
-                   if(1<3){
-                this.viewActions.savarListaSelecionadaFirebase(viewModel);
-
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ViewsignUpEplicandoTelaDocumentos()));
-              }
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => PresenterSelectServicos.presenter()));
-              _btnController.reset();
-            },
-          ),*/

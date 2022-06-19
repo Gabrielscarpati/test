@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/signUpPart1PrestadorServico/views/googleSignUp.dart';
+import 'package:projeto_treinamento/features/logIn_SingUpUsuario/logInUsuario/logInUsuaioScreen.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorEmailJaExisteOuNao.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
@@ -33,15 +34,12 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
   bool _estaEscondidoSenha = false;
   bool _estaEscondidoConfirmarSenha = false;
 
-
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final cofirmPasswordController = TextEditingController();
   final formKeyAuthentication = GlobalKey<FormState>();
 
   bool? _isChecked = false;
-
-
 
   final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
 
@@ -66,7 +64,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(12,36,0,0),
-              child: SizedBox(child: BackArrowLogInScreen()) ),
+               child: SizedBox(child: BackArrowLogInScreen()) ),
 
              SizedBox(height: screenHeight*0.011848),
             // #login, #welcome
@@ -145,7 +143,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
 
                                   validator: (passwordController) {
                                     if (passwordController!.isEmpty || !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$').hasMatch(passwordController)){
-                                      return "Sua senha deve conter uma letra maiúscula,\n minúscula e um número";
+                                      return "Sua senha deve conter uma letra maiúscula,\n minúscula e um número e pelo menos 8 caracteres";
                                     }else{
                                       return null;
                                     }
@@ -213,7 +211,6 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                               ),
                               TextButton(
                                 onPressed: () async {
-
                                 },
                                 child: Text(
                                   'Politica de privacidade',
@@ -288,7 +285,34 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                             ),
                           ),
                         ),
-                         SizedBox(height: screenHeight*0.011848*4),
+                        SizedBox(height: screenHeight*0.011848*2),
+
+                        GestureDetector(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Já tem conta?',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text('Entrar',
+                                style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  color: Colors.blue[600],
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => LogInUsuaioScreen())
+                          ),
+                        ),
+                         SizedBox(height: screenHeight*0.011848*2),
                         Row(
                           children: [
                             Expanded(
@@ -314,7 +338,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                             SizedBox(width: screenWidth*0.015,),
                                             Text('Facebook',
                                               style: TextStyle(
-                                                  fontSize: 20,
+                                                  fontSize: 17,
                                                   color: Colors.black
                                               ),
                                             ),
@@ -339,11 +363,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                   onPressed: () {
                                     signInWithGoogle();
                                     setState(() {
-
-
                                     });
-
-
                                   },
 
                                   child: Center(
@@ -356,7 +376,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                           SizedBox(width: screenWidth*0.02564,),
                                           Text('Google',
                                             style: TextStyle(
-                                                fontSize: 20,
+                                                fontSize: 18,
                                               color: Colors.black
                                             ),
                                           ),
@@ -404,6 +424,8 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
 
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
+
+
 
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow

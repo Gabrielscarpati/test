@@ -5,55 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ed77b64-fc0e-4c87-856c-9440b5c22f50" name="Default Changelist" comment="Modificando Login...">
-      <change afterPath="$PROJECT_DIR$/lib/util/funcoesLogIn/funcaoPestadorEmailJaExisteOuNao.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/util/libraryComponents/popUps/popUpEmailJaEstaEmUso.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/util/libraryComponents/popUps/popUpEmailNaoExiste.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/esqueceuSenhaPrestador/esqueceuSenhaPrestador.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/esqueceuSenhaPrestador/views/backArrowEsqueceuSenhaPrestador.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/esqueceuSenhaPrestador/views/esqueceuSenhaPrestador.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/esqueceuSenhaUsuario/esqueceuSenhaUsuaioScreen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/esqueceuSenhaUsuario/views/backArrowEsqueceuSenhaUsuario.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/esqueceuSenhaUsuario/views/esqueceuSenhaUsuarioBody.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/util/libraryComponents/popUps/popUpListaSelectCidades.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/util/libraryComponents/popUps/popUpListaSelectServicos.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/util/libraryComponents/popUps/popUpPorFavorSelecioneUmaImagem.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/.filecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/app.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/debug_android_application.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/flutter_assets.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/kernel_snapshot.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/kernel_snapshot.stamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/NOTICES.Z.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/NOTICES.Z.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/NOTICES.Z" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/NOTICES.Z" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/NOTICES.Z" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/NOTICES.Z" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/daos/firebase/updatePrestadorFirebase.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/firebase/updatePrestadorFirebase.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/logInPrestadorServico/views/logInBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/logInPrestadorServico/views/logInBody.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectCidades/blocSelectCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectCidades/blocSelectCidade.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectCidades/viewBuilderSelectCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectCidades/viewBuilderSelectCidade.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectCidades/viewSelectCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectCidades/viewSelectCidade.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/loginOrSignUpPrestadorServico/views/logInSingUpBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/loginOrSignUpPrestadorServico/views/logInSingUpBody.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectCidades/views/buttonGoSignUpScreenSelectCidade.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectCidades/views/buttonGoSignUpScreenSelectCidade.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectServicos/blocSelectServicos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectServicos/blocSelectServicos.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectServicos/viewSelectServicos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectServicos/viewSelectServicos.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectServicos/views/buttonGoSignUpScreenPart4.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectServicos/views/buttonGoSignUpScreenPart4.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpEplicandoTelaDocumentos/viewSignUpEplicandoTelaDocumentos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpEplicandoTelaDocumentos/viewSignUpEplicandoTelaDocumentos.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpEplicandoTelaDocumentos/views/bodySingUpScreenInstitution.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpEplicandoTelaDocumentos/views/bodySingUpScreenInstitution.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart1PrestadorServico/views/backArrowSignUp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart1PrestadorServico/views/backArrowSignUp.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart1PrestadorServico/views/signUpBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart1PrestadorServico/views/signUpBody.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart2WorkerInformation/views/backArrowSignUpPart2WorkerInformation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart2WorkerInformation/views/backArrowSignUpPart2WorkerInformation.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart2WorkerInformation/views/bodySignUpPart2WorkerInformation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart2WorkerInformation/views/bodySignUpPart2WorkerInformation.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart2WorkerInformation/views/widgets_for_signup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart2WorkerInformation/views/widgets_for_signup.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/views/bodySignUpPart5PrestadorDocumentos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/views/bodySignUpPart5PrestadorDocumentos.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/logInUsuario/views/logInBodyUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/logInUsuario/views/logInBodyUsuario.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/loginOrSignUpUsuario/views/logInSingUpBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/loginOrSignUpUsuario/views/logInSingUpBody.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/signUpUsuario/views/signUpBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/signUpUsuario/views/signUpBody.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/providers/dadosPrestador/providerDadosPrestador.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/dadosPrestador/providerDadosPrestador.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/util/controllerMobxFirebase.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/util/controllerMobxFirebase.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/util/funcoesLogIn/funcaoPestadorEmailJaExisteOuNao.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/funcoesLogIn/funcaoPestadorEmailJaExisteOuNao.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +98,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/util/funcoesLogIn" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/util/libraryComponents/popUps" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -118,11 +107,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/util/funcoesLogIn" />
       <recent name="$PROJECT_DIR$/lib/util/libraryComponents/popUps" />
+      <recent name="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador" />
+      <recent name="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario" />
+      <recent name="$PROJECT_DIR$/lib/util/funcoesLogIn" />
       <recent name="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectCidades/views" />
-      <recent name="$PROJECT_DIR$/lib/util" />
-      <recent name="$PROJECT_DIR$/lib/domain" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/icons" />
@@ -386,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655571562353</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Modificando Login...">
+      <created>1655598677243</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1655598677243</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

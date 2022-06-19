@@ -5,7 +5,7 @@ class FuncaoPestadorEmailJaExisteOuNao{
   late final TextEditingController emailController;
   FuncaoPestadorEmailJaExisteOuNao({required this.emailController});
 
-  Future<bool> checkIfEmailInUse() async {
+  Future checkIfEmailInUse() async {
     final emailControllerText = emailController.text;
     try {
       final list = await FirebaseAuth.instance.fetchSignInMethodsForEmail(emailControllerText);
@@ -21,7 +21,7 @@ class FuncaoPestadorEmailJaExisteOuNao{
     } catch (error) {
       // Handle error
       // ...
-      return true;
+      return 'kkkk';
     }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpListaSelectCidades.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../selectCidades/viewActionsSelectCidade.dart';
 import '../../selectCidades/viewModelSelectCidade.dart';
@@ -60,8 +61,13 @@ class ButtonGoSignUpScreenSelectCidade extends StatelessWidget {
             ),
             onPressed: ()  {
               this.viewActions.savarListaSelecionadaFirebase(viewModel);
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => PresenterSelectServicos.presenter()));
+              if(viewModel.cidadesSelecionadas.length < 1){
+                mostrarErroEmailInvalido(context);
+              }
+              else{
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => PresenterSelectServicos.presenter()));
+              }
               _btnController.reset();
             },
           ),
@@ -69,5 +75,9 @@ class ButtonGoSignUpScreenSelectCidade extends StatelessWidget {
       ),
     );
   }
+    Future mostrarErroEmailInvalido(context) => showDialog(
+      context: context,
+      builder: (context) => PopUpListaSelectCidades(),
+    );
 }
 

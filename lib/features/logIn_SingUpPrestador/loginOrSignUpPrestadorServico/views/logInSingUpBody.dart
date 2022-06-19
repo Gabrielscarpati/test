@@ -62,7 +62,7 @@ class LogInOrSignUpPrestadorServicoBody extends StatelessWidget {
                     child: Column(
                       children: [
                         Text('Você irá se cadastrar ou ',
-                          textAlign: TextAlign.left,
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 24.0,
