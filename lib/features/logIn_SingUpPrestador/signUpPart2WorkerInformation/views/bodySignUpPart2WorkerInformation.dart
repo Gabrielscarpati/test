@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/selectServicos/presenterSelectServicos.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
-import '../../../../util/controllerMobxFirebase.dart';
 import '../../selectCidades/presenterSelectCidade.dart';
 import '../../selectCidades/views/buttonGoSignUpScreenSelectCidade.dart';
 import 'widgets_for_signup.dart';
@@ -15,6 +14,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:path/path.dart';
 import 'dart:io';
+import 'package:get_it/get_it.dart';
+
 
 class BodySignUpPart2WorkerInformation extends StatefulWidget {
 
@@ -28,6 +29,7 @@ class BodySignUpPart2WorkerInformation extends StatefulWidget {
 
 class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInformation> {
 
+
   CollectionReference users = FirebaseFirestore.instance.collection('dadosPrestador');
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseStorage firebaseStorage = FirebaseStorage.instance;
@@ -40,6 +42,7 @@ class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInfor
     return userId;
   }
 
+  SetPrestadorInformationCompleta informacoesPrestador = GetIt.instance<SetPrestadorInformationCompleta>();
 
 
   final firebase_storage.FirebaseStorage storage =
@@ -100,8 +103,7 @@ class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInfor
 
   final formKeyAuthentication = GlobalKey<FormState>();
 
-  final RoundedLoadingButtonController _btnController =
-      RoundedLoadingButtonController();
+  final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
 
   List listaComentarios = [];
 
@@ -225,69 +227,7 @@ class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInfor
                           margin: EdgeInsets.symmetric(horizontal: 50),
                           child: Column(
                             children: [
-                              ElevatedButton(
-                                child: Ink(
-                                  decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Colors.blue.shade900,
-                                          Colors.blue.shade500,
-                                          Colors.blue.shade400
-                                        ],
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                      ),
-                                      borderRadius:
-                                          BorderRadius.circular(30.0)),
-                                  child: Container(
-                                    constraints: BoxConstraints(
-                                        maxWidth: 350.0, minHeight: 50.0),
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      'Continuar',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                ),
-                                onPressed: () async {
-                                  final form = formKeyAuthentication.currentState!;
 
-                                  if (form.validate()) {
-
-                                      print('--'*20);
-                                      /*await users.doc('dadosPrestador').set({
-                                        'name': nameController,
-                                        'phone': phoneController,
-                                        'workingHours': workingHoursController,
-                                        'description': descriptionController,
-                                        'profilePicture': 'profilePicture',
-                                        'city': 'city',
-                                        'roles': 'roles',
-                                        'brazilianIDPicture':'brazilianIDPicture',
-                                        'IdPrestador': await getUserId(),
-                                        'numeroDeCliquesNoLigarOuWhatsApp': 0,
-                                        'dataVencimentoPlano': DateTime.now(),
-                                        'dataAberturaConta': DateTime.now(),
-                                        'brazilianIDPicture': await getUrlToImageFirebase()
-                                        }
-                                      );*/
-
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                          builder: (context) {
-                                            return PresenterSelectCidade.presenter();
-                                        },
-                                      )
-                                    );
-                                  }
-                                },
-                              ),
-
-                              /*
                               RoundedLoadingButton(
                                 controller: _btnController,
                                 child: Ink(
@@ -318,29 +258,27 @@ class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInfor
                                   ),
                                 ),
                                 onPressed: () async {
-                                   SetPrestadorInformation(
-                                    name: nameController.text.trim(),
-                                    phone: phoneController.text.trim(),
-                                    workingHours: workingHoursController.text.trim(),
-                                    description: descriptionController.text.trim(),
-                                    profilePicture: await getUrlToImageFirebase(),
-                                    comentarios: listaComentarios,
-                                  );
-
-
                                   final form = formKeyAuthentication.currentState!;
-
                                   if (form.validate()) {
-                                    Navigator.of(context)
-                                        .push(MaterialPageRoute(
-                                      builder: (context) {
-                                        _btnController.success();
-                                        return PresenterSelectCidade.presenter();
-                                      },
-                                    ));
+                                    informacoesPrestador.comentarios = listaComentarios;
+                                    informacoesPrestador.name = nameController.text;
+                                    informacoesPrestador.phone = phoneController.text;
+                                    informacoesPrestador.profilePicture = await getUrlToImageFirebase();
+                                    informacoesPrestador.workingHours = workingHoursController.text;
+                                    informacoesPrestador.description = descriptionController.text;
+                                    informacoesPrestador.planoPrestador = 0;
+
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return PresenterSelectCidade.presenter();
+                                          },
+                                        )
+                                    );
                                   }
+                                  _btnController.reset();
                                 },
-                              ),*/
+                              ),
                             ],
                           ),
                         ),

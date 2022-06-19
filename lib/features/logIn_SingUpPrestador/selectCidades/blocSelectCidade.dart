@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:get_it/get_it.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/framework/bloc.dart';
 import '../../../daos/firebase/updatePrestadorFirebase.dart';
@@ -104,5 +105,7 @@ class BlocSelectCidade
     viewModel.cidadesSelecionadas.forEach((element) {
       cidades.add(element.nome);
     });
+    SetPrestadorInformationCompleta informacoesPrestador = GetIt.instance<SetPrestadorInformationCompleta>();
+    informacoesPrestador.cidades = cidades;
   }
 }

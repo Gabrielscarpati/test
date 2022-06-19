@@ -1,12 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
+import 'package:rounded_loading_button/rounded_loading_button.dart';
+import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
+import '../../../../util/libraryComponents/popUps/popUpEmailNaoExiste.dart';
 import 'fazerAsFuncoesLOGINESALVAr.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -21,7 +23,6 @@ class LogInBodyUsuario extends StatefulWidget {
   _LogInBodyUsuario createState() => _LogInBodyUsuario();
 }
 class _LogInBodyUsuario extends State<LogInBodyUsuario> {
-  Client client = http.Client();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKeyAuthenticationLogIn = GlobalKey<FormState>();
@@ -30,6 +31,10 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
   bool _estaEscondido = false;
 
   GoogleSignInAccount? usuario = _usuarioAtual;
+  final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +43,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
 
   @override
   Widget _usuarioNaologado(BuildContext context) {
+    FuncaoPestadorLogInEmailNaoExiste funcaoPestadorLogInEmailNaoExiste = FuncaoPestadorLogInEmailNaoExiste(emailController: emailController);
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
@@ -91,6 +97,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                   color: Color.fromRGBO(171, 171, 171, .7),blurRadius: 20,offset: Offset(0,10)),
                             ],
                           ),
+                              //  checkIfEmailInUse(String emailAddress)
 
                           child: Form(
                             key: formKeyAuthenticationLogIn,
@@ -148,54 +155,52 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                         // #login
                         Container(
                           height: 50,
-                          margin:  EdgeInsets.symmetric(horizontal: 50),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.green[800]
-                          ),
+
                           child:  Center(
-                            child:ElevatedButton(
+                          child: RoundedLoadingButton(
+                              controller: _btnController,
                               child: Ink(
                                 decoration: BoxDecoration(
-                                    gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Colors.blue.shade900,
+                                        Colors.blue.shade500,
+                                        Colors.blue.shade400
+                                      ],
                                       begin: Alignment.centerLeft,
                                       end: Alignment.centerRight,
                                     ),
-                                    borderRadius: BorderRadius.circular(30.0)
-                                ),
-
+                                    borderRadius:
+                                    BorderRadius.circular(30.0)),
                                 child: Container(
-                                  constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
+                                  constraints: BoxConstraints(
+                                      maxWidth: 350.0, minHeight: 50.0),
                                   alignment: Alignment.center,
                                   child: Text(
-                                    'Log in',
+                                    'Continuar',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 20.0,
-                                        fontWeight: FontWeight.bold
-                                    ),
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ),
-
                               onPressed: ()async {
 
-                                  final formLogIn = formKeyAuthenticationLogIn.currentState!;
-                                  if (formLogIn.validate()) {
-                                    await AuthService().loginUser(emailController.text, passwordController.text);
+                                final formLogIn = formKeyAuthenticationLogIn.currentState!;
+                                if (await funcaoPestadorLogInEmailNaoExiste.checkIfEmailInUse() == false){
+                                  await mostrarErroEmailInvalido();
+                                } else if(formLogIn.validate()) {
+                                  await AuthService().loginUser(emailController.text, passwordController.text);
 
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context) => PresenterHubPrestador.presenter())
-                                    );
-                                  }
+                                  Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context) => PresenterHubPrestador.presenter())
+                                  );
+                                }
+                                _btnController.reset();
+
                               },
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.all(0),
-                                shape: new RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(30.0),
-                                ),
-                              ),
                             ),
                           ),
                         ),
@@ -306,8 +311,8 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
     }
 
     setState(() {
-      String haha = '';
-      haha = _userData?['email'];
+      String email = '';
+      email = _userData?['email'];
     });
 
 
@@ -328,9 +333,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
-    var userEmail = '';
 
-    userEmail = googleUser.email;
 
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
@@ -345,5 +348,9 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
   Widget _usuarioLogado(BuildContext context) {
     return PresenterHubPrestador.presenter();
   }
+  Future mostrarErroEmailInvalido() => showDialog(
+    context: context,
+    builder: (context) => PopUpEmailNaoExiste(),
+  );
 
 }

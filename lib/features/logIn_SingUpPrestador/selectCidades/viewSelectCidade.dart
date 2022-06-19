@@ -124,7 +124,7 @@ class ViewSelectCidade extends View<ViewModelSelectCidade, ViewActionsSelectCida
         bottomNavigationBar: BottomAppBar(
           child: Padding(
             padding: const EdgeInsets.all(12.0),
-            child: ButtonGoSignUpScreenSelectCidade(viewActions: viewActions, viewModel: viewModel!, name: null, phone: null, workingHours: null, description: null, profilePicture: null, comentarios: null, cidades: null,),
+            child: ButtonGoSignUpScreenSelectCidade(viewActions: viewActions, viewModel: viewModel!),
           ),
         ),
       );

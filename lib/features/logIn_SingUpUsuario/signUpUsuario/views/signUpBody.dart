@@ -6,8 +6,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/signUpPart1PrestadorServico/views/googleSignUp.dart';
+import 'package:rounded_loading_button/rounded_loading_button.dart';
+import '../../../../util/funcoesLogIn/funcaoPestadorEmailJaExisteOuNao.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
+import '../../../../util/libraryComponents/popUps/popUpEmailJaEstaEmUso.dart';
 import 'backArrowSignUp.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -40,6 +43,8 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
 
 
 
+  final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
+
   GoogleSignInAccount? usuarioGoogle = _usuarioAtualGoogle;
 
   @override
@@ -47,7 +52,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
     return usuarioGoogle == null && _userDataFacebook == null ? _usuarioNaologado(context) : _usuarioLogado(context);
   }
   Widget _usuarioNaologado(BuildContext context) {
-
+    FuncaoPestadorEmailJaExisteOuNao funcaoPestadorEmailJaExisteOuNao = FuncaoPestadorEmailJaExisteOuNao(emailController: emailController);
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -232,19 +237,24 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                               borderRadius: BorderRadius.circular(50),
 
                           ),
-                          child:  Center(
-                            child: ElevatedButton(
+                          child: Center(
+                            child: RoundedLoadingButton(
+                              controller: _btnController,
                               child: Ink(
                                 decoration: BoxDecoration(
-                                    gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Colors.blue.shade900,
+                                        Colors.blue.shade500,
+                                        Colors.blue.shade400
+                                      ],
                                       begin: Alignment.centerLeft,
                                       end: Alignment.centerRight,
                                     ),
-                                    borderRadius: BorderRadius.circular(30.0)
-                                ),
-
+                                    borderRadius: BorderRadius.circular(30.0)),
                                 child: Container(
-                                  constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
+                                  constraints: BoxConstraints(
+                                      maxWidth: 350.0, minHeight: 50.0),
                                   alignment: Alignment.center,
                                   child: Text(
                                     'Cadastre-se',
@@ -252,42 +262,29 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 20.0,
-                                        fontWeight: FontWeight.bold
-                                    ),
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ),
                               onPressed: () async {
-                                print(await usuarioGoogle);
-                                print('kk');
-                                print(await _userDataFacebook);
-                                if(usuarioGoogle != null || _userDataFacebook != null){
+                                final form = formKeyAuthentication.currentState!;
+                                 if (await funcaoPestadorEmailJaExisteOuNao.checkIfEmailInUse() == true){
+                                   await mostrarErroEmailInvalido();
+                                }
+                                else if (form.validate() && _isChecked == true) {
+                                  await AuthService().registerUser(emailController.text, passwordController.text);
+                                  await usuarios.doc(await getUserId()).set({
+                                    'email': emailController.text.trim(),
+                                    'senha': passwordController.text.trim(),
+                                  });
                                   Navigator.of(context).push(
                                       MaterialPageRoute(
                                           builder: (context) =>PresenterHubPrestador.presenter()
-                                      ));
-                                }
-                                final form = formKeyAuthentication.currentState!;
-                                  if (form.validate() && _isChecked == true) {
-                                    await AuthService().registerUser(emailController.text, passwordController.text);
-                                    await usuarios.doc(await getUserId()).set({
-                                      'email': emailController.text.trim(),
-                                      'senha': passwordController.text.trim(),
-                                    });
-
-                                    Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>PresenterHubPrestador.presenter()
-                                          ));
+                                      )
+                                    );
                                   }
-
+                                _btnController.reset();
                               },
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.all(0),
-                                shape: new RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(30.0),
-                                ),
-                              ),
                             ),
                           ),
                         ),
@@ -449,7 +446,9 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
     return userId;
   }
 
-
-
+  Future mostrarErroEmailInvalido() => showDialog(
+    context: context,
+      builder: (context) => PopUpEmailJaEstaEmUso(),
+  );
 }
 

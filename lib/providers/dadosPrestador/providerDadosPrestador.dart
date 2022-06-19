@@ -36,7 +36,8 @@ class ProvideDadosPrestador extends Provider<BusinessModelDadosPrestador> {
           phone: element.phone,
           profilePicture: element.profilePicture,
           roles: element.roles,
-          workingHours: element.workingHours));
+          workingHours: element.workingHours
+      ));
     });
 
     return prestadores;

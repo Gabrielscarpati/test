@@ -5,8 +5,10 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
+import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
+import '../../../../util/libraryComponents/popUps/popUpEmailNaoExiste.dart';
 import 'fazerAsFuncoesLOGINESALVAr.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -34,15 +36,12 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
     return usuario == null && _userData == null ? _usuarioNaologado(context) : _usuarioLogado(context);
   }
   Widget _usuarioNaologado(BuildContext context) {
-
+    FuncaoPestadorLogInEmailNaoExiste funcaoPestadorLogInEmailNaoExiste = FuncaoPestadorLogInEmailNaoExiste(emailController: emailController);
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
-
         width: double.infinity,
         decoration: BoxDecorationColorGradient(context),
-
-
         child: Column(
 
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -179,7 +178,9 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                               onPressed: ()async {
 
                                   final formLogIn = formKeyAuthenticationLogIn.currentState!;
-                                  if (formLogIn.validate()) {
+                                  if (await funcaoPestadorLogInEmailNaoExiste.checkIfEmailInUse() == false){
+                                    await mostrarErroEmailInvalido();
+                                  } else if (formLogIn.validate()) {
                                     await AuthService().loginUser(emailController.text, passwordController.text);
 
                                     Navigator.of(context).push(
@@ -339,4 +340,8 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
   Widget _usuarioLogado(BuildContext context) {
     return PresenterHubPrestador.presenter();
   }
+  Future mostrarErroEmailInvalido() => showDialog(
+    context: context,
+    builder: (context) => PopUpEmailNaoExiste(),
+  );
 }

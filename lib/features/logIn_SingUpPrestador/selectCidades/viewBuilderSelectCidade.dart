@@ -7,8 +7,7 @@ import 'viewModelSelectCidade.dart';
 class ViewBuilderSelectCidade extends ViewBuilder<ViewSelectCidade,
     ViewModelSelectCidade, ViewActionsSelectCidade> {
   @override
-  ViewSelectCidade createView(
-      ViewModelSelectCidade? viewModel, ViewActionsSelectCidade viewActions) {
+  ViewSelectCidade createView(ViewModelSelectCidade? viewModel, ViewActionsSelectCidade viewActions) {
     return ViewSelectCidade(
       viewModel: viewModel,
       viewActions: viewActions,

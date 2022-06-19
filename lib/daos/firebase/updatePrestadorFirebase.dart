@@ -3,115 +3,37 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 
 
+class SetPrestadorInformationCompleta{
+   String name;
+   String phone;
+   String workingHours;
+   String description;
+   String profilePicture;
+   List<dynamic> comentarios;
+   List<String> cidades;
+   List<int> servicos;
+   int numeroDeCliquesNoLigarOuWhatsApp;
+   DateTime dataVencimentoPlano;
+   DateTime dataAberturaConta;
+   String brazilianIDPicture;
+   int planoPrestador;
 
-class SetPrestadorInformationSignUpScreen2{
-  final String name;
-  final String phone;
-  final String workingHours;
-  final String description;
-  final String profilePicture;
-  final List<dynamic> comentarios;
-
-  SetPrestadorInformationSignUpScreen2(
-          this.name,
-          this.phone,
-          this.workingHours,
-          this.description,
-          this.profilePicture,
-          this.comentarios,
-      );
-
+  SetPrestadorInformationCompleta({
+    required this.name,
+    required this.phone,
+    required this.workingHours,
+    required this.description,
+    required this.profilePicture,
+    required this.comentarios,
+    required this.cidades,
+    required this.servicos,
+    required this.numeroDeCliquesNoLigarOuWhatsApp,
+    required this.dataVencimentoPlano,
+    required this.dataAberturaConta,
+    required this.brazilianIDPicture,
+    required this.planoPrestador,
+  });
 }
-
-
-class SetPrestadorInformationSelectCidade extends SetPrestadorInformationSignUpScreen2{
-  final String cidades;
-  SetPrestadorInformationSelectCidade(
-      String name,
-      String phone,
-      String workingHours,
-      String description,
-      String profilePicture,
-      List<dynamic>  comentarios,
-      this.cidades,
-
-  ) : super(name,phone,workingHours,description,profilePicture,comentarios);
-}
-
-class SetPrestadorInformationSelectServico extends SetPrestadorInformationSelectCidade{
-  final String servicos;
-  SetPrestadorInformationSelectServico(
-      String name,
-      String phone,
-      String workingHours,
-      String description,
-      String profilePicture,
-      List<dynamic> comentarios,
-      String cidades,
-      this.servicos,
-  ) : super(name,phone,workingHours,description,profilePicture,comentarios,cidades);
-}
-
-
-class SetPrestadorInformationDocuments extends SetPrestadorInformationSelectServico{
-  final int numeroDeCliquesNoLigarOuWhatsApp;
-  final DateTime dataVencimentoPlano;
-  final DateTime dataAberturaConta;
-  final String brazilianIDPicture;
-  SetPrestadorInformationDocuments({
-    required  String name,
-    required  String phone,
-    required  String workingHours,
-    required  String description,
-    required  String profilePicture,
-    required  List<dynamic> comentarios,
-    required  String cidades,
-    required  String servicos,
-    required  this.numeroDeCliquesNoLigarOuWhatsApp,
-    required  this.dataVencimentoPlano,
-    required  this.dataAberturaConta,
-    required  this.brazilianIDPicture,
-  }) : super(name,phone,workingHours,description,profilePicture,comentarios,
-      cidades,servicos );
-
-  FirebaseAuth auth = FirebaseAuth.instance;
-
-  Future<String?> getUserId() async {
-    final User? user = await auth.currentUser;
-    final userId = user?.uid.toString();
-    return userId;
-  }
-
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
-
-  setPrestadorInformation() async {
-    await firestore.collection('dadosPrestador').doc(await getUserId()).set({
-      'name': name,
-      'phone': phone,
-      'workingHours': workingHours,
-      'description': description,
-      'profilePicture': profilePicture,
-      'comentarios': comentarios,
-      'city': cidades,
-      'roles': servicos,
-      'numeroDeCliquesNoLigarOuWhatsApp': numeroDeCliquesNoLigarOuWhatsApp,
-      'dataVencimentoPlano': dataVencimentoPlano,
-      'dataAberturaConta': dataAberturaConta,
-      'brazilianIDPicture': brazilianIDPicture,
-      'IdPrestador': getUserId()
-      }
-    );
-  }
-}
-
-
-
-
-
-
-
-
-
 
 
 

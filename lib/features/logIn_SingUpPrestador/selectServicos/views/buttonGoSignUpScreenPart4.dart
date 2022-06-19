@@ -1,33 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../signUpEplicandoTelaDocumentos/viewSignUpEplicandoTelaDocumentos.dart';
 import '../../singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart';
 import '../viewActionsSelectServicos.dart';
 import '../viewModelSelectServicos.dart';
 
 class ButtonGoSignUpScreenSelectServicos extends StatelessWidget {
-  final ViewActionsSelectServicos? viewActions;
-  final ViewModelSelectServicos? viewModel;
-  final String? name;
-  final String? phone;
-  final String? workingHours;
-  final String? description;
-  final Future<String>? profilePicture;
-  final List<dynamic>? comentarios;
-  final List<dynamic>? cidades;
-  final List<dynamic>? servicos;
-  const ButtonGoSignUpScreenSelectServicos({Key? key,
+  final ViewActionsSelectServicos viewActions;
+  final ViewModelSelectServicos viewModel;
+   ButtonGoSignUpScreenSelectServicos({Key? key,
     required this.viewActions,
     required this.viewModel,
-    required this.name,
-    required this.phone,
-    required this.workingHours,
-    required this.description,
-    required this.profilePicture,
-    required this.comentarios,
-    required this.cidades,
-    required this.servicos,
   }) : super(key: key);
+  final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +26,24 @@ class ButtonGoSignUpScreenSelectServicos extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
 
         children: [
-          ElevatedButton(
+          RoundedLoadingButton(
+            controller: _btnController,
             child: Ink(
               decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.blue.shade900,
+                      Colors.blue.shade500,
+                      Colors.blue.shade400
+                    ],
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                   ),
-                  borderRadius: BorderRadius.circular(30.0)
-              ),
-
+                  borderRadius:
+                  BorderRadius.circular(30.0)),
               child: Container(
-                constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
+                constraints: BoxConstraints(
+                    maxWidth: 350.0, minHeight: 50.0),
                 alignment: Alignment.center,
                 child: Text(
                   'Continuar',
@@ -59,31 +51,69 @@ class ButtonGoSignUpScreenSelectServicos extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,
-                      fontWeight: FontWeight.bold
-                  ),
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
-            onPressed: () {
+            onPressed: ()  {
+              this.viewActions.savarListaSelecionadaFirebase(viewModel);
               if(1<3){
-                this.viewActions?.savarListaSelecionadaFirebase(viewModel!);
+                this.viewActions.savarListaSelecionadaFirebase(viewModel);
 
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ViewsignUpEplicandoTelaDocumentos(
-                      name: name, phone: phone, workingHours: workingHours, description: description,
-                      profilePicture: profilePicture, comentarios: comentarios,
-                      cidades: ['ciade', 'cidade'], servicos: ['servico1', 'servico2'],)));
+                    builder: (context) => ViewsignUpEplicandoTelaDocumentos()));
               }
+              _btnController.reset();
             },
-            style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.all(0),
-              shape: new RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(30.0),
-              ),
-            ),
-          ),
+          )
         ],
       ),
     );
   }
 }
+
+/*          RoundedLoadingButton(
+            controller: _btnController,
+            child: Ink(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.blue.shade900,
+                      Colors.blue.shade500,
+                      Colors.blue.shade400
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                  borderRadius:
+                  BorderRadius.circular(30.0)),
+              child: Container(
+                constraints: BoxConstraints(
+                    maxWidth: 350.0, minHeight: 50.0),
+                alignment: Alignment.center,
+                child: Text(
+                  'Continuar',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            onPressed: ()  {
+
+
+              this.viewActions.savarListaSelecionadaFirebase(viewModel);
+
+                   if(1<3){
+                this.viewActions.savarListaSelecionadaFirebase(viewModel);
+
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ViewsignUpEplicandoTelaDocumentos()));
+              }
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => PresenterSelectServicos.presenter()));
+              _btnController.reset();
+            },
+          ),*/

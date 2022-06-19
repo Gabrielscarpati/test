@@ -123,7 +123,7 @@ class ViewSelectServicos extends View<ViewModelSelectServicos, ViewActionsSelect
         bottomNavigationBar: BottomAppBar(
           child: Padding(
             padding: const EdgeInsets.all(12.0),
-            child: ButtonGoSignUpScreenSelectServicos(viewActions: viewActions, viewModel: viewModel!, name: null, phone: null, workingHours: null, description: null, profilePicture: null, comentarios: null, cidades: null, servicos: null,),
+            child: ButtonGoSignUpScreenSelectServicos(viewActions: viewActions, viewModel: viewModel!),
           ),
         ),
       );

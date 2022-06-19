@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:get_it/get_it.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/framework/bloc.dart';
 import '../../../daos/firebase/updatePrestadorFirebase.dart';
@@ -102,7 +103,7 @@ class BlocSelectServicos
   }
 
 
-    void _savarListaSelecionadaFirebase(BlocEventSavarListaSelecionadaFirebase blocEvent){
+    void _savarListaSelecionadaFirebase(BlocEventSavarListaSelecionadaFirebase blocEvent) {
       ViewModelSelectServicos viewModel = blocEvent.viewModel;
 
       int index = 0;
@@ -110,11 +111,9 @@ class BlocSelectServicos
       viewModel.cidadesSelecionadas.forEach((element) {
         servicos.add(index);
         index++;
-        }
+      }
       );
-      /*
-      SetPrestadorInformationCompleta(
-        roles: servicos,
-      );*/
-  }
+      SetPrestadorInformationCompleta informacoesPrestador = GetIt.instance<SetPrestadorInformationCompleta>();
+      informacoesPrestador.servicos = servicos;
+    }
 }

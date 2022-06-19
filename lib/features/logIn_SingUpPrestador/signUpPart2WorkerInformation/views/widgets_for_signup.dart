@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../../../util/controllerMobxFirebase.dart';
 
 
 class NameWidget extends StatelessWidget {
@@ -11,7 +10,6 @@ class NameWidget extends StatelessWidget {
   final TextEditingController nameController;
    NameWidget({Key? key, required this.nameController}) : super(key: key);
 
-  Controller controllerAdicionaInfoFirebase = Controller();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,6 @@ class NameWidget extends StatelessWidget {
           controller: nameController,
           keyboardType: TextInputType.name,
           textInputAction: TextInputAction.next,
-          onChanged: controllerAdicionaInfoFirebase.changeName(nameController.text),
           validator: (nameController) {
             if (nameController!.isEmpty || !RegExp(r'^[a-z A-Z]+$').hasMatch(nameController)){
               return "Digite um nome válido";
@@ -56,7 +53,6 @@ class PhoneWidget extends StatelessWidget {
   final TextEditingController phoneController;
   PhoneWidget({Key? key, required this.phoneController}) : super(key: key);
 
-  Controller controllerAdicionaInfoFirebase = Controller();
 
 
   @override
@@ -66,7 +62,6 @@ class PhoneWidget extends StatelessWidget {
         TextFormField(
           controller: phoneController,
           keyboardType: TextInputType.name,
-          onChanged: controllerAdicionaInfoFirebase.changePhoneNumber(phoneController.text),
           textInputAction: TextInputAction.next,
           validator: (phoneNumberController) {
             if (phoneNumberController!.isEmpty|| phoneNumberController.length !=11  || !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$').hasMatch(phoneNumberController)){
@@ -103,7 +98,6 @@ class WorkingHoursWidget extends StatelessWidget {
   final TextEditingController workingHoursController;
    WorkingHoursWidget({Key? key, required this.workingHoursController}) : super(key: key);
 
-  Controller controllerAdicionaInfoFirebase = Controller();
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +107,6 @@ class WorkingHoursWidget extends StatelessWidget {
           controller: workingHoursController,
           keyboardType: TextInputType.name,
           textInputAction: TextInputAction.next,
-          onChanged: controllerAdicionaInfoFirebase.changeWorkingHours(workingHoursController.text),
           decoration: InputDecoration(
             suffixIcon: IconButton(
               icon: Icon(Icons.close),
@@ -143,7 +136,6 @@ class DescriptionWidget extends StatelessWidget {
   final TextEditingController descriptionController;
   DescriptionWidget({Key? key, required this.descriptionController}) : super(key: key);
 
-  Controller controllerAdicionaInfoFirebase = Controller();
   @override
   Widget build(BuildContext context) {
     return  Stack(
@@ -153,7 +145,6 @@ class DescriptionWidget extends StatelessWidget {
           maxLines: 9,
           controller: descriptionController,
           keyboardType: TextInputType.multiline,
-          onChanged: controllerAdicionaInfoFirebase.changeDescription(descriptionController.text),
           textInputAction: TextInputAction.next,
           validator: (nameController) {
             if (nameController!.isEmpty) {

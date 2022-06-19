@@ -3,7 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
+import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
 import '../../../../daos/usuario/daoUsuario.dart';
@@ -16,26 +19,8 @@ import 'dart:io';
 
 class BodySignUpPart5PrestadorDocumentos extends StatefulWidget{
 
-  final String? name;
-  final String? phone;
-  final String? workingHours;
-  final String? description;
-  final Future<String>? profilePicture;
-  final List<dynamic>? comentarios;
-  final List<dynamic>? cidades;
-  final List<dynamic>? servicos;
 
-  const BodySignUpPart5PrestadorDocumentos({Key? key,
-    required this.name,
-    required this.phone,
-    required this.workingHours,
-    required this.description,
-    required this.profilePicture,
-    required this.comentarios,
-    required this.cidades,
-    required this.servicos,
-
-  }) : super(key: key);
+  const BodySignUpPart5PrestadorDocumentos({Key? key,}) : super(key: key);
   @override
   _BodySignUpPart5PrestadorDocumentos createState() => _BodySignUpPart5PrestadorDocumentos();
 }
@@ -52,7 +37,9 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
     return userId;
   }
 
+  SetPrestadorInformationCompleta informacoesPrestador = GetIt.instance<SetPrestadorInformationCompleta>();
 
+  final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
   final firebase_storage.FirebaseStorage storage = firebase_storage.FirebaseStorage.instance;
 
   File? _photo;
@@ -220,18 +207,24 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
 
                           child: Column(
                             children: [
-                              ElevatedButton(
+                              RoundedLoadingButton(
+                                controller: _btnController,
                                 child: Ink(
                                   decoration: BoxDecoration(
-                                      gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Colors.blue.shade900,
+                                          Colors.blue.shade500,
+                                          Colors.blue.shade400
+                                        ],
                                         begin: Alignment.centerLeft,
                                         end: Alignment.centerRight,
                                       ),
-                                      borderRadius: BorderRadius.circular(30.0)
-                                  ),
-
+                                      borderRadius:
+                                      BorderRadius.circular(30.0)),
                                   child: Container(
-                                    constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
+                                    constraints: BoxConstraints(
+                                        maxWidth: 350.0, minHeight: 50.0),
                                     alignment: Alignment.center,
                                     child: Text(
                                       'Continuar',
@@ -239,8 +232,7 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 20.0,
-                                          fontWeight: FontWeight.bold
-                                      ),
+                                          fontWeight: FontWeight.bold),
                                     ),
                                   ),
                                 ),
@@ -250,14 +242,14 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
 
                                   if (form.validate()) {
                                     await firestore.collection('dadosPrestador').doc(await getUserId()).set({
-                                      'name': widget.name,
-                                      'phone': widget.phone,
-                                      'workingHours': widget.workingHours,
-                                      'description': widget.description,
-                                      'profilePicture': widget.profilePicture,
-                                      'comentarios': widget.comentarios,
-                                      'city': widget.cidades,
-                                      'roles': widget.servicos,
+                                      'name': informacoesPrestador.name,
+                                      'phone': informacoesPrestador.phone,
+                                      'workingHours': informacoesPrestador.workingHours,
+                                      'description': informacoesPrestador.description,
+                                      'profilePicture': informacoesPrestador.profilePicture,
+                                      'comentarios': informacoesPrestador.comentarios,
+                                      'city': informacoesPrestador.cidades,
+                                      'roles': informacoesPrestador.cidades,
                                       'numeroDeCliquesNoLigarOuWhatsApp': 0,
                                       'dataVencimentoPlano': DateTime.now(),
                                       'dataAberturaConta': DateTime.now(),
@@ -266,15 +258,10 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
                                     }
                                     );
                                     Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => ViewVeryFirstScreen(),));
+                                        builder: (context) => PresenterHubPrestador.presenter(),));
                                   }
+                                  _btnController.reset();
                                 },
-                                style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.all(0),
-                                  shape: new RoundedRectangleBorder(
-                                    borderRadius: new BorderRadius.circular(30.0),
-                                  ),
-                                ),
                               ),
                             ],
                           ),
@@ -320,3 +307,4 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
         });
   }
 }
+

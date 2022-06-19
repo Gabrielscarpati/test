@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
@@ -13,6 +14,7 @@ import 'package:projeto_treinamento/util/getQtdePrestadoresDeServicoPorTipoSeerv
 import 'package:projeto_treinamento/util/src/utils/storage_util.dart';
 import 'package:provider/provider.dart';
 import 'daos/firebase/authService.dart';
+import 'daos/firebase/updatePrestadorFirebase.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
 import 'daos/usuario/daoUsuario.dart';
 import 'features/infoPrestadorDeServico/views/comentariosInfoPrestadorDeServico.dart';
@@ -30,9 +32,17 @@ final Storage storage = new Storage();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  final getIt = GetIt.instance;
+
+  getIt.registerLazySingleton(() => SetPrestadorInformationCompleta(name: '',
+      phone: '', workingHours: '', description: '', profilePicture: '',
+      comentarios: [], cidades: [], servicos: [], numeroDeCliquesNoLigarOuWhatsApp: 0,
+      dataVencimentoPlano: DateTime.now(), dataAberturaConta: DateTime.now(), brazilianIDPicture: '',
+      planoPrestador: 0
+  ));
+
   runApp(MyApp());
-  GetPrestadoresDeServicoPorTipoSeervicoECidade ooo = GetPrestadoresDeServicoPorTipoSeervicoECidade(idCidade: 'Colatina - ES', idServico: 1);
-  ooo.action();
 }
 
 GoogleSignInAccount? _usuarioAtual;
@@ -84,9 +94,9 @@ class MyApp extends StatelessWidget {
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData ||
                 usuario != null /*verificarSeUsuarioNulo() == null*/) {
-              return PresenterHubPrestador.presenter();
+              return ViewVeryFirstScreen();
             }
-            return  PresenterHubPrestador.presenter();
+            return  ViewVeryFirstScreen();
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),

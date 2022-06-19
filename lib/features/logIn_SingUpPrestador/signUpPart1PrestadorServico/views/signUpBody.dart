@@ -8,8 +8,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import '../../../../util/funcoesLogIn/funcaoPestadorEmailJaExisteOuNao.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
+import '../../../../util/libraryComponents/popUps/popUpEmailJaEstaEmUso.dart';
 import '../../../logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSignUpPart2WorkerInformatio.dart';
 import 'backArrowSignUp.dart';
 import 'package:email_validator/email_validator.dart';
@@ -39,6 +41,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
   Map? _userData;
   GoogleSignInAccount? usuario = _usuarioAtual;
 
+
   @override
   Widget build(BuildContext context) {
     String? usuarioGoogle = usuario?.id.toString();
@@ -51,6 +54,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
   Widget _usuarioNaologado(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    FuncaoPestadorEmailJaExisteOuNao funcaoPestadorEmailJaExisteOuNao = FuncaoPestadorEmailJaExisteOuNao(emailController: emailController);
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -281,14 +285,22 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                                   ),
                                 ),
                               ),
-                              onPressed: ()  {
-                                Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        print('hehehe'*7);
-                                        return SingUpPart2WorkerInformation();
-                                      },
-                                    ));
+                              onPressed: () async {
+                                final form = formKeyAuthentication.currentState!;
+
+                                if (await funcaoPestadorEmailJaExisteOuNao.checkIfEmailInUse() == true){
+                                  await mostrarErroEmailInvalido();
+                                } else if(form.validate() && passwordController.text == cofirmPasswordController.text){
+
+                                  await AuthService().registerUser(emailController.text, passwordController.text);
+                                  Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return SingUpPart2WorkerInformation();
+                                        },
+                                      ));
+                                }
+                                _btnController.reset();
                               },
                             ),
                           ),
@@ -298,41 +310,41 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                           children: [
                             Expanded(
                                 child: SizedBox(
-                              height: 50,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors
-                                      .white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
-                                  shape: new RoundedRectangleBorder(
-                                    borderRadius:
-                                        new BorderRadius.circular(20.0),
-                                  ),
-                                ),
-                                onPressed: () async {
-                                  await signInWithFacebook();
-                                },
-                                child: Center(
-                                  child: Container(
-                                    child: Row(
-                                      children: <Widget>[
-                                        Icon(
-                                          FontAwesomeIcons.facebook,
-                                          color: Colors.indigoAccent,
+                                  height: 50,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors
+                                          .white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
+                                      shape: new RoundedRectangleBorder(
+                                        borderRadius:
+                                            new BorderRadius.circular(20.0),
+                                      ),
+                                    ),
+                                    onPressed: () async {
+                                      await signInWithFacebook();
+                                    },
+                                    child: Center(
+                                      child: Container(
+                                        child: Row(
+                                          children: <Widget>[
+                                            Icon(
+                                              FontAwesomeIcons.facebook,
+                                              color: Colors.indigoAccent,
+                                            ),
+                                            SizedBox(
+                                              width: screenWidth * 0.015,
+                                            ),
+                                            Text(
+                                              'Facebook',
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.black),
+                                            ),
+                                          ],
                                         ),
-                                        SizedBox(
-                                          width: screenWidth * 0.015,
-                                        ),
-                                        Text(
-                                          'Facebook',
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.black),
-                                        ),
-                                      ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
                             )),
                             SizedBox(width: screenWidth * 0.02564 * .7),
                             Expanded(
@@ -472,4 +484,12 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
   Widget _usuarioLogado(BuildContext context) {
     return PresenterHubPrestador.presenter();
   }
+
+  Future mostrarErroEmailInvalido() => showDialog(
+    context: context,
+    builder: (context) => PopUpEmailJaEstaEmUso(),
+  );
+
+
+
 }
