@@ -7,7 +7,9 @@ import 'package:projeto_treinamento/providers/prestadoresDeServicoPorCidadeTipoD
 
 import 'viewModelListaPrestadoresDeServico.dart';
 
-class BlocListaPrestadoresDeServico extends Bloc<ViewModelListaPrestadoresDeServico, BlocEventListaPrestadoresDeServico> {
+class BlocListaPrestadoresDeServico extends Bloc<
+ViewModelListaPrestadoresDeServico
+, BlocEventListaPrestadoresDeServico> {
   @override
   void onReceiveBlocEvent(BlocEventListaPrestadoresDeServico blocEvent) {
     if (blocEvent is BlocEventListaPrestadoresDeServicoInicializaViewModel) _inicializaViewModel(blocEvent);
@@ -15,7 +17,7 @@ class BlocListaPrestadoresDeServico extends Bloc<ViewModelListaPrestadoresDeServ
   }
 
   void _inicializaViewModel(BlocEventListaPrestadoresDeServicoInicializaViewModel blocEvent) async {
-    BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico businessModel = await ProviderPrestadoresDeServicoPorCidadeTipoDeServico()
+    BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico businessModel = await ProviderPrestadoresDeServicoPorCidadeTipoDeServico()//business model null 
         .getBusinessModel(blocEvent.codCidade.toString() + "-" + blocEvent.codTipoDeServico.toString());
     List<BusinessModelPrestadorDeServicos> listaCompleta;
     listaCompleta = businessModel.prestadoresDeServico;

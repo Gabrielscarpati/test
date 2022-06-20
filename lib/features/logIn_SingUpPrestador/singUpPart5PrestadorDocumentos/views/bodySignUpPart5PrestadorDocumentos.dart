@@ -251,7 +251,7 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
                                       'profilePicture': informacoesPrestador.profilePicture,
                                       'comentarios': informacoesPrestador.comentarios,
                                       'city': informacoesPrestador.cidades,
-                                      'roles': informacoesPrestador.cidades,
+                                      'roles': informacoesPrestador.servicos,
                                       'numeroDeCliquesNoLigarOuWhatsApp': 0,
                                       'dataVencimentoPlano': DateTime.now(),
                                       'dataAberturaConta': DateTime.now(),

@@ -21,7 +21,7 @@ class ViewPesquisaTipoServico extends View<ViewModelPesquisaTipoServico, ViewAct
         style: TextStyle(color: Colors.white),),
         backgroundColor: ColorAppBar,
         iconTheme: IconThemeData(
-          color: Colors.white,
+          color: Colors.white,size: 30
         ),
       ),
       body: _buildBody(context),

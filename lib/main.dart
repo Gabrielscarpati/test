@@ -95,14 +95,14 @@ class MyApp extends StatelessWidget {
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData ||
-                usuario != null /*verificarSeUsuarioNulo() == null*/) {
-              return BodySignUpPart5PrestadorDocumentos();
+                usuario != null || verificarSeUsuarioNulo() == null) {
+              return PresenterHubPrestador.presenter();
             }
-            return  ViewVeryFirstScreen();
+            return ViewVeryFirstScreen();
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),
-      //ViewPesquisaCidadeBodya(),
+      //ViewPesquisaCidadeBodya(),=
       //ViewSignUpPart3ChooseCity()
       //ViewVeryFirstScreen()
       //PresenterHub.presenter()
