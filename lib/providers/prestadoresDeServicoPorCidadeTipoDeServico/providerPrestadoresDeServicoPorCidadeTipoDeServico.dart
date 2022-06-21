@@ -38,18 +38,25 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
     List<BusinessModelDadosPrestador> prestadoresDeServico =
         await ProvideDadosPrestador().getBusinessModels();
 
-    prestadoresDeServico = prestadoresDeServico
-        .where((e) => e.city.contains(cidades[int.parse(codCidade)]))
-        .toList() as List<BusinessModelDadosPrestador>;
+    print(prestadoresDeServico);
+    print(tipoDeServico);
+    print(cidades);
+
     prestadoresDeServico = prestadoresDeServico
         .where((e) => e.roles.contains(int.parse(codTipoDeServico)))
         .toList() as List<BusinessModelDadosPrestador>;
+    prestadoresDeServico = prestadoresDeServico
+        .where((e) => e.city.contains(cidades[int.parse(codCidade)].nome))
+        .toList() as List<BusinessModelDadosPrestador>;
+
+    print(prestadoresDeServico);
+    print(cidades[int.parse(codCidade)].nome);
 
     for (int i = 0; i < prestadoresDeServico.length; i++) {
       BusinessModelDadosPrestador prestador = prestadoresDeServico[i];
       List<BusinessModelAvaliacaoPrestadorDeServico> comentarios =
           await GetAvaliacoesPrestador().action(prestador.IdPrestador);
-
+      print(comentarios);
       double nota = 0;
       int totalDeAvaliacoes = 0;
       int totalDeAvaliacoesNota1 = 0;
@@ -94,7 +101,8 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
       ));
     }
 
-    BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico(
+    retornoBusinemodel =
+        BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico(
       cidade: cidades[int.parse(codCidade)],
       prestadoresDeServico: prestadores,
       tipoDeServico: tipoDeServico,

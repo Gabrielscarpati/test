@@ -36,7 +36,6 @@ class ProviderPrincipaisTiposDeServicoCidade
         .where((element) => element.city == cidades[int.parse(id)].nome)
         .toList();
 
-
     if (prestadoresFiltrados.length < 4) {
       prestadoresFiltrados = prestadores;
     }
@@ -68,7 +67,6 @@ class ProviderPrincipaisTiposDeServicoCidade
       }
     }
 
-
     List<int> listaQuantidadePrestadores = [];
     List<String> listKeys = [];
 
@@ -95,7 +93,6 @@ class ProviderPrincipaisTiposDeServicoCidade
     listaindexMaiorValor.forEach((valor) {
       listKeysOrdenadasFinal.add(listKeys[valor]);
     });
-
 
     listKeysOrdenadasFinal.forEach((element) {
       listPrincipaisBusinessModelTipoDeServico.add(BusinessModelTiposDeServico(
@@ -126,7 +123,7 @@ class ProviderPrincipaisTiposDeServicoCidade
         qtdePrestadoresDeServico: qtePrestadores,
       ));
     }
-
+    print(cidades);
     businessModelPrincipaisTiposDeServicoCidade =
         BusinessModelPrincipaisTiposDeServicoCidade(
       cidade: cidades[int.parse(id)],
