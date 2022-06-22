@@ -38,7 +38,7 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                         item: this.viewModel.prestador.name,
                         hintText: 'Digite o seu Nome',
                         onEditionComplete: (String novoNome) {
-                          //    this.viewActions.onChangeName(novoNome, viewModel);
+                          this.viewActions.onChangeName(novoNome, viewModel);
                         },
                       ),
                       Divider(),
@@ -47,8 +47,10 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                         iconData: Icons.phone,
                         item: this.viewModel.prestador.phone,
                         hintText: 'Digite o seu Numero',
-                        onEditionComplete: (String novoNome) {
-                          //  this.viewActions.onChangeName(novoNome, viewModel);
+                        onEditionComplete: (String novoTelefone) {
+                          this
+                              .viewActions
+                              .onChangeNumber(novoTelefone, viewModel);
                         },
                       ),
                       Divider(),
@@ -70,8 +72,10 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                         iconData: Icons.lock_clock,
                         item: this.viewModel.prestador.workingHours,
                         hintText: 'Digite aqui',
-                        onEditionComplete: (String novoNome) {
-                          //  this.viewActions.onChangeName(novoNome, viewModel);
+                        onEditionComplete: (String novoHorario) {
+                          this
+                              .viewActions
+                              .onChangeHoras(novoHorario, viewModel);
                         },
                       ),
                       Divider(),
@@ -80,8 +84,10 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                         iconData: Icons.description,
                         item: this.viewModel.prestador.description,
                         hintText: 'Faca uma descricao',
-                        onEditionComplete: (String novoNome) {
-                          //   this.viewActions.onChangeName(novoNome, viewModel);
+                        onEditionComplete: (String novaDesc) {
+                          this
+                              .viewActions
+                              .onChangeDescricao(novaDesc, viewModel);
                         },
                       ),
                     ],
