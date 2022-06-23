@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 
 import '../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../util/libraryComponents/colors/colors.dart';
 
 class ComentariosInfoPrestadorDeServico extends StatefulWidget {
-  const ComentariosInfoPrestadorDeServico({Key? key}) : super(key: key);
+  final ViewModelInfoPrestadorDeServico viewModel;
+   ComentariosInfoPrestadorDeServico({Key?key,
+     required this.viewModel,
+    }) : super(key: key);
 
   @override
   _ComentariosInfoPrestadorDeServicoState createState() => _ComentariosInfoPrestadorDeServicoState();
@@ -151,12 +155,17 @@ class _ComentariosInfoPrestadorDeServicoState extends State<ComentariosInfoPrest
               ),
             ),
             onPressed: () {
+              print('kkkkk');
               UpdateComentarioAvaliacao updateComentarioAvaliacao = UpdateComentarioAvaliacao(
                   dataDoComentario: DateTime.now().toString(),
                   nota: rating,
                   textoComentario: _ComentarioController.text,
-                  emailUsuario: 'caio@gmail.com');
+                  emailUsuario: 'caio@gmail.com',
+                  idUsuario: 'idUsuario',
+                  idPrestador: widget.viewModel.prestadorDeServicos.codPrestadorServico
+               );
               updateComentarioAvaliacao.updateComentarioAvaliacao();
+              print('aaaa');
               //Navigator.of(context).pop();
             },
             style: ElevatedButton.styleFrom(

@@ -20,21 +20,34 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
       _atualizaViewModel(blocEvent);
   }
 
+
+/*  Future<ViewModelHubPrestador> _aplicaCidadeNoViewModel(BusinessModelDadosPrestador prestador, String idCidade) async {
+    BusinessModelPrincipaisTiposDeServicoCidade principaisTiposDeServicoCidade = await ProviderPrincipaisTiposDeServicoCidade().getBusinessModel(idCidade);
+    print(principaisTiposDeServicoCidade);
+
+    ViewModelHubPrestador viewModel = ViewModelHubPrestador(
+      prestador: prestador,
+      cidade: principaisTiposDeServicoCidade.cidade,
+      principaisTiposDeServicoCidade: principaisTiposDeServicoCidade,
+    );
+    return viewModel;
+  }*/
+
   void _inicializaViewModel(
       BlocEventHubInicializaViewModelPrestador blocEvent) async {
     BusinessModelDadosPrestador prestador = BusinessModelDadosPrestador(
-      IdPrestador: 'IdPrestador',
-      dataAberturaConta: DateTime.now(),
-      dataVencimentoPlano: DateTime.now(),
-      name: 'Gabriel',
-      numeroDeCliquesNoLigarOuWhatsApp: 4,
-      profilePicture: 'foto',
-      phone: '111111111',
-      city: ['colatina'],
-      description: 'Sou um Bom funcionaio',
-      roles: [0, 1],
-      workingHours: 'so depois do almoco',
-    );
+        name: 'name',
+        phone: 'phone',
+        workingHours: 'workingHours',
+        description: 'description',
+        profilePicture: 'profilePicture',
+        city: ['city'],
+        roles: [1,2],
+        numeroDeCliquesNoLigarOuWhatsApp: 0,
+        dataVencimentoPlano: DateTime.now(),
+        dataAberturaConta:  DateTime.now(),
+        IdPrestador: 'IdPrestador');
+
     String idCidadeDoprestador = "1"; // 1=colatina
 
     List<BusinessModelCidade> cidades =

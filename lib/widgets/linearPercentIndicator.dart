@@ -15,16 +15,19 @@ class LienarPercentIndicatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return rating != null
-        ? LinearPercentIndicator(
-            width: MediaQuery.of(context).size.width * 0.35,
-            animation: true,
-            lineHeight: 15.0,
-            animationDuration: 2000,
-            percent: (rating!),
-            center: Text(""),
-            linearStrokeCap: LinearStrokeCap.roundAll,
-            progressColor: Color(0xff006400),
-          )
+        ? Container(
+          child: LinearPercentIndicator(
+              width: MediaQuery.of(context).size.width * 0.35,
+              animation: true,
+              lineHeight: 15.0,
+              animationDuration: 2000,
+              curve: Curves.elasticIn,
+              percent: (rating!),
+              center: Text(""),
+              barRadius: const Radius.circular(16),
+              progressColor: Color(0xff006400),
+            ),
+        )
         : LinearPercentIndicator(
             width: MediaQuery.of(context).size.width * 0.35,
             animation: true,
@@ -32,7 +35,7 @@ class LienarPercentIndicatorWidget extends StatelessWidget {
             animationDuration: 2000,
             percent: (0),
             center: Text("0"),
-            linearStrokeCap: LinearStrokeCap.roundAll,
+            barRadius: const Radius.circular(16),
             progressColor: Color(0xff006400),
           );
   }

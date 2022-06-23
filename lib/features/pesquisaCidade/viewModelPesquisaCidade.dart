@@ -7,13 +7,11 @@ import 'featureModelPesquisaCidade.dart';
 
 
 class ViewModelPesquisaCidade extends ViewModelLista<FeatureModelPesquisaCidade> {
-  final BusinessModelIcone iconeCidade;
   final TextEditingController controlerFieldPesquisa = TextEditingController();
   String mensagemDeErro = '';
 
   ViewModelPesquisaCidade({
     required List<FeatureModelPesquisaCidade> listaCompleta,
-    required this.iconeCidade,
   }) : super(listaVisivel: List.empty(growable: true)..addAll(listaCompleta), listaCompleta: listaCompleta);
 
   BusinessModelCidade getCidadePeloCodCidade(int codCidade) {

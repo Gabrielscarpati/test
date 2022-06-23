@@ -23,6 +23,7 @@ class ViewInfoPrestadorDeServicoDadosRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +58,7 @@ class ViewInfoPrestadorDeServicoDadosRating extends StatelessWidget {
           ],
         ),
         SizedBox(
-          width: 20,
+          width: 16,
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -93,22 +94,22 @@ class ViewInfoPrestadorDeServicoDadosRating extends StatelessWidget {
           style: Theme.of(context).textTheme.headline6!.copyWith(fontWeight: FontWeight.bold, color: Theme.of(context).textTheme.caption!.color, fontSize: 16),
         ),
         SizedBox(
-          width: 8,
+          width: 6,
         ),
         LienarPercentIndicatorWidget(
-          rating: (totalDeAvaliacoesNota / viewModel.prestadorDeServicos.totalDeAvaliacoes),
+          rating:  (totalDeAvaliacoesNota / (viewModel.prestadorDeServicos.totalDeAvaliacoes == 0 ? 1:viewModel.prestadorDeServicos.totalDeAvaliacoes)),
           totalDeAvaliacoes: totalDeAvaliacoesNota,
         ),
         SizedBox(
-          width: 8,
+          width: 6,
         ),
-        SizedBox(
-          width: 50,
-          child: Text(
-            (100 * totalDeAvaliacoesNota ~/ viewModel.prestadorDeServicos.totalDeAvaliacoes).toString() + "%",
-            style: Theme.of(context).textTheme.headline6!.copyWith(fontWeight: FontWeight.bold, color: Theme.of(context).textTheme.caption!.color, fontSize: 16),
+         SizedBox(
+            width: 34,
+            child: Text(
+              (100 * totalDeAvaliacoesNota ~/ (viewModel.prestadorDeServicos.totalDeAvaliacoes == 0? 1:viewModel.prestadorDeServicos.totalDeAvaliacoes) ).toString() + "%",
+              style: Theme.of(context).textTheme.headline6!.copyWith(fontWeight: FontWeight.bold, color: Theme.of(context).textTheme.caption!.color, fontSize: 16),
           ),
-        )
+        ),
       ],
     );
   }

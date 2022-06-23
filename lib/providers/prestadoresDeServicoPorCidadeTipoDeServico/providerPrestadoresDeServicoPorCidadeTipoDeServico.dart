@@ -1,3 +1,4 @@
+
 import 'package:projeto_treinamento/businessModels/businessModelAvaliacaoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelDadosPrestador.dart';
@@ -21,10 +22,8 @@ import 'adapterPrestadoresDeServicoPorCidadeTipoDeServico.dart';
 class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
     extends Provider<BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico> {
   @override
-  Future<BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico>
-      getBusinessModel(String id) async {
-    BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico retornoBusinemodel =
-        BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico.vazio();
+  Future<BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico> getBusinessModel(String id) async {
+    BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico retornoBusinemodel = BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico.vazio();
     List<String> ids = id.split("-");
     String codCidade = ids[0];
     String codTipoDeServico = ids[1];
@@ -38,9 +37,6 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
     List<BusinessModelDadosPrestador> prestadoresDeServico =
         await ProvideDadosPrestador().getBusinessModels();
 
-    print(prestadoresDeServico);
-    print(tipoDeServico);
-    print(cidades);
 
     prestadoresDeServico = prestadoresDeServico
         .where((e) => e.roles.contains(int.parse(codTipoDeServico)))
@@ -49,14 +45,12 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
         .where((e) => e.city.contains(cidades[int.parse(codCidade)].nome))
         .toList() as List<BusinessModelDadosPrestador>;
 
-    print(prestadoresDeServico);
-    print(cidades[int.parse(codCidade)].nome);
+    //print(prestadoresDeServico);
+    //print(cidades[int.parse(codCidade)].nome);
 
     for (int i = 0; i < prestadoresDeServico.length; i++) {
       BusinessModelDadosPrestador prestador = prestadoresDeServico[i];
-      List<BusinessModelAvaliacaoPrestadorDeServico> comentarios =
-          await GetAvaliacoesPrestador().action(prestador.IdPrestador);
-      print(comentarios);
+      List<BusinessModelAvaliacaoPrestadorDeServico> comentarios = await GetAvaliacoesPrestador().action(prestador.IdPrestador);
       double nota = 0;
       int totalDeAvaliacoes = 0;
       int totalDeAvaliacoesNota1 = 0;
@@ -97,7 +91,8 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
         totalDeAvaliacoesNota3: totalDeAvaliacoesNota3,
         totalDeAvaliacoesNota4: totalDeAvaliacoesNota4,
         totalDeAvaliacoesNota5: totalDeAvaliacoesNota5,
-        urlFoto: "",
+        urlFoto: prestador.profilePicture,
+        description: prestador.description,
       ));
     }
 
@@ -110,6 +105,20 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
 
     return retornoBusinemodel;
   }
+
+
+  Future getComentarios() async{
+    List<BusinessModelDadosPrestador> prestadoresDeServico = await ProvideDadosPrestador().getBusinessModels();
+    for (int i = 0; i < prestadoresDeServico.length; i++) {
+      BusinessModelDadosPrestador prestador = prestadoresDeServico[i];
+      List<BusinessModelAvaliacaoPrestadorDeServico> comentarios = await GetAvaliacoesPrestador().action(prestador.IdPrestador);
+      if(comentarios.length > 0) {
+        return comentarios;
+      }
+    }
+  }
+
+
 
   @override
   Future<List<BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico>>

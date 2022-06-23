@@ -5,6 +5,7 @@ import 'package:projeto_treinamento/framework/bloc.dart';
 import 'package:projeto_treinamento/providers/avaliacaoPrestadorDeServico/providerAvaliacaoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/providers/icone/providerIcone.dart';
 
+import '../../providers/prestadoresDeServicoPorCidadeTipoDeServico/providerPrestadoresDeServicoPorCidadeTipoDeServico.dart';
 import 'blocEventInfoPrestadorDeServico.dart';
 import 'viewModelInfoPrestadorDeServico.dart';
 
@@ -34,10 +35,10 @@ class BlocInfoPrestadorDeServico extends Bloc<ViewModelInfoPrestadorDeServico,
     List<BusinessModelAvaliacaoPrestadorDeServico>
         listaAvaliacoesPrestadorDeServico;
     if (prestadorDeServicos.totalDeAvaliacoes > 0) {
+      print(await ProviderPrestadoresDeServicoPorCidadeTipoDeServico().getComentarios().toString());
+
       listaAvaliacoesPrestadorDeServico =
-          await ProviderAvaliacaoPrestadorDeServico()
-              .getBusinessModelsByCodPrestadorDeServico(
-                  prestadorDeServicos.codPrestadorServico);
+          (await ProviderPrestadoresDeServicoPorCidadeTipoDeServico().getComentarios()).cast<BusinessModelAvaliacaoPrestadorDeServico>();
     } else {
       listaAvaliacoesPrestadorDeServico = List.empty();
     }

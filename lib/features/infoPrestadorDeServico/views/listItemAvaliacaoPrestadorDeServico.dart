@@ -14,54 +14,82 @@ class ListItemAvaliacaoPrestadorDeServico extends StatelessWidget {
     required this.avaliacao,
   }) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  child: Text(
-                    "J",
-                    style: TextStyle(color: Colors.black87),
+    String month = avaliacao.data.substring(5,7);
+    String ano = avaliacao.data.substring(0,4);
+    String dia = avaliacao.data.substring(8,10);
+    String horaMinSegundo = avaliacao.data.substring(11,20);
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return  Card(
+          child: Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    child: Text(
+                      avaliacao.emailUsuario[0].toUpperCase(),
+                      style: TextStyle(color: Colors.black87),
+                    ),
+                    backgroundColor: Colors.grey,
                   ),
-                  backgroundColor: Colors.grey,
-                ),
-                SizedBox(width: 16),
-                Text(avaliacao.id),
-              ],
-            ),
-            SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CustomRatingBar(
-                  rating: avaliacao.nota,
-                ),
-                SizedBox(width: 8),
-                Text(
-                  avaliacao.data,
-                  style: Theme.of(context).textTheme.caption,
-                ),
-              ],
-            ),
-            SizedBox(height: 8),
-            Text(
-              avaliacao.comentario,
-              overflow: TextOverflow.ellipsis,
-              softWrap: false,
-              maxLines: 20,
-              textAlign: TextAlign.justify,
-              style: Theme.of(context).textTheme.caption,
-            )
-          ],
+                  SizedBox(width: 16),
+                  Text(avaliacao.emailUsuario),
+                  SizedBox(width: 16,),
+                  CustomRatingBar(
+                    rating: avaliacao.nota.toDouble(),
+                  ),
+                ],
+              ),
+              SizedBox(height: 8),
+
+                  SizedBox(width: 8),
+              ConstrainedBox(
+                  constraints:  BoxConstraints(
+                    minHeight: 10,
+                    minWidth: 100,
+                    maxHeight: 206,
+                    maxWidth: screenWidth*.90,
+                  ),
+
+                  child: Container(
+                    child: Text(avaliacao.comentario,
+                      style: Theme.of(context).textTheme.caption,),
+                  )
+              ),
+              SizedBox(height: 8),
+              Text(
+                dia+' de '+getMonth(month)+' de '+ano+ ' às '+horaMinSegundo,
+                overflow: TextOverflow.ellipsis,
+                softWrap: false,
+                maxLines: 20,
+                textAlign: TextAlign.justify,
+                style: Theme.of(context).textTheme.caption,
+              )
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    }
+  String getMonth(String month){
+    if(month == '01') return 'Janeiro';
+    if(month == '02') return 'Fevereiro';
+    if(month == '03') return 'Março';
+    if(month == '04') return 'Abril';
+    if(month == '05') return 'Maio';
+    if(month == '06') return 'Junho';
+    if(month == '07') return 'Julho';
+    if(month == '08') return 'Agosto';
+    if(month == '09') return 'Setembro';
+    if(month == '10') return 'Outubro';
+    if(month == '11') return 'Novembro';
+    if(month == '12') return 'Dezembro';
+    return 'Agosto';
   }
 }

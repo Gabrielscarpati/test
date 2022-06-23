@@ -1,3 +1,4 @@
+/*
 import 'package:projeto_treinamento/businessModels/businessModelAvaliacaoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/daos/avaliacaoPrestadorDeServico/daoAvaliacaoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/daos/avaliacaoPrestadorDeServico/dataModelAvaliacaoPrestadorDeServico.dart';
@@ -15,9 +16,7 @@ class ProviderAvaliacaoPrestadorDeServico extends ProviderDireto<
             dao: DaoAvaliacaoPrestadorDeServico(),
             adapter: AdapterAvaliacaoPrestadorDeServico());
 
-  Future<List<BusinessModelAvaliacaoPrestadorDeServico>>
-      getBusinessModelsByCodPrestadorDeServico(
-          String codPrestadorDeServico) async {
+  Future<List<BusinessModelAvaliacaoPrestadorDeServico>> getBusinessModelsByCodPrestadorDeServico(String codPrestadorDeServico) async {
     List<DataModelAvaliacaoPrestadorDeServico> dataModels =
         await this.dao.getDataModelsById(codPrestadorDeServico);
     List<BusinessModelAvaliacaoPrestadorDeServico> businessModels =
@@ -31,3 +30,4 @@ class ProviderAvaliacaoPrestadorDeServico extends ProviderDireto<
     return businessModels;
   }
 }
+*/

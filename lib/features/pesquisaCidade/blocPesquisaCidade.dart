@@ -2,8 +2,6 @@ import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/features/pesquisaCidade/viewModelPesquisaCidade.dart';
 import 'package:projeto_treinamento/framework/bloc.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
-import 'package:projeto_treinamento/providers/icone/providerIcone.dart';
-
 import 'blocEventPesquisaCidade.dart';
 import 'featureModelPesquisaCidade.dart';
 
@@ -23,7 +21,6 @@ class BlocPesquisaCidade
         await _buscaListaFeatureModelCidade();
     ViewModelPesquisaCidade viewModel = ViewModelPesquisaCidade(
       listaCompleta: listaCompletaFeatureModels,
-      iconeCidade: await ProviderIcone().Cidade(),
     );
     this.sendViewModelOut(viewModel);
   }

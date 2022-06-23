@@ -20,8 +20,10 @@ class ViewListaPrestadoresDeServico extends View<ViewModelListaPrestadoresDeServ
   @override
   Widget build(BuildContext context) {
     if (viewModel == null) {
-      return Center(
-        child: CircularProgressIndicatorPersonalizado(),
+      return Scaffold(
+        body: Center(
+          child: CircularProgressIndicatorPersonalizado(),
+        ),
       );
     } else {
       return Scaffold(

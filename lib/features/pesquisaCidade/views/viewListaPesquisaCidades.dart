@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:substring_highlight/substring_highlight.dart';
 import '../viewActionsPesquisaCidade.dart';
 import '../viewModelPesquisaCidade.dart';

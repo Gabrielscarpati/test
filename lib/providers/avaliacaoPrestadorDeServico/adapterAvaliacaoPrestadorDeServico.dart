@@ -14,6 +14,7 @@ class AdapterAvaliacaoPrestadorDeServico extends Adapter<BusinessModelAvaliacaoP
         nota: dataModel.nota,
         comentario: dataModel.comentario,
         data: dataModel.data,
+        emailUsuario: dataModel.emailUsuario,
       );
     }
   }
@@ -26,6 +27,7 @@ class AdapterAvaliacaoPrestadorDeServico extends Adapter<BusinessModelAvaliacaoP
       nota: businessModel.nota,
       comentario: businessModel.comentario,
       data: businessModel.data,
+        emailUsuario: businessModel.emailUsuario,
     );
   }
 }

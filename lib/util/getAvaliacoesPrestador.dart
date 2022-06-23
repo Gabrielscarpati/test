@@ -15,15 +15,19 @@ class GetAvaliacoesPrestador {
         .get();
 
     List docs = query.docs;
-
     docs.forEach((element) {
       listaComentarios.add(BusinessModelAvaliacaoPrestadorDeServico(
           codPrestadorDeServico: element['idPrestador'],
           comentario: element['textoComentario'],
           data: element['data'],
+          nota: int.parse(element['nota']),
           idUsuario: element['idUsuario'],
-          nota: element['nota']));
-    });
+          emailUsuario: element['emailUsuario'],
+
+           ),
+        );
+      }
+    );
     return listaComentarios;
   }
 }

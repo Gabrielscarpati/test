@@ -28,7 +28,7 @@ class PresenterHubPrestador extends Presenter<ViewHubPrestador, ViewModelHubPres
   }
 
   void _enviaEventoInicializacaoViewModel() {
-    BlocEventHubInicializaViewModelPrestador blocEvent = BlocEventHubInicializaViewModelPrestador();
+    BlocEventHubInicializaViewModelPrestador blocEvent = BlocEventHubInicializaViewModelPrestador(viewModel: null);
     this.bloc.pipeIn.send(blocEvent);
   }
 }

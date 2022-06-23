@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/views/viewInfoPrestadorDeServicoDados.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/views/viewInfoPrestadorDeServicoHeader.dart';
@@ -27,16 +28,13 @@ class ViewInfoPrestadorDeServicoBody extends StatelessWidget {
           ViewInfoPrestadorDeServicoDados(
             viewModel: viewModel,
             viewActions: viewActions,
-            iconeCelular: viewModel.iconeCelular,
           ),
           Expanded(
             child: ListViewListaAvaliacaoPrestadorDeServico(
               viewActions: viewActions,
               viewModel: viewModel,
             ),
-          ), //    ViewHubUsuario(viewModel: viewModel, viewActions: viewActions),
-          //    ViewHubCidade(viewModel: viewModel, viewActions: viewActions),
-          //    ViewHubServicos(viewModel: viewModel, viewActions: viewActions),
+          ),
         ],
       ),
     );

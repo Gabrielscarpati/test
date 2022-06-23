@@ -29,7 +29,7 @@ class BlocCadastroPrestadorDeServico {
       totalDeAvaliacoesNota2: 0,
       totalDeAvaliacoesNota3: 0,
       totalDeAvaliacoesNota4: 0,
-      totalDeAvaliacoesNota5: 0,
+      totalDeAvaliacoesNota5: 0, description: '',
     );
     ProviderPrestadorDeServicos providerPrestadorDeServicos =
         ProviderPrestadorDeServicos();

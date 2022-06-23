@@ -12,6 +12,7 @@ class DataModelBuilderAvaliacaoPrestadorDeServicos extends DataModelBuilder<Data
       nota: json["nota"].toDouble(),
       comentario: json["comentario"],
       data: formataDataDDMMYYYY(DateTime.parse(json["data"])),
+      emailUsuario: json["comentario"],
     );
   }
 

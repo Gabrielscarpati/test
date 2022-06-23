@@ -1,3 +1,4 @@
+/*
 import 'package:projeto_treinamento/daos/avaliacaoPrestadorDeServico/dataModelBuilderAvaliacaoPrestadorDeServicos.dart';
 import 'package:projeto_treinamento/framework/daoWebApi.dart';
 
@@ -11,3 +12,4 @@ class DaoAvaliacaoPrestadorDeServico extends DaoWebApi<DataModelAvaliacaoPrestad
           model: "avaliacaoprestadorservico_por_prestadorservico",
         );
 }
+*/

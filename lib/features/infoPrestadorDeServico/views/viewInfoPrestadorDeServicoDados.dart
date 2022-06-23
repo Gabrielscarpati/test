@@ -6,25 +6,24 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:projeto_treinamento/businessModels/businessModelIcone.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/views/viewInfoPrestadorDeServicoDadosRating.dart';
+import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpWhatsAppNaoestaIntalado.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '../viewActionsInfoPrestadorDeServico.dart';
+import 'comentariosInfoPrestadorDeServico.dart';
 
 class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
   ViewInfoPrestadorDeServicoDados({
     Key? key,
     required this.viewModel,
     required this.viewActions,
-    required this.iconeCelular,
   });
 
   final ViewModelInfoPrestadorDeServico viewModel;
   final ViewActionsInfoPrestadorDeServico viewActions;
-  final BusinessModelIcone iconeCelular;
 
   @override
   Widget build(BuildContext context) {
-    String descricao = 'O Jusbrasil encontrou 2 processos de H. G. G. H. nos Diários Oficiais. Abrasil encontrou 2brasil encontrou 2 processos de H. G. G. H. nos Diáriobrasil encontrou 2 processos de H. G. G. H. nosbrasil encontrou 2 processos de H. G. G. H. nos Diários Oficiais. A maioria é do Tbrasil encontrou 2 processos de H. G. G.brasil encontrou 2 processos de H. G. G. H. nos Diários Oficiais. A maioria é do T H. nos Diários Oficiais. A maioria é do T Diários Oficiais. A maioria é do Ts Oficiais. A maioria é do T H. nos Diários Oficiais. A maioria é do T maioria é do TJSP, seguido por TRT18. Desses processos encontrados, Andre EduarA maioria é do TJSP, seguido por TRT18. Desses processos eA maioria é do TJSP, seguido por TRT18. Desses procA maioria é do TJSP, seguido por TRT18. Desses processos encontrados, Andre Eduardo Oliva foi a essos encontrados, Andre Eduardo Oliva foi a ncontrados, Andre Eduardo Oliva foi a do Oliva foi a parte que mais apareceu, seguido por Lara de Goes Salvetti.';
 
     double screnWidth = MediaQuery.of(context).size.width;
     return Column(
@@ -57,11 +56,11 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
                                     //VER PQ TA DANDO ERRO . . .. . .
 
 
-                                    child: _infoDoPrestadorDeServico(context, Icons.account_box, this.viewModel.tiposDeServico.descricao.toUpperCase()+' pedreiro'),
+                                    child: _infoDoPrestadorDeServico(context, Icons.account_box, this.viewModel.tiposDeServico.descricao.toUpperCase()),
                                   )
                               ),
                               SizedBox(height: 6),
-                              _infoDoPrestadorDeServico(context, Icons.description, 'DESCRICAO:'),
+                              _infoDoPrestadorDeServico(context, Icons.description, 'DESCRIÇÃO'),
                               SizedBox(height: 6),
 
                             ],
@@ -87,16 +86,16 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
                       ),
                       ConstrainedBox(
                           constraints:  BoxConstraints(
-                            minHeight: 100,
+                            minHeight: 50,
                             minWidth: 100,
                             maxHeight: 206,
                             maxWidth: screnWidth*.92,
                           ),
-
                           child: Container(
-                              child: Text(descricao),
+                              child: Text(this.viewModel.prestadorDeServicos.description),
                           )
                       ),
+                      _botoes(context),
                     ],
                   ),
                 ),
@@ -131,8 +130,22 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
           ),
         ),
         Card(
-          child: _botoes(context),
-        ),
+          child: TextButton(onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => ComentariosInfoPrestadorDeServico(viewModel: viewModel,),
+            )) ,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(width: 1,),
+                Text('Faça um comentário sobre esse prestador',
+                style: TextStyle(color: Colors.black, fontSize: 16),),
+                Icon(Icons.arrow_forward, color: Colors.black,),
+                SizedBox(width: 1,),
+
+              ],
+            ),
+          ),
+        )
       ],
     );
   }
@@ -158,7 +171,7 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
 
   Widget _botoes(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.only(top: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -194,7 +207,7 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50.0),
                       ))),
               onPressed: () async {
-                openwhatsapp();
+                openwhatsapp(context);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -210,7 +223,7 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
     );
   }
 
-  openwhatsapp() async{
+  openwhatsapp(context) async{
 
     var whatsapp ="+55${this.viewModel.prestadorDeServicos.telefone}";
     var whatsappURl_android = "whatsapp://send?phone="+whatsapp+"&text=";
@@ -220,7 +233,7 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
       if( await canLaunchUrlString(whatappURL_ios)){
         await launchUrlString(whatappURL_ios);
       }else{
-        print('WhatsApp n installado');
+        whatsAppNaoIntalado(context);
       }
 
     }else{
@@ -228,10 +241,12 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
       if( await canLaunchUrlString(whatsappURl_android)){
         await launchUrlString(whatsappURl_android);
       }else{
-        print('WhatsApp n installado');
-        /*ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: new Text("whatsapp no installed")));*/
+        whatsAppNaoIntalado(context);
       }
     }
   }
+  Future whatsAppNaoIntalado(context) => showDialog(
+    context: context,
+    builder: (context) => PopUpWhatsAppNaoEstaIntalado(),
+  );
 }

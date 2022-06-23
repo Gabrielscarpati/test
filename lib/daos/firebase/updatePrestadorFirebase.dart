@@ -121,9 +121,6 @@ class UpdateIdentidadePrestador{
 
 
 
-
-
-
 class UpdateComentarioAvaliacao{
 
   CollectionReference dadosPrestador = FirebaseFirestore.instance.collection('dadosPrestador');
@@ -147,16 +144,21 @@ class UpdateComentarioAvaliacao{
   final double nota;
   final String textoComentario;
   final String emailUsuario;
+  final String idUsuario;
+  final String idPrestador;
 
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  CollectionReference firestore = FirebaseFirestore.instance.collection('comentarios');
+  //CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   updateComentarioAvaliacao() async {
-    await firestore.collection('dadosPrestador').doc(await getUserId()).update({
+    await firestore.doc(await getUserId()).set({
       'comentarios': {
         'data': dataDoComentario,
-        'nota': nota,
+        'nota': nota.toString(),
         'textoComentario': textoComentario,
-        'usuario': emailUsuario,
+        'idUsuario': emailUsuario,
+        'idPrestador': idPrestador,
+        'emailUsuario': emailUsuario,
         },
       }
     );
@@ -167,10 +169,14 @@ class UpdateComentarioAvaliacao{
     required this.nota,
     required this.textoComentario,
     required this.emailUsuario,
+    required this.idUsuario,
+    required this.idPrestador,
   }){
     this.dataDoComentario;
     this.nota;
     this.textoComentario;
     this.emailUsuario;
+    this.idUsuario;
+    this.idPrestador;
   }
 }

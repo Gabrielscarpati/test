@@ -31,7 +31,7 @@ class NameWidget extends StatelessWidget {
               icon: Icon(Icons.close),
               onPressed: () => nameController.clear(),
             ),
-            hintText: 'Digite o seu nome',
+            hintText: 'Digite o seu nome completo',
             labelText: 'Nome',
             labelStyle: TextStyle(
                 color: Colors.black,

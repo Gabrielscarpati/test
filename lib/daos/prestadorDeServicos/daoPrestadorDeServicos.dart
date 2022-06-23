@@ -7,7 +7,7 @@ class DaoPrestadorDeServicos extends DaoWebApi<DataModelPrestadorDeServicos, Dat
   DaoPrestadorDeServicos()
       : super(
           dataModelBuilder: DataModelBuilderPrestadorDeServicos(),
-          server: "https://voadragons.com",
+          server: "htts.com",
           model: "prestadorservico",
         );
 }

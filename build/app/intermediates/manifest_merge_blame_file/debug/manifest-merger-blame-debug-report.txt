@@ -266,11 +266,11 @@
 155                android:value="com.google.firebase.components.ComponentRegistrar" />
 155-->[com.google.firebase:firebase-storage:20.0.1] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/a732609d39140ed999dd3f02f1a8340e/jetified-firebase-storage-20.0.1/AndroidManifest.xml:35:17-82
 156            <meta-data
-156-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:67:13-69:85
+156-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:67:13-69:85
 157                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-157-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:68:17-109
+157-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:68:17-109
 158                android:value="com.google.firebase.components.ComponentRegistrar" />
-158-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:69:17-82
+158-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:69:17-82
 159            <meta-data
 159-->[com.google.firebase:firebase-database:20.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/979df618dd2074d2c1fd7632e9f55cfe/jetified-firebase-database-20.0.5/AndroidManifest.xml:32:13-34:85
 160                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
@@ -324,19 +324,19 @@
 186            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 186-->[:url_launcher_android] /Users/gbscarpati/Documents/quickfix/build/url_launcher_android/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
 187        <activity
-187-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:27:9-44:20
+187-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:27:9-44:20
 188            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
-188-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:28:13-80
+188-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:28:13-80
 189            android:excludeFromRecents="true"
-189-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:29:13-46
+189-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:29:13-46
 190            android:exported="true"
-190-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:30:13-36
+190-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:30:13-36
 191            android:launchMode="singleTask"
-191-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:31:13-44
+191-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:31:13-44
 192            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-192-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:32:13-72
+192-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:32:13-72
 193            <intent-filter>
-193-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:33:13-43:29
+193-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:33:13-43:29
 194                <action android:name="android.intent.action.VIEW" />
 194-->/Users/gbscarpati/Documents/quickfix/android/app/src/main/AndroidManifest.xml:7:13-65
 194-->/Users/gbscarpati/Documents/quickfix/android/app/src/main/AndroidManifest.xml:7:21-62
@@ -357,19 +357,19 @@
 203            </intent-filter>
 204        </activity>
 205        <activity
-205-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:45:9-62:20
+205-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:45:9-62:20
 206            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
-206-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:46:13-79
+206-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:46:13-79
 207            android:excludeFromRecents="true"
-207-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:47:13-46
+207-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:47:13-46
 208            android:exported="true"
-208-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:48:13-36
+208-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:48:13-36
 209            android:launchMode="singleTask"
-209-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:49:13-44
+209-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:49:13-44
 210            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-210-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:50:13-72
+210-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:50:13-72
 211            <intent-filter>
-211-->[com.google.firebase:firebase-auth:21.0.3] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/0cd31a8007b82ec10dce55ca37be1d81/jetified-firebase-auth-21.0.3/AndroidManifest.xml:51:13-61:29
+211-->[com.google.firebase:firebase-auth:21.0.5] /Users/gbscarpati/.gradle/caches/transforms-2/files-2.1/37271fa97da0c7d74a0f2501820cafef/jetified-firebase-auth-21.0.5/AndroidManifest.xml:51:13-61:29
 212                <action android:name="android.intent.action.VIEW" />
 212-->/Users/gbscarpati/Documents/quickfix/android/app/src/main/AndroidManifest.xml:7:13-65
 212-->/Users/gbscarpati/Documents/quickfix/android/app/src/main/AndroidManifest.xml:7:21-62

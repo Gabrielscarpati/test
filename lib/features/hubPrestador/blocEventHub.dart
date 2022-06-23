@@ -3,7 +3,11 @@ import 'package:projeto_treinamento/framework/blocEvent.dart';
 
 abstract class BlocEventHubPrestador extends BlocEvent {}
 
-class BlocEventHubInicializaViewModelPrestador extends BlocEventHubPrestador {}
+class BlocEventHubInicializaViewModelPrestador extends BlocEventHubPrestador {
+  final ViewModelHubPrestador? viewModel;
+  BlocEventHubInicializaViewModelPrestador({required this.viewModel});
+
+}
 
 class BlocEventHubSelecionaCidade extends BlocEventHubPrestador {
   final int codCidade;

@@ -397,8 +397,12 @@
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="copy_toast_msg">Link copied to clipboard</string>
     <string name="default_web_client_id" translatable="false">594297972577-3lklc5clsmn5b8seq6p8k4hcekm1t12m.apps.googleusercontent.com</string>
     <string name="facebook_app_id">1706925089651222</string>
+    <string name="fallback_menu_item_copy_link">Copy link</string>
+    <string name="fallback_menu_item_open_in_browser">Open in browser</string>
+    <string name="fallback_menu_item_share_link">Share link</string>
     <string name="fb_login_protocol_scheme">fb1706925089651222</string>
     <string name="gcm_defaultSenderId" translatable="false">594297972577</string>
     <string name="google_api_key" translatable="false">AIzaSyBDA87l9GWaEYVDlWEFQXWn_nt3XpWZKLs</string>

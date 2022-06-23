@@ -22,7 +22,7 @@ class AdapterPrestadorDeServico extends Adapter<BusinessModelPrestadorDeServicos
 
     return BusinessModelPrestadorDeServicos(
       codPrestadorServico: dataModelPrestadorDeServicos.codPrestadorServico,
-      nome: dataModelPrestadorDeServicos.nome,
+      nome: 'keke',
       telefone: dataModelPrestadorDeServicos.telefone,
       urlFoto: dataModelPrestadorDeServicos.urlFoto,
       statusOnline: dataModelStatusPrestadorDeServicos != null ? dataModelStatusPrestadorDeServicos!.onLine : false,
@@ -32,7 +32,7 @@ class AdapterPrestadorDeServico extends Adapter<BusinessModelPrestadorDeServicos
       totalDeAvaliacoesNota2: dataModelPrestadorDeServicos.totalDeAvaliacoesNota2,
       totalDeAvaliacoesNota3: dataModelPrestadorDeServicos.totalDeAvaliacoesNota3,
       totalDeAvaliacoesNota4: dataModelPrestadorDeServicos.totalDeAvaliacoesNota4,
-      totalDeAvaliacoesNota5: dataModelPrestadorDeServicos.totalDeAvaliacoesNota5,
+      totalDeAvaliacoesNota5: dataModelPrestadorDeServicos.totalDeAvaliacoesNota5, description: '',
     );
   }
 
