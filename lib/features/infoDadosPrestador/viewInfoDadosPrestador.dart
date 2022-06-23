@@ -8,7 +8,8 @@ import '../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart
 import 'viewActionsInfoDadosPrestador.dart';
 import 'viewModelInfoDadosPrestador.dart';
 
-class ViewInfoDadosPrestador extends View<ViewModelInfoDadosPrestador, ViewActionsInfoDadosPrestador> {
+class ViewInfoDadosPrestador
+    extends View<ViewModelInfoDadosPrestador, ViewActionsInfoDadosPrestador> {
   ViewInfoDadosPrestador({
     Key? key,
     ViewModelInfoDadosPrestador? viewModel,
@@ -19,11 +20,9 @@ class ViewInfoDadosPrestador extends View<ViewModelInfoDadosPrestador, ViewActio
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Perfil',
-          style: TextStyle(color:
-          Colors.black,
-              fontSize:20
-          ),
+        title: Text(
+          'Perfil',
+          style: TextStyle(color: Colors.black, fontSize: 20),
         ),
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -34,11 +33,15 @@ class ViewInfoDadosPrestador extends View<ViewModelInfoDadosPrestador, ViewActio
         ),
       ),
       body: _buildBody(context),
-      bottomNavigationBar:
-      BottomAppBar(
+      bottomNavigationBar: BottomAppBar(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
-          child: ButtonSaveInfoDadosPrestador(),
+          child: viewModel != null
+              ? ButtonSaveInfoDadosPrestador(
+                  viewActions: viewActions,
+                  viewModel: viewModel!,
+                )
+              : Text(""),
         ),
       ),
     );
@@ -50,7 +53,8 @@ class ViewInfoDadosPrestador extends View<ViewModelInfoDadosPrestador, ViewActio
         child: CircularProgressIndicatorPersonalizado(),
       );
     } else {
-      return InfoDadosPrestadorBody(viewModel: this.viewModel!, viewActions: viewActions);
+      return InfoDadosPrestadorBody(
+          viewModel: this.viewModel!, viewActions: viewActions);
     }
   }
 }

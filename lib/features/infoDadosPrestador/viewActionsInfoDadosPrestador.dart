@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelDadosPrestador.dart';
@@ -9,11 +10,15 @@ import 'package:projeto_treinamento/framework/viewActions.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
 import 'blocEventInfoDadosPrestador.dart';
 
-class ViewActionsInfoDadosPrestador extends ViewActions<BlocEventInfoDadosPrestador> {
-  ViewActionsInfoDadosPrestador(Pipe<BlocEventInfoDadosPrestador> blocPipeIn) : super(blocPipeIn);
+class ViewActionsInfoDadosPrestador
+    extends ViewActions<BlocEventInfoDadosPrestador> {
+  ViewActionsInfoDadosPrestador(Pipe<BlocEventInfoDadosPrestador> blocPipeIn)
+      : super(blocPipeIn);
 
-
-  void abrirInterfaceGaleriaCamera(ImageSource imageSource, ViewModelInfoDadosPrestador viewModel, BusinessModelDadosPrestador DadosPrestador) async {
+  void abrirInterfaceGaleriaCamera(
+      ImageSource imageSource,
+      ViewModelInfoDadosPrestador viewModel,
+      BusinessModelDadosPrestador DadosPrestador) async {
     final ImagePicker _picker = ImagePicker();
     final XFile? pickedFile;
     /*
@@ -31,8 +36,9 @@ class ViewActionsInfoDadosPrestador extends ViewActions<BlocEventInfoDadosPresta
       Uint8List imagem = await _converterImagemXFile_Uint8List(pickedFile);
       onChangeImagem(imagem, DadosPrestador, viewModel);
     }
-  }
+  
   */
+  }
 
   Future<Uint8List> _converterImagemXFile_Uint8List(XFile pickedFile) async {
     Uint8List _imageData = Uint8List(1);
@@ -42,169 +48,131 @@ class ViewActionsInfoDadosPrestador extends ViewActions<BlocEventInfoDadosPresta
     return _imageData;
   }
 
-/*
   onChangeName(String novoNome, ViewModelInfoDadosPrestador viewModel) {
     BusinessModelDadosPrestador DadosPrestador = BusinessModelDadosPrestador(
-        name: novoNome,
-        email: viewModel.DadosPrestador.email,
-        urlFoto: viewModel.DadosPrestador.urlFoto,
-        description: viewModel.DadosPrestador.description ,
-        phone: viewModel.DadosPrestador.phone,
-        brazilianID: viewModel.DadosPrestador.brazilianID,
-        brazilianIDpicture: viewModel.DadosPrestador.brazilianIDpicture,
-        workingHours: viewModel.DadosPrestador.workingHours,
-        roles: viewModel.DadosPrestador.roles,
-        city: viewModel.,
+      name: novoNome,
+      IdPrestador: viewModel.prestador.IdPrestador,
+      city: viewModel.prestador.city,
+      dataAberturaConta: viewModel.prestador.dataAberturaConta,
+      dataVencimentoPlano: viewModel.prestador.dataVencimentoPlano,
+      description: viewModel.prestador.description,
+      numeroDeCliquesNoLigarOuWhatsApp:
+          viewModel.prestador.numeroDeCliquesNoLigarOuWhatsApp,
+      phone: viewModel.prestador.phone,
+      profilePicture: viewModel.prestador.profilePicture,
+      roles: viewModel.prestador.roles,
+      workingHours: viewModel.prestador.workingHours,
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
-
-        cidade: viewModel.cidade,
-        DadosPrestador: DadosPrestador,
-        listaCompletaCidade: viewModel.listaCompletaCidade,
-
-    );
-
-    BlocEventInfoDadosPrestadorAtualizaViewModel blocEvent = BlocEventInfoDadosPrestadorAtualizaViewModel(viewModel: _viewModel);
-    blocPipeIn.send(blocEvent);
-  }
-  
-
-  onChangeNumber(String novoNome, ViewModelInfoDadosPrestador viewModel) {
-    BusinessModelDadosPrestador DadosPrestador = BusinessModelDadosPrestador(
-        nome: novoNome,
-        email: viewModel.DadosPrestador.email,
-        urlFoto: viewModel.DadosPrestador.urlFoto,
-        description: viewModel.DadosPrestador.description ,
-        phone: viewModel.DadosPrestador.phone,
-        brazilianID: viewModel.DadosPrestador.brazilianID,
-        brazilianIDpicture: viewModel.DadosPrestador.brazilianIDpicture,
-        workingHours: viewModel.DadosPrestador.workingHours,
-        roles: viewModel.DadosPrestador.roles,
-        city: viewModel.DadosPrestador.city
-    );
-
-    ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
-      cidade: viewModel.cidade,
-      DadosPrestador: DadosPrestador,
+      cidades: viewModel.cidades,
+      prestador: DadosPrestador,
+      imagemAtualizada: viewModel.imagemAtualizada,
       listaCompletaCidade: viewModel.listaCompletaCidade,
-
-
     );
 
-    BlocEventInfoDadosPrestadorAtualizaViewModel blocEvent = BlocEventInfoDadosPrestadorAtualizaViewModel(viewModel: _viewModel);
+    BlocEventInfoDadosPrestadorAtualizaViewModel blocEvent =
+        BlocEventInfoDadosPrestadorAtualizaViewModel(viewModel: _viewModel);
     blocPipeIn.send(blocEvent);
   }
 
-  onChangeEmail(String novoNome, ViewModelInfoDadosPrestador viewModel) {
+  onChangeNumber(String telefone, ViewModelInfoDadosPrestador viewModel) {
     BusinessModelDadosPrestador DadosPrestador = BusinessModelDadosPrestador(
-        nome: novoNome,
-        email: viewModel.DadosPrestador.email,
-        urlFoto: viewModel.DadosPrestador.urlFoto,
-        description: viewModel.DadosPrestador.description ,
-        phone: viewModel.DadosPrestador.phone,
-        brazilianID: viewModel.DadosPrestador.brazilianID,
-        brazilianIDpicture: viewModel.DadosPrestador.brazilianIDpicture,
-        workingHours: viewModel.DadosPrestador.workingHours,
-        roles: viewModel.DadosPrestador.roles,
-        city: viewModel.DadosPrestador.city
+      name: viewModel.prestador.name,
+      IdPrestador: viewModel.prestador.IdPrestador,
+      city: viewModel.prestador.city,
+      dataAberturaConta: viewModel.prestador.dataAberturaConta,
+      dataVencimentoPlano: viewModel.prestador.dataVencimentoPlano,
+      description: viewModel.prestador.description,
+      numeroDeCliquesNoLigarOuWhatsApp:
+          viewModel.prestador.numeroDeCliquesNoLigarOuWhatsApp,
+      phone: telefone,
+      profilePicture: viewModel.prestador.profilePicture,
+      roles: viewModel.prestador.roles,
+      workingHours: viewModel.prestador.workingHours,
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
-        cidade: viewModel.cidade,
-        DadosPrestador: DadosPrestador,
-        listaCompletaCidade: viewModel.listaCompletaCidade,
+      cidades: viewModel.cidades,
+      prestador: DadosPrestador,
+      imagemAtualizada: viewModel.imagemAtualizada,
+      listaCompletaCidade: viewModel.listaCompletaCidade,
     );
 
-    BlocEventInfoDadosPrestadorAtualizaViewModel blocEvent = BlocEventInfoDadosPrestadorAtualizaViewModel(viewModel: _viewModel);
-    blocPipeIn.send(blocEvent);
-  }
-  onChangeDescricao(String novoNome, ViewModelInfoDadosPrestador viewModel) {
-    BusinessModelDadosPrestador DadosPrestador = BusinessModelDadosPrestador(
-        nome: novoNome,
-        email: viewModel.DadosPrestador.email,
-        urlFoto: viewModel.DadosPrestador.urlFoto,
-        description: viewModel.DadosPrestador.description ,
-        phone: viewModel.DadosPrestador.phone,
-        brazilianID: viewModel.DadosPrestador.brazilianID,
-        brazilianIDpicture: viewModel.DadosPrestador.brazilianIDpicture,
-        workingHours: viewModel.DadosPrestador.workingHours,
-        roles: viewModel.DadosPrestador.roles,
-        city: viewModel.DadosPrestador.city
-     );
-    ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
-        cidade: viewModel.cidade,
-        DadosPrestador: DadosPrestador,
-        listaCompletaCidade: viewModel.listaCompletaCidade,
-
-    );
-
-    BlocEventInfoDadosPrestadorAtualizaViewModel blocEvent = BlocEventInfoDadosPrestadorAtualizaViewModel(viewModel: _viewModel);
-    blocPipeIn.send(blocEvent);
-  }  onChangeHorasDeTrabalho(String novoNome, ViewModelInfoDadosPrestador viewModel) {
-    BusinessModelDadosPrestador DadosPrestador = BusinessModelDadosPrestador(
-        nome: novoNome,
-        email: viewModel.DadosPrestador.email,
-        urlFoto: viewModel.DadosPrestador.urlFoto,
-        description: viewModel.DadosPrestador.description ,
-        phone: viewModel.DadosPrestador.phone,
-        brazilianID: viewModel.DadosPrestador.brazilianID,
-        brazilianIDpicture: viewModel.DadosPrestador.brazilianIDpicture,
-        workingHours: viewModel.DadosPrestador.workingHours,
-        roles: viewModel.DadosPrestador.roles,
-        city: viewModel.DadosPrestador.city    );
-
-    ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
-        cidade: viewModel.cidade,
-        DadosPrestador: DadosPrestador,
-        listaCompletaCidade: viewModel.listaCompletaCidade,
-
-    );
-
-    BlocEventInfoDadosPrestadorAtualizaViewModel blocEvent = BlocEventInfoDadosPrestadorAtualizaViewModel(viewModel: _viewModel);
-    blocPipeIn.send(blocEvent);
-  }  onChangeServico(String novoNome, ViewModelInfoDadosPrestador viewModel) {
-    BusinessModelDadosPrestador DadosPrestador = BusinessModelDadosPrestador(
-        nome: novoNome,
-        email: viewModel.DadosPrestador.email,
-        urlFoto: viewModel.DadosPrestador.urlFoto,
-        description: viewModel.DadosPrestador.description ,
-        phone: viewModel.DadosPrestador.phone,
-        brazilianID: viewModel.DadosPrestador.brazilianID,
-        brazilianIDpicture: viewModel.DadosPrestador.brazilianIDpicture,
-        workingHours: viewModel.DadosPrestador.workingHours,
-        roles: viewModel.DadosPrestador.roles,
-        city: viewModel.DadosPrestador.city    );
-    ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
-
-        cidade: viewModel.cidade,
-        DadosPrestador: DadosPrestador,
-        listaCompletaCidade: viewModel.listaCompletaCidade,
-
-    );
-
-    BlocEventInfoDadosPrestadorAtualizaViewModel blocEvent = BlocEventInfoDadosPrestadorAtualizaViewModel(viewModel: _viewModel);
+    BlocEventInfoDadosPrestadorAtualizaViewModel blocEvent =
+        BlocEventInfoDadosPrestadorAtualizaViewModel(viewModel: _viewModel);
     blocPipeIn.send(blocEvent);
   }
 
-  onChangeCidade(BusinessModelCidade novaCidade, ViewModelInfoDadosPrestador viewModel) async {
-    ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
-        cidade: viewModel.cidade,
-        listaCompletaCidade: viewModel.listaCompletaCidade,
-        DadosPrestador: viewModel.DadosPrestador,
+  onChangeHoras(String novaHora, ViewModelInfoDadosPrestador viewModel) {
+    BusinessModelDadosPrestador DadosPrestador = BusinessModelDadosPrestador(
+      name: viewModel.prestador.name,
+      IdPrestador: viewModel.prestador.IdPrestador,
+      city: viewModel.prestador.city,
+      dataAberturaConta: viewModel.prestador.dataAberturaConta,
+      dataVencimentoPlano: viewModel.prestador.dataVencimentoPlano,
+      description: viewModel.prestador.description,
+      numeroDeCliquesNoLigarOuWhatsApp:
+          viewModel.prestador.numeroDeCliquesNoLigarOuWhatsApp,
+      phone: viewModel.prestador.phone,
+      profilePicture: viewModel.prestador.profilePicture,
+      roles: viewModel.prestador.roles,
+      workingHours: novaHora,
     );
-    BlocEventInfoDadosPrestadorAtualizaViewModel blocEvent = BlocEventInfoDadosPrestadorAtualizaViewModel(viewModel: _viewModel);
+    ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
+      cidades: viewModel.cidades,
+      prestador: DadosPrestador,
+      imagemAtualizada: viewModel.imagemAtualizada,
+      listaCompletaCidade: viewModel.listaCompletaCidade,
+    );
+
+    BlocEventInfoDadosPrestadorAtualizaViewModel blocEvent =
+        BlocEventInfoDadosPrestadorAtualizaViewModel(viewModel: _viewModel);
     blocPipeIn.send(blocEvent);
   }
 
-  Future<BusinessModelCidade> _getBuisnessModelCidadeByCodCidade(String codCidade) async {
-    BusinessModelCidade cidade = await ProviderCidade().getBusinessModel(codCidade);
+  onChangeDescricao(
+      String novaDescricao, ViewModelInfoDadosPrestador viewModel) {
+    BusinessModelDadosPrestador DadosPrestador = BusinessModelDadosPrestador(
+      name: viewModel.prestador.name,
+      IdPrestador: viewModel.prestador.IdPrestador,
+      city: viewModel.prestador.city,
+      dataAberturaConta: viewModel.prestador.dataAberturaConta,
+      dataVencimentoPlano: viewModel.prestador.dataVencimentoPlano,
+      description: novaDescricao,
+      numeroDeCliquesNoLigarOuWhatsApp:
+          viewModel.prestador.numeroDeCliquesNoLigarOuWhatsApp,
+      phone: viewModel.prestador.phone,
+      profilePicture: viewModel.prestador.profilePicture,
+      roles: viewModel.prestador.roles,
+      workingHours: viewModel.prestador.workingHours,
+    );
+    ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
+      cidades: viewModel.cidades,
+      prestador: DadosPrestador,
+      imagemAtualizada: viewModel.imagemAtualizada,
+      listaCompletaCidade: viewModel.listaCompletaCidade,
+    );
+
+    BlocEventInfoDadosPrestadorAtualizaViewModel blocEvent =
+        BlocEventInfoDadosPrestadorAtualizaViewModel(viewModel: _viewModel);
+    blocPipeIn.send(blocEvent);
+  }
+
+  Future<BusinessModelCidade> _getBuisnessModelCidadeByCodCidade(
+      String codCidade) async {
+    BusinessModelCidade cidade =
+        await ProviderCidade().getBusinessModel(codCidade);
     return cidade;
   }
-  */
 
   Future<List<BusinessModelCidade>> getListaCompletaCidades() async {
-    List<BusinessModelCidade> listaCompletaDeCidades = await ProviderCidade().getBusinessModels();
+    List<BusinessModelCidade> listaCompletaDeCidades =
+        await ProviderCidade().getBusinessModels();
 
     return listaCompletaDeCidades;
   }
-}
+
+  void salvarDadosPrestador(
+      ViewModelInfoDadosPrestador viewModel, BuildContext context) async {
+    Navigator.of(context).pop(viewModel.prestador);
+  }
 }
