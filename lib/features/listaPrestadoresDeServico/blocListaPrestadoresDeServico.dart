@@ -8,22 +8,34 @@ import 'package:projeto_treinamento/providers/prestadoresDeServicoPorCidadeTipoD
 import 'viewModelListaPrestadoresDeServico.dart';
 
 class BlocListaPrestadoresDeServico extends Bloc<
-ViewModelListaPrestadoresDeServico
-, BlocEventListaPrestadoresDeServico> {
+    ViewModelListaPrestadoresDeServico, BlocEventListaPrestadoresDeServico> {
   @override
   void onReceiveBlocEvent(BlocEventListaPrestadoresDeServico blocEvent) {
-    if (blocEvent is BlocEventListaPrestadoresDeServicoInicializaViewModel) _inicializaViewModel(blocEvent);
-    if (blocEvent is BlocEventListaPrestadoresDeServicoAplicaFiltroDePesquisa) _aplicaFiltroDePesquisa(blocEvent);
+    if (blocEvent is BlocEventListaPrestadoresDeServicoInicializaViewModel)
+      _inicializaViewModel(blocEvent);
+    if (blocEvent is BlocEventListaPrestadoresDeServicoAplicaFiltroDePesquisa)
+      _aplicaFiltroDePesquisa(blocEvent);
   }
 
-  void _inicializaViewModel(BlocEventListaPrestadoresDeServicoInicializaViewModel blocEvent) async {
-    BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico businessModel = await ProviderPrestadoresDeServicoPorCidadeTipoDeServico()//business model null 
-        .getBusinessModel(blocEvent.codCidade.toString() + "-" + blocEvent.codTipoDeServico.toString());
+  void _inicializaViewModel(
+      BlocEventListaPrestadoresDeServicoInicializaViewModel blocEvent) async {
+    BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico businessModel =
+        await ProviderPrestadoresDeServicoPorCidadeTipoDeServico() //business model null
+            .getBusinessModel(blocEvent.codCidade.toString() +
+                "-" +
+                blocEvent.codTipoDeServico.toString());
     List<BusinessModelPrestadorDeServicos> listaCompleta;
     listaCompleta = businessModel.prestadoresDeServico;
-    listaCompleta.sort((a, b) => a.nota > b.nota ? -1 : 1);
+    listaCompleta.sort((a, b) {
+      if (a.tipoPlanoPrestador != b.tipoPlanoPrestador) {
+        return a.tipoPlanoPrestador > b.tipoPlanoPrestador ? 1 : -1;
+      } else {
+        return a.nota > b.nota ? -1 : 1;
+      }
+    });
 
-    ViewModelListaPrestadoresDeServico viewModel = ViewModelListaPrestadoresDeServico(
+    ViewModelListaPrestadoresDeServico viewModel =
+        ViewModelListaPrestadoresDeServico(
       listaCompleta: listaCompleta,
       cidade: businessModel.cidade,
       tiposDeServico: businessModel.tipoDeServico,
@@ -32,7 +44,8 @@ ViewModelListaPrestadoresDeServico
     this.sendViewModelOut(viewModel);
   }
 
-  void _aplicaFiltroDePesquisa(BlocEventListaPrestadoresDeServicoAplicaFiltroDePesquisa blocEvent) {
+  void _aplicaFiltroDePesquisa(
+      BlocEventListaPrestadoresDeServicoAplicaFiltroDePesquisa blocEvent) {
     ViewModelListaPrestadoresDeServico viewModel = blocEvent.viewModel;
     viewModel.aplicaFiltroDePesquisa();
     this.sendViewModelOut(viewModel);
