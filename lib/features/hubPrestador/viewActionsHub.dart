@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
+import 'package:projeto_treinamento/businessModels/businessModelDadosPrestador.dart';
 import 'package:projeto_treinamento/businessModels/businessModelPrincipaisTiposDeServicoCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
 import 'package:projeto_treinamento/features/hubPrestador/viewModelHub.dart';
@@ -99,8 +100,8 @@ class ViewActionsHubPrestador extends ViewActions<BlocEventHubPrestador> {
       listaCompletaCidade: cidades,
       prestador: viewModel.prestador,
     );
-    final ViewModelHubPrestador results = await Navigator.of(context).push(
-        MaterialPageRoute(
+    final BusinessModelDadosPrestador results = await Navigator.of(context)
+        .push(MaterialPageRoute(
             builder: (BuildContext context) =>
                 PresenterInfoDadosPrestador.presenter(
                   viewModel: _viewModelInfoPrestador,
@@ -108,8 +109,8 @@ class ViewActionsHubPrestador extends ViewActions<BlocEventHubPrestador> {
 
     if (results != null) {
       ViewModelHubPrestador novoViewModel = ViewModelHubPrestador(
-        prestador: results.prestador,
-        cidade: results.cidade,
+        prestador: results,
+        cidade: viewModel.cidade,
         principaisTiposDeServicoCidade:
             BusinessModelPrincipaisTiposDeServicoCidade.vazio(),
       );

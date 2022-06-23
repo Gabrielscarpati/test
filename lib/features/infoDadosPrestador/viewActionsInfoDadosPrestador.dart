@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelDadosPrestador.dart';
@@ -168,5 +169,10 @@ class ViewActionsInfoDadosPrestador
         await ProviderCidade().getBusinessModels();
 
     return listaCompletaDeCidades;
+  }
+
+  void salvarDadosPrestador(
+      ViewModelInfoDadosPrestador viewModel, BuildContext context) async {
+    Navigator.of(context).pop(viewModel.prestador);
   }
 }
