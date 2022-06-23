@@ -14,6 +14,7 @@ import 'package:projeto_treinamento/util/getPrestadoresDeServicoPorCidadeTipoDeS
 import 'package:projeto_treinamento/util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
 import 'package:projeto_treinamento/util/src/utils/storage_util.dart';
 import 'package:provider/provider.dart';
+
 import 'daos/firebase/authService.dart';
 import 'daos/firebase/updatePrestadorFirebase.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
@@ -37,12 +38,20 @@ void main() async {
 
   final getIt = GetIt.instance;
 
-  getIt.registerLazySingleton(() => SetPrestadorInformationCompleta(name: '',
-      phone: '', workingHours: '', description: '', profilePicture: '',
-      comentarios: [], cidades: [], servicos: [], numeroDeCliquesNoLigarOuWhatsApp: 0,
-      dataVencimentoPlano: DateTime.now(), dataAberturaConta: DateTime.now(), brazilianIDPicture: '',
-      planoPrestador: 0
-  ));
+  getIt.registerLazySingleton(() => SetPrestadorInformationCompleta(
+      name: '',
+      phone: '',
+      workingHours: '',
+      description: '',
+      profilePicture: '',
+      comentarios: [],
+      cidades: [],
+      servicos: [],
+      numeroDeCliquesNoLigarOuWhatsApp: 0,
+      dataVencimentoPlano: DateTime.now(),
+      dataAberturaConta: DateTime.now(),
+      brazilianIDPicture: '',
+      planoPrestador: 0));
 
   runApp(MyApp());
 }
@@ -95,7 +104,8 @@ class MyApp extends StatelessWidget {
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData ||
-                usuario != null || verificarSeUsuarioNulo() == null) {
+                usuario != null ||
+                verificarSeUsuarioNulo() == null) {
               return PresenterHubPrestador.presenter();
             }
             return ViewVeryFirstScreen();

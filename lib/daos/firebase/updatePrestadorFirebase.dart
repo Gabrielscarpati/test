@@ -1,22 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
-
-class SetPrestadorInformationCompleta{
-   String name;
-   String phone;
-   String workingHours;
-   String description;
-   String profilePicture;
-   List<dynamic> comentarios;
-   List<String> cidades;
-   List<int> servicos;
-   int numeroDeCliquesNoLigarOuWhatsApp;
-   DateTime dataVencimentoPlano;
-   DateTime dataAberturaConta;
-   String brazilianIDPicture;
-   int planoPrestador;
+class SetPrestadorInformationCompleta {
+  String name;
+  String phone;
+  String workingHours;
+  String description;
+  String profilePicture;
+  List<dynamic> comentarios;
+  List<String> cidades;
+  List<int> servicos;
+  int numeroDeCliquesNoLigarOuWhatsApp;
+  DateTime dataVencimentoPlano;
+  DateTime dataAberturaConta;
+  String brazilianIDPicture;
+  int planoPrestador;
 
   SetPrestadorInformationCompleta({
     required this.name,
@@ -35,9 +33,7 @@ class SetPrestadorInformationCompleta{
   });
 }
 
-
-
-class UpdateCidadePrestador{
+class UpdateCidadePrestador {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<String?> getUserId() async {
@@ -53,17 +49,15 @@ class UpdateCidadePrestador{
   updateCidadePrestador() async {
     await firestore.collection('dadosPrestador').doc(await getUserId()).update({
       'city': cidades,
-      }
-    );
+    });
   }
 
-  UpdateCidadePrestador({ required this.cidades}){
+  UpdateCidadePrestador({required this.cidades}) {
     this.cidades;
   }
 }
 
-
-class UpdateServicoPrestador{
+class UpdateServicoPrestador {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<String?> getUserId() async {
@@ -79,19 +73,15 @@ class UpdateServicoPrestador{
   updateServicosPrestador() async {
     await firestore.collection('dadosPrestador').doc(await getUserId()).update({
       'roles': servicos,
-    }
-    );
+    });
   }
 
-  UpdateServicoPrestador({ required this.servicos}){
+  UpdateServicoPrestador({required this.servicos}) {
     this.servicos;
   }
 }
 
-
-
-
-class UpdateIdentidadePrestador{
+class UpdateIdentidadePrestador {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<String?> getUserId() async {
@@ -107,30 +97,22 @@ class UpdateIdentidadePrestador{
   updateIdentidadePrestador() async {
     await firestore.collection('dadosPrestador').doc(await getUserId()).update({
       'brazilianIDPicture': identidade,
-    }
-    );
+    });
   }
 
-  UpdateIdentidadePrestador({ required this.identidade}){
+  UpdateIdentidadePrestador({required this.identidade}) {
     this.identidade;
   }
 }
 
+class UpdateComentarioAvaliacao {
+  CollectionReference dadosPrestador =
+      FirebaseFirestore.instance.collection('dadosPrestador');
 
-
-
-
-
-class UpdateComentarioAvaliacao{
-
-  CollectionReference dadosPrestador = FirebaseFirestore.instance.collection('dadosPrestador');
-
-  Future<List> getListaComentarios() async{
+  Future<List> getListaComentarios() async {
     DocumentSnapshot result = await dadosPrestador.doc('flutter123').get();
     return result.data() as List;
   }
-
-
 
   final FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -147,21 +129,20 @@ class UpdateComentarioAvaliacao{
   final String idUsuario;
   final String idPrestador;
 
-  CollectionReference firestore = FirebaseFirestore.instance.collection('comentarios');
+  CollectionReference firestore =
+      FirebaseFirestore.instance.collection('comentarios');
   //CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   updateComentarioAvaliacao() async {
-    await firestore.doc(await getUserId()).set({
-      'comentarios': {
-        'data': dataDoComentario,
-        'nota': nota.toString(),
-        'textoComentario': textoComentario,
-        'idUsuario': emailUsuario,
-        'idPrestador': idPrestador,
-        'emailUsuario': emailUsuario,
-        },
-      }
-    );
+    print('-' * 50);
+    await firestore.add({
+      'data': dataDoComentario,
+      'nota': nota.toStringAsPrecision(1),
+      'textoComentario': textoComentario,
+      'emailUsuario': emailUsuario,
+      'idPrestador': this.idPrestador,
+      'idUsuario': this.idUsuario,
+    });
   }
 
   UpdateComentarioAvaliacao({
@@ -171,7 +152,7 @@ class UpdateComentarioAvaliacao{
     required this.emailUsuario,
     required this.idUsuario,
     required this.idPrestador,
-  }){
+  }) {
     this.dataDoComentario;
     this.nota;
     this.textoComentario;
