@@ -256,8 +256,9 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
                                       'dataVencimentoPlano': DateTime.now(),
                                       'dataAberturaConta': DateTime.now(),
                                       'brazilianIDPicture': await getUrlToImageFirebase(),
-                                      'IdPrestador': await getUserId()
-                                    }
+                                      'IdPrestador': await getUserId(),
+                                      'tipoPlanoPrestador': 0,
+                                      }
                                     );
                                     Navigator.of(context).push(MaterialPageRoute(
                                         builder: (context) => PresenterHubPrestador.presenter(),));

@@ -12,6 +12,7 @@ class DataModelDadosPrestador extends DataModel {
   final DateTime dataVencimentoPlano;
   final DateTime dataAberturaConta;
   final String IdPrestador;
+  final int tipoPlanoPrestador;
 
   DataModelDadosPrestador({
     required this.name,
@@ -25,5 +26,6 @@ class DataModelDadosPrestador extends DataModel {
     required this.dataVencimentoPlano,
     required this.dataAberturaConta,
     required this.IdPrestador,
+    required this.tipoPlanoPrestador,
   }) : super(id: IdPrestador);
 }

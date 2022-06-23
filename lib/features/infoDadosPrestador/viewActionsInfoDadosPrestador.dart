@@ -62,6 +62,7 @@ class ViewActionsInfoDadosPrestador
       profilePicture: viewModel.prestador.profilePicture,
       roles: viewModel.prestador.roles,
       workingHours: viewModel.prestador.workingHours,
+      tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
       cidades: viewModel.cidades,
@@ -89,6 +90,7 @@ class ViewActionsInfoDadosPrestador
       profilePicture: viewModel.prestador.profilePicture,
       roles: viewModel.prestador.roles,
       workingHours: viewModel.prestador.workingHours,
+      tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
       cidades: viewModel.cidades,
@@ -116,6 +118,7 @@ class ViewActionsInfoDadosPrestador
       profilePicture: viewModel.prestador.profilePicture,
       roles: viewModel.prestador.roles,
       workingHours: novaHora,
+      tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
       cidades: viewModel.cidades,
@@ -144,6 +147,7 @@ class ViewActionsInfoDadosPrestador
       profilePicture: viewModel.prestador.profilePicture,
       roles: viewModel.prestador.roles,
       workingHours: viewModel.prestador.workingHours,
+      tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
       cidades: viewModel.cidades,

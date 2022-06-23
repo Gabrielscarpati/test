@@ -18,6 +18,7 @@ class BusinessModelPrestadorDeServicos extends BusinessModel
   final int totalDeAvaliacoesNota4;
   final int totalDeAvaliacoesNota5;
   final String description;
+  final int tipoPlanoPrestador;
 
   BusinessModelPrestadorDeServicos({
     required this.codPrestadorServico,
@@ -33,6 +34,7 @@ class BusinessModelPrestadorDeServicos extends BusinessModel
     required this.totalDeAvaliacoesNota4,
     required this.totalDeAvaliacoesNota5,
     required this.description,
+    required this.tipoPlanoPrestador,
   }) : super(id: codPrestadorServico.toString());
 
   factory BusinessModelPrestadorDeServicos.vazio() =>
@@ -51,6 +53,7 @@ class BusinessModelPrestadorDeServicos extends BusinessModel
         totalDeAvaliacoesNota4: 0,
         totalDeAvaliacoesNota5: 0,
         description: '',
+          tipoPlanoPrestador: 10,
       );
 
   @override

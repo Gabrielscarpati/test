@@ -93,6 +93,7 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
         totalDeAvaliacoesNota5: totalDeAvaliacoesNota5,
         urlFoto: prestador.profilePicture,
         description: prestador.description,
+        tipoPlanoPrestador: prestador.tipoPlanoPrestador,
       ));
     }
 

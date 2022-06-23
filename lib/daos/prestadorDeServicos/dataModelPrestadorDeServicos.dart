@@ -12,6 +12,7 @@ class DataModelPrestadorDeServicos extends DataModel {
   final int totalDeAvaliacoesNota3;
   final int totalDeAvaliacoesNota4;
   final int totalDeAvaliacoesNota5;
+  final int tipoPlanoPrestador;
 
   DataModelPrestadorDeServicos({
     required this.codPrestadorServico,
@@ -25,5 +26,6 @@ class DataModelPrestadorDeServicos extends DataModel {
     required this.totalDeAvaliacoesNota3,
     required this.totalDeAvaliacoesNota4,
     required this.totalDeAvaliacoesNota5,
+    required this.tipoPlanoPrestador,
   }) : super(id: codPrestadorServico.toString());
 }

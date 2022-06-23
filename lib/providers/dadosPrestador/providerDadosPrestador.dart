@@ -31,12 +31,12 @@ class ProvideDadosPrestador extends Provider<BusinessModelDadosPrestador> {
           dataVencimentoPlano: element.dataVencimentoPlano,
           description: element.description,
           name: element.name,
-          numeroDeCliquesNoLigarOuWhatsApp:
-              element.numeroDeCliquesNoLigarOuWhatsApp,
+          numeroDeCliquesNoLigarOuWhatsApp: element.numeroDeCliquesNoLigarOuWhatsApp,
           phone: element.phone,
           profilePicture: element.profilePicture,
           roles: element.roles,
-          workingHours: element.workingHours
+          workingHours: element.workingHours,
+        tipoPlanoPrestador: element.tipoPlanoPrestador,
       ));
     });
 

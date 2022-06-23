@@ -54,6 +54,7 @@ class BlocInfoDadosPrestador
       workingHours: viewModel.prestador.workingHours,
       description: viewModel.prestador.description,
       roles: viewModel.prestador.roles,
+      tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
     );
     ProvideDadosPrestador().saveBusinessModel(businessModel);
   }

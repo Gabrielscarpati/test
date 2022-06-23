@@ -19,6 +19,7 @@ class DataModelBuilderDadosPrestador
       dataVencimentoPlano: json["dataVencimentoPlano"].toDate(),
       dataAberturaConta: json["dataAberturaConta"].toDate(),
       IdPrestador: json["IdPrestador"],
+      tipoPlanoPrestador: json["tipoPlanoPrestador"],
     );
   }
 

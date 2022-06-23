@@ -21,9 +21,9 @@ class AdapterDadosPrestador
         name: dataModel.name,
         dataAberturaConta: dataModel.dataAberturaConta,
         dataVencimentoPlano: dataModel.dataVencimentoPlano,
-        numeroDeCliquesNoLigarOuWhatsApp:
-            dataModel.numeroDeCliquesNoLigarOuWhatsApp,
+        numeroDeCliquesNoLigarOuWhatsApp: dataModel.numeroDeCliquesNoLigarOuWhatsApp,
         profilePicture: dataModel.name,
+        tipoPlanoPrestador: dataModel.tipoPlanoPrestador,
       );
   }
 
@@ -41,8 +41,8 @@ class AdapterDadosPrestador
       IdPrestador: businessModel.IdPrestador,
       dataAberturaConta: businessModel.dataAberturaConta,
       dataVencimentoPlano: businessModel.dataVencimentoPlano,
-      numeroDeCliquesNoLigarOuWhatsApp:
-          businessModel.numeroDeCliquesNoLigarOuWhatsApp,
+      numeroDeCliquesNoLigarOuWhatsApp: businessModel.numeroDeCliquesNoLigarOuWhatsApp,
+      tipoPlanoPrestador: businessModel.tipoPlanoPrestador,
     );
   }
 }

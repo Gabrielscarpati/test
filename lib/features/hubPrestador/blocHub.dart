@@ -46,7 +46,8 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
         numeroDeCliquesNoLigarOuWhatsApp: 0,
         dataVencimentoPlano: DateTime.now(),
         dataAberturaConta:  DateTime.now(),
-        IdPrestador: 'IdPrestador');
+        IdPrestador: 'IdPrestador',
+        tipoPlanoPrestador: 10);
 
     String idCidadeDoprestador = "1"; // 1=colatina
 
@@ -107,6 +108,7 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
       description: blocEvent.viewModel.prestador.description,
       roles: blocEvent.viewModel.prestador.roles,
       workingHours: blocEvent.viewModel.prestador.workingHours,
+      tipoPlanoPrestador: blocEvent.viewModel.prestador.tipoPlanoPrestador,
     );
 
     ViewModelHubPrestador viewModelTmp = ViewModelHubPrestador(
@@ -132,6 +134,7 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
       description: blocEvent.viewModel.prestador.description,
       roles: blocEvent.viewModel.prestador.roles,
       workingHours: blocEvent.viewModel.prestador.workingHours,
+      tipoPlanoPrestador: blocEvent.viewModel.prestador.tipoPlanoPrestador,
     );
     debugPrint(blocEvent.viewModel.cidade.id);
 

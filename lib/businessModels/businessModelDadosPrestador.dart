@@ -13,6 +13,7 @@ class BusinessModelDadosPrestador extends BusinessModel with MixInDescricao {
   final DateTime dataVencimentoPlano;
   final DateTime dataAberturaConta;
   final String IdPrestador;
+  final int tipoPlanoPrestador;
 
   BusinessModelDadosPrestador({
     required this.name,
@@ -26,6 +27,7 @@ class BusinessModelDadosPrestador extends BusinessModel with MixInDescricao {
     required this.dataVencimentoPlano,
     required this.dataAberturaConta,
     required this.IdPrestador,
+    required this.tipoPlanoPrestador,
   }) : super(id: IdPrestador);
 
   factory BusinessModelDadosPrestador.vazio() => BusinessModelDadosPrestador(
@@ -40,6 +42,7 @@ class BusinessModelDadosPrestador extends BusinessModel with MixInDescricao {
         dataVencimentoPlano: DateTime.now(),
         numeroDeCliquesNoLigarOuWhatsApp: 0,
         profilePicture: '',
+        tipoPlanoPrestador: 10,
       );
 
   String primeiroNome() {
