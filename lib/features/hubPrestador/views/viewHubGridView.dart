@@ -89,7 +89,6 @@ class ViewHubGridView extends StatelessWidget {
               size: 80,
             ),
             //Image.asset("assets/image_2.png"),
-
             Text(tiposDeServico.descricao),
           ],
         ),
