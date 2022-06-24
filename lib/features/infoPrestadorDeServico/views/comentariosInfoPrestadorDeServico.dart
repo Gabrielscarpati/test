@@ -162,7 +162,7 @@ class _ComentariosInfoPrestadorDeServicoState extends State<ComentariosInfoPrest
                   idPrestador: widget.viewModel.prestadorDeServicos.codPrestadorServico
                );
               updateComentarioAvaliacao.updateComentarioAvaliacao();
-              //Navigator.of(context).pop();
+              Navigator.of(context).pop();
             },
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.all(0),

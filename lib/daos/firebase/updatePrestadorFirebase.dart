@@ -110,11 +110,6 @@ class UpdateComentarioAvaliacao {
   CollectionReference dadosUsuarios = FirebaseFirestore.instance.collection('usuarios');
 
 
-  Future<List> getListaComentarios() async {
-    DocumentSnapshot result = await dadosPrestador.doc('flutter123').get();
-    return result.data() as List;
-  }
-
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<String?> getIdDoUsuario() async {
@@ -131,10 +126,10 @@ class UpdateComentarioAvaliacao {
   CollectionReference firestore = FirebaseFirestore.instance.collection('comentarios');
 
   Future<String> getEmailUsuario() async {
-    DocumentSnapshot emailUsuario = await dadosPrestador.doc(
+    DocumentSnapshot emailUsuario = await dadosUsuarios.doc(
         await getIdDoUsuario()).get();
-    print(emailUsuario.data());
-    return 'emailUsuario.data()! as String';
+    print(emailUsuario.get('email'));
+    return emailUsuario.get('email');
   }
 
   updateComentarioAvaliacao() async {
@@ -143,7 +138,7 @@ class UpdateComentarioAvaliacao {
       'data': dataDoComentario,
       'nota': nota.toStringAsPrecision(1),
       'textoComentario': textoComentario,
-      'emailUsuario': 'emailUsuario',
+      'emailUsuario': await getEmailUsuario(),
       'idPrestador': this.idPrestador,
       'idUsuario': await getIdDoUsuario(),
     });

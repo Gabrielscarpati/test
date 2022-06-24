@@ -132,7 +132,7 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
         Card(
           child: TextButton(onPressed: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => ComentariosInfoPrestadorDeServico(viewModel: viewModel,),
-            )) ,
+            )).then((value) => viewActions.AtualizaTelaPrestadorDeServico(viewModel)) ,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

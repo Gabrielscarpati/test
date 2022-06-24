@@ -111,7 +111,7 @@ class MyApp extends StatelessWidget {
             if (snapshot.hasData ||
                 usuario != null ||
                 verificarSeUsuarioNulo() == null) {
-              return PresenterHubPrestador.presenter();
+              return ViewVeryFirstScreen();
             }
             return ViewVeryFirstScreen();
           }),
