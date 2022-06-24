@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelPrincipaisTiposDeServicoCidade.dart';
@@ -38,19 +39,9 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
 
   void _inicializaViewModel(
       BlocEventHubInicializaViewModelPrestador blocEvent) async {
-    BusinessModelDadosPrestador prestador = BusinessModelDadosPrestador(
-        name: 'name',
-        phone: 'phone',
-        workingHours: 'workingHours',
-        description: 'description',
-        profilePicture: 'profilePicture',
-        city: ['city'],
-        roles: [1, 2],
-        numeroDeCliquesNoLigarOuWhatsApp: 0,
-        dataVencimentoPlano: DateTime.now(),
-        dataAberturaConta: DateTime.now(),
-        IdPrestador: 'IdPrestador',
-        tipoPlanoPrestador: 10);
+    BusinessModelDadosPrestador prestador =
+        await Prestador().getPrestadorLogado();
+    ;
 
     String idCidadeDoprestador = "1"; // 1=colatina
 

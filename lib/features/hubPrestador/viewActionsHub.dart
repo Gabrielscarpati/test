@@ -5,6 +5,7 @@ import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelDadosPrestador.dart';
 import 'package:projeto_treinamento/businessModels/businessModelPrincipaisTiposDeServicoCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
+import 'package:projeto_treinamento/daos/firebase/updatePrestadorFirebase.dart';
 import 'package:projeto_treinamento/features/hubPrestador/viewModelHub.dart';
 import 'package:projeto_treinamento/features/infoDadosPrestador/presenterInfoDadosPrestador.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/presenterInfoPrestadorDeServico.dart';
@@ -117,6 +118,8 @@ class ViewActionsHubPrestador extends ViewActions<BlocEventHubPrestador> {
         principaisTiposDeServicoCidade:
             BusinessModelPrincipaisTiposDeServicoCidade.vazio(),
       );
+      UpdateDadosPrestador(prestador: novoViewModel.prestador)
+          .updateDadosPrestador();
       AtualizaTelaHub(novoViewModel);
     }
   }
