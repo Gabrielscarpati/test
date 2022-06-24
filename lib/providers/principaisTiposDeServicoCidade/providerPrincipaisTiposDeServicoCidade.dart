@@ -14,6 +14,8 @@ import 'package:projeto_treinamento/framework/providerDireto.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
 import 'package:projeto_treinamento/providers/dadosPrestador/providerDadosPrestador.dart';
 import 'package:projeto_treinamento/providers/tiposDeServico/providerTiposDeServico.dart';
+import 'package:projeto_treinamento/util/cidade.dart';
+import 'package:projeto_treinamento/util/prestador.dart';
 import 'package:projeto_treinamento/util/resposta_processamento.dart';
 
 import '../../util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
@@ -26,10 +28,9 @@ class ProviderPrincipaisTiposDeServicoCidade
     BusinessModelPrincipaisTiposDeServicoCidade
         businessModelPrincipaisTiposDeServicoCidade;
 
-    List<BusinessModelCidade> cidades =
-        await ProviderCidade().getBusinessModels();
+    List<BusinessModelCidade> cidades = Cidades().listaDeTodasAsCidades;
     List<BusinessModelDadosPrestador> prestadores =
-        await ProvideDadosPrestador().getBusinessModels();
+        Prestador().listaTodosPrestadores;
 
     List<BusinessModelDadosPrestador> prestadoresFiltrados = [];
     prestadoresFiltrados = prestadores
