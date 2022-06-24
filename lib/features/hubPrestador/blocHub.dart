@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/businessModels/businessModelPrincipaisTiposDeServicoCidade.dart';
+import 'package:projeto_treinamento/businessModels/businessModelTiposDeServico.dart';
 import 'package:projeto_treinamento/framework/bloc.dart';
 import 'package:projeto_treinamento/framework/viewModel.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
 import 'package:projeto_treinamento/providers/principaisTiposDeServicoCidade/providerPrincipaisTiposDeServicoCidade.dart';
+import 'package:projeto_treinamento/util/cidade.dart';
+import 'package:projeto_treinamento/util/prestador.dart';
+import 'package:projeto_treinamento/util/tipoDeServico.dart';
 
 import '../../businessModels/businessModelDadosPrestador.dart';
 import 'blocEventHub.dart';
@@ -19,7 +23,6 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
     if (blocEvent is BlocEventHubPrestadorAtualizaViewModel)
       _atualizaViewModel(blocEvent);
   }
-
 
 /*  Future<ViewModelHubPrestador> _aplicaCidadeNoViewModel(BusinessModelDadosPrestador prestador, String idCidade) async {
     BusinessModelPrincipaisTiposDeServicoCidade principaisTiposDeServicoCidade = await ProviderPrincipaisTiposDeServicoCidade().getBusinessModel(idCidade);
@@ -42,17 +45,16 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
         description: 'description',
         profilePicture: 'profilePicture',
         city: ['city'],
-        roles: [1,2],
+        roles: [1, 2],
         numeroDeCliquesNoLigarOuWhatsApp: 0,
         dataVencimentoPlano: DateTime.now(),
-        dataAberturaConta:  DateTime.now(),
+        dataAberturaConta: DateTime.now(),
         IdPrestador: 'IdPrestador',
         tipoPlanoPrestador: 10);
 
     String idCidadeDoprestador = "1"; // 1=colatina
 
-    List<BusinessModelCidade> cidades =
-        await ProviderCidade().getBusinessModels();
+    List<BusinessModelCidade> cidades = Cidades().listaDeTodasAsCidades;
 
     BusinessModelPrincipaisTiposDeServicoCidade
         principaisTiposDeServicoCidades =
@@ -72,6 +74,20 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
   }
 
   void _selecionaCidade(BlocEventHubSelecionaCidade blocEvent) async {
+    List<BusinessModelCidade> cidades = Cidades().listaDeTodasAsCidades;
+
+    List<BusinessModelTiposDeServico> tiposDeServico =
+        TipoDeServico().listaTodosPrestadores;
+    ViewModelHubPrestador _viewModel = ViewModelHubPrestador(
+      prestador: blocEvent.viewModel.prestador,
+      cidade: cidades[int.parse(blocEvent.codCidade.toString())],
+      principaisTiposDeServicoCidade:
+          BusinessModelPrincipaisTiposDeServicoCidade(
+              cidade: cidades[int.parse(blocEvent.codCidade.toString())],
+              tiposDeServico: tiposDeServico),
+    );
+    this.sendViewModelOut(_viewModel);
+
     ViewModelHubPrestador viewModel = await _aplicaCidadeNoViewModel(
       blocEvent.viewModel.prestador,
       blocEvent.codCidade.toString(),
@@ -80,7 +96,9 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
   }
 
   Future<ViewModelHubPrestador> _aplicaCidadeNoViewModel(
-      BusinessModelDadosPrestador prestador, String idCidade) async {
+    BusinessModelDadosPrestador prestador,
+    String idCidade,
+  ) async {
     BusinessModelPrincipaisTiposDeServicoCidade principaisTiposDeServicoCidade =
         await ProviderPrincipaisTiposDeServicoCidade()
             .getBusinessModel(idCidade);

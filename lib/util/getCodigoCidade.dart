@@ -1,5 +1,6 @@
 import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
+import 'package:projeto_treinamento/util/cidade.dart';
 
 class GetCodCidade {
   String nomeCidade;
@@ -7,9 +8,10 @@ class GetCodCidade {
   Future<int> action() async {
     int response = 0;
 
-    List<BusinessModelCidade> listaDeTodasAsCidades = [];
-    listaDeTodasAsCidades = await ProviderCidade().getBusinessModels();
+    List<BusinessModelCidade> listaDeTodasAsCidades =
+        Cidades().listaDeTodasAsCidades;
 
+    print(listaDeTodasAsCidades);
     for (int i = 0; i < listaDeTodasAsCidades.length; i++) {
       if (listaDeTodasAsCidades[i].nome == nomeCidade) {
         response = i;

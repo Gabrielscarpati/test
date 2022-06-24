@@ -2,6 +2,7 @@ import 'package:projeto_treinamento/businessModels/businessModelCidade.dart';
 import 'package:projeto_treinamento/features/pesquisaCidade/viewModelPesquisaCidade.dart';
 import 'package:projeto_treinamento/framework/bloc.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
+import 'package:projeto_treinamento/util/cidade.dart';
 import 'blocEventPesquisaCidade.dart';
 import 'featureModelPesquisaCidade.dart';
 
@@ -43,7 +44,7 @@ class BlocPesquisaCidade
   Future<List<FeatureModelPesquisaCidade>>
       _buscaListaFeatureModelCidade() async {
     List<BusinessModelCidade> listaBusinessModelTiposDeServico =
-        await ProviderCidade().getBusinessModels();
+        Cidades().listaDeTodasAsCidades;
 
     List<FeatureModelPesquisaCidade> listaCompletaFeatureModels =
         List.empty(growable: true);

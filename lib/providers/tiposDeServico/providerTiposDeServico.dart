@@ -3,6 +3,7 @@ import 'package:projeto_treinamento/framework/provider.dart';
 import 'package:projeto_treinamento/framework/providerDireto.dart';
 import 'package:projeto_treinamento/providers/tiposDeServico/adapterTipoDeServico.dart';
 import 'package:projeto_treinamento/util/resposta_processamento.dart';
+import 'package:projeto_treinamento/util/tipoDeServico.dart';
 
 import '../../businessModels/businessModelTiposDeServico.dart';
 import '../../daos/tiposDeServico/daoTipoDeServico.dart';
@@ -15,7 +16,7 @@ class ProviderTiposDeServico extends Provider<BusinessModelTiposDeServico> {
   @override
   Future<BusinessModelTiposDeServico> getBusinessModel(String id) async {
     List<BusinessModelTiposDeServico> listaTiposDeServico =
-        await getBusinessModels();
+        TipoDeServico().listaTodosPrestadores;
     return listaTiposDeServico[int.parse(id)];
   }
 

@@ -10,9 +10,12 @@ import 'package:projeto_treinamento/features/logIn_SingUpPrestador/singUpPart5Pr
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
+import 'package:projeto_treinamento/util/cidade.dart';
 import 'package:projeto_treinamento/util/getPrestadoresDeServicoPorCidadeTipoDeServico.dart';
 import 'package:projeto_treinamento/util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
+import 'package:projeto_treinamento/util/prestador.dart';
 import 'package:projeto_treinamento/util/src/utils/storage_util.dart';
+import 'package:projeto_treinamento/util/tipoDeServico.dart';
 import 'package:provider/provider.dart';
 
 import 'daos/firebase/authService.dart';
@@ -37,7 +40,9 @@ void main() async {
   await Firebase.initializeApp();
 
   final getIt = GetIt.instance;
-
+  await Cidades().getCidades();
+  await Prestador().getPrestadores();
+  await TipoDeServico().getTiposDeServico();
   getIt.registerLazySingleton(() => SetPrestadorInformationCompleta(
       name: '',
       phone: '',

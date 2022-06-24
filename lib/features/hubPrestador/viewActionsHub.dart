@@ -28,14 +28,17 @@ class ViewActionsHubPrestador extends ViewActions<BlocEventHubPrestador> {
       : super(blocPipeIn);
 
   void abreTelaMostraPrestadoresDeServico(BuildContext context,
-      ViewModelHubPrestador viewModel, int codTipoDeServico) {
+      ViewModelHubPrestador viewModel, int codTipoDeServico) async {
+    print(viewModel.cidade.codCidade);
+    int newcodCidade =
+        await GetCodCidade(nomeCidade: viewModel.cidade.nome).action();
+    print(newcodCidade);
     Navigator.of(context)
         .push(
       MaterialPageRoute(
         builder: (BuildContext context) =>
             PresenterListaPrestadoresDeServico.presenter(
-                codTipoDeServico: codTipoDeServico,
-                codCidade: viewModel.cidade.codCidade),
+                codTipoDeServico: codTipoDeServico, codCidade: newcodCidade),
       ),
     )
         .then((codTipoDeServico) {
