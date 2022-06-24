@@ -24,7 +24,7 @@ class LienarPercentIndicatorWidget extends StatelessWidget {
               curve: Curves.elasticIn,
               percent: (rating!),
               center: Text(""),
-              barRadius: const Radius.circular(16),
+              barRadius: const Radius.circular(8),
               progressColor: Color(0xff006400),
             ),
         )

@@ -106,8 +106,9 @@ class UpdateIdentidadePrestador {
 }
 
 class UpdateComentarioAvaliacao {
-  CollectionReference dadosPrestador =
-      FirebaseFirestore.instance.collection('dadosPrestador');
+  CollectionReference dadosPrestador = FirebaseFirestore.instance.collection('dadosPrestador');
+  CollectionReference dadosUsuarios = FirebaseFirestore.instance.collection('usuarios');
+
 
   Future<List> getListaComentarios() async {
     DocumentSnapshot result = await dadosPrestador.doc('flutter123').get();
@@ -116,7 +117,7 @@ class UpdateComentarioAvaliacao {
 
   final FirebaseAuth auth = FirebaseAuth.instance;
 
-  Future<String?> getUserId() async {
+  Future<String?> getIdDoUsuario() async {
     final User? user = await auth.currentUser;
     final userId = user?.uid.toString();
     return userId;
@@ -125,13 +126,16 @@ class UpdateComentarioAvaliacao {
   final String dataDoComentario;
   final double nota;
   final String textoComentario;
-  final String emailUsuario;
-  final String idUsuario;
   final String idPrestador;
 
-  CollectionReference firestore =
-      FirebaseFirestore.instance.collection('comentarios');
-  //CollectionReference users = FirebaseFirestore.instance.collection('users');
+  CollectionReference firestore = FirebaseFirestore.instance.collection('comentarios');
+
+  Future<String> getEmailUsuario() async {
+    DocumentSnapshot emailUsuario = await dadosPrestador.doc(
+        await getIdDoUsuario()).get();
+    print(emailUsuario.data());
+    return 'emailUsuario.data()! as String';
+  }
 
   updateComentarioAvaliacao() async {
     print('-' * 50);
@@ -139,25 +143,21 @@ class UpdateComentarioAvaliacao {
       'data': dataDoComentario,
       'nota': nota.toStringAsPrecision(1),
       'textoComentario': textoComentario,
-      'emailUsuario': emailUsuario,
+      'emailUsuario': 'emailUsuario',
       'idPrestador': this.idPrestador,
-      'idUsuario': this.idUsuario,
+      'idUsuario': await getIdDoUsuario(),
     });
   }
 
-  UpdateComentarioAvaliacao({
+  UpdateComentarioAvaliacao( {
     required this.dataDoComentario,
     required this.nota,
     required this.textoComentario,
-    required this.emailUsuario,
-    required this.idUsuario,
     required this.idPrestador,
   }) {
     this.dataDoComentario;
     this.nota;
     this.textoComentario;
-    this.emailUsuario;
-    this.idUsuario;
     this.idPrestador;
   }
 }

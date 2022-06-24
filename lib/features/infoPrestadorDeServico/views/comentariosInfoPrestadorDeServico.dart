@@ -155,17 +155,13 @@ class _ComentariosInfoPrestadorDeServicoState extends State<ComentariosInfoPrest
               ),
             ),
             onPressed: () {
-              print('kkkkk');
               UpdateComentarioAvaliacao updateComentarioAvaliacao = UpdateComentarioAvaliacao(
                   dataDoComentario: DateTime.now().toString(),
                   nota: rating,
                   textoComentario: _ComentarioController.text,
-                  emailUsuario: 'caio@gmail.com',
-                  idUsuario: 'idUsuario',
                   idPrestador: widget.viewModel.prestadorDeServicos.codPrestadorServico
                );
               updateComentarioAvaliacao.updateComentarioAvaliacao();
-              print('aaaa');
               //Navigator.of(context).pop();
             },
             style: ElevatedButton.styleFrom(

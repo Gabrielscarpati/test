@@ -97,7 +97,7 @@ class ViewInfoPrestadorDeServicoDadosRating extends StatelessWidget {
           width: 6,
         ),
         LienarPercentIndicatorWidget(
-          rating:  (totalDeAvaliacoesNota / (viewModel.prestadorDeServicos.totalDeAvaliacoes == 0 ? 1:viewModel.prestadorDeServicos.totalDeAvaliacoes)),
+          rating: (totalDeAvaliacoesNota / (viewModel.prestadorDeServicos.totalDeAvaliacoes == 0 ? 1: viewModel.prestadorDeServicos.totalDeAvaliacoes)),
           totalDeAvaliacoes: totalDeAvaliacoesNota,
         ),
         SizedBox(
