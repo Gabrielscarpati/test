@@ -80,7 +80,11 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
         totalDeAvaliacoes++;
       });
 
-      nota = nota / totalDeAvaliacoes;
+      if (totalDeAvaliacoes > 0) {
+        nota = nota / totalDeAvaliacoes;
+      } else {
+        nota = 3;
+      }
 
       prestadores.add(BusinessModelPrestadorDeServicos(
         codPrestadorServico: prestador.IdPrestador,
