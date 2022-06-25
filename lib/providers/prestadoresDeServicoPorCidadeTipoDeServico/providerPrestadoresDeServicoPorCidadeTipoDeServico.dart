@@ -101,6 +101,9 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
         urlFoto: prestador.profilePicture,
         description: prestador.description,
         tipoPlanoPrestador: prestador.tipoPlanoPrestador,
+        cidades: prestador.city,
+        servicos: prestador.roles,
+        workingHours: prestador.workingHours,
       ));
     }
 

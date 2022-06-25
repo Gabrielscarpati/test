@@ -33,8 +33,14 @@ class AdapterPrestadorDeServico extends Adapter<BusinessModelPrestadorDeServicos
       totalDeAvaliacoesNota3: dataModelPrestadorDeServicos.totalDeAvaliacoesNota3,
       totalDeAvaliacoesNota4: dataModelPrestadorDeServicos.totalDeAvaliacoesNota4,
       totalDeAvaliacoesNota5: dataModelPrestadorDeServicos.totalDeAvaliacoesNota5,
-      description: '',
+      description: dataModelPrestadorDeServicos.urlFoto,
+
+
+
       tipoPlanoPrestador: dataModelPrestadorDeServicos.tipoPlanoPrestador,
+      cidades: dataModelPrestadorDeServicos.cidades,
+      servicos: dataModelPrestadorDeServicos.servicos,
+      workingHours: dataModelPrestadorDeServicos.workingHours,
     );
   }
 
@@ -53,6 +59,9 @@ class AdapterPrestadorDeServico extends Adapter<BusinessModelPrestadorDeServicos
       totalDeAvaliacoesNota4: businessModel.totalDeAvaliacoesNota4,
       totalDeAvaliacoesNota5: businessModel.totalDeAvaliacoesNota5,
         tipoPlanoPrestador: businessModel.tipoPlanoPrestador,
+      cidades: businessModel.cidades,
+      servicos: businessModel.servicos,
+      workingHours: businessModel.workingHours,
     );
   }
 }

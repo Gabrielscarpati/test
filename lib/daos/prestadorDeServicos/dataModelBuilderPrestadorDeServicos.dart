@@ -18,6 +18,9 @@ class DataModelBuilderPrestadorDeServicos extends DataModelBuilder<DataModelPres
       totalDeAvaliacoesNota4: json["totalDeAvaliacoesNota4"],
       totalDeAvaliacoesNota5: json["totalDeAvaliacoesNota5"],
       tipoPlanoPrestador: json["tipoPlanoPrestador"],
+      cidades: json["city"],
+      servicos: json["roles"],
+      workingHours: json["workingHours"],
     );
   }
 

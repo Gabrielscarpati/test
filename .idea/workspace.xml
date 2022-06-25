@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ed77b64-fc0e-4c87-856c-9440b5c22f50" name="Default Changelist" comment="comentario pronto">
-      <change afterPath="$PROJECT_DIR$/ios/Flutter/Flutter.podspec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Manifest.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/hubPrestador/views/hubPrestadorDadosPrestador.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubPrestadorInfoPrestador.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/.filecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/app.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/debug_android_application.stamp" afterDir="false" />
@@ -22,38 +22,24 @@
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/.symlinks/plugins/cloud_firestore" beforeDir="false" afterPath="$PROJECT_DIR$/ios/.symlinks/plugins/cloud_firestore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/.symlinks/plugins/firebase_auth" beforeDir="false" afterPath="$PROJECT_DIR$/ios/.symlinks/plugins/firebase_auth" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/.symlinks/plugins/firebase_core" beforeDir="false" afterPath="$PROJECT_DIR$/ios/.symlinks/plugins/firebase_core" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/.symlinks/plugins/firebase_storage" beforeDir="false" afterPath="$PROJECT_DIR$/ios/.symlinks/plugins/firebase_storage" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Local Podspecs/cloud_firestore.podspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Local Podspecs/cloud_firestore.podspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Local Podspecs/firebase_auth.podspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Local Podspecs/firebase_auth.podspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Local Podspecs/firebase_core.podspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Local Podspecs/firebase_core.podspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Local Podspecs/firebase_storage.podspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Local Podspecs/firebase_storage.podspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/cloud_firestore/cloud_firestore-Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/cloud_firestore/cloud_firestore-Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/cloud_firestore/cloud_firestore.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/cloud_firestore/cloud_firestore.debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/cloud_firestore/cloud_firestore.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/cloud_firestore/cloud_firestore.release.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_auth/firebase_auth-Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_auth/firebase_auth-Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_auth/firebase_auth.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_auth/firebase_auth.debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_auth/firebase_auth.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_auth/firebase_auth.release.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_core/firebase_core-Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_core/firebase_core-Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_core/firebase_core.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_core/firebase_core.debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_core/firebase_core.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_core/firebase_core.release.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_storage/firebase_storage-Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_storage/firebase_storage-Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_storage/firebase_storage.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_storage/firebase_storage.debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_storage/firebase_storage.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_storage/firebase_storage.release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/businessModels/businessModelPrestadorDeServicos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/businessModels/businessModelPrestadorDeServicos.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/daos/prestadorDeServicos/dataModelBuilderPrestadorDeServicos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/prestadorDeServicos/dataModelBuilderPrestadorDeServicos.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/daos/prestadorDeServicos/dataModelPrestadorDeServicos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/prestadorDeServicos/dataModelPrestadorDeServicos.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hubPrestador/blocHub.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hubPrestador/blocHub.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubBody.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubCidade.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubPrestador.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubPrestadorHeader.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubTipoServico.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/providers/prestadorDeServico/adapterPrestadorDeServico.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/prestadorDeServico/adapterPrestadorDeServico.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/providers/prestadoresDeServicoPorCidadeTipoDeServico/providerPrestadoresDeServicoPorCidadeTipoDeServico.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/prestadoresDeServicoPorCidadeTipoDeServico/providerPrestadoresDeServicoPorCidadeTipoDeServico.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/gbscarpati/.android/avd/Pixel_3a_API_31_arm64-v8a.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/gbscarpati/.android/avd/Nexus_S_API_31.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -115,11 +101,11 @@
       <recent name="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/selectCidades/views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/features/hubPrestador/views" />
       <recent name="$PROJECT_DIR$/assets/icons" />
       <recent name="$PROJECT_DIR$/lib/util/Icons" />
       <recent name="$PROJECT_DIR$/assets/Icons" />
       <recent name="$PROJECT_DIR$/lib/util" />
-      <recent name="$PROJECT_DIR$/lib/businessModels" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -425,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656038879711</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="comentario pronto">
+      <created>1656174220747</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1656174220747</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -13,6 +13,7 @@ import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
 import 'package:projeto_treinamento/util/cidade.dart';
 import 'package:projeto_treinamento/util/getPrestadoresDeServicoPorCidadeTipoDeServico.dart';
 import 'package:projeto_treinamento/util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
+import 'package:projeto_treinamento/features/hubPrestador/views/hubPrestadorDadosPrestador.dart';
 import 'package:projeto_treinamento/util/prestador.dart';
 import 'package:projeto_treinamento/util/src/utils/storage_util.dart';
 import 'package:projeto_treinamento/util/tipoDeServico.dart';
@@ -22,6 +23,7 @@ import 'daos/firebase/authService.dart';
 import 'daos/firebase/updatePrestadorFirebase.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
 import 'daos/usuario/daoUsuario.dart';
+import 'features/hubUsuario/presenterHub.dart';
 import 'features/infoPrestadorDeServico/views/comentariosInfoPrestadorDeServico.dart';
 import 'features/logIn_SingUpPrestador/selectCidades/presenterSelectCidade.dart';
 import 'features/logIn_SingUpPrestador/selectCidades/viewSelectCidade.dart';
@@ -111,9 +113,9 @@ class MyApp extends StatelessWidget {
             if (snapshot.hasData ||
                 usuario != null ||
                 verificarSeUsuarioNulo() == null) {
-              return PresenterHubPrestador.presenter();
+              return PresenterHubUsuario.presenter();
             }
-            return PresenterHubPrestador.presenter();
+            return ViewVeryFirstScreen();
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),
