@@ -5,6 +5,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
+import 'package:projeto_treinamento/features/hubUsuario/presenterHub.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
@@ -18,13 +19,14 @@ import 'package:http/http.dart';
 
 GoogleSignInAccount? _usuarioAtual;
 
-
 class LogInBodyUsuario extends StatefulWidget {
-  const LogInBodyUsuario({Key? key,
+  const LogInBodyUsuario({
+    Key? key,
   }) : super(key: key);
   @override
   _LogInBodyUsuario createState() => _LogInBodyUsuario();
 }
+
 class _LogInBodyUsuario extends State<LogInBodyUsuario> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -34,32 +36,31 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
   bool _estaEscondido = false;
 
   GoogleSignInAccount? usuario = _usuarioAtual;
-  final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
-
+  final RoundedLoadingButtonController _btnController =
+      RoundedLoadingButtonController();
 
   @override
   Widget build(BuildContext context) {
-    return usuario == null && _userData == null ? _usuarioNaologado(context) : _usuarioLogado(context);
+    return usuario == null && _userData == null
+        ? _usuarioNaologado(context)
+        : _usuarioLogado(context);
   }
 
   @override
   Widget _usuarioNaologado(BuildContext context) {
-    FuncaoPestadorLogInEmailNaoExiste funcaoPestadorLogInEmailNaoExiste = FuncaoPestadorLogInEmailNaoExiste(emailController: emailController);
+    FuncaoPestadorLogInEmailNaoExiste funcaoPestadorLogInEmailNaoExiste =
+        FuncaoPestadorLogInEmailNaoExiste(emailController: emailController);
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
-
         width: double.infinity,
         decoration: BoxDecorationColorGradient(context),
-
-
         child: Column(
-
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(12,36,0,0),
-              child: SizedBox(child: BackArrowLogInScreen()) ),
+                padding: const EdgeInsets.fromLTRB(12, 36, 0, 0),
+                child: SizedBox(child: BackArrowLogInScreen())),
 
             const SizedBox(height: 14),
             // #login, #welcome
@@ -67,10 +68,18 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
               padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const[
-                  Text("Login",style: TextStyle(color: Colors.white,fontSize: 40),),
-                  SizedBox(height: 10,),
-                  Text("Bem-vindo de volta",style: TextStyle(color: Colors.white,fontSize: 20),),
+                children: const [
+                  Text(
+                    "Login",
+                    style: TextStyle(color: Colors.white, fontSize: 40),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Bem-vindo de volta",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ],
               ),
             ),
@@ -80,25 +89,30 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
               child: Container(
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(60),topRight: Radius.circular(60)),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(60),
+                      topRight: Radius.circular(60)),
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(24),
                     child: Column(
                       children: [
-                        const SizedBox(height: 60,),
+                        const SizedBox(
+                          height: 60,
+                        ),
                         // #email, #password
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
-                            boxShadow: const[
+                            boxShadow: const [
                               BoxShadow(
-                                  color: Color.fromRGBO(171, 171, 171, .7),blurRadius: 20,offset: Offset(0,10)),
+                                  color: Color.fromRGBO(171, 171, 171, .7),
+                                  blurRadius: 20,
+                                  offset: Offset(0, 10)),
                             ],
                           ),
-
                           child: Form(
                             key: _formKeyAuthenticationLogIn,
                             child: Column(
@@ -106,39 +120,48 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                 Container(
                                   padding: const EdgeInsets.all(10),
                                   decoration: BoxDecoration(
-                                    border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
+                                    border: Border(
+                                        bottom: BorderSide(
+                                            color: Colors.grey.shade200)),
                                   ),
                                   child: TextFormField(
                                     controller: emailController,
                                     cursorColor: Colors.indigoAccent,
-                                    validator: (emailController) => !EmailValidator.validate(emailController!)
-                                        ? 'Email inválido'
-                                        : null,
+                                    validator: (emailController) =>
+                                        !EmailValidator.validate(
+                                                emailController!)
+                                            ? 'Email inválido'
+                                            : null,
                                     decoration: InputDecoration(
-                                      suffixIcon: IconButton(
-                                        icon: Icon(Icons.close),
-                                        onPressed: () => emailController.clear(),
-                                      ),
+                                        suffixIcon: IconButton(
+                                          icon: Icon(Icons.close),
+                                          onPressed: () =>
+                                              emailController.clear(),
+                                        ),
                                         hintText: "Email",
-                                        hintStyle: TextStyle(color: Colors.grey),
-                                        border: InputBorder.none
-                                    ),
+                                        hintStyle:
+                                            TextStyle(color: Colors.grey),
+                                        border: InputBorder.none),
                                     keyboardType: TextInputType.emailAddress,
                                   ),
                                 ),
                                 Container(
                                   padding: const EdgeInsets.all(10),
                                   decoration: BoxDecoration(
-                                    border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
+                                    border: Border(
+                                        bottom: BorderSide(
+                                            color: Colors.grey.shade200)),
                                   ),
-                                  child:  TextFormField(
+                                  child: TextFormField(
                                     controller: passwordController,
                                     obscureText: _estaEscondido,
                                     cursorColor: Colors.indigoAccent,
                                     validator: (passwordController) {
-                                      if (passwordController!.isEmpty || !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$').hasMatch(passwordController)){
+                                      if (passwordController!.isEmpty ||
+                                          !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$')
+                                              .hasMatch(passwordController)) {
                                         return "Sua senha deve conter uma letra maiúscula,\n minúscula e um número e pelo menos 8 caracteres";
-                                      }else{
+                                      } else {
                                         return null;
                                       }
                                     },
@@ -152,22 +175,21 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                           ),
                                         ),
                                         hintText: "Senha",
-                                        hintStyle: TextStyle(color: Colors.grey),
-                                        border: InputBorder.none
-                                    ),
+                                        hintStyle:
+                                            TextStyle(color: Colors.grey),
+                                        border: InputBorder.none),
                                   ),
                                 ),
                               ],
                             ),
                           ),
                         ),
-                         SizedBox(height: 40),
+                        SizedBox(height: 40),
                         // #login
                         Container(
                           height: 50,
-
-                          child:  Center(
-                          child: RoundedLoadingButton(
+                          child: Center(
+                            child: RoundedLoadingButton(
                               controller: _btnController,
                               child: Ink(
                                 decoration: BoxDecoration(
@@ -180,8 +202,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                       begin: Alignment.centerLeft,
                                       end: Alignment.centerRight,
                                     ),
-                                    borderRadius:
-                                    BorderRadius.circular(30.0)),
+                                    borderRadius: BorderRadius.circular(30.0)),
                                 child: Container(
                                   constraints: BoxConstraints(
                                       maxWidth: 350.0, minHeight: 50.0),
@@ -196,27 +217,33 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                   ),
                                 ),
                               ),
-                              onPressed: ()async {
-
-                                final formLogIn = _formKeyAuthenticationLogIn.currentState!;
-                                if (await funcaoPestadorLogInEmailNaoExiste.checkIfEmailInUse() == false){
+                              onPressed: () async {
+                                final formLogIn =
+                                    _formKeyAuthenticationLogIn.currentState!;
+                                if (await funcaoPestadorLogInEmailNaoExiste
+                                        .checkIfEmailInUse() ==
+                                    false) {
                                   await mostrarErroEmailInvalido();
-                                } else if(formLogIn.validate()) {
-                                  await AuthService().loginUser(emailController.text, passwordController.text);
+                                } else if (formLogIn.validate()) {
+                                  await AuthService().loginUser(
+                                      emailController.text,
+                                      passwordController.text);
 
-                                  Navigator.of(context).push(
-                                      MaterialPageRoute(builder: (context) => PresenterHubPrestador.presenter())
-                                  );
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          PresenterHubUsuario.presenter()));
                                 }
                                 _btnController.reset();
-
                               },
                             ),
                           ),
                         ),
-                        SizedBox(height: 16,),
+                        SizedBox(
+                          height: 16,
+                        ),
                         GestureDetector(
-                          child: Text('Esqueceu senha?',
+                          child: Text(
+                            'Esqueceu senha?',
                             style: TextStyle(
                               decoration: TextDecoration.underline,
                               color: Colors.blue[600],
@@ -225,22 +252,27 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                             ),
                           ),
                           onTap: () => Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => EsqueceuSenhaUsuarioScreen())
-                          ),
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      EsqueceuSenhaUsuarioScreen())),
                         ),
-                        SizedBox(height: 16,),
+                        SizedBox(
+                          height: 16,
+                        ),
                         GestureDetector(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('Não tem conta?',
+                              Text(
+                                'Não tem conta?',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Text('Cadastre-se',
+                              Text(
+                                'Cadastre-se',
                                 style: TextStyle(
                                   decoration: TextDecoration.underline,
                                   color: Colors.blue[600],
@@ -251,83 +283,90 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                             ],
                           ),
                           onTap: () => Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => SignUpUsuarioBody())
-                          ),
+                              MaterialPageRoute(
+                                  builder: (context) => SignUpUsuarioBody())),
                         ),
                         const SizedBox(height: 20),
                         Row(
                           children: [
                             Expanded(
                                 child: SizedBox(
-                                  height: 50,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      primary: Colors.white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
-                                      shape: new RoundedRectangleBorder(
-                                        borderRadius: new BorderRadius.circular(20.0),
-                                      ),
-                                    ),
-                                    onPressed: ()  async {
-                                      await signInWithFacebook();
-
-                                    },
-                                    child: Center(
-                                      child: Container(
-                                        child: Row(
-                                          children: <Widget>[
-                                            Icon(FontAwesomeIcons.facebook, color: Colors.indigoAccent,),
-
-                                            SizedBox(width: screenWidth*0.01,),
-                                            Text('Facebook',
-                                              style: TextStyle(
-                                                  fontSize: 17,
-                                                  color: Colors.black
-                                              ),
-                                            ),
-                                          ],
+                              height: 50,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors
+                                      .white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
+                                  shape: new RoundedRectangleBorder(
+                                    borderRadius:
+                                        new BorderRadius.circular(20.0),
+                                  ),
+                                ),
+                                onPressed: () async {
+                                  await signInWithFacebook();
+                                },
+                                child: Center(
+                                  child: Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          FontAwesomeIcons.facebook,
+                                          color: Colors.indigoAccent,
                                         ),
-                                      ),
+                                        SizedBox(
+                                          width: screenWidth * 0.01,
+                                        ),
+                                        Text(
+                                          'Facebook',
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.black),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                )
-                            ),
-                            SizedBox(width: screenWidth*0.02564*.7),
+                                ),
+                              ),
+                            )),
+                            SizedBox(width: screenWidth * 0.02564 * .7),
                             Expanded(
                                 child: SizedBox(
-                                  height: 50,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      primary: Colors.white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
-                                      shape: new RoundedRectangleBorder(
-                                        borderRadius: new BorderRadius.circular(20.0),
-                                      ),
-                                    ),
-                                    onPressed: () {
-                                      signInWithGoogle();
-                                      setState(() {
-                                      });
-                                    },
-                                    child: Center(
-                                      child: Container(
-                                        child: Row(
-                                          children: <Widget>[
-                                            Icon(FontAwesomeIcons.google, color: Colors.indigoAccent,),
-
-
-                                            SizedBox(width: screenWidth*0.02564,),
-                                            Text('Google',
-                                              style: TextStyle(
-                                                  fontSize: 18,
-                                                  color: Colors.black
-                                              ),
-                                            ),
-                                          ],
+                              height: 50,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors
+                                      .white, //[Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400]
+                                  shape: new RoundedRectangleBorder(
+                                    borderRadius:
+                                        new BorderRadius.circular(20.0),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  signInWithGoogle();
+                                  setState(() {});
+                                },
+                                child: Center(
+                                  child: Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          FontAwesomeIcons.google,
+                                          color: Colors.indigoAccent,
                                         ),
-                                      ),
+                                        SizedBox(
+                                          width: screenWidth * 0.02564,
+                                        ),
+                                        Text(
+                                          'Google',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                )
-                            ),
+                                ),
+                              ),
+                            )),
                           ],
                         ),
                       ],
@@ -341,26 +380,24 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
       ),
     );
   }
+
   Future<UserCredential> signInWithFacebook() async {
-
-    final LoginResult result = await FacebookAuth.instance.login(permissions:['email']);
-
+    final LoginResult result =
+        await FacebookAuth.instance.login(permissions: ['email']);
 
     if (result.status == LoginStatus.success) {
-
       final userData = await FacebookAuth.instance.getUserData();
 
       _userData = userData;
-    } else {
-    }
+    } else {}
 
     setState(() {
       String email = '';
       email = _userData?['email'];
     });
 
-
-    final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(result.accessToken!.token);
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(result.accessToken!.token);
 
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
@@ -370,7 +407,8 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
     // Obtain the auth details from the request
-    final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser!.authentication;
 
     // Create a new credential
     final credential = GoogleAuthProvider.credential(
@@ -378,23 +416,22 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
       idToken: googleAuth.idToken,
     );
 
-
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
-    void _togglePasswordView() {
-      setState(() {
-        _estaEscondido = !_estaEscondido;
-      });
-    }
+  void _togglePasswordView() {
+    setState(() {
+      _estaEscondido = !_estaEscondido;
+    });
+  }
 
   Widget _usuarioLogado(BuildContext context) {
     return PresenterHubPrestador.presenter();
   }
-  Future mostrarErroEmailInvalido() => showDialog(
-    context: context,
-    builder: (context) => PopUpEmailNaoExiste(),
-  );
 
+  Future mostrarErroEmailInvalido() => showDialog(
+        context: context,
+        builder: (context) => PopUpEmailNaoExiste(),
+      );
 }

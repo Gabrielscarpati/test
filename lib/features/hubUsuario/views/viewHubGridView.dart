@@ -12,8 +12,8 @@ class ViewHubGridView extends StatelessWidget {
     required this.viewActions,
   });
 
-  final ViewModelHubPrestador viewModel;
-  final ViewActionsHubPrestador viewActions;
+  final ViewModelHubUsuario viewModel;
+  final ViewActionsHubUsuario viewActions;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class ViewHubGridView extends StatelessWidget {
               borderRadius: new BorderRadius.circular(20.0),
             )),
         onPressed: () {
-          viewActions.abreTelaMostraPrestadoresDeServico(
+          viewActions.abreTelaMostraUsuarioesDeServico(
               context, viewModel, tiposDeServico.codTipoServico);
         },
         child: Column(

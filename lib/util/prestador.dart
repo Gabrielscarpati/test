@@ -29,7 +29,7 @@ class Prestador {
         workingHours: 'workingHours',
         description: 'description',
         profilePicture: 'profilePicture',
-        city: ['city'],
+        city: ['colatina - ES'],
         roles: [1, 2],
         numeroDeCliquesNoLigarOuWhatsApp: 0,
         dataVencimentoPlano: DateTime.now(),

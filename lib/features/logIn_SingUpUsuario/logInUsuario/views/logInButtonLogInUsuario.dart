@@ -15,7 +15,6 @@ class _SignUpButtonState extends State<LogInButtonLogInScreen> {
     return ElevatedButton(
       child: Ink(
         decoration: BoxDecorationColorGradient(context),
-
         child: Container(
           constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
           alignment: Alignment.center,
@@ -25,14 +24,11 @@ class _SignUpButtonState extends State<LogInButtonLogInScreen> {
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 20.0,
-                fontWeight: FontWeight.bold
-            ),
+                fontWeight: FontWeight.bold),
           ),
         ),
       ),
-      onPressed: () {
-
-      },
+      onPressed: () {},
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.all(0),
         shape: new RoundedRectangleBorder(
@@ -42,7 +38,3 @@ class _SignUpButtonState extends State<LogInButtonLogInScreen> {
     );
   }
 }
-
-
-
-

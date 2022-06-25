@@ -10,8 +10,8 @@ import 'package:projeto_treinamento/businessModels/businessModelUsuario.dart';
 import '../viewActionsHub.dart';
 import '../viewModelHub.dart';
 
-class ViewHubCidade extends StatelessWidget {
-  ViewHubCidade({
+class ViewHubTipoServico extends StatelessWidget {
+  ViewHubTipoServico({
     Key? key,
     required this.viewModel,
     required this.viewActions,
@@ -37,11 +37,11 @@ class ViewHubCidade extends StatelessWidget {
               ListView(
                 // This next line does the trick.
                 scrollDirection: Axis.horizontal,
-                children:
-                    List<Widget>.generate(viewModel.cidade.length, (int index) {
+                children: List<Widget>.generate(viewModel.tiposDeServico.length,
+                    (int index) {
                   return Chip(
                     backgroundColor: Colors.white,
-                    label: Text(viewModel.cidade[index].nome),
+                    label: Text(viewModel.tiposDeServico[index].descricao),
                   );
                 }),
               ),
