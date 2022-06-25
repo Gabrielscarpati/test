@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/platform/platform.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:projeto_treinamento/businessModels/businessModelAvaliacaoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/hubPrestador/viewModelHub.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
 import '../../../util/libraryComponents/colors/colors.dart';
+import '../../../util/libraryComponents/popUps/popUpWhatsAppNaoestaIntalado.dart';
 import '../../../widgets/custom_rating_bar.dart';
 import '../../../widgets/linearPercentIndicator.dart';
 import '../viewActionsHub.dart';
@@ -13,18 +18,19 @@ class ViewHubPrestadorInfoPrestador  extends StatelessWidget {
   final ViewActionsHubPrestador viewActions;
   const ViewHubPrestadorInfoPrestador ({Key? key,
     required this.viewModel,
-    required this.viewActions
+    required this.viewActions,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double? alturaEntreAsAvaliacoes = 4;
+    double _screenWidth = MediaQuery.of(context).size.width;
+
 
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
         titleSpacing: 0,
-        // automaticallyImplyLeading: false,
         title: viewModel == null
             ? CircularProgressIndicatorPersonalizado()
             : Text(viewModel.prestadorDeServicos.nome, style: TextStyle(color: Colors.white)),
@@ -51,29 +57,36 @@ class ViewHubPrestadorInfoPrestador  extends StatelessWidget {
                         children: [
                           Column(
                             children: [
-                              SizedBox(height: 6),
-                              _infoDoPrestadorDeServico(
-                                  context,
-                                  Icons.phone,
-                                  this.viewModel.prestador.phone),
-                              SizedBox(height: 6),
-                              ConstrainedBox(
-                                  constraints: BoxConstraints(
-                                    maxHeight: 70,
-                                    maxWidth: MediaQuery.of(context)
-                                        .size
-                                        .width *
-                                        .60,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    children: [
+                                      _infoDoPrestadorDeServico(context, Icons.location_on, this.viewModel.prestadorDeServicos.cidades.toString().toUpperCase()),
+                                      SizedBox(height: 6),
+                                      _infoDoPrestadorDeServico(context, Icons.phone, this.viewModel.prestadorDeServicos.telefone),
+                                      SizedBox(height: 6),
+                                      ConstrainedBox(
+                                          constraints:  BoxConstraints(
+                                            maxHeight: 1000,
+                                            maxWidth: _screenWidth*.60,
+                                          ),
+                                          child: Container(
+
+
+                                            //VER PQ TA DANDO ERRO . . .. . .
+
+
+                                            child: _infoDoPrestadorDeServico(context, Icons.account_box, this.viewModel.prestadorDeServicos.servicos.toString()),
+                                          )
+                                      ),
+                                      SizedBox(height: 6),
+                                      _infoDoPrestadorDeServico(context, Icons.description, 'DESCRIÇÃO'),
+                                      SizedBox(height: 6),
+                                    ],
                                   ),
-                                  child: Container(
-                                    //VER PQ TA DANDO ERRO . . .. . .
-
-
-                                  )),
-                              SizedBox(height: 6),
-                              _infoDoPrestadorDeServico(context,
-                                  Icons.description, 'DESCRIÇÃO'),
-                              SizedBox(height: 6),
+                                ],
+                              ),
                             ],
                           ),
                           Column(
@@ -122,6 +135,7 @@ class ViewHubPrestadorInfoPrestador  extends StatelessWidget {
                                 .prestador
                                 .description),
                           )),
+                      _botoes(context),
                     ],
                   ),
                 ),
@@ -360,4 +374,166 @@ class ViewHubPrestadorInfoPrestador  extends StatelessWidget {
       ],
     );
   }
+
+  Widget _botoes(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            width: 140,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Color(0xff9e9e9e)),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50.0),
+                      ))),
+              onPressed: () {
+                launchUrlString('tel:+55 ${this.viewModel.prestadorDeServicos.telefone}');
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Icon(Icons.phone, color: Colors.white),
+                  Text("Ligar", style: TextStyle(color: Colors.white)),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            // Colors.greenAccent
+            width: 140,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Color(0xff006400)),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50.0),
+                      ))),
+              onPressed: () async {
+                openwhatsapp(context);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Icon(MdiIcons.whatsapp, color: Colors.white),
+                  Text("Whatsapp", style: TextStyle(color: Colors.white)),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+/*
+  Widget listaComentarios(BuildContext context) {
+    String month = avaliacao.data.substring(5,7);
+    String ano = avaliacao.data.substring(0,4);
+    String dia = avaliacao.data.substring(8,10);
+    String horaMinSegundo = avaliacao.data.substring(11,20);
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return  Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                CircleAvatar(
+                  child: Text(
+                    avaliacao.emailUsuario[0].toUpperCase(),
+                    style: TextStyle(color: Colors.black87),
+                  ),
+                  backgroundColor: Colors.grey,
+                ),
+                SizedBox(width: 16),
+                Text(avaliacao.emailUsuario),
+                SizedBox(width: 16,),
+                CustomRatingBar(
+                  rating: avaliacao.nota.toDouble(),
+                ),
+              ],
+            ),
+            SizedBox(height: 8),
+
+            SizedBox(width: 8),
+            ConstrainedBox(
+                constraints:  BoxConstraints(
+                  minHeight: 10,
+                  minWidth: 100,
+                  maxHeight: 206,
+                  maxWidth: screenWidth*.90,
+                ),
+
+                child: Container(
+                  child: Text(avaliacao.comentario,
+                    style: Theme.of(context).textTheme.caption,),
+                )
+            ),
+            SizedBox(height: 8),
+            Text(
+              dia+' de '+getMonth(month)+' de '+ano+ ' às '+horaMinSegundo,
+              overflow: TextOverflow.ellipsis,
+              softWrap: false,
+              maxLines: 20,
+              textAlign: TextAlign.justify,
+              style: Theme.of(context).textTheme.caption,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+  String getMonth(String month){
+    if(month == '01') return 'Janeiro';
+    if(month == '02') return 'Fevereiro';
+    if(month == '03') return 'Março';
+    if(month == '04') return 'Abril';
+    if(month == '05') return 'Maio';
+    if(month == '06') return 'Junho';
+    if(month == '07') return 'Julho';
+    if(month == '08') return 'Agosto';
+    if(month == '09') return 'Setembro';
+    if(month == '10') return 'Outubro';
+    if(month == '11') return 'Novembro';
+    if(month == '12') return 'Dezembro';
+    return 'Agosto';
+  }
+*/
+
+
+
+  openwhatsapp(context) async{
+
+    var whatsapp ="+55${this.viewModel.prestadorDeServicos.telefone}";
+    var whatsappURl_android = "whatsapp://send?phone="+whatsapp+"&text=";
+    var whatappURL_ios ="https://wa.me/$whatsapp?text=${Uri.parse("hello")}";
+    if(GetPlatform.isIOS){
+      // for iOS phone only
+      if( await canLaunchUrlString(whatappURL_ios)){
+        await launchUrlString(whatappURL_ios);
+      }else{
+        whatsAppNaoIntalado(context);
+      }
+
+    }else{
+      // android , web
+      if( await canLaunchUrlString(whatsappURl_android)){
+        await launchUrlString(whatsappURl_android);
+      }else{
+        whatsAppNaoIntalado(context);
+      }
+    }
+  }
+  Future whatsAppNaoIntalado(context) => showDialog(
+    context: context,
+    builder: (context) => PopUpWhatsAppNaoEstaIntalado(),
+  );
 }

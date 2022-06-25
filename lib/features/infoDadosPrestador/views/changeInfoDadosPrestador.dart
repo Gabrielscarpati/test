@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../../businessModels/businessModelCidade.dart';
+import '../../../daos/firebase/authService.dart';
 import '../../../widgets/customDropdownButtonEditor.dart';
 import 'customEditPrestadorInformation.dart';
 import '../../../widgets/customTextEditor.dart';
@@ -18,6 +19,8 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthService authService = AuthService();
+
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
       child: Padding(
@@ -89,6 +92,52 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                               .viewActions
                               .onChangeDescricao(novaDesc, viewModel);
                         },
+                      ),
+                      Container(
+                        height: 40,
+                        margin: EdgeInsets.symmetric(horizontal: 50),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              child: Ink(
+                                decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Colors.blue.shade900,
+                                        Colors.blue.shade500,
+                                        Colors.blue.shade400
+                                      ],
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                    ),
+                                    borderRadius: BorderRadius.circular(30.0)),
+                                child: Container(
+                                  constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    'Sair',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                authService.signOut();
+                              },
+                              style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.all(0),
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(30.0),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

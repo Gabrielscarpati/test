@@ -4,6 +4,7 @@ import 'package:projeto_treinamento/features/hubPrestador/views/viewHubPrestador
 import 'package:projeto_treinamento/util/libraryComponents/colors/colorGradient.dart';
 import 'package:projeto_treinamento/widgets/custom_rating_bar.dart';
 import 'package:projeto_treinamento/widgets/linearPercentIndicator.dart';
+import '../../../businessModels/businessModelAvaliacaoPrestadorDeServico.dart';
 import '../../../util/libraryComponents/colors/colors.dart';
 import '../viewActionsHub.dart';
 import '../viewModelHub.dart';
@@ -14,6 +15,7 @@ class ViewHubBodyPrestador extends StatelessWidget {
     Key? key,
     required this.viewModel,
     required this.viewActions,
+
   });
 
   final ViewModelHubPrestador viewModel;
@@ -45,7 +47,7 @@ class ViewHubBodyPrestador extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 12, left: 12, top: 0),
                 child: SingleChildScrollView(
                   child:
-                  HubPrestadorDadosPrestador(viewModel: viewModel, viewActions: viewActions),
+                  HubPrestadorDadosPrestador(viewModel: viewModel, viewActions: viewActions,),
                 ),
               ),
             ),

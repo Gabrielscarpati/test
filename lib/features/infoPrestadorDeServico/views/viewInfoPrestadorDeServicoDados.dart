@@ -47,7 +47,7 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
                               SizedBox(height: 6),
                               ConstrainedBox(
                                   constraints:  BoxConstraints(
-                                    maxHeight: 70,
+                                    maxHeight: 1000,
                                     maxWidth: screnWidth*.60,
                                   ),
                                   child: Container(

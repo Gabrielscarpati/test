@@ -1,8 +1,12 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class AuthService{
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
 
   Future<String> getUserCurrentID() async{
     return await firebaseAuth.currentUser!.uid;
@@ -28,6 +32,16 @@ class AuthService{
      // ScaffoldMessenger.of(context).showSnackBar(snackBar)
     } catch (e) {
 
+    }
+  }
+
+
+  Future signOut() async {
+    try {
+      return await firebaseAuth.signOut();
+    } catch(e){
+      print(e.toString());
+      return null;
     }
   }
 }

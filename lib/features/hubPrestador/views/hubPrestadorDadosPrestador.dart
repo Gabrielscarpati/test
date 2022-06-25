@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_treinamento/businessModels/businessModelAvaliacaoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/hubPrestador/views/viewHubPrestadorInfoPrestador.dart';
 
 import '../viewActionsHub.dart';
@@ -11,7 +12,8 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
 
   HubPrestadorDadosPrestador({Key? key,
     required this.viewModel,
-    required this.viewActions}) : super(key: key);
+    required this.viewActions,
+   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,38 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
 
                             ),),
                           ],
+                        ),
+                        Divider(
+                          thickness: .8,
+                          color: Colors.blueAccent,
+                        ),
+                        Row(
+                            children: [
+                              SizedBox(width: 16,),
+                              Icon(Icons.account_circle_rounded,),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4, bottom: 4, left: 16, right: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+
+                                    //SizedBox(width: 10,),
+                                    Text('Meu nome completo',
+                                      style: TextStyle(color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 4,
+                                    ),
+
+                                    Text(viewModel.prestadorDeServicos.nome, ),
+                                  ],
+                                ),
+                              ),
+                            ]
                         ),
                         Divider(
                           thickness: .8,
@@ -67,15 +101,13 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                         Row(
                             children: [
                               SizedBox(width: 16,),
-                              Icon(Icons.phone,),
+                              Icon(Icons.lock_clock,),
                               Padding(
                                 padding: const EdgeInsets.only(top: 4, bottom: 4, left: 16, right: 16),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-
-                                    //SizedBox(width: 10,),
                                     Text('Em quais horas eu trabalho',
                                       style: TextStyle(color: Colors.black,
                                           fontWeight: FontWeight.bold,
@@ -99,7 +131,7 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                         Row(
                             children: [
                               SizedBox(width: 16,),
-                              Icon(Icons.phone,),
+                              Icon(Icons.description,),
                               Padding(
                                 padding: const EdgeInsets.only(top: 4, bottom: 4, left: 16, right: 16),
                                 child: Column(
@@ -107,7 +139,6 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
 
-                                    //SizedBox(width: 10,),
                                     Text('A descricao do meus servicos',
                                       style: TextStyle(color: Colors.black,
                                           fontWeight: FontWeight.bold,
@@ -119,8 +150,8 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                                     ),
                                     ConstrainedBox(
                                         constraints:  BoxConstraints(
-                                          maxHeight: 500,
-                                          maxWidth: _screenWidth*.60,
+                                          maxHeight: 1000,
+                                          maxWidth: _screenWidth*.72,
                                         ),
                                         child: Container(
 
@@ -131,8 +162,6 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                                           child:Text(viewModel.prestadorDeServicos.description,),
                                         )
                                     ),
-
-
                                   ],
                                 ),
                               ),
@@ -145,7 +174,7 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                         Row(
                             children: [
                               SizedBox(width: 16,),
-                              Icon(Icons.phone,),
+                              Icon(Icons.location_on,),
                               Padding(
                                 padding: const EdgeInsets.only(top: 4, bottom: 4, left: 16, right: 16),
                                 child: Column(
@@ -153,7 +182,6 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
 
-                                    //SizedBox(width: 10,),
                                     Text('As cidades em que eu atendo',
                                       style: TextStyle(color: Colors.black,
                                           fontWeight: FontWeight.bold,
@@ -164,7 +192,7 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                                       height: 4,
                                     ),
 
-                                    Text(viewModel.prestadorDeServicos.cidades.toString()),
+                                    Text(getListaDecidades(viewModel.prestadorDeServicos.cidades)),
                                   ],
                                 ),
                               ),
@@ -177,15 +205,13 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                         Row(
                             children: [
                               SizedBox(width: 16,),
-                              Icon(Icons.phone,),
+                              Icon(Icons.work,),
                               Padding(
                                 padding: const EdgeInsets.only(top: 4, bottom: 4, left: 16, right: 16),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-
-                                    //SizedBox(width: 10,),
                                     Text('Os trabalhos que eu presto',
                                       style: TextStyle(color: Colors.black,
                                           fontWeight: FontWeight.bold,
@@ -209,15 +235,13 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                         Row(
                             children: [
                               SizedBox(width: 16,),
-                              Icon(Icons.phone,),
+                              Icon(Icons.star,),
                               Padding(
                                 padding: const EdgeInsets.only(top: 4, bottom: 4, left: 16, right: 16),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-
-                                    //SizedBox(width: 10,),
                                     Text('O tipo do meu plano',
                                       style: TextStyle(color: Colors.black,
                                           fontWeight: FontWeight.bold,
@@ -294,6 +318,28 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
     if(tipoDeplano == 2) return 'O plano e o normal';
     if(tipoDeplano == 3) return 'Voce nao esta aparecendo para os usuarios,\n contrate um dos plano o mais rapido\npossivel para conseguir servicos';
     return 'sssd';
+  }
+
+  String getListaDecidades(List listaDeCidades){
+    if(listaDeCidades.length== 0) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 1) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 2) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 3) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 4) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 5) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 6) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 7) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 8) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 9) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 10) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 11) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 0) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 0) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 0) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 0) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 0) return 'Voce nao ainda nao adicionou nenhuma cidade';
+    if(listaDeCidades.length== 0) return 'Voce nao ainda nao adicionou nenhuma cidade';
+        return 'sssd';
   }
 
 

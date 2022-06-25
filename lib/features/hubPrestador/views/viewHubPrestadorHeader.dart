@@ -42,7 +42,9 @@ class ViewHubPrestadorHeader extends StatelessWidget {
             ],
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              viewActions.AbreTelaInfoPrestador(context, viewModel);
+            },
             child: Hero(
               tag: viewModel.prestador.id,
               child: Container(
