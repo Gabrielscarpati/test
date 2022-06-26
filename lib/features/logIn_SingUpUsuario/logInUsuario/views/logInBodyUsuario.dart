@@ -11,11 +11,10 @@ import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
 import '../../../../util/libraryComponents/popUps/popUpEmailNaoExiste.dart';
+import '../../../../util/libraryComponents/popUps/popUpLogInSenhaIncorreta.dart';
 import '../../esqueceuSenhaUsuario/esqueceuSenhaUsuaioScreen.dart';
 import '../../signUpUsuario/views/signUpBody.dart';
 import 'fazerAsFuncoesLOGINESALVAr.dart';
-import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 
 GoogleSignInAccount? _usuarioAtual;
 
@@ -225,15 +224,29 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                     false) {
                                   await mostrarErroEmailInvalido();
                                 } else if (formLogIn.validate()) {
-                                  await AuthService().loginUser(
-                                      emailController.text,
-                                      passwordController.text);
-
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          PresenterHubUsuario.presenter()));
+                                  await AuthService().loginUser(emailController.text, passwordController.text);
+                                  if(await AuthService().loginUser(emailController.text, passwordController.text)== null){
+                                    print(await AuthService().loginUser(emailController.text, passwordController.text));
+                                    mostrarSenhaIncorreta();
+                                  }else{
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context) => PresenterHubUsuario.presenter())
+                                    );
+                                  }
                                 }
                                 _btnController.reset();
+
+                                /*else if (formLogIn.validate()) {
+                                    await AuthService().loginUser(emailController.text, passwordController.text);
+                                    if(await AuthService().loginUser(emailController.text, passwordController.text)== null){
+                                      print(await AuthService().loginUser(emailController.text, passwordController.text));
+                                      mostrarSenhaIncorreta();
+                                    }else{
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(builder: (context) => PresenterHubUsuario.presenter())
+                                      );
+                                    }
+                                  }*/
                               },
                             ),
                           ),
@@ -434,4 +447,8 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
         context: context,
         builder: (context) => PopUpEmailNaoExiste(),
       );
+  Future mostrarSenhaIncorreta() => showDialog(
+    context: context,
+    builder: (context) => PopUpSenhaEstaIcorreta(),
+  );
 }

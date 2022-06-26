@@ -6,6 +6,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
+import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpLogInSenhaIncorreta.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
@@ -196,10 +197,14 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                     await mostrarErroEmailInvalido();
                                   } else if (formLogIn.validate()) {
                                     await AuthService().loginUser(emailController.text, passwordController.text);
-
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context) => PresenterHubPrestador.presenter())
-                                    );
+                                    if(await AuthService().loginUser(emailController.text, passwordController.text)== null){
+                                      print(await AuthService().loginUser(emailController.text, passwordController.text));
+                                      mostrarSenhaIncorreta();
+                                    }else{
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(builder: (context) => PresenterHubPrestador.presenter())
+                                      );
+                                    }
                                   }
                               },
                               style: ElevatedButton.styleFrom(
@@ -397,5 +402,10 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
   Future mostrarErroEmailInvalido() => showDialog(
     context: context,
     builder: (context) => PopUpEmailNaoExiste(),
+  );
+
+  Future mostrarSenhaIncorreta() => showDialog(
+    context: context,
+    builder: (context) => PopUpSenhaEstaIcorreta(),
   );
 }

@@ -5,30 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ed77b64-fc0e-4c87-856c-9440b5c22f50" name="Default Changelist" comment="Mudanca hub prestador">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/debug_ios_bundle_flutter_assets.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/debug_ios_bundle_flutter_assets.stamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/flutter_assets.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/kernel_snapshot.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/3310b6ce9aee72e581bd76bd58a87491/kernel_snapshot.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/util/libraryComponents/popUps/popUpLogInSenhaIncorreta.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/debug_android_application.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/flutter_assets.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/kernel_snapshot.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/daos/firebase/authService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/firebase/authService.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/hubPrestador/viewActionsHub.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hubPrestador/viewActionsHub.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/hubPrestador/views/hubPrestadorDadosPrestador.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hubPrestador/views/hubPrestadorDadosPrestador.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubBody.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubPrestadorHeader.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubPrestadorHeader.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubPrestadorInfoPrestador.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/hubPrestador/views/viewHubPrestadorInfoPrestador.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/infoDadosPrestador/views/changeInfoDadosPrestador.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoDadosPrestador/views/changeInfoDadosPrestador.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/infoPrestadorDeServico/views/viewInfoPrestadorDeServicoDados.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoPrestadorDeServico/views/viewInfoPrestadorDeServicoDados.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/logInPrestadorServico/views/logInBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/logInPrestadorServico/views/logInBody.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/logInUsuario/views/logInBodyUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/logInUsuario/views/logInBodyUsuario.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/gbscarpati/.android/avd/Nexus_S_API_31.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/gbscarpati/.android/avd/Pixel_3a_API_31_arm64-v8a.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -414,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656188825836</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Mudanca hub prestador">
+      <created>1656200028153</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1656200028153</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -5,7 +5,6 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 class AuthService{
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
 
   Future<String> getUserCurrentID() async{
@@ -24,7 +23,7 @@ class AuthService{
     }
   }
 
-  Future<User?> loginUser (String email, String password) async {
+/*  Future<User?> loginUser (String email, String password) async {
     try {
       UserCredential userCredential = await firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
       return userCredential.user;
@@ -33,7 +32,23 @@ class AuthService{
     } catch (e) {
 
     }
+  }*/
+
+  Future<User?> loginUser (String email, String password) async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email,
+          password: password);
+      return userCredential.user;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
   }
+
 
 
   Future signOut() async {
