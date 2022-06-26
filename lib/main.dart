@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -65,10 +66,9 @@ void main() async {
 
 GoogleSignInAccount? _usuarioAtual;
 
-Future<String> verificarSeUsuarioNulo() async {
-  final userData = await FacebookAuth.instance.getUserData();
-  return userData.toString();
-}
+final facebookUser = FirebaseAuth.instance.currentUser;
+
+//FacebookAuth? _facebookAuthUsuarioAtual;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -112,7 +112,7 @@ class MyApp extends StatelessWidget {
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData ||
                 usuario != null ||
-                verificarSeUsuarioNulo() == null) {
+                facebookUser != null) {
               return PresenterHubPrestador.presenter();
             }
             return ViewVeryFirstScreen();

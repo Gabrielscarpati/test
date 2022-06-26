@@ -1,11 +1,15 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService{
-  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final googleSignIn = GoogleSignIn();
 
-
+  Future getFacebookUser () async{
+    return FirebaseAuth.instance.currentUser;
+  }
 
   Future<String> getUserCurrentID() async{
     return await firebaseAuth.currentUser!.uid;
@@ -23,16 +27,6 @@ class AuthService{
     }
   }
 
-/*  Future<User?> loginUser (String email, String password) async {
-    try {
-      UserCredential userCredential = await firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
-      return userCredential.user;
-    } on FirebaseAuthException catch(e){
-     // ScaffoldMessenger.of(context).showSnackBar(snackBar)
-    } catch (e) {
-
-    }
-  }*/
 
   Future<User?> loginUser (String email, String password) async {
     try {
@@ -53,7 +47,18 @@ class AuthService{
 
   Future signOut() async {
     try {
-      return await firebaseAuth.signOut();
+      if( await getFacebookUser() != null){
+        print('kkkkkkkkkkk');
+        await googleSignIn.disconnect();
+        //await FacebookAuth.instance.logOut();
+        return await firebaseAuth.signOut();
+      }
+      else{
+        await googleSignIn.disconnect();
+        print('hahahahhaha');
+       return await firebaseAuth.signOut();
+      }
+
     } catch(e){
       print(e.toString());
       return null;

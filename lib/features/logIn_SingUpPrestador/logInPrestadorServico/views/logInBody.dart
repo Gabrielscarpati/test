@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpLogInSenhaIncorreta.dart';
+import '../../../../main.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
@@ -14,11 +15,8 @@ import '../../../../util/libraryComponents/popUps/popUpEmailNaoExiste.dart';
 import '../../esqueceuSenhaPrestador/esqueceuSenhaPrestador.dart';
 import '../../signUpPart1PrestadorServico/views/signUpBody.dart';
 import 'fazerAsFuncoesLOGINESALVAr.dart';
-import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 
 
-GoogleSignInAccount? _usuarioAtual;
 
 class LogInBodyPrestador extends StatefulWidget {
   const LogInBodyPrestador({Key? key,
@@ -32,7 +30,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
   final _formKeyAuthenticationLogIn = GlobalKey<FormState>();
 
   Map? _userData;
-  GoogleSignInAccount? usuario = _usuarioAtual;
+  GoogleSignInAccount? usuario;
   bool _estaEscondido = false;
 
   @override
@@ -55,7 +53,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
               child: SizedBox(child: BackArrowLogInScreen()) ),
 
             const SizedBox(height: 14),
-            // #login, #welcome
+
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -304,10 +302,9 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                         borderRadius: new BorderRadius.circular(18.0),
                                       ),
                                     ),
-                                    onPressed: () {
-                                      signInWithGoogle();
-                                      setState(() {
-                                      });
+                                    onPressed: () async{
+                                      await signInWithGoogle();
+                                      print(usuario!);
                                     },
 
                                     child: Center(
