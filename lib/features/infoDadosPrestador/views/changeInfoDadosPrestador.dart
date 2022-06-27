@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -47,10 +48,10 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                       ),
                       Divider(),
                       CustomEditPrestadorInformationTelefone(
-                        labelText: "numero",
+                        labelText: "Número",
                         iconData: Icons.phone,
                         item: this.viewModel.prestador.phone,
-                        hintText: 'Digite o seu Numero',
+                        hintText: 'Digite o seu número',
                         onEditionComplete: (String novoTelefone) {
                           this
                               .viewActions
@@ -72,8 +73,8 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                       ),*/
 
                       CustomEditPrestadorInformationHorasDeTrabaho(
-                        labelText: "Horas que voce trabalha",
-                        iconData: Icons.lock_clock,
+                        labelText: "Horas que você trabalha",
+                        iconData: (Icons.lock_clock),
                         item: this.viewModel.prestador.workingHours,
                         hintText: 'Digite aqui',
                         onEditionComplete: (String novoHorario) {
@@ -84,10 +85,10 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                       ),
                       Divider(),
                       CustomEditPrestadorInformationDescricao(
-                        labelText: "Descricao",
+                        labelText: "Descrição",
                         iconData: Icons.description,
                         item: this.viewModel.prestador.description,
-                        hintText: 'Faca uma descricao',
+                        hintText: 'Faça uma descrição',
                         onEditionComplete: (String novaDesc) {
                           this
                               .viewActions
@@ -99,6 +100,7 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 16,),
             Container(
               height: 50,
               margin: EdgeInsets.symmetric(horizontal: 50),
@@ -133,11 +135,15 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onPressed: () {
-                      authService.signOut();
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              ViewVeryFirstScreen()));
+                    onPressed: () async {
+                      await authService.signOut();
+                        Navigator.pushAndRemoveUntil(context,
+                          MaterialPageRoute(builder: (BuildContext context) {
+                            return ViewVeryFirstScreen();
+                          },
+                          ),
+                              (route)=> false,);
+
                     },
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.all(0),

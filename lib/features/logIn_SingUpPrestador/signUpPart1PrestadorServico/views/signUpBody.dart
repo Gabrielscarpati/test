@@ -296,7 +296,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                                   Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) {
-                                          return SingUpPart2WorkerInformation(password: passwordController.text, email: emailController.text,);
+                                          return SingUpPart2WorkerInformation();
                                         },
                                       ));
                                 }
@@ -359,12 +359,12 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                                               color: Colors.indigoAccent,
                                             ),
                                             SizedBox(
-                                              width: screenWidth * 0.01,
+                                              width: screenWidth * 0.03,
                                             ),
                                             Text(
-                                              'Facebook',
+                                              'Cadrastre-se com Facebook',
                                               style: TextStyle(
-                                                  fontSize: 17,
+                                                  fontSize: 18,
                                                   color: Colors.black),
                                           ),
                                         ],
@@ -375,7 +375,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                               ),
                             ),
                             SizedBox(width: screenWidth * 0.02564 * .5),
-                            Expanded(
+                            /*Expanded(
                                 child: SizedBox(
                                   height: 50,
                                   child: ElevatedButton(
@@ -414,7 +414,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                                   ),
                                 ),
                               ),
-                            ),
+                            ),*/
                           ],
                         ),
                       ],
@@ -501,12 +501,13 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
           emailController.text,
           passwordController.text);
 
-      Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) {
-
-            return SingUpPart2WorkerInformation(password: passwordController.text, email: emailController.text,);
-          }));
-    }
+      Navigator.pushAndRemoveUntil(context,
+        MaterialPageRoute(builder: (BuildContext context) {
+          return SingUpPart2WorkerInformation();
+        },
+        ),
+            (route)=> false,);
+     }
     }
   }
 

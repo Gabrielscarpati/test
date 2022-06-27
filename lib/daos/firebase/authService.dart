@@ -48,6 +48,7 @@ class AuthService{
 
   Future signOut() async {
     try {
+      await FacebookAuth.instance.logOut();
        return await firebaseAuth.signOut();
      /* if(await FacebookAuth.instance.getUserData().toString()!= null){
         print('kkkkkkkkkkk');

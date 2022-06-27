@@ -62,7 +62,7 @@ class _Sample1State extends State<BodyVeryFirstScreen> {
                     child: Column(
                       children: [
 
-                        Text('você quer?',
+                        Text('Escolha uma opção?',
                           textAlign: TextAlign.left,
                           style: TextStyle(
                               color: Colors.black,

@@ -20,7 +20,7 @@ class NameWidget extends StatelessWidget {
           keyboardType: TextInputType.name,
           textInputAction: TextInputAction.next,
           validator: (nameController) {
-            if (nameController!.isEmpty || !RegExp(r'^[a-z A-Z]+$').hasMatch(nameController)){
+            if (nameController!.isEmpty){
               return "Digite um nome válido";
             }else{
               return null;

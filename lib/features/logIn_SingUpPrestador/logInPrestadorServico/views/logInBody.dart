@@ -199,9 +199,12 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                       print(await AuthService().loginUser(emailController.text, passwordController.text));
                                       mostrarSenhaIncorreta();
                                     }else{
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(builder: (context) => PresenterHubPrestador.presenter())
-                                      );
+                                      Navigator.pushAndRemoveUntil(context,
+                                          MaterialPageRoute(builder: (BuildContext context) {
+                                         return PresenterHubPrestador.presenter();
+                                            },
+                                          ),
+                                              (route)=> false,);
                                     }
                                   }
                               },
@@ -277,10 +280,10 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                           children: <Widget>[
                                             Icon(FontAwesomeIcons.facebook, color: Colors.indigoAccent,),
 
-                                            SizedBox(width: screenWidth*0.01,),
-                                            Text('Facebook',
+                                            SizedBox(width: screenWidth*0.03,),
+                                            Text('Cadrastre-se com Facebook',
                                               style: TextStyle(
-                                                  fontSize: 17,
+                                                  fontSize: 18,
                                                   color: Colors.black
                                               ),
                                             ),
@@ -292,7 +295,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                 )
                             ),
                             SizedBox(width: screenWidth*0.02564*.7),
-                            Expanded(
+                /*            Expanded(
                                 child: SizedBox(
                                   height: 50,
                                   child: ElevatedButton(
@@ -327,7 +330,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                     ),
                                   ),
                                 )
-                            ),
+                            ),*/
                           ],
                         ),
                       ],

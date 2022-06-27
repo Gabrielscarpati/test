@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -6,6 +7,7 @@ import 'package:projeto_treinamento/features/infoDadosPrestador/views/buttonSalv
 import 'package:projeto_treinamento/framework/view.dart';
 import '../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
 import '../../util/libraryComponents/colors/colors.dart';
+import '../logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 import 'viewActionsInfoDadosPrestador.dart';
 import 'viewModelInfoDadosPrestador.dart';
 
@@ -29,7 +31,18 @@ class ViewInfoDadosPrestador
         automaticallyImplyLeading: false,
         leading: IconButton(
           icon: Icon(MdiIcons.arrowLeft, color: Colors.white,),
-          onPressed: () {
+
+          onPressed: () async{
+            if(await FirebaseAuth.instance.currentUser?.email == null){
+
+                Navigator.pushAndRemoveUntil(context,
+                  MaterialPageRoute(builder: (BuildContext context) {
+                    return ViewVeryFirstScreen();
+                  },
+                  ),
+                      (route)=> false,);
+            }
+
             Navigator.pop(context, viewModel);
           },
         ),

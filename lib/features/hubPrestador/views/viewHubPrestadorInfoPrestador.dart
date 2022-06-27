@@ -99,7 +99,7 @@ class ViewHubPrestadorInfoPrestador extends StatelessWidget {
                                         _infoDoPrestadorDeServico(
                                             context,
                                             Icons.description,
-                                            viewModel.prestador.description),
+                                            'DESCRIÇÃO'),
                                         SizedBox(height: 6),
                                       ],
                                     ),

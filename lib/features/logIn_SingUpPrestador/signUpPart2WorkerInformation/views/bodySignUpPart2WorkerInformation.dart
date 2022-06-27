@@ -18,11 +18,10 @@ import 'package:get_it/get_it.dart';
 
 
 class BodySignUpPart2WorkerInformation extends StatefulWidget {
-  final String password;
-  final String email;
+
 
   const BodySignUpPart2WorkerInformation({
-    Key? key, required this.password, required this.email,
+    Key? key,
   }) : super(key: key);
   @override
   _BodySignUpPart2WorkerInformation createState() => _BodySignUpPart2WorkerInformation();
@@ -272,7 +271,6 @@ class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInfor
                                     informacoesPrestador.workingHours = workingHoursController.text;
                                     informacoesPrestador.description = descriptionController.text;
                                     informacoesPrestador.planoPrestador = 0;
-                                    await AuthService().loginUser(widget.email,widget.password);
 
 
                                     Navigator.of(context).push(

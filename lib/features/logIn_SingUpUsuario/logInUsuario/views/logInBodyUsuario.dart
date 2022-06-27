@@ -229,24 +229,15 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                     print(await AuthService().loginUser(emailController.text, passwordController.text));
                                     mostrarSenhaIncorreta();
                                   }else{
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context) => PresenterHubUsuario.presenter())
-                                    );
+                                    Navigator.pushAndRemoveUntil(context,
+                                      MaterialPageRoute(builder: (BuildContext context) {
+                                        return PresenterHubUsuario.presenter();
+                                       },
+                                      ),
+                                          (route)=> false,);
                                   }
                                 }
                                 _btnController.reset();
-
-                                /*else if (formLogIn.validate()) {
-                                    await AuthService().loginUser(emailController.text, passwordController.text);
-                                    if(await AuthService().loginUser(emailController.text, passwordController.text)== null){
-                                      print(await AuthService().loginUser(emailController.text, passwordController.text));
-                                      mostrarSenhaIncorreta();
-                                    }else{
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(builder: (context) => PresenterHubUsuario.presenter())
-                                      );
-                                    }
-                                  }*/
                               },
                             ),
                           ),
@@ -326,12 +317,12 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                           color: Colors.indigoAccent,
                                         ),
                                         SizedBox(
-                                          width: screenWidth * 0.01,
+                                          width: screenWidth * 0.03,
                                         ),
                                         Text(
-                                          'Facebook',
+                                          'Cadrastre-se com Facebook',
                                           style: TextStyle(
-                                              fontSize: 17,
+                                              fontSize: 18,
                                               color: Colors.black),
                                         ),
                                       ],
@@ -341,7 +332,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                               ),
                             )),
                             SizedBox(width: screenWidth * 0.02564 * .7),
-                            Expanded(
+                         /*   Expanded(
                                 child: SizedBox(
                               height: 50,
                               child: ElevatedButton(
@@ -379,7 +370,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                   ),
                                 ),
                               ),
-                            )),
+                            )),*/
                           ],
                         ),
                       ],

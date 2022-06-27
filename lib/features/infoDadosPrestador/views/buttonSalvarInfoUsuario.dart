@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/infoDadosPrestador/viewActionsInfoDadosPrestador.dart';
 import 'package:projeto_treinamento/features/infoDadosPrestador/viewModelInfoDadosPrestador.dart';
 import 'package:projeto_treinamento/framework/viewActions.dart';
+
+import '../../logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 
 class ButtonSaveInfoDadosPrestador extends StatefulWidget {
   final ViewActionsInfoDadosPrestador viewActions;
@@ -52,7 +55,15 @@ class _ButtonSaveInfoUsuarioState extends State<ButtonSaveInfoDadosPrestador> {
                 ),
               ),
             ),
-            onPressed: () {
+            onPressed: () async{
+              if(await FirebaseAuth.instance.currentUser?.email == null){
+                  Navigator.pushAndRemoveUntil(context,
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return ViewVeryFirstScreen();
+                    },
+                    ),
+                        (route)=> false,);
+              }
               widget.viewActions
                   .salvarDadosPrestador(widget.viewModel, context);
             },

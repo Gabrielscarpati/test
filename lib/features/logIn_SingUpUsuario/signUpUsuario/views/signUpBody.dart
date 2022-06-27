@@ -303,9 +303,12 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                     'email': emailController.text.trim(),
                                     'senha': passwordController.text.trim(),
                                   });
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          PresenterHubUsuario.presenter()));
+                                  Navigator.pushAndRemoveUntil(context,
+                                    MaterialPageRoute(builder: (BuildContext context) {
+                                      return PresenterHubUsuario.presenter();
+                                    },
+                                    ),
+                                        (route)=> false,);
                                 }
                                 _btnController.reset();
                               },
@@ -368,12 +371,12 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                           color: Colors.indigoAccent,
                                         ),
                                         SizedBox(
-                                          width: screenWidth * 0.015,
+                                          width: screenWidth * 0.03,
                                         ),
                                         Text(
-                                          'Facebook',
+                                          'Cadrastre-se com Facebook',
                                           style: TextStyle(
-                                              fontSize: 17,
+                                              fontSize: 18,
                                               color: Colors.black),
                                         ),
                                       ],
@@ -383,7 +386,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                               ),
                             )),
                             SizedBox(width: screenWidth * 0.02564 * .7),
-                            Expanded(
+                        /*    Expanded(
                                 child: SizedBox(
                               height: 50,
                               child: ElevatedButton(
@@ -421,7 +424,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                   ),
                                 ),
                               ),
-                            )),
+                            )),*/
                           ],
                         ),
                       ],

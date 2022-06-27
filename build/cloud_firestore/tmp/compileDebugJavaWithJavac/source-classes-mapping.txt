@@ -17,11 +17,11 @@ io/flutter/plugins/firebase/firestore/streamhandler/LoadBundleStreamHandler.java
  io.flutter.plugins.firebase.firestore.streamhandler.LoadBundleStreamHandler
 io/flutter/plugins/firebase/firestore/streamhandler/SnapshotsInSyncStreamHandler.java
  io.flutter.plugins.firebase.firestore.streamhandler.SnapshotsInSyncStreamHandler
-io/flutter/plugins/firebase/firestore/streamhandler/OnTransactionResultListener.java
- io.flutter.plugins.firebase.firestore.streamhandler.OnTransactionResultListener
 io/flutter/plugins/firebase/firestore/FlutterFirebaseFirestoreException.java
  io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreException
  io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreException$1
+io/flutter/plugins/firebase/firestore/streamhandler/OnTransactionResultListener.java
+ io.flutter.plugins.firebase.firestore.streamhandler.OnTransactionResultListener
 io/flutter/plugins/firebase/firestore/streamhandler/DocumentSnapshotsStreamHandler.java
  io.flutter.plugins.firebase.firestore.streamhandler.DocumentSnapshotsStreamHandler
 io/flutter/plugins/firebase/firestore/FlutterFirebaseFirestoreMessageCodec.java

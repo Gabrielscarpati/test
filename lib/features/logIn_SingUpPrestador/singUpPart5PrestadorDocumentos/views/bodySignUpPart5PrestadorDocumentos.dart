@@ -12,6 +12,7 @@ import '../../../../daos/firebase/authService.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
 import '../../../../daos/usuario/daoUsuario.dart';
+import '../../../../util/prestador.dart';
 import 'widgets_for_signup.dart';
 import 'backArrowSingUpScreenInstitutions.dart';
 import 'package:image_picker/image_picker.dart';
@@ -261,11 +262,16 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
                                       'tipoPlanoPrestador': 0,
                                       }
                                     );
+                                    await Prestador().getPrestadores();
 
-                                    Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => PresenterHubPrestador.presenter(),));
+                                    Navigator.pushAndRemoveUntil(context,
+                                      MaterialPageRoute(builder: (BuildContext context) {
+                                        return PresenterHubPrestador.presenter();
+                                      },
+                                      ),
+                                          (route)=> false,);
                                   }
-                                  _btnController.reset();
+                                    _btnController.reset();
                                 },
                               ),
                             ],

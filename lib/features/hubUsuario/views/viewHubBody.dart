@@ -7,6 +7,7 @@ import 'package:projeto_treinamento/features/hubUsuario/views/viewHubPrestador.d
 import 'package:projeto_treinamento/features/hubUsuario/views/viewHubServicos.dart';
 import 'package:projeto_treinamento/util/libraryComponents/colors/colorGradient.dart';
 import '../../../util/libraryComponents/colors/colors.dart';
+import '../../logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 import '../viewActionsHub.dart';
 import '../viewHub.dart';
 import '../viewModelHub.dart';
@@ -94,9 +95,16 @@ class ViewHubBodyUsuario extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                onPressed: () {
-                                  authService.signOut();
+                                onPressed: () async {
+                                  await authService.signOut();
+                                  Navigator.pushAndRemoveUntil(context,
+                                    MaterialPageRoute(builder: (BuildContext context) {
+                                      return ViewVeryFirstScreen();
+                                    },
+                                    ),
+                                        (route)=> false,);
                                 },
+
                                 style: ElevatedButton.styleFrom(
                                   padding: EdgeInsets.all(0),
                                   shape: new RoundedRectangleBorder(
