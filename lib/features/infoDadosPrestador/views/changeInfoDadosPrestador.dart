@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:projeto_treinamento/features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 import '../../../businessModels/businessModelCidade.dart';
 import '../../../daos/firebase/authService.dart';
 import '../../../widgets/customDropdownButtonEditor.dart';
@@ -119,7 +120,8 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(30.0)),
                       child: Container(
-                        constraints: BoxConstraints(maxWidth: 200.0, minHeight: 50.0),
+                        constraints:
+                            BoxConstraints(maxWidth: 200.0, minHeight: 50.0),
                         alignment: Alignment.center,
                         child: Text(
                           'Sair da conta',
@@ -133,6 +135,9 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                     ),
                     onPressed: () {
                       authService.signOut();
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              ViewVeryFirstScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.all(0),

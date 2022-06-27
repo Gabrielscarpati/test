@@ -67,7 +67,6 @@ void main() async {
 
 GoogleSignInAccount? _usuarioAtual;
 
-
 //FacebookAuth? _facebookAuthUsuarioAtual;
 
 class MyApp extends StatelessWidget {
@@ -110,12 +109,14 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData /*||
+            if (snapshot
+                    .hasData /*||
                 usuario != null ||
-                FirebaseAuth.instance.currentUser != null*/) {
+                FirebaseAuth.instance.currentUser != null*/
+                ) {
               return PresenterHubPrestador.presenter();
             }
-            return PresenterHubUsuario.presenter();
+            return ViewVeryFirstScreen();
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),
