@@ -10,8 +10,10 @@ import 'package:projeto_treinamento/features/logIn_SingUpPrestador/logInPrestado
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorEmailJaExisteOuNao.dart';
+import '../../../../util/getTermos.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
+import '../../../../util/libraryComponents/popUps/popUpAceiteAsPoliticasDePrivacidade.dart';
 import '../../../../util/libraryComponents/popUps/popUpEmailJaEstaEmUso.dart';
 import '../../../logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSignUpPart2WorkerInformatio.dart';
 import 'backArrowSignUp.dart';
@@ -221,28 +223,34 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                           value: _isChecked,
                           onChanged: (bool? novoValor) {
                             setState(() {
-                              _isChecked = true;
+                              _isChecked = !_isChecked!;
                             });
                           },
                           title: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                '  Li e concordo com a',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 14),
-                              ),
-                              TextButton(
-                                onPressed: () async {
-                                  await _launchURLPoliticasDeprivacidade;
-                                },
-                                child: Text(
-                                  'Politica de privacidade',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.indigoAccent,
-                                      fontSize: 14),
+                              GestureDetector(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Li e concordo com as',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold, fontSize: 14),
+                                    ),
+                                    Text(
+                                      'Políticas de privacidade',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.indigoAccent,
+                                          fontSize: 14),
+                                    ),
+                                  ],
                                 ),
+                                onTap: () async{
+                                  await _launchURLPoliticasDeprivacidade();
+
+                                }
                               ),
                             ],
                           ),
@@ -289,7 +297,10 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                               onPressed: () async {
                                 final form = formKeyAuthentication.currentState!;
 
-                                if (await funcaoPestadorEmailJaExisteOuNao.checkIfEmailInUse() == true){
+                                if(_isChecked == false) {
+                                  aceiteAsPoliticasDePrivacidade();
+                                }
+                                 else if (await funcaoPestadorEmailJaExisteOuNao.checkIfEmailInUse() == true){
                                   await mostrarErroEmailInvalido();
                                 } else if(form.validate() && passwordController.text == cofirmPasswordController.text){
                                   await AuthService().registerUser(emailController.text, passwordController.text);
@@ -472,13 +483,16 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
-  void _launchURLPoliticasDeprivacidade() async {
-    const url = 'https://linktr.ee/Lifecoin_WhitePapers';
+  Future<String> _launchURLPoliticasDeprivacidade() async {
+    GetTermos getTermos = GetTermos();
+
+     var url = await getTermos.getTermos();
     if (await canLaunchUrlString(url)) {
       await launchUrlString(url);
     } else {
       throw 'Could not launch $url';
     }
+    return 'termos';
   }
   void _togglePasswordViewSenha() {
     setState(() {
@@ -518,5 +532,16 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
   Future mostrarErroEmailInvalido() => showDialog(
     context: context,
     builder: (context) => PopUpEmailJaEstaEmUso(),
+  );
+  openwhatsapp(context) async {
+    GetTermos getTermos = GetTermos();
+    if (await canLaunchUrlString(await getTermos.getTermos())) {
+
+    }
+  }
+
+  Future aceiteAsPoliticasDePrivacidade() => showDialog(
+    context: context,
+    builder: (context) => PopUpAceiteAsPoliticasDePrivacidade(),
   );
 }

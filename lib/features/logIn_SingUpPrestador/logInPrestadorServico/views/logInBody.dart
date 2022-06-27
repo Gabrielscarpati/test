@@ -6,7 +6,9 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
+import 'package:projeto_treinamento/util/getTermos.dart';
 import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpLogInSenhaIncorreta.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../main.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
@@ -408,4 +410,5 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
     context: context,
     builder: (context) => PopUpSenhaEstaIcorreta(),
   );
+
 }
