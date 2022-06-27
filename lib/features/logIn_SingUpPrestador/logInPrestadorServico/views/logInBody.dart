@@ -283,7 +283,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                             SizedBox(width: screenWidth*0.03,),
                                             Text('Cadrastre-se com Facebook',
                                               style: TextStyle(
-                                                  fontSize: 18,
+                                                  fontSize: screenWidth <348 ?15.5 :18,
                                                   color: Colors.black
                                               ),
                                             ),

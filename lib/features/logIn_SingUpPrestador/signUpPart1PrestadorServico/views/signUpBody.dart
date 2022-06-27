@@ -364,7 +364,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                                             Text(
                                               'Cadrastre-se com Facebook',
                                               style: TextStyle(
-                                                  fontSize: 18,
+                                                  fontSize: screenWidth <348 ?15.5 :18,
                                                   color: Colors.black),
                                           ),
                                         ],

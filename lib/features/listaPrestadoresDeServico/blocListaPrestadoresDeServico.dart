@@ -39,7 +39,6 @@ class BlocListaPrestadoresDeServico extends Bloc<
       listaCompleta: listaCompleta,
       cidade: businessModel.cidade,
       tiposDeServico: businessModel.tipoDeServico,
-      iconeStatusOnline: await ProviderIcone().whatsApp(),
     );
     this.sendViewModelOut(viewModel);
   }

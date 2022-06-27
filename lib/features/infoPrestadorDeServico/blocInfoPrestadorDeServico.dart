@@ -26,7 +26,6 @@ class BlocInfoPrestadorDeServico extends Bloc<ViewModelInfoPrestadorDeServico,
     viewModel = ViewModelInfoPrestadorDeServico(
       prestadorDeServicos: prestadorDeServicos,
       listaAvaliacoesPrestadorDeServico: List.empty(growable: true),
-      iconeCelular: BusinessModelIcone.vazio(),
       cidade: blocEvent.cidade,
       tiposDeServico: blocEvent.tipoServico,
     );
@@ -45,7 +44,6 @@ class BlocInfoPrestadorDeServico extends Bloc<ViewModelInfoPrestadorDeServico,
     viewModel = ViewModelInfoPrestadorDeServico(
       prestadorDeServicos: prestadorDeServicos,
       listaAvaliacoesPrestadorDeServico: listaAvaliacoesPrestadorDeServico,
-      iconeCelular: await ProviderIcone().iconeCelular(),
       cidade: blocEvent.cidade,
       tiposDeServico: blocEvent.tipoServico,
     );

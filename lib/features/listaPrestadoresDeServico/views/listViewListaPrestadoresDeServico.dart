@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:projeto_treinamento/features/listaPrestadoresDeServico/viewActionsListaPrestadoresDeServico.dart';
 
 import '../viewModelListaPrestadoresDeServico.dart';
@@ -20,7 +21,7 @@ class ListViewListaPrestadoresDeServico extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return ListItemListaPrestadoresDeServico(
             prestradorDeServico: viewModel.listaVisivel[index],
-            iconeStatusOnline: viewModel.iconeStatusOnline,
+            iconeStatusOnline: FontAwesomeIcons.whatsapp,
             argumentoDePesquisa: viewModel.controlerFieldPesquisa.text,
             viewActions: this.viewActions,
             viewModel: this.viewModel,

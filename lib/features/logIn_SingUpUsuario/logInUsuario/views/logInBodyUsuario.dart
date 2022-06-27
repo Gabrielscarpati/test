@@ -322,7 +322,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                         Text(
                                           'Cadrastre-se com Facebook',
                                           style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: screenWidth <348 ?15.5 :18,
                                               color: Colors.black),
                                         ),
                                       ],
