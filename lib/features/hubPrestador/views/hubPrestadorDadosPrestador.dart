@@ -225,9 +225,7 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                       ? Container(
                           height: 40,
                           width: _screenWidth * .72,
-                          child: Flexible(
-                            flex: 1,
-                            child: ListView(
+                          child: ListView(
                               // This next line does the trick.
                               scrollDirection: Axis.horizontal,
                               children: List<Widget>.generate(
@@ -238,7 +236,7 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                                 );
                               }),
                             ),
-                          ),
+                          
                         )
                       : Text("Nenhuma cidade cadastrada"),
                 ],
@@ -277,9 +275,7 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                       ? Container(
                           height: 40,
                           width: _screenWidth * .72,
-                          child: Flexible(
-                            flex: 1,
-                            child: ListView(
+                          child: ListView(
                               // This next line does the trick.
                               scrollDirection: Axis.horizontal,
                               children: List<Widget>.generate(
@@ -292,7 +288,6 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                                 );
                               }),
                             ),
-                          ),
                         )
                       : Text("Nenhum tipo de serviço"),
                 ],
