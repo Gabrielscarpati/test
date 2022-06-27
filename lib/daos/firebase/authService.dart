@@ -18,6 +18,7 @@ class AuthService{
   Future<User?> registerUser (String email, String password) async {
     try {
       UserCredential userCredential = await firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+      await loginUser(email, password);
       return userCredential.user;
     } on FirebaseAuthException catch(e){
       print(e);
@@ -47,17 +48,19 @@ class AuthService{
 
   Future signOut() async {
     try {
-      if( await getFacebookUser() != null){
+       return await firebaseAuth.signOut();
+     /* if(await FacebookAuth.instance.getUserData().toString()!= null){
         print('kkkkkkkkkkk');
         await googleSignIn.disconnect();
         //await FacebookAuth.instance.logOut();
-        return await firebaseAuth.signOut();
+        return await FirebaseAuth.instance.signOut();
       }
       else{
         await googleSignIn.disconnect();
         print('hahahahhaha');
-       return await firebaseAuth.signOut();
+       return await FirebaseAuth.instance.signOut();
       }
+      */
 
     } catch(e){
       print(e.toString());

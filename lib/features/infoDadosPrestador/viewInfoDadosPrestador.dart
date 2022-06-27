@@ -5,6 +5,7 @@ import 'package:projeto_treinamento/features/infoDadosPrestador/views/InfoDadosP
 import 'package:projeto_treinamento/features/infoDadosPrestador/views/buttonSalvarInfoUsuario.dart';
 import 'package:projeto_treinamento/framework/view.dart';
 import '../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
+import '../../util/libraryComponents/colors/colors.dart';
 import 'viewActionsInfoDadosPrestador.dart';
 import 'viewModelInfoDadosPrestador.dart';
 
@@ -20,13 +21,14 @@ class ViewInfoDadosPrestador
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: ColorAppBar,
         title: Text(
-          'Perfil',
-          style: TextStyle(color: Colors.black, fontSize: 20),
+          'Edite o seu perfil',
+          style: TextStyle(color: Colors.white, fontSize: 20),
         ),
         automaticallyImplyLeading: false,
         leading: IconButton(
-          icon: Icon(MdiIcons.arrowLeft),
+          icon: Icon(MdiIcons.arrowLeft, color: Colors.white,),
           onPressed: () {
             Navigator.pop(context, viewModel);
           },
@@ -58,6 +60,3 @@ class ViewInfoDadosPrestador
     }
   }
 }
-
-
-//

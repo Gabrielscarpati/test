@@ -8,6 +8,7 @@ import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpPorFavorSelecioneUmaImagem.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import '../../../../daos/firebase/authService.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
 import '../../../../daos/usuario/daoUsuario.dart';
@@ -260,6 +261,7 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
                                       'tipoPlanoPrestador': 0,
                                       }
                                     );
+
                                     Navigator.of(context).push(MaterialPageRoute(
                                         builder: (context) => PresenterHubPrestador.presenter(),));
                                   }

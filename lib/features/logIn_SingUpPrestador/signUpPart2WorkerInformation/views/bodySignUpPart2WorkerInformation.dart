@@ -3,12 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_treinamento/features/logIn_SingUpPrestador/selectServicos/presenterSelectServicos.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import '../../../../daos/firebase/authService.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../util/libraryComponents/popUps/popUpPorFavorSelecioneUmaImagem.dart';
 import '../../selectCidades/presenterSelectCidade.dart';
-import '../../selectCidades/views/buttonGoSignUpScreenSelectCidade.dart';
 import 'widgets_for_signup.dart';
 import 'backArrowSignUpPart2WorkerInformation.dart';
 import 'package:image_picker/image_picker.dart';
@@ -19,14 +18,15 @@ import 'package:get_it/get_it.dart';
 
 
 class BodySignUpPart2WorkerInformation extends StatefulWidget {
+  final String password;
+  final String email;
 
   const BodySignUpPart2WorkerInformation({
-    Key? key,
+    Key? key, required this.password, required this.email,
   }) : super(key: key);
   @override
   _BodySignUpPart2WorkerInformation createState() => _BodySignUpPart2WorkerInformation();
 }
-
 
 class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInformation> {
 
@@ -272,6 +272,8 @@ class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInfor
                                     informacoesPrestador.workingHours = workingHoursController.text;
                                     informacoesPrestador.description = descriptionController.text;
                                     informacoesPrestador.planoPrestador = 0;
+                                    await AuthService().loginUser(widget.email,widget.password);
+
 
                                     Navigator.of(context).push(
                                         MaterialPageRoute(

@@ -5,7 +5,10 @@ import '../signUpPart2WorkerInformation/views/bodySignUpPart2WorkerInformation.d
 
 
 class SingUpPart2WorkerInformation extends StatelessWidget {
-  const SingUpPart2WorkerInformation({Key? key}) : super(key: key);
+  final String password;
+  final String email;
+
+  const SingUpPart2WorkerInformation({Key? key, required this.password, required this.email}) : super(key: key);
 
 
   @override
@@ -13,7 +16,7 @@ class SingUpPart2WorkerInformation extends StatelessWidget {
     //final user = UserData.myUser;
     return Scaffold(
       backgroundColor: Colors.white,
-      body:  BodySignUpPart2WorkerInformation(),
+      body:  BodySignUpPart2WorkerInformation(password: password, email: email,),
 
     );
   }

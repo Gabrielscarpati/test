@@ -35,12 +35,14 @@ class ViewHubGridView extends StatelessWidget {
               SizedBox(
                 width: 11,
               ),
-              Text("Selecione o serviço desejado:",
+              Text("Já escolheu a cidade? Pesquisa rápida",
                   textAlign: TextAlign.start,
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 20)),
+                      fontSize: 16)),
+                      Icon(Icons.arrow_downward, size: 20,)
+
             ],
           ),
           viewModel.principaisTiposDeServicoCidade.tiposDeServico.isNotEmpty

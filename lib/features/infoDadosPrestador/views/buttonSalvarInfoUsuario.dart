@@ -43,7 +43,7 @@ class _ButtonSaveInfoUsuarioState extends State<ButtonSaveInfoDadosPrestador> {
                 constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
                 alignment: Alignment.center,
                 child: Text(
-                  'Salvar',
+                  'Salvar mudanças',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,

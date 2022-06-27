@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto_treinamento/daos/firebase/authService.dart';
 import 'package:projeto_treinamento/features/hubUsuario/views/viewHubCidade.dart';
 import 'package:projeto_treinamento/features/hubUsuario/views/viewHubGridView.dart';
 import 'package:projeto_treinamento/features/hubUsuario/views/viewHubPrestador.dart';
@@ -22,6 +23,8 @@ class ViewHubBodyUsuario extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthService authService = AuthService();
+
     return Container(
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecorationColorGradient(context),
@@ -46,15 +49,64 @@ class ViewHubBodyUsuario extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 12, left: 12, top: 8),
                 child: SingleChildScrollView(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       ViewHubCidade(
                           viewModel: viewModel, viewActions: viewActions),
-                      ViewHubGridView(
-                          viewModel: viewModel, viewActions: viewActions),
+                            SizedBox(height: 16,),
                       ViewHubServicos(
                           viewModel: viewModel, viewActions: viewActions),
+                      ViewHubGridView(
+                          viewModel: viewModel, viewActions: viewActions),
+
+                          SizedBox(height: 16,),
+                                      Container(
+                          height: 50,
+                          margin: EdgeInsets.symmetric(horizontal: 50),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              ElevatedButton(
+                                child: Ink(
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Colors.blue.shade900,
+                                          Colors.blue.shade500,
+                                          Colors.blue.shade400
+                                        ],
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                      ),
+                                      borderRadius: BorderRadius.circular(30.0)),
+                                  child: Container(
+                                    constraints: BoxConstraints(maxWidth: 200.0, minHeight: 50.0),
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      'Deslogar',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  authService.signOut();
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.all(0),
+                                  shape: new RoundedRectangleBorder(
+                                    borderRadius: new BorderRadius.circular(30.0),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                     ],
                   ),
                 ),

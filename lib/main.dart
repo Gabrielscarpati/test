@@ -46,6 +46,7 @@ void main() async {
   await Cidades().getCidades();
   await Prestador().getPrestadores();
   await TipoDeServico().getTiposDeServico();
+
   getIt.registerLazySingleton(() => SetPrestadorInformationCompleta(
       name: '',
       phone: '',
@@ -66,7 +67,6 @@ void main() async {
 
 GoogleSignInAccount? _usuarioAtual;
 
-final facebookUser = FirebaseAuth.instance.currentUser;
 
 //FacebookAuth? _facebookAuthUsuarioAtual;
 
@@ -110,12 +110,12 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData ||
+            if (snapshot.hasData /*||
                 usuario != null ||
-                facebookUser != null) {
+                FirebaseAuth.instance.currentUser != null*/) {
               return PresenterHubPrestador.presenter();
             }
-            return ViewVeryFirstScreen();
+            return PresenterHubUsuario.presenter();
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),

@@ -292,12 +292,11 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                                 if (await funcaoPestadorEmailJaExisteOuNao.checkIfEmailInUse() == true){
                                   await mostrarErroEmailInvalido();
                                 } else if(form.validate() && passwordController.text == cofirmPasswordController.text){
-
                                   await AuthService().registerUser(emailController.text, passwordController.text);
                                   Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) {
-                                          return SingUpPart2WorkerInformation();
+                                          return SingUpPart2WorkerInformation(password: passwordController.text, email: emailController.text,);
                                         },
                                       ));
                                 }
@@ -505,7 +504,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
       Navigator.of(context).push(
           MaterialPageRoute(builder: (context) {
 
-            return SingUpPart2WorkerInformation();
+            return SingUpPart2WorkerInformation(password: passwordController.text, email: emailController.text,);
           }));
     }
     }

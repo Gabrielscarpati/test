@@ -35,7 +35,7 @@ class ViewHubCidade extends StatelessWidget {
               style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20)),
+                  fontSize: 16)),
           //Theme.of(context).textTheme.TextStyle.hubText,
 
           ElevatedButton(
