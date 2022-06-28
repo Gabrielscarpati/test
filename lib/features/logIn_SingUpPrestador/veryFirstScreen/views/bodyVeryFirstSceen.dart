@@ -41,7 +41,7 @@ class _Sample1State extends State<BodyVeryFirstScreen> {
                   height: 180,
                   width: 180,
                   child:  CircleAvatar(
-                      backgroundImage: AssetImage('assets/Logo.jpeg'),
+                      backgroundImage: AssetImage('assets/logoo.jpg'),
                       radius: 1,
                     ),
                 ),

@@ -14,6 +14,12 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "archive",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/archive-3.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "args",
       "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/args-2.3.1",
       "packageUri": "lib/",
@@ -284,6 +290,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_launcher_icons",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.9.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_masked_text2",
       "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_masked_text2-0.9.1",
       "packageUri": "lib/",
@@ -381,7 +393,7 @@
     },
     {
       "name": "google_sign_in_platform_interface",
-      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_platform_interface-2.1.3",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_platform_interface-2.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -414,6 +426,12 @@
       "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "image",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/image-3.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
     },
     {
       "name": "image_picker",
@@ -458,6 +476,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "logger",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/logger-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "logging",
       "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.2",
       "packageUri": "lib/",
@@ -495,7 +519,7 @@
     },
     {
       "name": "mobx",
-      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/mobx-2.0.7+3",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/mobx-2.0.7+4",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -572,6 +596,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "petitparser",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-5.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "platform",
       "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.1.0",
       "packageUri": "lib/",
@@ -618,6 +648,12 @@
       "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-3.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "rename",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/rename-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
     },
     {
       "name": "rounded_loading_button",
@@ -771,7 +807,7 @@
     },
     {
       "name": "url_launcher",
-      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.1.3",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.1.4",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -848,6 +884,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "xml",
+      "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/xml-6.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "yaml",
       "rootUri": "file:///Users/gbscarpati/Documents/flutterextraido/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-3.1.1",
       "packageUri": "lib/",
@@ -860,7 +902,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-06-27T16:53:09.300538Z",
+  "generated": "2022-06-28T13:16:16.934684Z",
   "generator": "pub",
   "generatorVersion": "2.18.0-44.1.beta"
 }
