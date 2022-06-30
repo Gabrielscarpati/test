@@ -30,9 +30,9 @@
         android:resource="@xml/network_security_config"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
+        <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:label="projeto_treinamento"
+        android:label="Quick Fix"
         android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>

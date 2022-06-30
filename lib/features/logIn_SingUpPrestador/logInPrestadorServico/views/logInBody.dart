@@ -6,7 +6,9 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
+import 'package:projeto_treinamento/util/getTermos.dart';
 import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpLogInSenhaIncorreta.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../main.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
@@ -199,9 +201,12 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                       print(await AuthService().loginUser(emailController.text, passwordController.text));
                                       mostrarSenhaIncorreta();
                                     }else{
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(builder: (context) => PresenterHubPrestador.presenter())
-                                      );
+                                      Navigator.pushAndRemoveUntil(context,
+                                          MaterialPageRoute(builder: (BuildContext context) {
+                                         return PresenterHubPrestador.presenter();
+                                            },
+                                          ),
+                                              (route)=> false,);
                                     }
                                   }
                               },
@@ -277,10 +282,10 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                           children: <Widget>[
                                             Icon(FontAwesomeIcons.facebook, color: Colors.indigoAccent,),
 
-                                            SizedBox(width: screenWidth*0.01,),
-                                            Text('Facebook',
+                                            SizedBox(width: screenWidth*0.03,),
+                                            Text('Cadrastre-se com Facebook',
                                               style: TextStyle(
-                                                  fontSize: 17,
+                                                  fontSize: screenWidth <348 ?15.5 :18,
                                                   color: Colors.black
                                               ),
                                             ),
@@ -292,7 +297,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                 )
                             ),
                             SizedBox(width: screenWidth*0.02564*.7),
-                            Expanded(
+                /*            Expanded(
                                 child: SizedBox(
                                   height: 50,
                                   child: ElevatedButton(
@@ -327,7 +332,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                     ),
                                   ),
                                 )
-                            ),
+                            ),*/
                           ],
                         ),
                       ],
@@ -405,4 +410,5 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
     context: context,
     builder: (context) => PopUpSenhaEstaIcorreta(),
   );
+
 }

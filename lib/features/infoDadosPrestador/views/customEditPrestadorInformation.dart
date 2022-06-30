@@ -44,7 +44,7 @@ class _CustomEditPrestadorInformationNomeState
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Icon(
-                widget.iconData,
+                widget.iconData, color: Colors.black,
               ),
               SizedBox(
                 width: 20,
@@ -91,7 +91,7 @@ class _CustomEditPrestadorInformationNomeState
                 editing = !editing;
               });
             },
-            icon: Icon(MdiIcons.pen),
+            icon: Icon(MdiIcons.pen,color: Colors.black),
           ),
         ],
       ),
@@ -105,7 +105,7 @@ class _CustomEditPrestadorInformationNomeState
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           IconButton(
-            icon: Icon(Icons.close),
+            icon: Icon(Icons.close, color: Colors.black),
             onPressed: () {
               setState(() {
                 if (editing) {
@@ -121,9 +121,8 @@ class _CustomEditPrestadorInformationNomeState
               keyboardType: TextInputType.name,
               textInputAction: TextInputAction.next,
               validator: (textEditingController) {
-                if (textEditingController!.isEmpty ||
-                    !RegExp(r'^[a-z A-Z]+$').hasMatch(textEditingController)) {
-                  return "Enter a valid name";
+                if (textEditingController!.isEmpty) {
+                  return "Digite um nome válido";
                 } else {
                   return null;
                 }
@@ -132,7 +131,7 @@ class _CustomEditPrestadorInformationNomeState
                 print(text);
               },
               decoration: new InputDecoration(
-                prefixIcon: Icon(super.widget.iconData),
+                prefixIcon: Icon(super.widget.iconData, color: Colors.black),
                 labelText: widget.hintText,
                 hintText: widget.hintText,
                 enabledBorder: const OutlineInputBorder(
@@ -288,7 +287,7 @@ class _CustomEditPrestadorInformationTelefoneState
                     textEditingController.length != 10 ||
                     !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$')
                         .hasMatch(textEditingController)) {
-                  return "Enter a valid phone number: 9999999999";
+                  return "Digite um número de celular válido: 27999999999";
                 } else {
                   return null;
                 }
@@ -297,7 +296,7 @@ class _CustomEditPrestadorInformationTelefoneState
                 print(text);
               },
               decoration: new InputDecoration(
-                prefixIcon: Icon(super.widget.iconData),
+                prefixIcon: Icon(super.widget.iconData,color: Colors.black),
                 labelText: widget.hintText,
                 hintText: widget.hintText,
                 enabledBorder: const OutlineInputBorder(
@@ -453,7 +452,7 @@ class _CustomEditPrestadorInformationDescricaoState
               textInputAction: TextInputAction.next,
               validator: (textEditingController) {
                 if (textEditingController!.isEmpty) {
-                  return "Enter a valid description";
+                  return "Digite uma descrição válido";
                 } else {
                   return null;
                 }
@@ -462,7 +461,7 @@ class _CustomEditPrestadorInformationDescricaoState
                 print(text);
               },
               decoration: new InputDecoration(
-                prefixIcon: Icon(super.widget.iconData),
+                prefixIcon: Icon(super.widget.iconData,color: Colors.black),
                 labelText: widget.hintText,
                 hintText: widget.hintText,
                 enabledBorder: const OutlineInputBorder(
@@ -546,7 +545,7 @@ class _CustomEditPrestadorInformationHorasDeTrabahoState
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Icon(
-                widget.iconData,
+                widget.iconData, color: Colors.black,
               ),
               SizedBox(
                 width: 20,
@@ -598,6 +597,8 @@ class _CustomEditPrestadorInformationHorasDeTrabahoState
   }
 
   Widget _buildEditing(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Form(
       key: formKey,
       child: Row(
@@ -618,7 +619,7 @@ class _CustomEditPrestadorInformationHorasDeTrabahoState
               textInputAction: TextInputAction.next,
               validator: (textEditingController) {
                 if (textEditingController!.isEmpty) {
-                  return "Digite as horas que voce trabalha";
+                  return "Digite as horas que você trabalha";
                 } else {
                   return null;
                 }
@@ -627,7 +628,7 @@ class _CustomEditPrestadorInformationHorasDeTrabahoState
                 print(text);
               },
               decoration: new InputDecoration(
-                prefixIcon: Icon(super.widget.iconData),
+                prefixIcon: Icon(super.widget.iconData,color: Colors.black),
                 labelText: widget.hintText,
                 hintText: widget.hintText,
                 enabledBorder: const OutlineInputBorder(
@@ -643,6 +644,7 @@ class _CustomEditPrestadorInformationHorasDeTrabahoState
               ),
             ),
           ),
+
           IconButton(
             onPressed: () {
               if (formKey.currentState!.validate()) {
@@ -650,8 +652,7 @@ class _CustomEditPrestadorInformationHorasDeTrabahoState
                   editing = !editing;
                 });
                 widget.onEditionComplete(getEditionCompleteValue());
-              }
-              ;
+              };
             },
             icon: Icon(MdiIcons.check),
           ),
@@ -782,7 +783,7 @@ class _CustomEditPrestadorInformationServicosPrestadosState
               validator: (textEditingController) {
                 if (textEditingController!.isEmpty ||
                     !RegExp(r'^[a-z A-Z]+$').hasMatch(textEditingController)) {
-                  return "Enter a valid name";
+                  return "Digite um nome válido";
                 } else {
                   return null;
                 }
@@ -791,7 +792,7 @@ class _CustomEditPrestadorInformationServicosPrestadosState
                 print(text);
               },
               decoration: new InputDecoration(
-                prefixIcon: Icon(super.widget.iconData),
+                prefixIcon: Icon(super.widget.iconData, color: Colors.black,),
                 labelText: widget.hintText,
                 hintText: widget.hintText,
                 enabledBorder: const OutlineInputBorder(
@@ -817,7 +818,7 @@ class _CustomEditPrestadorInformationServicosPrestadosState
               }
               ;
             },
-            icon: Icon(MdiIcons.check),
+            icon: Icon(MdiIcons.check, color: Colors.black,),
           ),
         ],
       ),

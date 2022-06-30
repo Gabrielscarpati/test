@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../loginOrSignUpPrestadorServico/viewLogInOrSignUpPrestadorServico.dart';
@@ -31,7 +32,7 @@ class PrestadorDeServicoButton extends StatelessWidget {
           ),
         ),
       ),
-      onPressed: () {
+      onPressed: () async {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => ViewLogInOrSignUpPrestadorServico()
         ));

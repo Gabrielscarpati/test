@@ -41,7 +41,7 @@ class _Sample1State extends State<BodyVeryFirstScreen> {
                   height: 180,
                   width: 180,
                   child:  CircleAvatar(
-                      backgroundImage: AssetImage('assets/Logo.jpeg'),
+                      backgroundImage: AssetImage('assets/logoo.jpg'),
                       radius: 1,
                     ),
                 ),
@@ -62,7 +62,7 @@ class _Sample1State extends State<BodyVeryFirstScreen> {
                     child: Column(
                       children: [
 
-                        Text('você quer?',
+                        Text('Escolha uma opção?',
                           textAlign: TextAlign.left,
                           style: TextStyle(
                               color: Colors.black,

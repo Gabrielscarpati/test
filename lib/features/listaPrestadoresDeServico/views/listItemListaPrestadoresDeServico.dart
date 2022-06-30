@@ -9,7 +9,7 @@ import 'package:substring_highlight/substring_highlight.dart';
 
 class ListItemListaPrestadoresDeServico extends StatelessWidget {
   final BusinessModelPrestadorDeServicos prestradorDeServico;
-  final BusinessModelIcone iconeStatusOnline;
+  final IconData iconeStatusOnline;
   final String argumentoDePesquisa;
   final ViewActionsListaPrestadoresDeServico viewActions;
   final ViewModelListaPrestadoresDeServico viewModel;
@@ -68,7 +68,7 @@ class ListItemListaPrestadoresDeServico extends StatelessWidget {
               SizedBox(width: 5),
               Text("(" + prestradorDeServico.totalDeAvaliacoes.toString() + ")"),
               SizedBox(width: 20),
-              prestradorDeServico.statusOnline ? Icon(this.iconeStatusOnline.icone, color: Colors.green) : Icon(this.iconeStatusOnline.icone, color: Colors.red),
+              prestradorDeServico.statusOnline ? Icon(this.iconeStatusOnline, color: Colors.green) : Icon(this.iconeStatusOnline, color: Colors.red),
             ],
           ),
         ),

@@ -11,14 +11,12 @@ class ViewModelInfoPrestadorDeServico extends ViewModel {
   ViewModelInfoPrestadorDeServico({
     required this.prestadorDeServicos,
     required this.listaAvaliacoesPrestadorDeServico,
-    required this.iconeCelular,
     required this.cidade,
     required this.tiposDeServico,
   }) : super();
 
   final BusinessModelPrestadorDeServicos prestadorDeServicos;
   final List<BusinessModelAvaliacaoPrestadorDeServico> listaAvaliacoesPrestadorDeServico;
-  final BusinessModelIcone iconeCelular;
   final BusinessModelCidade cidade;
   final BusinessModelTiposDeServico tiposDeServico;
 }

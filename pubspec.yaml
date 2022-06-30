@@ -83,12 +83,20 @@ dependencies:
   rounded_loading_button: ^2.1.0
 
   get_it: ^7.2.0
+  rename: ^2.0.1
+
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.9.3
   mobx_codegen:
   build_runner:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  adroid: true
+  ios: true
+  image_path: "assets/logoo.jpg"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

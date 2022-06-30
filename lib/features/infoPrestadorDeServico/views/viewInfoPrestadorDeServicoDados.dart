@@ -226,7 +226,7 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
   openwhatsapp(context) async{
 
     var whatsapp ="+55${this.viewModel.prestadorDeServicos.telefone}";
-    var whatsappURl_android = "whatsapp://send?phone="+whatsapp+"&text=";
+    var whatsappURl_android = "whatsapp://send?phone="+whatsapp+"&text=Olá tudo bem? encontrei o seu perfil no Quick Fix.";
     var whatappURL_ios ="https://wa.me/$whatsapp?text=${Uri.parse("hello")}";
     if(GetPlatform.isIOS){
       // for iOS phone only
