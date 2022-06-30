@@ -375,6 +375,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                 ),
                                 onPressed: () async {
                                   await signInWithFacebook();
+
                                 },
                                 child: Center(
                                   child: Container(
@@ -454,25 +455,17 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
   }
 
   Future<UserCredential> signInWithFacebook() async {
-    final LoginResult result =
-        await FacebookAuth.instance.login(permissions: ['email']);
 
-    if (result.status == LoginStatus.success) {
-      final userData = await FacebookAuth.instance.getUserData();
+    final LoginResult loginResult = await FacebookAuth.instance.login(
+        permissions: [
+          'email', 'public_profile', 'user_birthday'
+        ]
+    );
 
-      _userDataFacebook = userData;
-    } else {}
-
-    setState(() {
-      String haha = '';
-      haha = _userDataFacebook?['email'];
-    });
-
-    final OAuthCredential facebookAuthCredential =
-        FacebookAuthProvider.credential(result.accessToken!.token);
-
+    final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.token);
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
+
 
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow
@@ -516,7 +509,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
   }
 
   Widget _usuarioLogado(BuildContext context) {
-    return PresenterHubPrestador.presenter();
+    return PresenterHubUsuario.presenter();
   }
 
   CollectionReference usuarios =

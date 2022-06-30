@@ -32,6 +32,7 @@ import 'features/logIn_SingUpPrestador/signUpEplicandoTelaDocumentos/viewSignUpE
 import 'features/logIn_SingUpPrestador/signUpPart1PrestadorServico/signUpPart1Prestador.dart';
 import 'features/logIn_SingUpPrestador/signUpPart2WorkerInformation/ViewSignUpPart2WorkerInformatio.dart';
 import 'features/logIn_SingUpPrestador/signUpPart2WorkerInformation/views/bodySignUpPart2WorkerInformation.dart';
+import 'features/logIn_SingUpPrestador/signUpVerificacaoNumeroCelular/views/signUpVerificacaoNumeroCelularBody.dart';
 import 'features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart';
 import 'features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 
@@ -69,7 +70,7 @@ void main() async {
 
 GoogleSignInAccount? _usuarioAtual;
 
-//FacebookAuth? _facebookAuthUsuarioAtual;
+FacebookAuth? _facebookAuthUsuarioAtual;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -110,12 +111,13 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot
-                    .hasData /*||
-                usuario != null ||
-                FirebaseAuth.instance.currentUser != null*/
-                ) {
-              return PresenterHubPrestador.presenter();
+            if (snapshot.hasData ||_facebookAuthUsuarioAtual?.getUserData() != null) {
+              if(FirebaseAuth.instance.currentUser?.phoneNumber== null){
+                return PresenterHubUsuario.presenter();
+              }else{
+                return PresenterHubPrestador.presenter();
+              }
+
             }
             return ViewVeryFirstScreen();
           }),

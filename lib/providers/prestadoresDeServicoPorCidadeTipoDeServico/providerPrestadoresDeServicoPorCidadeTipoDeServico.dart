@@ -19,6 +19,7 @@ import '../../framework/provider.dart';
 import '../../util/prestador.dart';
 import 'adapterPrestadoresDeServicoPorCidadeTipoDeServico.dart';
 
+
 class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
     extends Provider<BusinessModelPrestadoresDeServicoPorCidadeTipoDeServico> {
   @override
@@ -120,7 +121,8 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
 
   Future getComentarios() async {
     List<BusinessModelDadosPrestador> prestadoresDeServico =
-        Prestador().listaTodosPrestadores;
+    await ProvideDadosPrestador().getBusinessModels();
+    Prestador().listaTodosPrestadores;
     for (int i = 0; i < prestadoresDeServico.length; i++) {
       BusinessModelDadosPrestador prestador = prestadoresDeServico[i];
       List<BusinessModelAvaliacaoPrestadorDeServico> comentarios =

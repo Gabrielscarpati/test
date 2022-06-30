@@ -153,22 +153,21 @@ class UpdateComentarioAvaliacao {
   CollectionReference firestore =
       FirebaseFirestore.instance.collection('comentarios');
 
-  Future<String> getEmailUsuario() async {
+/*  Future<String> getEmailUsuario() async {
     DocumentSnapshot emailUsuario =
         await dadosUsuarios.doc(await getIdDoUsuario()).get();
     print(emailUsuario.get('email'));
     return emailUsuario.get('email');
-  }
+  }*/
 
   updateComentarioAvaliacao() async {
-    print('-' * 50);
     await firestore.add({
       'data': dataDoComentario,
       'nota': nota.toStringAsPrecision(1),
       'textoComentario': textoComentario,
-      'emailUsuario': await getEmailUsuario(),
+      'emailUsuario': await FirebaseAuth.instance.currentUser?.email,
       'idPrestador': this.idPrestador,
-      'idUsuario': await getIdDoUsuario(),
+      'idUsuario': await FirebaseAuth.instance.currentUser?.email,
     });
   }
 

@@ -307,7 +307,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                 ),
                                 onPressed: () async {
                                   await signInWithFacebook();
-                                },
+                                  },
                                 child: Center(
                                   child: Container(
                                     child: Row(
@@ -385,24 +385,16 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
     );
   }
 
+
   Future<UserCredential> signInWithFacebook() async {
-    final LoginResult result =
-        await FacebookAuth.instance.login(permissions: ['email']);
 
-    if (result.status == LoginStatus.success) {
-      final userData = await FacebookAuth.instance.getUserData();
+    final LoginResult loginResult = await FacebookAuth.instance.login(
+        permissions: [
+          'email', 'public_profile', 'user_birthday'
+        ]
+    );
 
-      _userData = userData;
-    } else {}
-
-    setState(() {
-      String email = '';
-      email = _userData?['email'];
-    });
-
-    final OAuthCredential facebookAuthCredential =
-        FacebookAuthProvider.credential(result.accessToken!.token);
-
+    final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.token);
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 
@@ -431,7 +423,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
   }
 
   Widget _usuarioLogado(BuildContext context) {
-    return PresenterHubPrestador.presenter();
+    return PresenterHubUsuario.presenter();
   }
 
   Future mostrarErroEmailInvalido() => showDialog(

@@ -6,7 +6,6 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
-import 'package:projeto_treinamento/util/getTermos.dart';
 import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpLogInSenhaIncorreta.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../main.dart';
@@ -14,6 +13,7 @@ import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
 import '../../../../util/libraryComponents/popUps/popUpEmailNaoExiste.dart';
+import '../../../hubPrestador/viewHub.dart';
 import '../../esqueceuSenhaPrestador/esqueceuSenhaPrestador.dart';
 import '../../signUpPart1PrestadorServico/views/signUpBody.dart';
 import 'fazerAsFuncoesLOGINESALVAr.dart';
@@ -32,12 +32,13 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
   final _formKeyAuthenticationLogIn = GlobalKey<FormState>();
 
   Map? _userData;
-  GoogleSignInAccount? usuario;
+  GoogleSignInAccount? usuarioGoogle;
   bool _estaEscondido = false;
+  String? verificaUsuarioNulo =  FirebaseAuth.instance.currentUser?.email.toString();
 
   @override
   Widget build(BuildContext context) {
-    return usuario == null && _userData == null ? _usuarioNaologado(context) : _usuarioLogado(context);
+    return verificaUsuarioNulo == null && _userData == null ? _usuarioNaologado(context) : _usuarioLogado(context);
   }
   Widget _usuarioNaologado(BuildContext context) {
     FuncaoPestadorLogInEmailNaoExiste funcaoPestadorLogInEmailNaoExiste = FuncaoPestadorLogInEmailNaoExiste(emailController: emailController);
@@ -297,7 +298,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                 )
                             ),
                             SizedBox(width: screenWidth*0.02564*.7),
-                /*            Expanded(
+                            /*  Expanded(
                                 child: SizedBox(
                                   height: 50,
                                   child: ElevatedButton(
@@ -308,9 +309,33 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                       ),
                                     ),
                                     onPressed: () async{
-                                      await signInWithGoogle();
-                                      print(usuario!);
+                                      print(FirebaseAuth.instance.currentUser?.email.toString());
+                                     // print(await verificaUsuarioNulo);
+                                           //signInWithGoogle();
+                                         if (usuarioGoogle?.email!=null)  {
+                                        setState(() {
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      PresenterHubPrestador
+                                                          .presenter()));
+                                        });
+                                      }
                                     },
+
+                                    *//*    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+                                        // Obtain the auth details from the request
+                                        final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
+
+                                        // Create a new credential
+                                        final credential = GoogleAuthProvider.credential(
+                                          accessToken: googleAuth.accessToken,
+                                          idToken: googleAuth.idToken,
+                                        );
+                                        var userEmail = '';
+
+                                        userEmail = googleUser.email;*//*
 
                                     child: Center(
                                       child: Container(
@@ -349,27 +374,16 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
 
   Future<UserCredential> signInWithFacebook() async {
 
-    final LoginResult result = await FacebookAuth.instance.login(permissions:['email']);
+    final LoginResult loginResult = await FacebookAuth.instance.login(
+        permissions: [
+          'email', 'public_profile', 'user_birthday'
+        ]
+    );
 
-
-    if (result.status == LoginStatus.success) {
-
-      final userData = await FacebookAuth.instance.getUserData();
-
-      _userData = userData;
-    } else {
-    }
-
-    setState(() {
-      String haha = '';
-      haha = _userData?['email'];
-    });
-
-
-    final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(result.accessToken!.token);
-
+    final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.token);
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
+
 
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow
@@ -386,10 +400,13 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
     var userEmail = '';
 
     userEmail = googleUser.email;
+    print(userEmail+'kkkkkkkkkk');
 
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
+
+
 
   void _togglePasswordView() {
     setState(() {

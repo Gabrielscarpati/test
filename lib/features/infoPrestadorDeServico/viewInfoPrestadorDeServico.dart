@@ -24,7 +24,7 @@ class ViewInfoPrestadorDeServico extends View<ViewModelInfoPrestadorDeServico, V
         titleSpacing: 0,
         // automaticallyImplyLeading: false,
         title: viewModel == null
-            ? CircularProgressIndicatorPersonalizado()
+            ? CircularProgressIndicator()
             : ViewInfoPrestadorDeServicoHeader(
                 viewActions: this.viewActions,
                 viewModel: this.viewModel!,
@@ -51,7 +51,7 @@ class ViewInfoPrestadorDeServico extends View<ViewModelInfoPrestadorDeServico, V
   _buildBody(BuildContext context) {
     if (viewModel == null) {
       return Center(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicatorPersonalizado(),
       );
     } else {
       return Scaffold(

@@ -32,7 +32,9 @@ class PrestadorDeServicoButton extends StatelessWidget {
           ),
         ),
       ),
-      onPressed: () async {
+      onPressed: ()  {
+
+
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => ViewLogInOrSignUpPrestadorServico()
         ));
