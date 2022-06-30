@@ -5,37 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ed77b64-fc0e-4c87-856c-9440b5c22f50" name="Default Changelist" comment="AppFinalizado">
-      <change afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpVerificacaoNumeroCelular/views/signUpVerificacaoNumeroCelularBody.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/dart_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/dart_plugin_registrant.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/daos/firebase/updatePrestadorFirebase.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/firebase/updatePrestadorFirebase.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/infoPrestadorDeServico/viewInfoPrestadorDeServico.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoPrestadorDeServico/viewInfoPrestadorDeServico.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/logInPrestadorServico/views/logInBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/logInPrestadorServico/views/logInBody.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart1PrestadorServico/views/signUpBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/signUpPart1PrestadorServico/views/signUpBody.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/veryFirstScreen/views/prestadorDeServicoButton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/veryFirstScreen/views/prestadorDeServicoButton.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/logInUsuario/views/logInBodyUsuario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/logInUsuario/views/logInBodyUsuario.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/signUpUsuario/views/signUpBody.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpUsuario/signUpUsuario/views/signUpBody.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated_plugin_registrant.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/providers/prestadoresDeServicoPorCidadeTipoDeServico/providerPrestadoresDeServicoPorCidadeTipoDeServico.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/prestadoresDeServicoPorCidadeTipoDeServico/providerPrestadoresDeServicoPorCidadeTipoDeServico.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RQ8R508Z6GE]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/gbscarpati/.android/avd/Nexus_S_API_31.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -113,13 +90,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1648936123200</updated>
-    </task>
-    <task id="LOCAL-00005" summary="All of the headings have the same pattern, and background color is grey">
-      <created>1650153333296</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1650153333296</updated>
     </task>
     <task id="LOCAL-00006" summary="Sing up Screens">
       <created>1650155290238</created>
@@ -457,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656422792619</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="AppFinalizado">
+      <created>1656612074305</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1656612074305</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
