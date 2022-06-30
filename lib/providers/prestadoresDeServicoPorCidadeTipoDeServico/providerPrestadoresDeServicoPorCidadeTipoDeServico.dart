@@ -16,6 +16,7 @@ import 'package:projeto_treinamento/util/getAvaliacoesPrestador.dart';
 import 'package:projeto_treinamento/util/resposta_processamento.dart';
 
 import '../../framework/provider.dart';
+import '../../util/prestador.dart';
 import 'adapterPrestadoresDeServicoPorCidadeTipoDeServico.dart';
 
 class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
@@ -119,7 +120,7 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
 
   Future getComentarios() async {
     List<BusinessModelDadosPrestador> prestadoresDeServico =
-        await ProvideDadosPrestador().getBusinessModels();
+        Prestador().listaTodosPrestadores;
     for (int i = 0; i < prestadoresDeServico.length; i++) {
       BusinessModelDadosPrestador prestador = prestadoresDeServico[i];
       List<BusinessModelAvaliacaoPrestadorDeServico> comentarios =
