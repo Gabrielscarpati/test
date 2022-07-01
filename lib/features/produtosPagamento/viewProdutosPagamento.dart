@@ -1,25 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_treinamento/features/hubPrestador/viewModelHub.dart';
-import 'package:projeto_treinamento/features/hubPrestador/views/viewHubBody.dart';
+
+import 'package:projeto_treinamento/features/produtosPagamento/viewModelProdutosPagamento.dart';
+import 'package:projeto_treinamento/features/produtosPagamento/views/viewHubProdutosPagamento.dart';
 import 'package:projeto_treinamento/framework/view.dart';
 
-import '../../businessModels/businessModelDadosPrestador.dart';
 import '../../businessModels/businessModelUsuario.dart';
 import '../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
-import 'viewActionsHub.dart';
+import 'viewActionsProdutosPagamento.dart';
 
-class ViewHubPrestador
-    extends View<ViewModelHubPrestador, ViewActionsHubPrestador> {
-  ViewHubPrestador({
+class ViewProdutosPagamento
+    extends View<ViewModelProdutosPagamento, ViewActionsProdutosPagamento> {
+  ViewProdutosPagamento({
     Key? key,
-    ViewModelHubPrestador? viewModel,
-    required ViewActionsHubPrestador viewActions,
+    ViewModelProdutosPagamento? viewModel,
+    required ViewActionsProdutosPagamento viewActions,
   }) : super(key: key, viewModel: viewModel, viewActions: viewActions);
 
   @override
   Widget build(BuildContext context) {
-    return _buildBody(context);
+    return Scaffold(
+      body: _buildBody(context),
+    );
   }
 
   _buildBody(BuildContext context) {
@@ -28,7 +30,7 @@ class ViewHubPrestador
         child: CircularProgressIndicatorPersonalizado(),
       );
     } else {
-      return ViewHubBodyPrestador(
+      return ViewBodyProdutosPagamento(
           viewModel: viewModel!, viewActions: viewActions);
     }
   }

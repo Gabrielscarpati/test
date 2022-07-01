@@ -3,6 +3,7 @@ import 'package:projeto_treinamento/businessModels/businessModelDadosPrestador.d
 import 'package:projeto_treinamento/businessModels/businessModelDadosPrestador.dart';
 import 'package:projeto_treinamento/framework/bloc.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
+import 'package:projeto_treinamento/util/prestador.dart';
 import '../../providers/dadosPrestador/providerDadosPrestador.dart';
 import 'blocEventInfoDadosPrestador.dart';
 import 'viewModelInfoDadosPrestador.dart';

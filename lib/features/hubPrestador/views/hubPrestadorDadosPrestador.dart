@@ -226,17 +226,16 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                           height: 40,
                           width: _screenWidth * .72,
                           child: ListView(
-                              // This next line does the trick.
-                              scrollDirection: Axis.horizontal,
-                              children: List<Widget>.generate(
-                                  viewModel.cidade.length, (int index) {
-                                return Chip(
-                                  backgroundColor: Colors.white,
-                                  label: Text(viewModel.cidade[index].nome),
-                                );
-                              }),
-                            ),
-                          
+                            // This next line does the trick.
+                            scrollDirection: Axis.horizontal,
+                            children: List<Widget>.generate(
+                                viewModel.cidade.length, (int index) {
+                              return Chip(
+                                backgroundColor: Colors.white,
+                                label: Text(viewModel.cidade[index].nome),
+                              );
+                            }),
+                          ),
                         )
                       : Text("Nenhuma cidade cadastrada"),
                 ],
@@ -276,18 +275,17 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                           height: 40,
                           width: _screenWidth * .72,
                           child: ListView(
-                              // This next line does the trick.
-                              scrollDirection: Axis.horizontal,
-                              children: List<Widget>.generate(
-                                  viewModel.tiposDeServico.length,
-                                  (int index) {
-                                return Chip(
-                                  backgroundColor: Colors.white,
-                                  label: Text(viewModel
-                                      .tiposDeServico[index].descricao),
-                                );
-                              }),
-                            ),
+                            // This next line does the trick.
+                            scrollDirection: Axis.horizontal,
+                            children: List<Widget>.generate(
+                                viewModel.tiposDeServico.length, (int index) {
+                              return Chip(
+                                backgroundColor: Colors.white,
+                                label: Text(
+                                    viewModel.tiposDeServico[index].descricao),
+                              );
+                            }),
+                          ),
                         )
                       : Text("Nenhum tipo de serviço"),
                 ],
@@ -388,7 +386,9 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16,),
+          SizedBox(
+            height: 16,
+          ),
         ],
       ),
     );
