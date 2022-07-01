@@ -121,51 +121,11 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
     this.sendViewModelOut(viewModel);
   }
 
+
   void _atualizaViewModel(
       BlocEventHubPrestadorAtualizaViewModel blocEvent) async {
-    BusinessModelDadosPrestador prestadorTemp = BusinessModelDadosPrestador(
-      dataAberturaConta: blocEvent.viewModel.prestador.dataAberturaConta,
-      numeroDeCliquesNoLigarOuWhatsApp:
-          blocEvent.viewModel.prestador.numeroDeCliquesNoLigarOuWhatsApp,
-      profilePicture: blocEvent.viewModel.prestador.profilePicture,
-      dataVencimentoPlano: blocEvent.viewModel.prestador.dataVencimentoPlano,
-      IdPrestador: blocEvent.viewModel.prestador.IdPrestador,
-      name: blocEvent.viewModel.prestador.name,
-      phone: blocEvent.viewModel.prestador.phone,
-      city: blocEvent.viewModel.prestador.city,
-      description: blocEvent.viewModel.prestador.description,
-      roles: blocEvent.viewModel.prestador.roles,
-      workingHours: blocEvent.viewModel.prestador.workingHours,
-      tipoPlanoPrestador: blocEvent.viewModel.prestador.tipoPlanoPrestador,
-    );
-
-    ViewModelHubPrestador viewModelTmp = ViewModelHubPrestador(
-      prestador: prestadorTemp,
-      listaAvaliacoesPrestadorDeServico:
-          blocEvent.viewModel.listaAvaliacoesPrestadorDeServico,
-      prestadorDeServicos: blocEvent.viewModel.prestadorDeServicos,
-      tiposDeServico: blocEvent.viewModel.tiposDeServico,
-      cidade: blocEvent.viewModel.cidade,
-    );
-    this.sendViewModelOut(viewModelTmp);
-
-    //String urlFoto = await Providerprestador().getUrlFotoById(prestador.id);
-
-    BusinessModelDadosPrestador prestador = BusinessModelDadosPrestador(
-      profilePicture: blocEvent.viewModel.prestador.profilePicture,
-      IdPrestador: blocEvent.viewModel.prestador.IdPrestador,
-      dataAberturaConta: blocEvent.viewModel.prestador.dataAberturaConta,
-      dataVencimentoPlano: blocEvent.viewModel.prestador.dataVencimentoPlano,
-      name: blocEvent.viewModel.prestador.name,
-      numeroDeCliquesNoLigarOuWhatsApp:
-          blocEvent.viewModel.prestador.numeroDeCliquesNoLigarOuWhatsApp,
-      phone: blocEvent.viewModel.prestador.phone,
-      city: blocEvent.viewModel.prestador.city,
-      description: blocEvent.viewModel.prestador.description,
-      roles: blocEvent.viewModel.prestador.roles,
-      workingHours: blocEvent.viewModel.prestador.workingHours,
-      tipoPlanoPrestador: blocEvent.viewModel.prestador.tipoPlanoPrestador,
-    );
-    debugPrint(blocEvent.viewModel.cidade[0].id);
+    BlocEventHubInicializaViewModelPrestador blocEvet = BlocEventHubInicializaViewModelPrestador(viewModel: blocEvent.viewModel);
+    await Prestador().getPrestadores();
+    _inicializaViewModel(blocEvet);
   }
 }

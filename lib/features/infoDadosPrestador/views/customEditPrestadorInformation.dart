@@ -284,7 +284,7 @@ class _CustomEditPrestadorInformationTelefoneState
               textInputAction: TextInputAction.next,
               validator: (textEditingController) {
                 if (textEditingController!.isEmpty ||
-                    textEditingController.length != 10 ||
+                    textEditingController.length != 11 ||
                     !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$')
                         .hasMatch(textEditingController)) {
                   return "Digite um número de celular válido: 27999999999";
