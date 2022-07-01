@@ -152,14 +152,6 @@ class UpdateComentarioAvaliacao {
 
   CollectionReference firestore =
       FirebaseFirestore.instance.collection('comentarios');
-
-/*  Future<String> getEmailUsuario() async {
-    DocumentSnapshot emailUsuario =
-        await dadosUsuarios.doc(await getIdDoUsuario()).get();
-    print(emailUsuario.get('email'));
-    return emailUsuario.get('email');
-  }*/
-
   updateComentarioAvaliacao() async {
     await firestore.add({
       'data': dataDoComentario,
@@ -183,3 +175,29 @@ class UpdateComentarioAvaliacao {
     this.idPrestador;
   }
 }
+
+
+class UpdateNumerosDeVisitasPerfil{
+
+  CollectionReference termos = FirebaseFirestore.instance.collection('dadosPrestador');
+
+  Future<String> getNumeroDeVisitasPerfil() async{
+    DocumentSnapshot snapshot = await termos.doc('dadosPrestador').get();
+    var data = snapshot.data() as Map<String, dynamic>;
+    var termosLink = data['numeroDePessoasViramPerfilDessePrestador'];
+    return termosLink;
+  }
+
+  final int increment;
+  UpdateNumerosDeVisitasPerfil({required this.increment});
+}
+
+
+
+
+
+
+
+
+
+

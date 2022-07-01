@@ -25,7 +25,7 @@ class ListItemAvaliacaoPrestadorDeServico extends StatelessWidget {
 
     return  Card(
           child: Padding(
-           padding: const EdgeInsets.all(8.0),
+           padding: const EdgeInsets.all(6.0),
            child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -39,9 +39,14 @@ class ListItemAvaliacaoPrestadorDeServico extends StatelessWidget {
                     ),
                     backgroundColor: Colors.grey,
                   ),
-                  SizedBox(width: 16),
-                  Text(avaliacao.emailUsuario),
-                  SizedBox(width: 16,),
+                  SizedBox(width: 12),
+                  Expanded(child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(avaliacao.emailUsuario),
+                    ],
+                  )),
+                  SizedBox(width: 12,),
                   CustomRatingBar(
                     rating: avaliacao.nota.toDouble(),
                   ),

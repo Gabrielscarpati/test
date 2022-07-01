@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ed77b64-fc0e-4c87-856c-9440b5c22f50" name="Default Changelist" comment="AppFinalizado">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/debug_android_application.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/39a9fcfa9c2997ae42dd89d0afa8dadf/flutter_assets.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/daos/firebase/updatePrestadorFirebase.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/daos/firebase/updatePrestadorFirebase.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/infoPrestadorDeServico/views/listItemAvaliacaoPrestadorDeServico.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/infoPrestadorDeServico/views/listItemAvaliacaoPrestadorDeServico.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/views/bodySignUpPart5PrestadorDocumentos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/views/bodySignUpPart5PrestadorDocumentos.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/gbscarpati/.android/avd/Nexus_S_API_31.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/gbscarpati/.android/avd/Pixel_3a_API_31_arm64-v8a.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -90,13 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1648936123200</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Sing up Screens">
-      <created>1650155290238</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1650155290238</updated>
     </task>
     <task id="LOCAL-00007" summary="changes caio compatibility">
       <created>1651093070241</created>
@@ -434,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656612074305</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="AppFinalizado">
+      <created>1656629195408</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1656629195408</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
