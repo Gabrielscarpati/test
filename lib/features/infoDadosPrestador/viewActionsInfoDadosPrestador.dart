@@ -8,6 +8,7 @@ import 'package:projeto_treinamento/features/infoPrestadorDeServico/blocEventInf
 import 'package:projeto_treinamento/framework/pipe.dart';
 import 'package:projeto_treinamento/framework/viewActions.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
+import '../../util/prestador.dart';
 import 'blocEventInfoDadosPrestador.dart';
 
 class ViewActionsInfoDadosPrestador
@@ -177,6 +178,7 @@ class ViewActionsInfoDadosPrestador
 
   void salvarDadosPrestador(
       ViewModelInfoDadosPrestador viewModel, BuildContext context) async {
+    await Prestador().getPrestadores();
     Navigator.of(context).pop(viewModel.prestador);
   }
 }
