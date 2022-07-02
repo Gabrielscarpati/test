@@ -1,120 +1,163 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+import 'package:in_app_purchases_paywall_ui/in_app_purchases_paywall_ui.dart';
+import 'package:pix_flutter/pix_flutter.dart';
 
-import '../../util/src/components/buttons/primary_button.dart';
-import '../../util/src/components/inputs/text_input_masked.dart';
-import '../../util/src/components/list_views/payment_list_title.dart';
-import '../../util/src/components/texts/styles/text_styles.dart';
-import '../../util/src/controllers/payment_controller.dart';
-import '../../util/src/models/payment_model.dart';
-import '../../util/src/themes/themes.dart';
-import '../../util/src/utils/string_util.dart';
-
-class PaymentPage extends StatefulWidget {
-  const PaymentPage({Key? key,
-    required this.paymentModel}) : super(key: key);
-
-  final PaymentModel paymentModel;
+class ViewPayment extends StatefulWidget {
+  const ViewPayment({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  _PaymentPageState createState() => _PaymentPageState();
+  _ViewPaymentState createState() => _ViewPaymentState();
 }
 
-class _PaymentPageState extends State<PaymentPage> {
+class _ViewPaymentState extends State<ViewPayment> {
   final moneyMaskedController = MoneyMaskedTextController(
       decimalSeparator: ',', thousandSeparator: '.', leftSymbol: 'R\$ ');
 
   bool isErrorVisible = false;
 
-  PaymentController? paymentController;
-
   @override
   void initState() {
-    this.paymentController =
-        new PaymentController(moneyMaskedController, widget.paymentModel);
     super.initState();
   }
 
+  PurchaseHandler purchaseHandler = PurchaseHandler();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('projeto_treinamento'),
-      ),
-      body: Stack(
-        children: [
-          Container(color: Themes.primaryColor),
-          Center(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 600,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 80,
-                        ),
-                        Text('Quanto quer pagar?', style: MyTextStyle.title()),
-                        SizedBox(
-                          height: 40,
-                        ),
-                        Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 25.0),
-                            child: TextInputMasked(
-                              controller: moneyMaskedController,
-                              onChange: (value) {
-                                setState(() {
-                                  isErrorVisible =
-                                      paymentController!.isAmountInvalid();
-                                });
-                              },
-                            )),
-                        SizedBox(height: 30),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                          child: Visibility(
-                              visible: isErrorVisible,
-                              child: Text(
-                                'A quantia é maior que o ${widget.paymentModel.getTitle().toString().toLowerCase()}',
-                                style: MyTextStyle.errorText(),
-                              )),
-                        ),
-                        PaymentListTitle(
-                          title: 'Tipo de pagamento',
-                          subtitle: widget.paymentModel.getPaymentType(),
-                          icon: Icons.assignment_late,
-                        ),
-                        PaymentListTitle(
-                          title: widget.paymentModel.getTitle(),
-                          subtitle: convertToBRL(
-                              widget.paymentModel.availableAmount!),
-                          icon: Icons.account_balance_wallet,
-                        ),
-                        SizedBox(height: 120),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: PrimaryButton(
-                            text: "Pagar",
-                            onPress: () {
-                              isErrorVisible ? null : paymentController!.pay();
-                            },
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+    return PaywallScaffold(
+      // appBarTitle for scaffold
+      appBarTitle: "Premium",
+      child: SimplePaywall(
+          // set a custom header
+          headerContainer: Container(
+              margin: EdgeInsets.all(16),
+              height: 100,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      alignment: FractionalOffset.center,
+                      image: AssetImage('assets/images/premium_bg.png'))),
+              child: Container()),
+          // Title Bar
+          title: "Go Premium",
+          // SubTitle
+          subTitle: "All features at a glance",
+          // Add as many bullet points as you like
+          bulletPoints: [
+            IconAndText(Icons.stop_screen_share_outlined, "No Ads"),
+            IconAndText(Icons.hd, "Premium HD"),
+            IconAndText(Icons.sort, "Access to All Premium Articles")
+          ],
+          // Your subscriptions that you want to offer to the user
+          subscriptionListData: [
+            SubscriptionData(
+                durationTitle: "Yearly",
+                durationShort: "1 year",
+                price: "€14,99€",
+                dealPercentage: 69,
+                productDetails: "Dynamic purchase data",
+                index: 0),
+            SubscriptionData(
+                durationTitle: "Quarterly",
+                durationShort: "3 Months",
+                price: "€6,99",
+                dealPercentage: 42,
+                productDetails: "Dynamic purchase data",
+                index: 2),
+            SubscriptionData(
+                durationTitle: "Monthly",
+                durationShort: "1 month",
+                price: "3,99€",
+                dealPercentage: 0,
+                productDetails: "Dynamic purchase data",
+                index: 3)
+          ],
+          // Shown if isPurchaseSuccess == true
+          successTitle: "Success!!",
+          // Shown if isPurchaseSuccess == true
+          successSubTitle: "Thanks for choosing Premium!",
+          // Widget can be anything. Shown if isPurchaseSuccess == true
+          successWidget: Container(
+              padding: EdgeInsets.only(top: 16, bottom: 16),
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                ElevatedButton(
+                  child: Text("Let's go!"),
+                  onPressed: () {
+                    print("let‘s go to the home widget again");
+                  },
+                )
+              ])),
+          // set true if subscriptions are loading
+          isSubscriptionLoading: false,
+          // if purchase is in progress, set to true. this will show a fullscreen progress indicator
+          isPurchaseInProgress: false,
+          // to show the success widget
+          purchaseState: PurchaseState.NOT_PURCHASED,
+          // callback Interface for restore and purchase tap events. Extend DefaultPurchaseHandler
+          callbackInterface: purchaseHandler,
+          purchaseStateStreamInterface: purchaseHandler,
+          // provide your TOS
+          tosData:
+              TextAndUrl("Terms of Service", "https://www.linkfive.io/tos"),
+          // provide your PP
+          ppData:
+              TextAndUrl("Privacy Policy", "https://www.linkfive.io/privacy"),
+          // add a custom campaign widget
+          campaignWidget: CampaignBanner(
+            headline: "🥳 Summer Special Sale",
+            subContent: Container(
+                padding: EdgeInsets.all(8),
+                child: CountdownTimer(
+                  endTime: DateTime.now()
+                      .add(Duration(days: 2, hours: 7))
+                      .millisecondsSinceEpoch,
+                )),
+          )),
     );
+  }
+}
+
+class PurchaseHandler extends DefaultPurchaseHandler {
+  @override
+  Future<bool> purchase(SubscriptionData productDetails) async {
+    // show loading
+    isPendingPurchase = true;
+
+    // your logic
+    await Future.delayed(Duration(seconds: 1));
+
+    PixFlutter pixFlutter = PixFlutter(
+        payload: Payload(
+            pixKey: 'SUA_CHAVE_PIX',
+            // A descrição está desativada por um erro no próprio API Pix, que não deixa processar pagamentos se ela estiver presente.
+            // Assim que o bug for consertado, a funcionalidade será adicionada de volta.
+            description: 'DESCRIÇÃO_DA_COMPRA',
+            merchantName: 'MERCHANT_NAME',
+            merchantCity: 'CITY_NAME',
+            txid: 'TXID', // Até 25 caracteres para o QR Code estático
+            amount: 'AMOUNT'));
+    pixFlutter.getQRCode();
+    // show success purchase and end loading
+    purchaseState = PurchaseState.PURCHASED;
+    isPendingPurchase = false;
+    return true;
+  }
+
+  @override
+  Future<bool> restore() async {
+    // show loading
+    isPendingPurchase = true;
+    // your logic
+    await Future.delayed(Duration(seconds: 1));
+    // show success purchase and end loading
+    purchaseState = PurchaseState.PURCHASED;
+    isPendingPurchase = false;
+    return true;
   }
 }

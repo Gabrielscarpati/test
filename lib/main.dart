@@ -16,7 +16,6 @@ import 'package:projeto_treinamento/util/getPrestadoresDeServicoPorCidadeTipoDeS
 import 'package:projeto_treinamento/util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
 import 'package:projeto_treinamento/features/hubPrestador/views/hubPrestadorDadosPrestador.dart';
 import 'package:projeto_treinamento/util/prestador.dart';
-import 'package:projeto_treinamento/util/src/utils/storage_util.dart';
 import 'package:projeto_treinamento/util/tipoDeServico.dart';
 import 'package:provider/provider.dart';
 
@@ -37,7 +36,6 @@ import 'features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/signUpPart
 import 'features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
-final Storage storage = new Storage();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
