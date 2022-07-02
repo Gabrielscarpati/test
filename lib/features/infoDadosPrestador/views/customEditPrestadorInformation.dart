@@ -47,11 +47,11 @@ class _CustomEditPrestadorInformationNomeState
                 widget.iconData, color: Colors.black,
               ),
               SizedBox(
-                width: 20,
+                width: 16,
               ),
               Container(
-                  height: 60,
-                  width: screenWidth * 0.4,
+                  height: 36,
+                  width: screenWidth * 0.6,
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,11 +215,11 @@ class _CustomEditPrestadorInformationTelefoneState
                 widget.iconData,
               ),
               SizedBox(
-                width: 20,
+                width: 16,
               ),
               Container(
-                height: 60,
-                width: screenWidth * 0.4,
+                height: 36,
+                width: screenWidth * 0.6,
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -383,11 +383,10 @@ class _CustomEditPrestadorInformationDescricaoState
                 widget.iconData,
               ),
               SizedBox(
-                width: 20,
+                width: 16,
               ),
               Container(
-                height: 60,
-                width: screenWidth * 0.4,
+                width: screenWidth * 0.6,
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -548,23 +547,34 @@ class _CustomEditPrestadorInformationHorasDeTrabahoState
                 widget.iconData, color: Colors.black,
               ),
               SizedBox(
-                width: 20,
+                width: 16,
               ),
               Container(
-                height: 60,
-                width: screenWidth * 0.4,
+                width: screenWidth * 0.6,
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        widget.labelText,
-                        style: Theme.of(context).textTheme.headline4!.copyWith(
-                            fontSize: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .fontSize),
+                      ConstrainedBox(
+                          constraints:  BoxConstraints(
+                            minHeight: 10,
+                            minWidth: 100,
+                            maxHeight: 206,
+                            maxWidth: screenWidth*.90,
+                          ),
+
+                          child: Container(
+                            child: Text(
+                              widget.labelText,
+                              style: Theme.of(context).textTheme.headline4!.copyWith(
+                                  fontSize: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .fontSize),
+                            ),
+                          )
                       ),
+
                       SizedBox(
                         height: 4,
                       ),
@@ -721,13 +731,24 @@ class _CustomEditPrestadorInformationServicosPrestadosState
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        widget.labelText,
-                        style: Theme.of(context).textTheme.headline4!.copyWith(
-                            fontSize: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .fontSize),
+                      ConstrainedBox(
+                          constraints:  BoxConstraints(
+                            minHeight: 10,
+                            minWidth: 100,
+                            maxHeight: 206,
+                            maxWidth: screenWidth*.90,
+                          ),
+
+                          child: Container(
+                            child: Text(
+                              widget.labelText,
+                              style: Theme.of(context).textTheme.headline4!.copyWith(
+                                  fontSize: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .fontSize),
+                            ),
+                          )
                       ),
                       SizedBox(
                         height: 4,

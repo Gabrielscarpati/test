@@ -60,18 +60,6 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                       ),
                       Divider(),
 
-                      /*CustomEditPrestadorInformationServicosPrestados(
-                        labelText: "Servicos Prestados",
-                        iconData: Icons.work,
-                        item: this.viewModel.prestador.roles,
-                        hintText: 'Digite aqui',
-                        onEditionComplete: (String novoNome) {
-                           // this.viewActions.onChangeName(novoNome, viewModel);
-                        },
-                      ),
-                      Divider(
-                      ),*/
-
                       CustomEditPrestadorInformationHorasDeTrabaho(
                         labelText: "Horas que você trabalha",
                         iconData: (Icons.lock_clock),
@@ -95,6 +83,7 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                               .onChangeDescricao(novaDesc, viewModel);
                         },
                       ),
+                      Divider(),
                     ],
                   ),
                 ),

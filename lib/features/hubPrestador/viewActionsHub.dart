@@ -66,6 +66,4 @@ class ViewActionsHubPrestador extends ViewActions<BlocEventHubPrestador> {
   }
 
 
-
-
 }

@@ -178,18 +178,39 @@ class UpdateComentarioAvaliacao {
 
 
 class UpdateNumerosDeVisitasPerfil{
+  final String idPrestador;
+  UpdateNumerosDeVisitasPerfil({required this.idPrestador});
 
-  CollectionReference termos = FirebaseFirestore.instance.collection('dadosPrestador');
+  final FirebaseAuth auth = FirebaseAuth.instance;
 
-  Future<String> getNumeroDeVisitasPerfil() async{
-    DocumentSnapshot snapshot = await termos.doc('dadosPrestador').get();
-    var data = snapshot.data() as Map<String, dynamic>;
-    var termosLink = data['numeroDePessoasViramPerfilDessePrestador'];
-    return termosLink;
+  Future<String?> getUserId() async {
+    final User? user = await auth.currentUser;
+    final userId = user?.uid.toString();
+    return userId.toString();
   }
 
-  final int increment;
-  UpdateNumerosDeVisitasPerfil({required this.increment});
+  CollectionReference numeroDeVissitas = FirebaseFirestore.instance.collection('dadosPrestador');
+
+  Future<String> getNumeroDeVisitasPerfil() async{
+    DocumentSnapshot snapshot = await numeroDeVissitas.doc(idPrestador).get();
+    var data = snapshot.data() as Map<String, dynamic>;
+    var numeroVisitas = data['numeroDePessoasViramPerfilDessePrestador'];
+    print(numeroVisitas.toString());
+    return numeroVisitas;
+  }
+
+  Future<void> aumentarUmVisitas() async{
+    String getNumeroDeVisitasPerfi = await getNumeroDeVisitasPerfil();
+   // String getUserId = await getUserId;
+
+    if(await getNumeroDeVisitasPerfi.contains('await getUserId()')){
+
+    }
+    await numeroDeVissitas.doc(idPrestador).update({
+      'numeroDePessoasViramPerfilDessePrestador' : /*await getNumeroDeVisitasPerfil()*/1,
+    });
+
+  }
 }
 
 
