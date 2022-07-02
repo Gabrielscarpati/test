@@ -71,7 +71,7 @@ class ViewHubPrestadorInfoPrestador extends StatelessWidget {
                                   children: [
                                     Column(
                                       children: [
-                                        _infoDoPrestadorDeServico(context,
+                                        _infoDoPrestadorDeServicoCidadeServico(context,
                                             Icons.location_on, cidades),
                                         SizedBox(height: 6),
                                         _infoDoPrestadorDeServico(
@@ -82,19 +82,12 @@ class ViewHubPrestadorInfoPrestador extends StatelessWidget {
                                                 .prestadorDeServicos
                                                 .telefone),
                                         SizedBox(height: 6),
-                                        ConstrainedBox(
-                                            constraints: BoxConstraints(
-                                              maxHeight: 1000,
-                                              maxWidth: _screenWidth * .60,
-                                            ),
-                                            child: Container(
-                                              //VER PQ TA DANDO ERRO . . .. . .
+                                        _infoDoPrestadorDeServicoCidadeServico(
+                                            context,
+                                            Icons.account_box,
+                                            tiposServico),
 
-                                              child: _infoDoPrestadorDeServico(
-                                                  context,
-                                                  Icons.account_box,
-                                                  tiposServico),
-                                            )),
+
                                         SizedBox(height: 6),
                                         _infoDoPrestadorDeServico(
                                             context,
@@ -297,40 +290,41 @@ class ViewHubPrestadorInfoPrestador extends StatelessWidget {
               ),
             ),
           ),
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: viewModel.listaAvaliacoesPrestadorDeServico.length == 0
-                  ? Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Center(
-                          child: Text(
-                            'Ainda não há avaliações para esse prestador',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline6!
-                                .copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .caption!
-                                        .color,
-                                    fontSize: 16),
+          Expanded(
+            child: Card(
+
+                child: viewModel.listaAvaliacoesPrestadorDeServico.length == 0
+                    ? Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: Text(
+                              'Ainda não há avaliações para esse prestador',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6!
+                                  .copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .caption!
+                                          .color,
+                                      fontSize: 16),
+                            ),
                           ),
                         ),
-                      ),
-                    )
-                  : ListView.builder(
-                      itemCount:
-                          viewModel.listaAvaliacoesPrestadorDeServico.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ListItemAvaliacaoPrestadorDeServico(
-                          viewActions: viewActions,
-                          avaliacao: viewModel
-                              .listaAvaliacoesPrestadorDeServico[index],
-                        );
-                      }),
+                      )
+                    : ListView.builder(
+                        itemCount:
+                            viewModel.listaAvaliacoesPrestadorDeServico.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return ListItemAvaliacaoPrestadorDeServico(
+                            viewActions: viewActions,
+                            avaliacao: viewModel
+                                .listaAvaliacoesPrestadorDeServico[index],
+                          );
+                        }),
+
             ),
           ),
         ],
@@ -353,6 +347,31 @@ class ViewHubPrestadorInfoPrestador extends StatelessWidget {
             textAlign: TextAlign.justify,
             style: Theme.of(context).textTheme.caption,
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _infoDoPrestadorDeServicoCidadeServico(
+      BuildContext context, IconData iconData, String texto) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.60,
+      child: Row(
+        children: [
+          Icon(iconData),
+          SizedBox(
+            width: 8,
+          ),
+          Expanded(child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                texto,
+                textAlign: TextAlign.justify,
+                style: Theme.of(context).textTheme.caption,
+              ),
+            ],
+          )),
         ],
       ),
     );

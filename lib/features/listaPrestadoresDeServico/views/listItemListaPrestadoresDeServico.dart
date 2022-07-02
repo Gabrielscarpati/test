@@ -7,6 +7,8 @@ import 'package:projeto_treinamento/features/listaPrestadoresDeServico/viewModel
 import 'package:projeto_treinamento/widgets/custom_rating_bar.dart';
 import 'package:substring_highlight/substring_highlight.dart';
 
+import '../../../daos/firebase/updatePrestadorFirebase.dart';
+
 class ListItemListaPrestadoresDeServico extends StatelessWidget {
   final BusinessModelPrestadorDeServicos prestradorDeServico;
   final IconData iconeStatusOnline;
@@ -24,9 +26,13 @@ class ListItemListaPrestadoresDeServico extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UpdateNumerosDeVisitasPerfil updateNumerosDeVisitasPerfil = UpdateNumerosDeVisitasPerfil(idPrestador: prestradorDeServico.id);
     return Card(
       child: InkWell(
-        onTap: () {
+        onTap: () async{
+          print(prestradorDeServico.id);
+          print('ajajjaajjajaajaj');
+          await updateNumerosDeVisitasPerfil.aumentarUmVisitas();
           this.viewActions.abreTelaInfoPrestadorDeServico(context, this.viewModel, this.prestradorDeServico);
         },
         child: ListTile(
