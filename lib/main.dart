@@ -15,6 +15,7 @@ import 'package:projeto_treinamento/util/cidade.dart';
 import 'package:projeto_treinamento/util/getPrestadoresDeServicoPorCidadeTipoDeServico.dart';
 import 'package:projeto_treinamento/util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
 import 'package:projeto_treinamento/features/hubPrestador/views/hubPrestadorDadosPrestador.dart';
+import 'package:projeto_treinamento/util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
 import 'package:projeto_treinamento/util/prestador.dart';
 import 'package:projeto_treinamento/util/tipoDeServico.dart';
 import 'package:provider/provider.dart';
@@ -148,10 +149,14 @@ class _ViewSelecionaHubState extends State<ViewSelecionaHub> {
       child: FutureBuilder(
         future: getPrestador(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-          if (getPrestador() == 'workingHours') {
-            return PresenterHubUsuario.presenter();
+          if (snapshot.hasData) {
+            if(snapshot.data == 'workingHours'){
+              return PresenterHubUsuario.presenter();
+            }else{
+              return PresenterHubPrestador.presenter();
+            }
           } else {
-            return PresenterHubPrestador.presenter();
+            return CircularProgressIndicatorPersonalizado();
           }
         },
       ),

@@ -97,7 +97,7 @@ class _ViewHubBodyPrestadorState extends State<ViewHubBodyPrestador>
     ];
 
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
+      /*bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.call),
@@ -111,9 +111,44 @@ class _ViewHubBodyPrestadorState extends State<ViewHubBodyPrestador>
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue, //New
         onTap: _onItemTapped,
-      ),
-      body: Center(
+      ),*/
+      /*body: Center(
         child: _pages.elementAt(_selectedIndex), //New
+      ),*/
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecorationColorGradient(context),
+        child: Column(
+          children: [
+            ViewHubPrestadorHeader(
+                viewModel: widget.viewModel, viewActions: widget.viewActions),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 15,
+                        color: Colors.blue.shade900,
+                        spreadRadius: 1)
+                  ],
+                  color: BackgroundColorGrey,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 12, left: 12, top: 0),
+                  child: SingleChildScrollView(
+                    child: HubPrestadorDadosPrestador(
+                      viewModel: widget.viewModel,
+                      viewActions: widget.viewActions,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
