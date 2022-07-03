@@ -1,8 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:in_app_purchases_paywall_ui/in_app_purchases_paywall_ui.dart';
+import 'package:linkfive_purchases_provider/linkfive_purchases_provider.dart';
 import 'package:pix_flutter/pix_flutter.dart';
+import 'package:linkfive_purchases/linkfive_purchases.dart';
+import 'package:provider/provider.dart';
 
 class ViewPayment extends StatefulWidget {
   const ViewPayment({
@@ -20,106 +25,59 @@ class _ViewPaymentState extends State<ViewPayment> {
   bool isErrorVisible = false;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  PurchaseHandler purchaseHandler = PurchaseHandler();
-
-  @override
   Widget build(BuildContext context) {
-    return PaywallScaffold(
-      // appBarTitle for scaffold
-      appBarTitle: "Premium",
-      child: SimplePaywall(
-          // set a custom header
-          headerContainer: Container(
-              margin: EdgeInsets.all(16),
-              height: 100,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      alignment: FractionalOffset.center,
-                      image: AssetImage('assets/images/premium_bg.png'))),
-              child: Container()),
-          // Title Bar
-          title: "Go Premium",
-          // SubTitle
-          subTitle: "All features at a glance",
-          // Add as many bullet points as you like
-          bulletPoints: [
-            IconAndText(Icons.stop_screen_share_outlined, "No Ads"),
-            IconAndText(Icons.hd, "Premium HD"),
-            IconAndText(Icons.sort, "Access to All Premium Articles")
-          ],
-          // Your subscriptions that you want to offer to the user
-          subscriptionListData: [
-            SubscriptionData(
-                durationTitle: "Yearly",
-                durationShort: "1 year",
-                price: "€14,99€",
-                dealPercentage: 69,
-                productDetails: "Dynamic purchase data",
-                index: 0),
-            SubscriptionData(
-                durationTitle: "Quarterly",
-                durationShort: "3 Months",
-                price: "€6,99",
-                dealPercentage: 42,
-                productDetails: "Dynamic purchase data",
-                index: 2),
-            SubscriptionData(
-                durationTitle: "Monthly",
-                durationShort: "1 month",
-                price: "3,99€",
-                dealPercentage: 0,
-                productDetails: "Dynamic purchase data",
-                index: 3)
-          ],
-          // Shown if isPurchaseSuccess == true
-          successTitle: "Success!!",
-          // Shown if isPurchaseSuccess == true
-          successSubTitle: "Thanks for choosing Premium!",
-          // Widget can be anything. Shown if isPurchaseSuccess == true
-          successWidget: Container(
-              padding: EdgeInsets.only(top: 16, bottom: 16),
-              child:
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                ElevatedButton(
-                  child: Text("Let's go!"),
-                  onPressed: () {
-                    print("let‘s go to the home widget again");
-                  },
-                )
-              ])),
-          // set true if subscriptions are loading
-          isSubscriptionLoading: false,
-          // if purchase is in progress, set to true. this will show a fullscreen progress indicator
-          isPurchaseInProgress: false,
-          // to show the success widget
-          purchaseState: PurchaseState.NOT_PURCHASED,
-          // callback Interface for restore and purchase tap events. Extend DefaultPurchaseHandler
-          callbackInterface: purchaseHandler,
-          purchaseStateStreamInterface: purchaseHandler,
-          // provide your TOS
-          tosData:
-              TextAndUrl("Terms of Service", "https://www.linkfive.io/tos"),
-          // provide your PP
-          ppData:
-              TextAndUrl("Privacy Policy", "https://www.linkfive.io/privacy"),
-          // add a custom campaign widget
-          campaignWidget: CampaignBanner(
-            headline: "🥳 Summer Special Sale",
-            subContent: Container(
-                padding: EdgeInsets.all(8),
-                child: CountdownTimer(
-                  endTime: DateTime.now()
-                      .add(Duration(days: 2, hours: 7))
-                      .millisecondsSinceEpoch,
-                )),
-          )),
-    );
+    return MultiProvider(
+        providers: [
+          // ...
+          ChangeNotifierProvider(
+            create: (context) => LinkFiveProvider(
+                "64b1ce4178c9e09d2232f36fecf0ca63027fe0d15b25ccbcd62e4a880e3afbbc"),
+            lazy: false,
+          ),
+        ],
+        child: Consumer<LinkFiveProvider>(builder: (_, linkFiveProvider, __) {
+          return PaywallScaffold(
+              appBarTitle: "LinkFive Premium",
+              child: SimplePaywall(
+                  callbackInterface: linkFiveProvider.callbackInterface,
+                  subscriptionListData:
+                      linkFiveProvider.paywallUIHelperData(context),
+                  title: "Go Premium",
+                  // SubTitle
+                  subTitle: "All features at a glance",
+                  // Add as many bullet points as you like
+                  bulletPoints: [
+                    IconAndText(Icons.stop_screen_share_outlined, "No Ads"),
+                    IconAndText(Icons.hd, "Premium HD"),
+                    IconAndText(Icons.sort, "Access to All Premium Articles")
+                  ],
+                  // Shown if isPurchaseSuccess == true
+                  successTitle: "You're a Premium User!",
+                  // Shown if isPurchaseSuccess == true
+                  successSubTitle: "Thanks for your Support!",
+                  // Widget can be anything. Shown if isPurchaseSuccess == true
+                  successWidget: Container(
+                      padding: EdgeInsets.only(top: 16, bottom: 16),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              child: Text("Let's go!"),
+                              onPressed: () {
+                                print("let‘s go to the home widget again");
+                              },
+                            )
+                          ])),
+                  tosData: TextAndUrl(
+                      "Terms of Service", "https://www.linkfive.io/tos"),
+                  // provide your PP
+                  ppData: TextAndUrl(
+                      "Privacy Policy", "https://www.linkfive.io/privacy"),
+                  // add a custom campaign widget
+                  campaignWidget: CampaignBanner(
+                    headline: "🥳 Summer Special Sale",
+                  )));
+        }));
   }
 }
 
@@ -143,6 +101,7 @@ class PurchaseHandler extends DefaultPurchaseHandler {
             txid: 'TXID', // Até 25 caracteres para o QR Code estático
             amount: 'AMOUNT'));
     pixFlutter.getQRCode();
+
     // show success purchase and end loading
     purchaseState = PurchaseState.PURCHASED;
     isPendingPurchase = false;

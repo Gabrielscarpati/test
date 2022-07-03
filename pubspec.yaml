@@ -39,7 +39,7 @@ dependencies:
 
   flutter_rating_bar: ^4.0.0
 
-  http: 0.13.3
+  http: 0.13.4
 
   intl: ^0.17.0
 
@@ -98,6 +98,7 @@ dependencies:
   in_app_purchases_paywall_ui: ^0.6.0
   flutter_countdown_timer: ^4.1.0
   pix_flutter: ^2.0.4
+  linkfive_purchases_provider: ^2.1.0
 
 dev_dependencies:
   flutter_launcher_icons: ^0.9.3

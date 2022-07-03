@@ -66,8 +66,6 @@ void main() async {
   runApp(MyApp());
 }
 
-
-
 GoogleSignInAccount? _usuarioAtual;
 
 FacebookAuth? _facebookAuthUsuarioAtual;
@@ -111,8 +109,9 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData ||_facebookAuthUsuarioAtual?.getUserData() != null) {
-                return ViewSelecionaHub();
+            if (snapshot.hasData ||
+                _facebookAuthUsuarioAtual?.getUserData() != null) {
+              return ViewSelecionaHub();
             }
             return ViewVeryFirstScreen();
           }),
@@ -135,11 +134,9 @@ class ViewSelecionaHub extends StatefulWidget {
 }
 
 class _ViewSelecionaHubState extends State<ViewSelecionaHub> {
-
-
   Future<String> getPrestador() async {
-    BusinessModelDadosPrestador _prestador = await Prestador()
-        .getPrestadorLogado();
+    BusinessModelDadosPrestador _prestador =
+        await Prestador().getPrestadorLogado();
     return _prestador.workingHours;
   }
 
@@ -150,9 +147,9 @@ class _ViewSelecionaHubState extends State<ViewSelecionaHub> {
         future: getPrestador(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.hasData) {
-            if(snapshot.data == 'workingHours'){
+            if (snapshot.data == 'workingHours') {
               return PresenterHubUsuario.presenter();
-            }else{
+            } else {
               return PresenterHubPrestador.presenter();
             }
           } else {

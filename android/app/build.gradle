@@ -52,8 +52,8 @@ android {
         applicationId "com.quickfix.prestadores"
         minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        versionCode 2
+        versionName "1.1"
         multiDexEnabled true
         manifestPlaceholders = [appAuthRedirectScheme: "com.quickfix.prestadores",
                                 applicationName: "com.quickfix.prestadores"]
