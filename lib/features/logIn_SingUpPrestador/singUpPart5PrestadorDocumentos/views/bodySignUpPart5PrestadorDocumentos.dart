@@ -260,7 +260,7 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
                                       'brazilianIDPicture': await getUrlToImageFirebase(),
                                       'IdPrestador': await getUserId(),
                                       'tipoPlanoPrestador': 0,
-                                      'numeroDePessoasViramPerfilDessePrestador':[],
+                                      'numeroDePessoasViramPerfilDessePrestador':0,
                                       }
                                     );
                                     await Prestador().getPrestadores();

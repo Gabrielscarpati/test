@@ -9,6 +9,7 @@ import 'package:projeto_treinamento/features/infoPrestadorDeServico/views/viewIn
 import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpWhatsAppNaoestaIntalado.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import '../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../viewActionsInfoPrestadorDeServico.dart';
 import 'comentariosInfoPrestadorDeServico.dart';
 
@@ -95,7 +96,7 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
                               child: Text(this.viewModel.prestadorDeServicos.description),
                           )
                       ),
-                      _botoes(context),
+                      _botoes(context,this.viewModel.prestadorDeServicos.id),
                     ],
                   ),
                 ),
@@ -169,7 +170,8 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
     );
   }
 
-  Widget _botoes(BuildContext context) {
+  Widget _botoes(BuildContext context, String idPrestador) {
+    UpdateNumerosCliquesWhatsAppLigar updateNumerosCliquesWhatsAppLigar = UpdateNumerosCliquesWhatsAppLigar(idPrestador: idPrestador);
     return Padding(
       padding: const EdgeInsets.only(top: 8),
       child: Row(
@@ -185,6 +187,7 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50.0),
                       ))),
               onPressed: () {
+                updateNumerosCliquesWhatsAppLigar.aumentarUmClick();
                 launchUrlString('tel:+55 ${this.viewModel.prestadorDeServicos.telefone}');
               },
               child: Row(
@@ -208,6 +211,7 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
                       ))),
               onPressed: () async {
                 openwhatsapp(context);
+                updateNumerosCliquesWhatsAppLigar.aumentarUmClick();
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

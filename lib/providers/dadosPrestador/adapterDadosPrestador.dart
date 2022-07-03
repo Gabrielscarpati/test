@@ -24,6 +24,8 @@ class AdapterDadosPrestador
         numeroDeCliquesNoLigarOuWhatsApp: dataModel.numeroDeCliquesNoLigarOuWhatsApp,
         profilePicture: dataModel.name,
         tipoPlanoPrestador: dataModel.tipoPlanoPrestador,
+        cliquesNoWhatsApp: dataModel.numeroDeCliquesNoLigarOuWhatsApp,
+        cliquesNoPerfil: dataModel.cliquesNoPerfil,
       );
   }
 
@@ -43,6 +45,7 @@ class AdapterDadosPrestador
       dataVencimentoPlano: businessModel.dataVencimentoPlano,
       numeroDeCliquesNoLigarOuWhatsApp: businessModel.numeroDeCliquesNoLigarOuWhatsApp,
       tipoPlanoPrestador: businessModel.tipoPlanoPrestador,
+      cliquesNoPerfil: businessModel.cliquesNoPerfil,
     );
   }
 }

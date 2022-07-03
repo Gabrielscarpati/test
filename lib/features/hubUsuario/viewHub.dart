@@ -6,6 +6,7 @@ import 'package:projeto_treinamento/framework/view.dart';
 
 import '../../businessModels/businessModelUsuario.dart';
 import '../../util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
+import '../../widgets/splashScreen.dart';
 import 'viewActionsHub.dart';
 
 class ViewHubUsuario extends View<ViewModelHubUsuario, ViewActionsHubUsuario> {
@@ -25,7 +26,7 @@ class ViewHubUsuario extends View<ViewModelHubUsuario, ViewActionsHubUsuario> {
   _buildBody(BuildContext context) {
     if (viewModel == null) {
       return Center(
-        child: CircularProgressIndicatorPersonalizado(),
+        child: SplashScreen(),
       );
     } else {
       return ViewHubBodyUsuario(

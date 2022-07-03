@@ -20,6 +20,7 @@ class DataModelBuilderDadosPrestador
       dataAberturaConta: json["dataAberturaConta"].toDate(),
       IdPrestador: json["IdPrestador"],
       tipoPlanoPrestador: json["tipoPlanoPrestador"],
+      cliquesNoPerfil: json["numeroDePessoasViramPerfilDessePrestador"],
     );
   }
 

@@ -13,6 +13,7 @@ class DataModelDadosPrestador extends DataModel {
   final DateTime dataAberturaConta;
   final String IdPrestador;
   final int tipoPlanoPrestador;
+  final int cliquesNoPerfil;
 
   DataModelDadosPrestador({
     required this.name,
@@ -27,5 +28,6 @@ class DataModelDadosPrestador extends DataModel {
     required this.dataAberturaConta,
     required this.IdPrestador,
     required this.tipoPlanoPrestador,
+    required this.cliquesNoPerfil,
   }) : super(id: IdPrestador);
 }

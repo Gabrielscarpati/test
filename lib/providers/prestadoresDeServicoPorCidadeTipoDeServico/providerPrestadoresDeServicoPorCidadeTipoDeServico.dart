@@ -106,6 +106,8 @@ class ProviderPrestadoresDeServicoPorCidadeTipoDeServico
         cidades: prestador.city,
         servicos: prestador.roles,
         workingHours: prestador.workingHours,
+        cliquesNoWhatsApp: prestador.numeroDeCliquesNoLigarOuWhatsApp,
+        cliquesNoPerfil: prestador.cliquesNoPerfil
       ));
     }
 

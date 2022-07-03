@@ -1,10 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_treinamento/businessModels/businessModelAvaliacaoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/hubPrestador/views/viewHubPrestadorInfoPrestador.dart';
-
 import '../viewActionsHub.dart';
 import '../viewModelHub.dart';
 
@@ -20,6 +17,7 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     double _screenWidth = MediaQuery.of(context).size.width;
     return Container(
       child: Column(
@@ -323,6 +321,79 @@ class HubPrestadorDadosPrestador extends StatelessWidget {
                   Text(
                     getplanoPrestador(
                         viewModel.prestadorDeServicos.tipoPlanoPrestador),
+                  ),
+                ],
+              ),
+            ),
+          ]),
+          Divider(
+            thickness: .8,
+            color: Colors.blueAccent,
+          ),
+          Row(children: [
+            SizedBox(
+              width: 16,
+            ),
+            Icon(
+              Icons.phone,
+            ),
+            Padding(
+              padding:
+              const EdgeInsets.only(top: 4, bottom: 4, left: 16, right: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  //SizedBox(width: 10,),
+                  Text(
+                    'Quantas pessoas viram meu perfil',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+
+                  Text(
+                      viewModel.prestadorDeServicos.cliquesNoPerfil.toString()),
+                ],
+              ),
+            ),
+          ]),
+          Divider(
+            thickness: .8,
+            color: Colors.blueAccent,
+          ),
+          Row(children: [
+            SizedBox(
+              width: 16,
+            ),
+            Icon(
+              Icons.phone,
+            ),
+            Padding(
+              padding:
+              const EdgeInsets.only(top: 4, bottom: 4, left: 16, right: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  //SizedBox(width: 10,),
+                  Text(
+                    'Quantas pessoas clicaram em\nligar ou WhatsApp',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+
+                  Text(
+                      viewModel.prestadorDeServicos.cliquesNoWhatsApp.toString()
                   ),
                 ],
               ),

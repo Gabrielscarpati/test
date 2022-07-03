@@ -19,6 +19,7 @@ import 'package:projeto_treinamento/util/prestador.dart';
 import 'package:projeto_treinamento/util/tipoDeServico.dart';
 import 'package:provider/provider.dart';
 
+import 'businessModels/businessModelDadosPrestador.dart';
 import 'daos/firebase/authService.dart';
 import 'daos/firebase/updatePrestadorFirebase.dart';
 import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
@@ -64,6 +65,8 @@ void main() async {
   runApp(MyApp());
 }
 
+
+
 GoogleSignInAccount? _usuarioAtual;
 
 FacebookAuth? _facebookAuthUsuarioAtual;
@@ -79,22 +82,22 @@ class MyApp extends StatelessWidget {
         primarySwatch: MaterialColor(
           0xffF0F0F0,
           <int, Color>{
-            50: Color(0Xfa9a33),
-            100: Color(0Xfa9a33),
-            200: Color(0Xfa9a33),
-            300: Color(0Xfa9a33),
-            400: Color(0Xfa9a33),
-            500: Color(0Xfa9a33),
-            600: Color(0Xfa9a33),
-            700: Color(0Xfa9a33),
-            800: Color(0Xfa9a33),
-            900: Color(0Xfa9a33),
+            50: Color(0xFFE1F5FE),
+            100: Color(0xFFB3E5FC),
+            200: Color(0xFF81D4FA),
+            300: Color(0xFF4FC3F7),
+            400: Color(0xFF29B6F6),
+            500: Color(0xffF0F0F0),
+            600: Color(0xFF039BE5),
+            700: Color(0xFF0288D1),
+            800: Color(0xFF0277BD),
+            900: Color(0xFF01579B),
           },
         ),
         brightness: Brightness.light,
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
-          primary: Color(0Xfa9a33), //change background color of button
+          primary: Color(0xffF0F0F0), //change background color of button
           onPrimary: Theme.of(context)
               .textTheme
               .headline4!
@@ -107,13 +110,8 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: AuthService().firebaseAuth.authStateChanges(),
           builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData ||
-                _facebookAuthUsuarioAtual?.getUserData() != null) {
-              if (FirebaseAuth.instance.currentUser?.phoneNumber == null) {
-                return PresenterHubUsuario.presenter();
-              } else {
-                return PresenterHubPrestador.presenter();
-              }
+            if (snapshot.hasData ||_facebookAuthUsuarioAtual?.getUserData() != null) {
+                return ViewSelecionaHub();
             }
             return ViewVeryFirstScreen();
           }),
@@ -125,6 +123,38 @@ class MyApp extends StatelessWidget {
       //PresenterHub.presenter()
       //PresenterHub.presenter()
       //ViewVeryFirstScreen()
+    );
+  }
+}
+
+class ViewSelecionaHub extends StatefulWidget {
+  const ViewSelecionaHub({Key? key}) : super(key: key);
+  @override
+  _ViewSelecionaHubState createState() => _ViewSelecionaHubState();
+}
+
+class _ViewSelecionaHubState extends State<ViewSelecionaHub> {
+
+
+  Future<String> getPrestador() async {
+    BusinessModelDadosPrestador _prestador = await Prestador()
+        .getPrestadorLogado();
+    return _prestador.workingHours;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: FutureBuilder(
+        future: getPrestador(),
+        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+          if (getPrestador() == 'workingHours') {
+            return PresenterHubUsuario.presenter();
+          } else {
+            return PresenterHubPrestador.presenter();
+          }
+        },
+      ),
     );
   }
 }

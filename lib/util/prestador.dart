@@ -35,7 +35,9 @@ class Prestador {
         dataVencimentoPlano: DateTime.now(),
         dataAberturaConta: DateTime.now(),
         IdPrestador: 'IdPrestador',
-        tipoPlanoPrestador: 10);
+        tipoPlanoPrestador: 10,
+        cliquesNoWhatsApp: 0,
+        cliquesNoPerfil: 0);
     ;
 
     String? userId = await getUserId();

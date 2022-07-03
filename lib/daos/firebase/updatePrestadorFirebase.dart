@@ -176,41 +176,50 @@ class UpdateComentarioAvaliacao {
   }
 }
 
-
 class UpdateNumerosDeVisitasPerfil{
   final String idPrestador;
   UpdateNumerosDeVisitasPerfil({required this.idPrestador});
 
-  final FirebaseAuth auth = FirebaseAuth.instance;
-
-  Future<String?> getUserId() async {
-    final User? user = await auth.currentUser;
-    final userId = user?.uid.toString();
-    return userId.toString();
-  }
 
   CollectionReference numeroDeVissitas = FirebaseFirestore.instance.collection('dadosPrestador');
 
-  Future<String> getNumeroDeVisitasPerfil() async{
+  Future<int> getNumeroDeVisitasPerfil() async{
     DocumentSnapshot snapshot = await numeroDeVissitas.doc(idPrestador).get();
     var data = snapshot.data() as Map<String, dynamic>;
     var numeroVisitas = data['numeroDePessoasViramPerfilDessePrestador'];
-    print(numeroVisitas.toString());
+    print(numeroVisitas+'kkkkkk');
     return numeroVisitas;
+
   }
 
   Future<void> aumentarUmVisitas() async{
-    String getNumeroDeVisitasPerfi = await getNumeroDeVisitasPerfil();
-   // String getUserId = await getUserId;
-
-    if(await getNumeroDeVisitasPerfi.contains('await getUserId()')){
-
-    }
     await numeroDeVissitas.doc(idPrestador).update({
-      'numeroDePessoasViramPerfilDessePrestador' : /*await getNumeroDeVisitasPerfil()*/1,
+      'numeroDePessoasViramPerfilDessePrestador': await getNumeroDeVisitasPerfil() + 1,
     });
-
   }
+}
+
+
+
+class UpdateNumerosCliquesWhatsAppLigar{
+  final String idPrestador;
+  UpdateNumerosCliquesWhatsAppLigar({required this.idPrestador});
+
+  CollectionReference numeroDeVissitas = FirebaseFirestore.instance.collection('dadosPrestador');
+
+  Future<int> getNumeroDeVisitasPerfil() async{
+    DocumentSnapshot snapshot = await numeroDeVissitas.doc(idPrestador).get();
+    var data = snapshot.data() as Map<String, dynamic>;
+    var numeroVisitas = data['numeroDeCliquesNoLigarOuWhatsApp'];
+    return numeroVisitas;
+  }
+
+  Future<void> aumentarUmClick() async{
+    await numeroDeVissitas.doc(idPrestador).update({
+      'numeroDeCliquesNoLigarOuWhatsApp': await getNumeroDeVisitasPerfil() + 1,
+    });
+  }
+
 }
 
 

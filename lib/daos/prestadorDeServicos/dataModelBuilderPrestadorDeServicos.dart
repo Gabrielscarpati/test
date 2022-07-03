@@ -21,6 +21,8 @@ class DataModelBuilderPrestadorDeServicos extends DataModelBuilder<DataModelPres
       cidades: json["city"],
       servicos: json["roles"],
       workingHours: json["workingHours"],
+      cliquesNoPerfil: json["numeroDePessoasViramPerfilDessePrestador"],
+      cliquesNoWhatsApp: json["numeroDeCliquesNoLigarOuWhatsApp"],
     );
   }
 

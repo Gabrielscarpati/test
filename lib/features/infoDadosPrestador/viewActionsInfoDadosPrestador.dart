@@ -64,6 +64,9 @@ class ViewActionsInfoDadosPrestador
       roles: viewModel.prestador.roles,
       workingHours: viewModel.prestador.workingHours,
       tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
+      cliquesNoWhatsApp: viewModel.prestador.cliquesNoWhatsApp,
+      cliquesNoPerfil: viewModel.prestador.cliquesNoPerfil,
+
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
       cidades: viewModel.cidades,
@@ -92,6 +95,8 @@ class ViewActionsInfoDadosPrestador
       roles: viewModel.prestador.roles,
       workingHours: viewModel.prestador.workingHours,
       tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
+      cliquesNoWhatsApp: viewModel.prestador.cliquesNoWhatsApp,
+      cliquesNoPerfil: viewModel.prestador.cliquesNoPerfil,
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
       cidades: viewModel.cidades,
@@ -120,6 +125,9 @@ class ViewActionsInfoDadosPrestador
       roles: viewModel.prestador.roles,
       workingHours: novaHora,
       tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
+      cliquesNoWhatsApp: viewModel.prestador.cliquesNoWhatsApp,
+      cliquesNoPerfil: viewModel.prestador.cliquesNoPerfil,
+
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
       cidades: viewModel.cidades,
@@ -149,6 +157,8 @@ class ViewActionsInfoDadosPrestador
       roles: viewModel.prestador.roles,
       workingHours: viewModel.prestador.workingHours,
       tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
+      cliquesNoWhatsApp: viewModel.prestador.cliquesNoWhatsApp,
+      cliquesNoPerfil: viewModel.prestador.cliquesNoPerfil,
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
       cidades: viewModel.cidades,

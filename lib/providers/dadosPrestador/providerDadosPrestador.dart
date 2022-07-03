@@ -37,6 +37,8 @@ class ProvideDadosPrestador extends Provider<BusinessModelDadosPrestador> {
           roles: element.roles,
           workingHours: element.workingHours,
         tipoPlanoPrestador: element.tipoPlanoPrestador,
+        cliquesNoWhatsApp: element.numeroDeCliquesNoLigarOuWhatsApp,
+        cliquesNoPerfil: element.cliquesNoPerfil,
       ));
     });
 

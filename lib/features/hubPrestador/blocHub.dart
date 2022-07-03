@@ -76,7 +76,9 @@ class BlocHub extends Bloc<ViewModelHubPrestador, BlocEventHubPrestador> {
             urlFoto: "",
             cidades: [],
             servicos: [],
-            workingHours: '');
+            workingHours: '',
+            cliquesNoPerfil: 0,
+            cliquesNoWhatsApp: 0);
 
     businessModelPrestadoresDeServicoPorCidadeTipoDeServico.prestadoresDeServico
         .forEach((element) {
