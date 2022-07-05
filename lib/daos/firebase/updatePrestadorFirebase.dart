@@ -187,7 +187,6 @@ class UpdateNumerosDeVisitasPerfil{
     DocumentSnapshot snapshot = await numeroDeVissitas.doc(idPrestador).get();
     var data = snapshot.data() as Map<String, dynamic>;
     var numeroVisitas = data['numeroDePessoasViramPerfilDessePrestador'];
-    print(numeroVisitas+'kkkkkk');
     return numeroVisitas;
 
   }
