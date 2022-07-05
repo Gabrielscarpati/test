@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpLogInSenhaIncorreta.dart';
+import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../main.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
@@ -30,6 +31,8 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final _formKeyAuthenticationLogIn = GlobalKey<FormState>();
+  final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
+
 
   Map? _userData;
   GoogleSignInAccount? usuarioGoogle;
@@ -160,39 +163,86 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                         // #login
                         Container(
                           height: 50,
-                          margin:  EdgeInsets.symmetric(horizontal: 50),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.green[800]
-                          ),
+
                           child:  Center(
-                            child:ElevatedButton(
+                            child:RoundedLoadingButton(
+                              controller: _btnController,
                               child: Ink(
                                 decoration: BoxDecoration(
-                                    gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Colors.blue.shade900,
+                                        Colors.blue.shade500,
+                                        Colors.blue.shade400
+                                      ],
                                       begin: Alignment.centerLeft,
                                       end: Alignment.centerRight,
                                     ),
-                                    borderRadius: BorderRadius.circular(30.0)
-                                ),
-
+                                    borderRadius: BorderRadius.circular(30.0)),
                                 child: Container(
-                                  constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
+                                  constraints: BoxConstraints(
+                                      maxWidth: 350.0, minHeight: 50.0),
                                   alignment: Alignment.center,
                                   child: Text(
-                                    'Log in',
+                                    'Cadastre-se',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 20.0,
-                                        fontWeight: FontWeight.bold
-                                    ),
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ),
-
-
-                              onPressed: () async {
+                              onPressed: ()  async {
+                                final formLogIn = _formKeyAuthenticationLogIn.currentState!;
+                                if (await funcaoPestadorLogInEmailNaoExiste.checkIfEmailInUse() == false){
+                                  await mostrarErroEmailInvalido();
+                                } else if (formLogIn.validate()) {
+                                  await AuthService().loginUser(emailController.text, passwordController.text);
+                                  if(await AuthService().loginUser(emailController.text, passwordController.text)== null){
+                                    print(await AuthService().loginUser(emailController.text, passwordController.text));
+                                    mostrarSenhaIncorreta();
+                                  }else{
+                                    Navigator.pushAndRemoveUntil(context,
+                                      MaterialPageRoute(builder: (BuildContext context) {
+                                        return PresenterHubPrestador.presenter();
+                                      },
+                                      ),
+                                          (route)=> false,);
+                                  }
+                                }
+                                _btnController.reset();
+                              },
+                            ),
+                            /*                            child: RoundedLoadingButton(
+                              controller: _btnController,
+                              child: Ink(
+                                decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Colors.blue.shade900,
+                                        Colors.blue.shade500,
+                                        Colors.blue.shade400
+                                      ],
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                    ),
+                                    borderRadius: BorderRadius.circular(30.0)),
+                                child: Container(
+                                  constraints: BoxConstraints(
+                                      maxWidth: 350.0, minHeight: 50.0),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    'Cadastre-se',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                              onPressed: ()  async {
                                   final formLogIn = _formKeyAuthenticationLogIn.currentState!;
                                   if (await funcaoPestadorLogInEmailNaoExiste.checkIfEmailInUse() == false){
                                     await mostrarErroEmailInvalido();
@@ -210,14 +260,9 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                               (route)=> false,);
                                     }
                                   }
+                                  _btnController.reset();
                               },
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.all(0),
-                                shape: new RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(30.0),
-                                ),
-                              ),
-                            ),
+                            ),*/
                           ),
                         ),
                         SizedBox(height: 16,),

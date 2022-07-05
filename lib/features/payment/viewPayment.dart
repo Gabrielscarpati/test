@@ -9,6 +9,8 @@ import 'package:pix_flutter/pix_flutter.dart';
 import 'package:linkfive_purchases/linkfive_purchases.dart';
 import 'package:provider/provider.dart';
 
+import 'escolhaFormaPagamento.dart';
+
 class ViewPayment extends StatefulWidget {
   const ViewPayment({
     Key? key,
@@ -39,18 +41,49 @@ class _ViewPaymentState extends State<ViewPayment> {
           return PaywallScaffold(
               appBarTitle: "LinkFive Premium",
               child: SimplePaywall(
+                  headerContainer: Container(
+                      margin: EdgeInsets.all(16),
+                      height: 100,
+
+                     // child:  EscolhaFormaPagamento(),
+                  ),
                   callbackInterface: linkFiveProvider.callbackInterface,
-                  subscriptionListData:
-                      linkFiveProvider.paywallUIHelperData(context),
+                 //subscriptionListData: linkFiveProvider.paywallUIHelperData(context),
                   title: "Go Premium",
                   // SubTitle
                   subTitle: "All features at a glance",
                   // Add as many bullet points as you like
+
                   bulletPoints: [
                     IconAndText(Icons.stop_screen_share_outlined, "No Ads"),
                     IconAndText(Icons.hd, "Premium HD"),
                     IconAndText(Icons.sort, "Access to All Premium Articles")
                   ],
+
+                   subscriptionListData: [
+                    SubscriptionData(
+                        durationTitle: "Yearly",
+                        durationShort: "1 year",
+                        price: "€14,99€",
+                        dealPercentage: 69,
+                        productDetails: "Dynamic purchase data",
+                        index: 0),
+                    SubscriptionData(
+                        durationTitle: "Quarterly",
+                        durationShort: "3 Months",
+                        price: "€6,99",
+                        dealPercentage: 42,
+                        productDetails: "Dynamic purchase data",
+                        index: 2),
+                    SubscriptionData(
+                        durationTitle: "Monthly",
+                        durationShort: "1 month",
+                        price: "3,99€",
+                        dealPercentage: 0,
+                        productDetails: "Dynamic purchase data",
+                        index: 3)
+                  ],
+
                   // Shown if isPurchaseSuccess == true
                   successTitle: "You're a Premium User!",
                   // Shown if isPurchaseSuccess == true
@@ -76,6 +109,7 @@ class _ViewPaymentState extends State<ViewPayment> {
                   // add a custom campaign widget
                   campaignWidget: CampaignBanner(
                     headline: "🥳 Summer Special Sale",
+
                   )));
         }));
   }
