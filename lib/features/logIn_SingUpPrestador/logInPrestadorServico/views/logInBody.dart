@@ -214,55 +214,6 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                 _btnController.reset();
                               },
                             ),
-                            /*                            child: RoundedLoadingButton(
-                              controller: _btnController,
-                              child: Ink(
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        Colors.blue.shade900,
-                                        Colors.blue.shade500,
-                                        Colors.blue.shade400
-                                      ],
-                                      begin: Alignment.centerLeft,
-                                      end: Alignment.centerRight,
-                                    ),
-                                    borderRadius: BorderRadius.circular(30.0)),
-                                child: Container(
-                                  constraints: BoxConstraints(
-                                      maxWidth: 350.0, minHeight: 50.0),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'Cadastre-se',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                              ),
-                              onPressed: ()  async {
-                                  final formLogIn = _formKeyAuthenticationLogIn.currentState!;
-                                  if (await funcaoPestadorLogInEmailNaoExiste.checkIfEmailInUse() == false){
-                                    await mostrarErroEmailInvalido();
-                                  } else if (formLogIn.validate()) {
-                                    await AuthService().loginUser(emailController.text, passwordController.text);
-                                    if(await AuthService().loginUser(emailController.text, passwordController.text)== null){
-                                      print(await AuthService().loginUser(emailController.text, passwordController.text));
-                                      mostrarSenhaIncorreta();
-                                    }else{
-                                      Navigator.pushAndRemoveUntil(context,
-                                          MaterialPageRoute(builder: (BuildContext context) {
-                                         return PresenterHubPrestador.presenter();
-                                            },
-                                          ),
-                                              (route)=> false,);
-                                    }
-                                  }
-                                  _btnController.reset();
-                              },
-                            ),*/
                           ),
                         ),
                         SizedBox(height: 16,),
