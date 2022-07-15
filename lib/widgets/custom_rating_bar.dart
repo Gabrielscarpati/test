@@ -28,4 +28,3 @@ class CustomRatingBar extends StatelessWidget {
   }
 }
 
-// MUDEI O ITEM SIZE DE 15 PARA 20

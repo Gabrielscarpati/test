@@ -14,8 +14,7 @@ class DataModelBuilderDadosPrestador
       profilePicture: json["profilePicture"],
       city: List<String>.from(json['city']),
       roles: List<int>.from(json["roles"]),
-      numeroDeCliquesNoLigarOuWhatsApp:
-          json["numeroDeCliquesNoLigarOuWhatsApp"],
+      numeroDeCliquesNoLigarOuWhatsApp: json["numeroDeCliquesNoLigarOuWhatsApp"],
       dataVencimentoPlano: json["dataVencimentoPlano"].toDate(),
       dataAberturaConta: json["dataAberturaConta"].toDate(),
       IdPrestador: json["IdPrestador"],

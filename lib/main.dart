@@ -18,13 +18,9 @@ import 'package:projeto_treinamento/features/hubPrestador/views/hubPrestadorDado
 import 'package:projeto_treinamento/util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
 import 'package:projeto_treinamento/util/prestador.dart';
 import 'package:projeto_treinamento/util/tipoDeServico.dart';
-import 'package:provider/provider.dart';
-
 import 'businessModels/businessModelDadosPrestador.dart';
 import 'daos/firebase/authService.dart';
 import 'daos/firebase/updatePrestadorFirebase.dart';
-import 'daos/prestadorInformation/daoPrestadorInformatio.dart';
-import 'daos/usuario/daoUsuario.dart';
 import 'features/hubUsuario/presenterHub.dart';
 import 'features/infoPrestadorDeServico/views/comentariosInfoPrestadorDeServico.dart';
 import 'features/logIn_SingUpPrestador/selectCidades/presenterSelectCidade.dart';
@@ -111,9 +107,9 @@ class MyApp extends StatelessWidget {
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData ||
                 _facebookAuthUsuarioAtual?.getUserData() != null) {
-              return ViewSelecionaHub();
+              return ViewVeryFirstScreen();
             }
-            return ViewVeryFirstScreen();
+            return ViewSelecionaHub();
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),
