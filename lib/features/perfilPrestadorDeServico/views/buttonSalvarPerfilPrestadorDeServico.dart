@@ -5,6 +5,8 @@ import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewActionsI
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewActionsPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
 
+import '../../../util/libraryComponents/colors/colorGradient.dart';
+
 class ButtonSavePerfilPrestadorDeServico extends StatefulWidget {
   //final ViewActionsPerfilPrestadorDeServico viewActions;
   //final ViewModelPerfilPrestadorDeServico viewModel;
@@ -31,17 +33,7 @@ class _ButtonSavePerfilPrestadorDeServicoState
         children: [
           ElevatedButton(
             child: Ink(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.blue.shade900,
-                      Colors.blue.shade500,
-                      Colors.blue.shade400
-                    ],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
-                  borderRadius: BorderRadius.circular(30.0)),
+              decoration: BoxDecorationColorGradientButton(context),
               child: Container(
                 constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),
                 alignment: Alignment.center,

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../signUpPart1PrestadorServico/views/signUpBody.dart';
 
 
@@ -17,13 +18,7 @@ class _LogInButtonState extends State<SingUpCharityInstitutionButton> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       child: Ink(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-            ),
-            borderRadius: BorderRadius.circular(30.0)
-        ),
+        decoration: BoxDecorationColorGradientButton(context),
 
         child: Container(
           constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),

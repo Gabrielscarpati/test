@@ -37,7 +37,7 @@ class ViewSelectCidade extends View<ViewModelSelectCidade, ViewActionsSelectCida
         appBar: AppBar(
             leading: IconButton(
               onPressed: () {
-               Navigator.of(context).pop();
+               Navigator.of(context).pop(); //BoxDecorationColorGradient(context),
 
                }, icon: Icon(Icons.arrow_back, color: Color(0xff4cf2c7), size: 28.0),
             ),

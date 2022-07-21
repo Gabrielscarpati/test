@@ -269,17 +269,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                             child: RoundedLoadingButton(
                               controller: _btnController,
                               child: Ink(
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        Colors.blue.shade900,
-                                        Colors.blue.shade500,
-                                        Colors.blue.shade400
-                                      ],
-                                      begin: Alignment.centerLeft,
-                                      end: Alignment.centerRight,
-                                    ),
-                                    borderRadius: BorderRadius.circular(30.0)),
+                                decoration: BoxDecorationColorGradientButton(context),
                                 child: Container(
                                   constraints: BoxConstraints(
                                       maxWidth: 350.0, minHeight: 50.0),

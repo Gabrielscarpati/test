@@ -115,7 +115,7 @@ flutter_icons:
   image_path: "assets/logoo.jpg"
 
 flutter_native_splash:
-  color: "#fa9a33"
+  color: "#0d47a1"
   image: assets/splashscreenimage.png
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

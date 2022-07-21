@@ -1,0 +1,6 @@
+framework module linkfive_purchases {
+  umbrella header "linkfive_purchases-umbrella.h"
+
+  export *
+  module * { export * }
+}

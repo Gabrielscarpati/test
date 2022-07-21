@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import 'backArrowLogInOrSignUpPrestadorServico.dart';
 import 'buttonLogInOrSignUpPrestadorServicoBodyLogIn.dart';
 import 'logInOrSignUpPrestadorServicoBody.dart';
@@ -14,17 +15,7 @@ class LogInOrSignUpPrestadorServicoBody extends StatelessWidget {
       body: Container(
 
         width: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [
-                  Colors.blue.shade900,
-                  Colors.blue.shade500,
-                  Colors.blue.shade400,
-                ]
-            )
-        ),
-
+        decoration: BoxDecorationColorGradient(context),
         child: Column(
 
           crossAxisAlignment: CrossAxisAlignment.start,

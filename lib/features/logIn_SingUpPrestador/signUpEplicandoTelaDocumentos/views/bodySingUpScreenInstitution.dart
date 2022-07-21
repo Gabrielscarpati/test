@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart';
+import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../signUpPart2WorkerInformation/views/backArrowSignUpPart2WorkerInformation.dart';
 
 class BodyViewsignUpEplicandoTelaDocumentos extends StatefulWidget {
@@ -16,16 +17,7 @@ class _BodyViewsignUpEplicandoTelaDocumentos extends State<BodyViewsignUpEplican
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [
-                  Colors.blue.shade900,
-                  Colors.blue.shade500,
-                  Colors.blue.shade400,
-                ]
-            )
-        ),
+        decoration: BoxDecorationColorGradientButton(context),
 
         child: Column(
 
@@ -117,17 +109,7 @@ class _BodyViewsignUpEplicandoTelaDocumentos extends State<BodyViewsignUpEplican
                             children: [
                               ElevatedButton(
                                 child: Ink(
-                                  decoration: BoxDecoration(
-                                      gradient: LinearGradient(colors: [
-                                        Colors.blue.shade900,
-                                        Colors.blue.shade500,
-                                        Colors.blue.shade400
-                                      ],
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                      ),
-                                      borderRadius: BorderRadius.circular(30.0)
-                                  ),
+                                  decoration: BoxDecorationColorGradientButton(context),
 
                                   child: Container(
                                     constraints: BoxConstraints(

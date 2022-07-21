@@ -12,6 +12,7 @@ import '../../../../daos/firebase/authService.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../daos/prestadorInformation/daoPrestadorInformatio.dart';
 import '../../../../daos/usuario/daoUsuario.dart';
+import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../util/prestador.dart';
 import 'widgets_for_signup.dart';
 import 'backArrowSingUpScreenInstitutions.dart';
@@ -102,16 +103,7 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
       body: Container(
 
         width: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [
-                  Colors.blue.shade900,
-                  Colors.blue.shade500,
-                  Colors.blue.shade400,
-                ]
-            )
-        ),
+        decoration: BoxDecorationColorGradientButton(context),
 
         child: Column(
 
@@ -214,18 +206,7 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
                               RoundedLoadingButton(
                                 controller: _btnController,
                                 child: Ink(
-                                  decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Colors.blue.shade900,
-                                          Colors.blue.shade500,
-                                          Colors.blue.shade400
-                                        ],
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                      ),
-                                      borderRadius:
-                                      BorderRadius.circular(30.0)),
+                                  decoration: BoxDecorationColorGradientButton(context),
                                   child: Container(
                                     constraints: BoxConstraints(
                                         maxWidth: 350.0, minHeight: 50.0),

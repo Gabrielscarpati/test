@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpListaSelectCidades.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../selectCidades/viewActionsSelectCidade.dart';
 import '../../selectCidades/viewModelSelectCidade.dart';
 import '../../selectServicos/presenterSelectServicos.dart';
@@ -33,18 +34,7 @@ class ButtonGoSignUpScreenSelectCidade extends StatelessWidget {
           RoundedLoadingButton(
             controller: _btnController,
             child: Ink(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.blue.shade900,
-                      Colors.blue.shade500,
-                      Colors.blue.shade400
-                    ],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
-                  borderRadius:
-                  BorderRadius.circular(30.0)),
+              decoration: BoxDecorationColorGradientButton(context),
               child: Container(
                 constraints: BoxConstraints(
                     maxWidth: 350.0, minHeight: 50.0),

@@ -44,7 +44,6 @@ class Dao{
 
     var createDataModel =  DataModelBuilder().createDataModel(json);
     createDataModel;
-    createDataModel;
   }
 
   Dao({required this.tableName});

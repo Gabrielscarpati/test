@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 
 import '../../../daos/firebase/updatePrestadorFirebase.dart';
+import '../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../util/libraryComponents/colors/colors.dart';
 
 class ComentariosInfoPrestadorDeServico extends StatefulWidget {
@@ -132,13 +133,7 @@ class _ComentariosInfoPrestadorDeServicoState extends State<ComentariosInfoPrest
           SizedBox(height: 20,),
           ElevatedButton(
             child: Ink(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
-                  borderRadius: BorderRadius.circular(30.0)
-              ),
+              decoration: BoxDecorationColorGradientButton(context),
 
               child: Container(
                 constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),

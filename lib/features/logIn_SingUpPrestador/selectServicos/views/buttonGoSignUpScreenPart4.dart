@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpListaSelectServicos.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../signUpEplicandoTelaDocumentos/viewSignUpEplicandoTelaDocumentos.dart';
 import '../../singUpPart5PrestadorDocumentos/signUpPart5PrestadorDocumentos.dart';
 import '../viewActionsSelectServicos.dart';
@@ -30,18 +31,7 @@ class ButtonGoSignUpScreenSelectServicos extends StatelessWidget {
           RoundedLoadingButton(
             controller: _btnController,
             child: Ink(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.blue.shade900,
-                      Colors.blue.shade500,
-                      Colors.blue.shade400
-                    ],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
-                  borderRadius:
-                  BorderRadius.circular(30.0)),
+              decoration: BoxDecorationColorGradientButton(context),
               child: Container(
                 constraints: BoxConstraints(
                     maxWidth: 350.0, minHeight: 50.0),

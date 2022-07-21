@@ -15,7 +15,7 @@ class _SignUpButtonState extends State<LogInButtonLogInScreen> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       child: Ink(
-        decoration: BoxDecorationColorGradient(context),
+        decoration: BoxDecorationColorGradientButton(context),
 
         child: Container(
           constraints: BoxConstraints(maxWidth: 350.0, minHeight: 50.0),

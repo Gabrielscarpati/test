@@ -5,6 +5,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 import '../../../businessModels/businessModelCidade.dart';
 import '../../../daos/firebase/authService.dart';
+import '../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../widgets/customDropdownButtonEditor.dart';
 import 'customEditPrestadorInformation.dart';
 import '../../../widgets/customTextEditor.dart';
@@ -99,17 +100,7 @@ class ChangeInfoDadosPrestador extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     child: Ink(
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Colors.blue.shade900,
-                              Colors.blue.shade500,
-                              Colors.blue.shade400
-                            ],
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                          ),
-                          borderRadius: BorderRadius.circular(30.0)),
+                      decoration: BoxDecorationColorGradientButton(context),
                       child: Container(
                         constraints:
                             BoxConstraints(maxWidth: 200.0, minHeight: 50.0),
