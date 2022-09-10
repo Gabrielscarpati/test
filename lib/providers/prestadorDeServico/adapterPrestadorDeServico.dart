@@ -22,7 +22,7 @@ class AdapterPrestadorDeServico extends Adapter<BusinessModelPrestadorDeServicos
 
     return BusinessModelPrestadorDeServicos(
       codPrestadorServico: dataModelPrestadorDeServicos.codPrestadorServico,
-      nome: 'keke',
+      nome: dataModelPrestadorDeServicos.nome,
       telefone: dataModelPrestadorDeServicos.telefone,
       urlFoto: dataModelPrestadorDeServicos.urlFoto,
       statusOnline: dataModelStatusPrestadorDeServicos != null ? dataModelStatusPrestadorDeServicos!.onLine : false,

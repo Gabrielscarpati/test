@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:substring_highlight/substring_highlight.dart';
-import '../blocEventSelectCidade.dart';
 import '../viewActionsSelectCidade.dart';
 import '../viewModelSelectCidade.dart';
 

@@ -4,9 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../signUpPart1PrestadorServico/views/signUpBody.dart';
 
-
-
-
 class SignUpPart1 extends StatefulWidget {
   const SignUpPart1({Key? key}) : super(key: key);
 

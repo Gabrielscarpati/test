@@ -1,120 +1,103 @@
-import 'dart:convert';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
+class LoginWithPhone extends StatefulWidget {
+  const LoginWithPhone({Key? key}) : super(key: key);
 
+  @override
+  _LoginWithPhoneState createState() => _LoginWithPhoneState();
+}
 
-// To parse this JSON data, do
-//
-//     final dataMoldel = dataMoldelFromJson(jsonString);
+class _LoginWithPhoneState extends State<LoginWithPhone> {
+  TextEditingController phoneController = TextEditingController(text: "+923028997122");
+  TextEditingController otpController = TextEditingController();
 
+  FirebaseAuth auth = FirebaseAuth.instance;
 
-class Teste extends StatelessWidget {
-  const Teste({Key? key}) : super(key: key);
+  bool otpVisibility = false;
+
+  String verificationID = "";
 
   @override
   Widget build(BuildContext context) {
-    Dao datamodel = Dao(tableName: 'dadosPrestador');
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Login With Phone"),
+      ),
       body: Container(
-        child: Text(datamodel.getDataModelFromFirebase().toString()),
+        margin: EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: phoneController,
+              decoration: InputDecoration(labelText: "Phone number"),
+              keyboardType: TextInputType.phone,
+            ),
+
+            Visibility(child: TextField(
+              controller: otpController,
+              decoration: InputDecoration(),
+              keyboardType: TextInputType.number,
+            ),visible: otpVisibility,),
+
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  if(otpVisibility){
+                    verifyOTP();
+                  }
+                  else {
+                    loginWithPhone();
+                  }
+                },
+                child: Text(otpVisibility ? "Verify" : "Login")),
+          ],
+        ),
       ),
     );
   }
-}
 
-class Dao{
-  final String tableName;
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  void loginWithPhone() async {
+    auth.verifyPhoneNumber(
+      phoneNumber: phoneController.text.trim(),
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        await auth.signInWithCredential(credential).then((value){
+          print("You are logged in successfully");
+        });
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        print(e.message);
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        otpVisibility = true;
+        verificationID = verificationId;
+        setState(() {});
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
 
-  Future<String> getUserId() async{
-    return await _firebaseAuth.currentUser!.uid;
-  }
-
-  FirebaseFirestore? _instance;
-
-  Future<Map?> getDataModelFromFirebase() async {
-
-    _instance = FirebaseFirestore.instance;
-    CollectionReference dadosPrestador = _instance!.collection(tableName);
-
-    DocumentSnapshot json = await dadosPrestador.doc(await getUserId()).get();
-
-    var createDataModel =  DataModelBuilder().createDataModel(json);
-    createDataModel;
-  }
-
-  Dao({required this.tableName});
-}
-
-
-class DataModelBuilder{
-  DataMoldel createDataModel(DocumentSnapshot<Object?> json){
-    return DataMoldel(
-      IdPrestador: json['IdPrestador'],
-      name: json['name'],
-      phone: json['phone'],
-      workingHours: json['workingHours'],
-      description: json['description'],
-      profilePicture: json['profilePicture'],
-      city: List<String>.from(json['city']),
-      roles: List<int>.from(json['roles']),
-      numeroDeCliquesNoLigarOuWhatsApp: json['numeroDeCliquesNoLigarOuWhatsApp'],
-      dataVencimentoPlano: json['dataVencimentoPlano'].toDate(),
-      dataAberturaConta: json['dataAberturaConta'].toDate(),
-      tipoPlanoPrestador: json['tipoPlanoPrestador'],
-      numeroDePessoasViramPerfilDessePrestador: json['numeroDePessoasViramPerfilDessePrestador'],
+      },
     );
   }
 
-/*  Map<String, dynamic> toJson() => {
-    "IdPrestador": IdPrestador,
-    "name": name,
-    "phone": phone,
-    "workingHours": workingHours,
-    "description": description,
-    "profilePicture": profilePicture,
-    "city": city,
-    "roles": roles,
-    "numeroDeCliquesNoLigarOuWhatsApp": numeroDeCliquesNoLigarOuWhatsApp,
-    "dataVencimentoPlano": dataVencimentoPlano,
-    "dataAberturaConta": dataAberturaConta,
-    "tipoPlanoPrestador": tipoPlanoPrestador,
-    "numeroDePessoasViramPerfilDessePrestador": numeroDePessoasViramPerfilDessePrestador,
-  };*/
-}
+  void verifyOTP() async {
 
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: verificationID, smsCode: otpController.text);
 
-class DataMoldel {
-  DataMoldel({
-    required this.IdPrestador,
-    required this.name,
-    required this.phone,
-    required this.workingHours,
-    required this.description,
-    required this.profilePicture,
-    required this.city,
-    required this.roles,
-    required this.numeroDeCliquesNoLigarOuWhatsApp,
-    required this.dataVencimentoPlano,
-    required this.dataAberturaConta,
-    required this.tipoPlanoPrestador,
-    required this.numeroDePessoasViramPerfilDessePrestador,
-  });
-
-  String IdPrestador;
-  String name;
-  String phone;
-  String workingHours;
-  String description;
-  String profilePicture;
-  List<String> city;
-  List<int> roles;
-  int numeroDeCliquesNoLigarOuWhatsApp;
-  DateTime dataVencimentoPlano;
-  DateTime dataAberturaConta;
-  int tipoPlanoPrestador;
-  int numeroDePessoasViramPerfilDessePrestador;
+    await auth.signInWithCredential(credential).then((value){
+      print("You are logged in successfully");
+      Fluttertoast.showToast(
+          msg: "You are logged in successfully",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0
+      );
+    });
+  }
 }

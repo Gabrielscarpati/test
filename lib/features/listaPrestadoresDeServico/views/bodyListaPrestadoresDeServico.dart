@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:projeto_treinamento/features/listaPrestadoresDeServico/views/listViewListaPrestadoresDeServico.dart';
 import 'package:projeto_treinamento/features/listaPrestadoresDeServico/views/searchTextListaPrestadoresDeServico.dart';
 
@@ -22,12 +23,17 @@ class BodyListaPrestadoresDeServico extends StatelessWidget {
       color: BackgroundColorGrey,
       child: Column(
         children: [
-          Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SearchTextListaPrestadoresDeServico(
-                viewModel: this.viewModel,
-                viewActions: this.viewActions,
-              )),
+
+          Card(
+            borderOnForeground: true,
+
+            child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SearchTextListaPrestadoresDeServico(
+                  viewModel: this.viewModel,
+                  viewActions: this.viewActions,
+                )),
+          ),
           Expanded(
               child: ListViewListaPrestadoresDeServico(
             viewModel: this.viewModel,

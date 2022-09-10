@@ -43,7 +43,7 @@ class _ViewListaPesquisaCidade extends State<ViewListaPesquisaCidade> {
                   ),
                   words: false,
                 ),
-                leading: Icon(Icons.location_city)),
+                leading: Icon(Icons.location_city,color: Colors.black, )),
           );
         });
   }

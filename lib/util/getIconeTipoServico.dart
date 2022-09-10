@@ -33,6 +33,10 @@ class GetIconeTipoServico {
       return FontAwesomeIcons.pen;
 
     }
+    if(nomeIcon == 'mecânico'){
+      return FontAwesomeIcons.screwdriverWrench;
+
+    }
     if(nomeIcon == 'Planejador de eventos'){
       return FontAwesomeIcons.book;
       //

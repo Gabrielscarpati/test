@@ -107,18 +107,27 @@ class ViewHubPrestadorInfoPrestador extends StatelessWidget {
                                       right: 16.0, top: 16.0, bottom: 16.0),
                                   child: Hero(
                                     tag: viewModel.prestador.IdPrestador,
-                                    child: CircleAvatar(
-                                      backgroundColor: Colors.white,
-                                      foregroundColor: Colors.black,
-                                      backgroundImage: NetworkImage(this
-                                          .viewModel
-                                          .prestador
-                                          .profilePicture),
-                                      radius: 40.0,
-                                      child: Text("",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20.0)),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        shape: BoxShape.circle,
+                                        boxShadow: [
+                                          BoxShadow(
+                                              blurRadius: 1, color: Colors.grey, spreadRadius: 1)
+                                        ],
+                                      ),
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        foregroundColor: Colors.black,
+                                        backgroundImage: NetworkImage(this
+                                            .viewModel
+                                            .prestador
+                                            .profilePicture),
+                                        radius: 40.0,
+                                        child: Text("",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold, fontSize: 20.0)),
+                                      ),
                                     ),
                                   ),
                                 )

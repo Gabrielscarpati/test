@@ -29,7 +29,7 @@ class ViewListaPrestadoresDeServico extends View<ViewModelListaPrestadoresDeServ
       return Scaffold(
         appBar: AppBar(
           title: TitleListaDePrestadoresDeServico(viewModel: this.viewModel!),
-          actions: [ActionsListaPrestadoresDeServico(viewModel: this.viewModel!, viewActions: this.viewActions)],
+         // actions: [ActionsListaPrestadoresDeServico(viewModel: this.viewModel!, viewActions: this.viewActions)],
           backgroundColor: ColorAppBar,
           iconTheme: IconThemeData(
             color: Colors.white,

@@ -65,7 +65,7 @@ class ViewActionsInfoDadosPrestador
       workingHours: viewModel.prestador.workingHours,
       tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
       cliquesNoWhatsApp: viewModel.prestador.cliquesNoWhatsApp,
-      cliquesNoPerfil: viewModel.prestador.cliquesNoPerfil,
+      cliquesNoPerfil: viewModel.prestador.cliquesNoPerfil, identityVerified: '',
 
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
@@ -97,6 +97,7 @@ class ViewActionsInfoDadosPrestador
       tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
       cliquesNoWhatsApp: viewModel.prestador.cliquesNoWhatsApp,
       cliquesNoPerfil: viewModel.prestador.cliquesNoPerfil,
+      identityVerified: '',
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
       cidades: viewModel.cidades,
@@ -126,7 +127,7 @@ class ViewActionsInfoDadosPrestador
       workingHours: novaHora,
       tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
       cliquesNoWhatsApp: viewModel.prestador.cliquesNoWhatsApp,
-      cliquesNoPerfil: viewModel.prestador.cliquesNoPerfil,
+      cliquesNoPerfil: viewModel.prestador.cliquesNoPerfil, identityVerified: '',
 
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
@@ -159,6 +160,7 @@ class ViewActionsInfoDadosPrestador
       tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
       cliquesNoWhatsApp: viewModel.prestador.cliquesNoWhatsApp,
       cliquesNoPerfil: viewModel.prestador.cliquesNoPerfil,
+      identityVerified: '',
     );
     ViewModelInfoDadosPrestador _viewModel = ViewModelInfoDadosPrestador(
       cidades: viewModel.cidades,

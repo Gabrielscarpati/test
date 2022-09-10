@@ -37,7 +37,8 @@ class Prestador {
         IdPrestador: 'IdPrestador',
         tipoPlanoPrestador: 10,
         cliquesNoWhatsApp: 0,
-        cliquesNoPerfil: 0);
+        cliquesNoPerfil: 0,
+        identityVerified: '');
     ;
 
     String? userId = await getUserId();

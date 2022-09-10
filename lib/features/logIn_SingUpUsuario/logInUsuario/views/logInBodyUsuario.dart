@@ -10,6 +10,7 @@ import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
+import '../../../../util/libraryComponents/colors/colors.dart';
 import '../../../../util/libraryComponents/popUps/popUpEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/popUps/popUpLogInSenhaIncorreta.dart';
 import '../../esqueceuSenhaUsuario/esqueceuSenhaUsuaioScreen.dart';
@@ -125,7 +126,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                   ),
                                   child: TextFormField(
                                     controller: emailController,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     validator: (emailController) =>
                                         !EmailValidator.validate(
                                                 emailController!)
@@ -154,7 +155,7 @@ class _LogInBodyUsuario extends State<LogInBodyUsuario> {
                                   child: TextFormField(
                                     controller: passwordController,
                                     obscureText: _estaEscondido,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     validator: (passwordController) {
                                       if (passwordController!.isEmpty ||
                                           !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$')

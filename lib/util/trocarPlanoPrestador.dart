@@ -7,7 +7,7 @@ class TocarPlanoPrestador{
 
 
   final FirebaseAuth auth = FirebaseAuth.instance;
-  CollectionReference getPlanoPrestador = FirebaseFirestore.instance.collection('dadosPrestador');
+  CollectionReference getPlanoPrestador = FirebaseFirestore.instance.collection('VerifyIdentity');
 
   Future<String?> getIdDoPrestador() async {
     final User? user = await auth.currentUser;

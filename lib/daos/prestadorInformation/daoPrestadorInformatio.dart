@@ -86,7 +86,7 @@ class DaoPrestadorInformationUpdate {
 
   updatePrestadorInformation(
       {required DataModelPrestadorInformation dataModel}) async {
-    await firestore.collection('dadosPrestador').doc(await getUserId()).update({
+    await firestore.collection('VerifyIdentity').doc(await getUserId()).update({
       'phone': dataModel.phone,
       'city': dataModel.city,
       'description': dataModel.description,

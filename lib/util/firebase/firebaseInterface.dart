@@ -64,7 +64,7 @@ class FirebaseInterface<D extends DataModel, DB extends DataModelBuilder<D>> {
     RespostaProcessamento response = RespostaProcessamento.ok();
     try {
       await firestore
-          .collection('dadosPrestador')
+          .collection('VerifyIdentity')
           .doc(await getUserId())
           .update(
               dataModelBuilder.createJson(dataModel) as Map<String, dynamic>);

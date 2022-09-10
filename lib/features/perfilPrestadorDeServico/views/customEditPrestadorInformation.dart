@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../util/libraryComponents/colors/colors.dart';
+
 class CustomEditPrestadorInformationNome extends StatefulWidget {
   final String labelText;
   final IconData iconData;
@@ -104,6 +106,7 @@ class _CustomEditPrestadorInformationNomeState
           ),
           Expanded(
             child: TextFormField(
+              cursorColor: CursorColor,
               controller: textEditingController,
               keyboardType: TextInputType.name,
               textInputAction: TextInputAction.next,
@@ -258,6 +261,7 @@ class _CustomEditPrestadorInformationTelefoneState
           ),
           Expanded(
             child: TextFormField(
+              cursorColor: CursorColor,
               controller: textEditingController,
               keyboardType: TextInputType.name,
               textInputAction: TextInputAction.next,
@@ -414,6 +418,7 @@ class _CustomEditPrestadorInformationDescricaoState
           ),
           Expanded(
             child: TextFormField(
+              cursorColor: CursorColor,
               controller: textEditingController,
               keyboardType: TextInputType.name,
               textInputAction: TextInputAction.next,
@@ -567,6 +572,7 @@ class _CustomEditPrestadorInformationHorasDeTrabahoState
           ),
           Expanded(
             child: TextFormField(
+              cursorColor: CursorColor,
               controller: textEditingController,
               keyboardType: TextInputType.name,
               textInputAction: TextInputAction.next,
@@ -720,6 +726,7 @@ class _CustomEditPrestadorInformationServicosPrestadosState
           ),
           Expanded(
             child: TextFormField(
+              cursorColor: CursorColor,
               controller: textEditingController,
               keyboardType: TextInputType.name,
               textInputAction: TextInputAction.next,

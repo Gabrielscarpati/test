@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../util/libraryComponents/colors/colors.dart';
 import '../viewActionsListaPrestadoresDeServico.dart';
 import '../viewModelListaPrestadoresDeServico.dart';
 
@@ -17,21 +18,25 @@ class SearchTextListaPrestadoresDeServico extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      cursorColor: CursorColor,
       controller: viewModel.controlerFieldPesquisa,
       onChanged: (text) {
         this.viewActions.aplicaFiltroPesquisa(this.viewModel);
       },
       decoration: new InputDecoration(
-        prefixIcon: new Icon(Icons.search),
-        labelText: "Pesquisa prestador de serviço",
+        filled: true,
+
+        fillColor: Colors.white,
+        prefixIcon: new Icon(Icons.search, color: Colors.blueAccent,),
+        labelText: "Pesquisa prestador de serviço",labelStyle: TextStyle(color: Colors.blueAccent,),
         enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(8.0)),
           borderSide: const BorderSide(
-            color: Colors.grey,
+              color: Colors.blueAccent,
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(8.0)),
           borderSide: BorderSide(color: Colors.blue),
         ),
       ),

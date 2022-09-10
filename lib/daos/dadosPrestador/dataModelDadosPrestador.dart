@@ -14,6 +14,7 @@ class DataModelDadosPrestador extends DataModel {
   final String IdPrestador;
   final int tipoPlanoPrestador;
   final int cliquesNoPerfil;
+  final String identityVerified;
 
   DataModelDadosPrestador({
     required this.name,
@@ -29,5 +30,6 @@ class DataModelDadosPrestador extends DataModel {
     required this.IdPrestador,
     required this.tipoPlanoPrestador,
     required this.cliquesNoPerfil,
+    required this.identityVerified,
   }) : super(id: IdPrestador);
 }

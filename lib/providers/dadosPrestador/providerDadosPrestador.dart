@@ -24,23 +24,26 @@ class ProvideDadosPrestador extends Provider<BusinessModelDadosPrestador> {
 
 
     dataModelsPrestadores.forEach((element) {
-      prestadores.add(BusinessModelDadosPrestador(
+      if(element.identityVerified == 'yes') {
+        prestadores.add(BusinessModelDadosPrestador(
           IdPrestador: element.IdPrestador,
           city: element.city,
           dataAberturaConta: element.dataAberturaConta,
           dataVencimentoPlano: element.dataVencimentoPlano,
           description: element.description,
           name: element.name,
-          numeroDeCliquesNoLigarOuWhatsApp: element.numeroDeCliquesNoLigarOuWhatsApp,
+          numeroDeCliquesNoLigarOuWhatsApp: element
+              .numeroDeCliquesNoLigarOuWhatsApp,
           phone: element.phone,
           profilePicture: element.profilePicture,
           roles: element.roles,
           workingHours: element.workingHours,
-        tipoPlanoPrestador: element.tipoPlanoPrestador,
-        cliquesNoWhatsApp: element.numeroDeCliquesNoLigarOuWhatsApp,
-        cliquesNoPerfil: element.cliquesNoPerfil,
-      ));
-    });
+          tipoPlanoPrestador: element.tipoPlanoPrestador,
+          cliquesNoWhatsApp: element.numeroDeCliquesNoLigarOuWhatsApp,
+          cliquesNoPerfil: element.cliquesNoPerfil,
+          identityVerified: element.identityVerified,
+        ));
+      }});
 
     return prestadores;
   }

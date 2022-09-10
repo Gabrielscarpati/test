@@ -153,7 +153,7 @@ class ViewActionsPerfilPrestadorDeServico
 
   updatePrestadorInformation(
       {required ViewModelPerfilPrestadorDeServico viewModel}) async {
-    await firestore.collection('dadosPrestador').doc(await getUserId()).update({
+    await firestore.collection('dao').doc(await getUserId()).update({
       'phone': viewModel.prestadorInformation.phone,
       'city': viewModel.prestadorInformation.nome,
       'description': viewModel.prestadorInformation.description,

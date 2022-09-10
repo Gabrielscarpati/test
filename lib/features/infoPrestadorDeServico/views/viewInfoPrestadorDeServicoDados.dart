@@ -7,7 +7,6 @@ import 'package:projeto_treinamento/businessModels/businessModelIcone.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/viewModelInfoPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/infoPrestadorDeServico/views/viewInfoPrestadorDeServicoDadosRating.dart';
 import 'package:projeto_treinamento/util/libraryComponents/popUps/popUpWhatsAppNaoestaIntalado.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../viewActionsInfoPrestadorDeServico.dart';
@@ -72,12 +71,24 @@ class ViewInfoPrestadorDeServicoDados extends StatelessWidget {
                                 padding: const EdgeInsets.only(right: 16.0, top: 16.0, bottom: 16.0),
                                 child: Hero(
                                   tag: viewModel.prestadorDeServicos.codPrestadorServico,
-                                  child: CircleAvatar(
-                                    backgroundColor: Colors.white,
-                                    foregroundColor: Colors.black,
-                                    backgroundImage: NetworkImage(this.viewModel.prestadorDeServicos.urlFoto),
-                                    radius: 40.0,
-                                    child: Text("", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                            blurRadius: 1, color: Colors.grey, spreadRadius: 1)
+                                      ],
+                                    ),
+                                    child: CircleAvatar(
+                                      backgroundColor: Colors.white,
+                                      foregroundColor: Colors.black,
+                                      backgroundImage: NetworkImage(this.viewModel.prestadorDeServicos.urlFoto),
+                                      radius: 40.0,
+                                      child: Text("",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold, fontSize: 20.0)),
+                                    ),
                                   ),
                                 ),
                               )

@@ -13,6 +13,7 @@ import '../../../../main.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
+import '../../../../util/libraryComponents/colors/colors.dart';
 import '../../../../util/libraryComponents/popUps/popUpEmailNaoExiste.dart';
 import '../../../hubPrestador/viewHub.dart';
 import '../../esqueceuSenhaPrestador/esqueceuSenhaPrestador.dart';
@@ -106,8 +107,9 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                     border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
                                   ),
                                   child: TextFormField(
+
                                     controller: emailController,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     validator: (emailController) => !EmailValidator.validate(emailController!)
                                         ? 'Email inválido'
                                         : null,
@@ -130,7 +132,7 @@ class _LogInBodyPrestador extends State<LogInBodyPrestador> {
                                   ),
                                   child: TextFormField(
                                     controller: passwordController,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     obscureText: _estaEscondido,
                                     validator: (passwordController) {
                                       if (passwordController!.isEmpty || !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$').hasMatch(passwordController)){

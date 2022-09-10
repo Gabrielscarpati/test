@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../util/libraryComponents/colors/colors.dart';
 import '../viewActionsSelectCidade.dart';
 import '../viewModelSelectCidade.dart';
 
@@ -20,6 +21,7 @@ class ViewHeaderSelectCidadea extends StatelessWidget {
     return Column(
       children: [
         TextField(
+          cursorColor: CursorColor,
           controller: viewModel.controlerFieldPesquisa,
           onChanged: (value) {
             this.viewActions.aplicaFiltroPesquisa(this.viewModel);

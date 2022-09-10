@@ -58,6 +58,7 @@ class BlocInfoDadosPrestador
       tipoPlanoPrestador: viewModel.prestador.tipoPlanoPrestador,
       cliquesNoWhatsApp: viewModel.prestador.numeroDeCliquesNoLigarOuWhatsApp,
       cliquesNoPerfil: viewModel.prestador.cliquesNoPerfil,
+      identityVerified: '',
 
     );
     ProvideDadosPrestador().saveBusinessModel(businessModel);

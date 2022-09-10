@@ -5,6 +5,8 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/veryFirstScreen/veryFirstScreenUserType.dart';
 
+import '../../../../util/libraryComponents/colors/colors.dart';
+
 class SignUpVerificacaoNumeroCelularBody extends StatefulWidget {
   const SignUpVerificacaoNumeroCelularBody({Key? key}) : super(key: key);
 
@@ -214,6 +216,7 @@ class _SignUpVerificacaoNumeroCelularBody extends State<SignUpVerificacaoNumeroC
         ),
         const SizedBox(height: 8,),
         TextFormField(
+          cursorColor: CursorColor,
           controller: usernameController,
           decoration: InputDecoration(
             border: OutlineInputBorder(
@@ -233,6 +236,7 @@ class _SignUpVerificacaoNumeroCelularBody extends State<SignUpVerificacaoNumeroC
           ),
         ),
         IntlPhoneField(
+          cursorColor: CursorColor,
           controller: phoneController,
           showCountryFlag: false,
           showDropdownIcon: false,
@@ -290,6 +294,7 @@ class _SignUpVerificacaoNumeroCelularBody extends State<SignUpVerificacaoNumeroC
         ),
         const SizedBox(height: 20,),
         PinCodeTextField(
+          cursorColor: CursorColor,
           appContext: context,
           length: 6,
           onChanged: (value) {

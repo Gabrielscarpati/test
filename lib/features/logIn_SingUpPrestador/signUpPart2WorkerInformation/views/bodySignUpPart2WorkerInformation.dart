@@ -4,7 +4,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-import '../../../../daos/firebase/authService.dart';
 import '../../../../daos/firebase/updatePrestadorFirebase.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../util/libraryComponents/popUps/popUpPorFavorSelecioneUmaImagem.dart';
@@ -31,7 +30,7 @@ class BodySignUpPart2WorkerInformation extends StatefulWidget {
 class _BodySignUpPart2WorkerInformation extends State<BodySignUpPart2WorkerInformation> {
 
 
-  CollectionReference users = FirebaseFirestore.instance.collection('dadosPrestador');
+  CollectionReference users = FirebaseFirestore.instance.collection('dao');
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseStorage firebaseStorage = FirebaseStorage.instance;
 

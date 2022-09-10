@@ -11,6 +11,7 @@ import 'package:projeto_treinamento/features/logIn_SingUpPrestador/singUpPart5Pr
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/presenterPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/features/perfilPrestadorDeServico/viewModelPerfilPrestadorDeServico.dart';
 import 'package:projeto_treinamento/providers/cidade/providerCidade.dart';
+import 'package:projeto_treinamento/teste.dart';
 import 'package:projeto_treinamento/util/cidade.dart';
 import 'package:projeto_treinamento/util/getPrestadoresDeServicoPorCidadeTipoDeServico.dart';
 import 'package:projeto_treinamento/util/getQtdePrestadoresDeServicoPorTipoSeervicoECidade.dart';
@@ -18,6 +19,7 @@ import 'package:projeto_treinamento/features/hubPrestador/views/hubPrestadorDado
 import 'package:projeto_treinamento/util/libraryComponents/circularProgressIndicatorPersonalizado.dart';
 import 'package:projeto_treinamento/util/prestador.dart';
 import 'package:projeto_treinamento/util/tipoDeServico.dart';
+import 'appVerifyIdentity/features/listaPrestadoresDeServico/presenterListaVerifyIdentity.dart';
 import 'businessModels/businessModelDadosPrestador.dart';
 import 'daos/firebase/authService.dart';
 import 'daos/firebase/updatePrestadorFirebase.dart';
@@ -107,9 +109,9 @@ class MyApp extends StatelessWidget {
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData ||
                 _facebookAuthUsuarioAtual?.getUserData() != null) {
-              return ViewVeryFirstScreen();
+              return ViewSelecionaHub();
             }
-            return ViewSelecionaHub();
+            return ViewVeryFirstScreen();
           }),
       //SingUpPart2WorkerInformation(),
       //SignUpPart1(),

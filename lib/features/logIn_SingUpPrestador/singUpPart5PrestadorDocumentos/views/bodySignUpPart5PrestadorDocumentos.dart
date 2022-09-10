@@ -30,7 +30,7 @@ class BodySignUpPart5PrestadorDocumentos extends StatefulWidget{
 }
 class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5PrestadorDocumentos> {
 
-  CollectionReference users = FirebaseFirestore.instance.collection('dadosPrestador');
+  CollectionReference users = FirebaseFirestore.instance.collection('dao');
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseStorage firebaseStorage = FirebaseStorage.instance;
 
@@ -242,6 +242,7 @@ class _BodySignUpPart5PrestadorDocumentos extends State<BodySignUpPart5Prestador
                                       'IdPrestador': await getUserId(),
                                       'tipoPlanoPrestador': 0,
                                       'numeroDePessoasViramPerfilDessePrestador':0,
+                                      'identityVerified': 'no',
                                       }
                                     );
                                     await Prestador().getPrestadores();

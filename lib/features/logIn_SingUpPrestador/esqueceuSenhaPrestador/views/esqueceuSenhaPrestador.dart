@@ -4,6 +4,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpUsuario/logInUsuario/views/logInBodyUsuario.dart';
+import 'package:projeto_treinamento/util/libraryComponents/colors/colors.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
@@ -84,7 +85,7 @@ class _EsqueceuSenhaPrestadorBody extends State<EsqueceuSenhaPrestadorBody> {
                                   ),
                                   child: TextField(
                                     controller: emailController,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     decoration: InputDecoration(
                                       suffixIcon: IconButton(
                                         icon: Icon(Icons.close),

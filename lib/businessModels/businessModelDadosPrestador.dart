@@ -16,6 +16,7 @@ class BusinessModelDadosPrestador extends BusinessModel with MixInDescricao {
   final int tipoPlanoPrestador;
   final int cliquesNoWhatsApp;
   final int cliquesNoPerfil;
+  final String identityVerified;
 
   BusinessModelDadosPrestador({
     required this.name,
@@ -32,6 +33,7 @@ class BusinessModelDadosPrestador extends BusinessModel with MixInDescricao {
     required this.tipoPlanoPrestador,
     required this.cliquesNoWhatsApp,
     required this.cliquesNoPerfil,
+    required this.identityVerified,
   }) : super(id: IdPrestador);
 
   factory BusinessModelDadosPrestador.vazio() => BusinessModelDadosPrestador(
@@ -49,6 +51,7 @@ class BusinessModelDadosPrestador extends BusinessModel with MixInDescricao {
         tipoPlanoPrestador: 10,
         cliquesNoWhatsApp: 0,
     cliquesNoPerfil: 0,
+    identityVerified: '',
       );
 
   String primeiroNome() {

@@ -21,7 +21,7 @@ class ListViewListaPrestadoresDeServico extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return ListItemListaPrestadoresDeServico(
             prestradorDeServico: viewModel.listaVisivel[index],
-            iconeStatusOnline: FontAwesomeIcons.whatsapp,
+            //iconeStatusOnline: FontAwesomeIcons.whatsapp,
             argumentoDePesquisa: viewModel.controlerFieldPesquisa.text,
             viewActions: this.viewActions,
             viewModel: this.viewModel,

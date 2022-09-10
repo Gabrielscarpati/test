@@ -8,6 +8,7 @@ import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorLoginEmailNaoExiste.dart';
 import '../../../../util/libraryComponents/colors/colorGradient.dart';
 import '../../../../daos/firebase/authService.dart';
+import '../../../../util/libraryComponents/colors/colors.dart';
 import '../../../../util/libraryComponents/popUps/popUpEmailNaoExiste.dart';
 import 'backArrowEsqueceuSenhaUsuario.dart';
 
@@ -86,7 +87,7 @@ class _EsqueceuSenhaUsuarioBody extends State<EsqueceuSenhaUsuarioBody> {
                                   ),
                                   child: TextField(
                                     controller: emailController,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     decoration: InputDecoration(
                                       suffixIcon: IconButton(
                                         icon: Icon(Icons.close),

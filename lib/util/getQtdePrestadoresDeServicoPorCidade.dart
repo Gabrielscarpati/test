@@ -16,7 +16,6 @@ class GetQtdePrestadoresDeServicoPorCidade {
       return 0;
     }
 
-    print(docs.length);
     return docs.length;
   }
 }

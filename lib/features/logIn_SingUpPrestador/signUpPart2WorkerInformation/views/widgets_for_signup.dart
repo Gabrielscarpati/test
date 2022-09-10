@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../../util/libraryComponents/colors/colors.dart';
+
 
 
 class NameWidget extends StatelessWidget {
@@ -16,6 +18,7 @@ class NameWidget extends StatelessWidget {
     return  Stack(
       children: [
         TextFormField(
+          cursorColor: CursorColor,
           controller: nameController,
           keyboardType: TextInputType.name,
           textInputAction: TextInputAction.next,
@@ -60,6 +63,7 @@ class PhoneWidget extends StatelessWidget {
     return  Stack(
       children: [
         TextFormField(
+          cursorColor: CursorColor,
           controller: phoneController,
           keyboardType: TextInputType.name,
           textInputAction: TextInputAction.next,
@@ -104,6 +108,7 @@ class WorkingHoursWidget extends StatelessWidget {
     return Stack(
       children: [
         TextFormField(
+          cursorColor: CursorColor,
           controller: workingHoursController,
           keyboardType: TextInputType.name,
           textInputAction: TextInputAction.next,
@@ -141,6 +146,7 @@ class DescriptionWidget extends StatelessWidget {
     return  Stack(
       children: [
         TextFormField(
+          cursorColor: CursorColor,
           minLines: 1,
           maxLines: 9,
           controller: descriptionController,

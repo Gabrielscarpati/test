@@ -76,7 +76,7 @@ class _ComentariosInfoPrestadorDeServicoState extends State<ComentariosInfoPrest
                     controller: _ComentarioController,
                     maxLines: 8,
                     keyboardType: TextInputType.multiline,
-                    cursorColor: Colors.indigoAccent,
+                    cursorColor: CursorColor,
                     decoration: InputDecoration(
                       hintText: 'Digite o seu comentário aqui',
                       hintStyle: TextStyle(

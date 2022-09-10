@@ -2,9 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../../logIn_SingUpPrestador/loginOrSignUpPrestadorServico/viewLogInOrSignUpPrestadorServico.dart';
-
-
 
 
 class BackArrowLogInScreen extends StatefulWidget {

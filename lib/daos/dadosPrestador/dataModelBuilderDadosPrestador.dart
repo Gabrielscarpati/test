@@ -20,6 +20,7 @@ class DataModelBuilderDadosPrestador
       IdPrestador: json["IdPrestador"],
       tipoPlanoPrestador: json["tipoPlanoPrestador"],
       cliquesNoPerfil: json["numeroDePessoasViramPerfilDessePrestador"],
+      identityVerified: json["identityVerified"],
     );
   }
 

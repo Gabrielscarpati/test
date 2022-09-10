@@ -15,36 +15,39 @@ class listItemPesquisaTipoServico extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-      child: InkWell(
-        onTap: () {
-          Navigator.of(context).pop(this.tipoServico.codTipoServico);
-        },
-        child: ListTile(
-            hoverColor: Theme.of(context).cardTheme.shadowColor,
-            title: SubstringHighlight(
-              text: this.tipoServico.descricao,
-              caseSensitive: false,
-              overflow: TextOverflow.ellipsis,
-              terms: [argumentoDePesquisa],
-              textAlign: TextAlign.left,
-              textStyleHighlight: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
-                backgroundColor: Theme.of(context).textTheme.headline2!.backgroundColor,
+    return Padding(
+      padding: const EdgeInsets.only(top: 4,left: 4,right: 4),
+      child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        child: InkWell(
+          onTap: () {
+            Navigator.of(context).pop(this.tipoServico.codTipoServico);
+          },
+          child: ListTile(
+              hoverColor: Theme.of(context).cardTheme.shadowColor,
+              title: SubstringHighlight(
+                text: this.tipoServico.descricao,
+                caseSensitive: false,
+                overflow: TextOverflow.ellipsis,
+                terms: [argumentoDePesquisa],
+                textAlign: TextAlign.left,
+                textStyleHighlight: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  backgroundColor: Theme.of(context).textTheme.headline2!.backgroundColor,
+                ),
+                words: false,
               ),
-              words: false,
-            ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(this.tipoServico.qtdePrestadoresDeServico.toString() + " Prestadores nessa cidade"),
-                // ???
-              ],
-            ),
-            leading: Icon(this.tipoServico.icone, color: Theme.of(context).iconTheme.color)),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(this.tipoServico.qtdePrestadoresDeServico.toString() + " Prestadores nessa cidade"),
+                  // ???
+                ],
+              ),
+              leading: Icon(this.tipoServico.icone, color: Theme.of(context).iconTheme.color)),
+        ),
       ),
     );
   }

@@ -8,6 +8,7 @@ import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/hubUsuario/presenterHub.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/signUpPart1PrestadorServico/views/googleSignUp.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpUsuario/logInUsuario/logInUsuaioScreen.dart';
+import 'package:projeto_treinamento/util/libraryComponents/colors/colors.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorEmailJaExisteOuNao.dart';
@@ -131,13 +132,14 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                             color: Colors.grey.shade200)),
                                   ),
                                   child: TextFormField(
+
                                     validator: (emailController) =>
                                         !EmailValidator.validate(
                                                 emailController!)
                                             ? 'Email inválido'
                                             : null,
                                     controller: emailController,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     decoration: InputDecoration(
                                         suffixIcon: IconButton(
                                           icon: Icon(Icons.close),
@@ -160,7 +162,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                   ),
                                   child: TextFormField(
                                     controller: passwordController,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     obscureText: _estaEscondidoSenha,
                                     validator: (passwordController) {
                                       if (passwordController!.isEmpty ||
@@ -201,7 +203,7 @@ class _SignUpUsuarioBody extends State<SignUpUsuarioBody> {
                                             ? 'As senhas precisam ser iguais'
                                             : null,
                                     controller: cofirmPasswordController,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     obscureText: _estaEscondidoConfirmarSenha,
                                     decoration: InputDecoration(
                                         suffix: InkWell(

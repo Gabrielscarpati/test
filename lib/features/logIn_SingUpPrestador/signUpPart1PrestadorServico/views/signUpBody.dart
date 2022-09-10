@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projeto_treinamento/features/hubPrestador/presenterHub.dart';
 import 'package:projeto_treinamento/features/logIn_SingUpPrestador/logInPrestadorServico/views/logInBody.dart';
+import 'package:projeto_treinamento/util/libraryComponents/colors/colors.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import '../../../../util/funcoesLogIn/funcaoPestadorEmailJaExisteOuNao.dart';
@@ -132,7 +133,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                                             ? 'Email inválido'
                                             : null,
                                     controller: emailController,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     decoration: InputDecoration(
                                         suffixIcon: IconButton(
                                           icon: Icon(Icons.close),
@@ -155,7 +156,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                                   ),
                                   child: TextFormField(
                                     controller: passwordController,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     obscureText: _estaEscondidoSenha,
                                     validator: (passwordController) {
                                       if (passwordController!.isEmpty ||
@@ -196,7 +197,7 @@ class _SignUpPart1Body extends State<SignUpPart1Body> {
                                             ? 'As senhas precisam ser iguais'
                                             : null,
                                     controller: cofirmPasswordController,
-                                    cursorColor: Colors.indigoAccent,
+                                    cursorColor: CursorColor,
                                     obscureText: _estaEscondidoConfirmarSenha,
                                     decoration: InputDecoration(
                                         suffix: InkWell(
